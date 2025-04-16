@@ -32,6 +32,7 @@ export type GetIndexedCircuitJsonUtilFn = ((
 
 interface InternalStore {
   counts: Record<string, number>
+  editCount: number
   // Indexes for faster lookups
   indexes: {
     byId?: Map<string, AnyCircuitElement>
@@ -60,6 +61,7 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
   if (!internalStore) {
     internalStore = {
       counts: {},
+      editCount: 0,
       indexes: {},
     } as InternalStore
 
@@ -175,10 +177,18 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
   const suIndexed = new Proxy(
     {},
     {
-      get: (proxy_target: any, component_type: string) => {
-        if (component_type === "toArray") {
-          return () => soup
+      get: (proxy_target: any, prop: string) => {
+        if (prop === "toArray") {
+          return () => {
+            ;(soup as any).editCount = internalStore.editCount
+            return soup
+          }
         }
+        if (prop === "editCount") {
+          return internalStore.editCount
+        }
+
+        const component_type = prop
 
         return {
           get: (id: string) => {
@@ -456,6 +466,7 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
             }
 
             soup.push(newElm)
+            internalStore.editCount++
 
             // Update indexes with the new element
             const indexConfig = options.indexConfig || {}
@@ -563,6 +574,7 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
             const elmIndex = soup.indexOf(elm)
             if (elmIndex >= 0) {
               soup.splice(elmIndex, 1)
+              internalStore.editCount++
             }
 
             // Remove from indexes
@@ -752,6 +764,7 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
 
             // Update the element
             Object.assign(elm, newProps)
+            internalStore.editCount++
 
             // Add to indexes with updated values
             if (indexConfig.byRelation && internalStore.indexes.byRelation) {
