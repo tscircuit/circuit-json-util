@@ -31,6 +31,7 @@ export type CircuitJsonUtilObjects = {
   [K in AnyCircuitElement["type"]]: CircuitJsonOps<K, AnyCircuitElement>
 } & {
   toArray: () => AnyCircuitElement[]
+  editCount: number
 }
 export type CircuitJsonInputUtilObjects = {
   [K in AnyCircuitElementInput["type"]]: CircuitJsonOps<
@@ -52,6 +53,7 @@ export type GetCircuitJsonUtilFn = ((
 
 interface InternalStore {
   counts: Record<string, number>
+  editCount: number
 }
 
 export const cju: GetCircuitJsonUtilFn = ((
@@ -62,6 +64,7 @@ export const cju: GetCircuitJsonUtilFn = ((
   if (!internalStore) {
     internalStore = {
       counts: {},
+      editCount: 0,
     } as InternalStore
     ;(soup as any)._internal_store = internalStore
 
@@ -82,10 +85,18 @@ export const cju: GetCircuitJsonUtilFn = ((
   const su = new Proxy(
     {},
     {
-      get: (proxy_target: any, component_type: string) => {
-        if (component_type === "toArray") {
-          return () => soup
+      get: (proxy_target: any, prop: string) => {
+        if (prop === "toArray") {
+          return () => {
+            ;(soup as any).editCount = internalStore.editCount
+            return soup
+          }
         }
+        if (prop === "editCount") {
+          return internalStore.editCount
+        }
+
+        const component_type = prop
 
         return {
           get: (id: string) =>
@@ -146,6 +157,7 @@ export const cju: GetCircuitJsonUtilFn = ((
             }
 
             soup.push(newElm)
+            internalStore.editCount++
             return newElm
           },
           delete: (id: string) => {
@@ -154,6 +166,7 @@ export const cju: GetCircuitJsonUtilFn = ((
             )
             if (!elm) return
             soup.splice(soup.indexOf(elm), 1)
+            internalStore.editCount++
           },
           update: (id: string, newProps: any) => {
             const elm = soup.find(
@@ -161,8 +174,9 @@ export const cju: GetCircuitJsonUtilFn = ((
                 e.type === component_type &&
                 (e as any)[`${component_type}_id`] === id,
             )
-            if (!elm) return
+            if (!elm) return null
             Object.assign(elm, newProps)
+            internalStore.editCount++
             return elm
           },
           select: (selector: string) => {
