@@ -57,19 +57,20 @@ interface InternalStore {
 }
 
 export const cju: GetCircuitJsonUtilFn = ((
-  soup: AnyCircuitElement[],
+  circuitJsonInput: any[],
   options: CircuitJsonUtilOptions = {},
 ) => {
-  let internalStore: InternalStore = (soup as any)._internal_store
+  const circuitJson = circuitJsonInput as AnyCircuitElement[]
+  let internalStore: InternalStore = (circuitJson as any)._internal_store
   if (!internalStore) {
     internalStore = {
       counts: {},
       editCount: 0,
     } as InternalStore
-    ;(soup as any)._internal_store = internalStore
+    ;(circuitJson as any)._internal_store = internalStore
 
     // Initialize counts
-    for (const elm of soup) {
+    for (const elm of circuitJson) {
       const type = elm.type
       const idVal = (elm as any)[`${type}_id`]
       if (!idVal) continue
@@ -88,8 +89,8 @@ export const cju: GetCircuitJsonUtilFn = ((
       get: (proxy_target: any, prop: string) => {
         if (prop === "toArray") {
           return () => {
-            ;(soup as any).editCount = internalStore.editCount
-            return soup
+            ;(circuitJson as any).editCount = internalStore.editCount
+            return circuitJson
           }
         }
         if (prop === "editCount") {
@@ -100,7 +101,7 @@ export const cju: GetCircuitJsonUtilFn = ((
 
         return {
           get: (id: string) =>
-            soup.find(
+            circuitJson.find(
               (e: any) =>
                 e.type === component_type && e[`${component_type}_id`] === id,
             ),
@@ -113,12 +114,12 @@ export const cju: GetCircuitJsonUtilFn = ((
             }
             const join_key = keys[0] as string
             const join_type = join_key.replace("_id", "")
-            const joiner: any = soup.find(
+            const joiner: any = circuitJson.find(
               (e: any) =>
                 e.type === join_type && e[join_key] === using[join_key],
             )
             if (!joiner) return null
-            return soup.find(
+            return circuitJson.find(
               (e: any) =>
                 e.type === component_type &&
                 e[`${component_type}_id`] === joiner[`${component_type}_id`],
@@ -126,7 +127,7 @@ export const cju: GetCircuitJsonUtilFn = ((
           },
           getWhere: (where: any) => {
             const keys = Object.keys(where)
-            return soup.find(
+            return circuitJson.find(
               (e: any) =>
                 e.type === component_type &&
                 keys.every((key) => e[key] === where[key]),
@@ -134,7 +135,7 @@ export const cju: GetCircuitJsonUtilFn = ((
           },
           list: (where?: any) => {
             const keys = !where ? [] : Object.keys(where)
-            return soup.filter(
+            return circuitJson.filter(
               (e: any) =>
                 e.type === component_type &&
                 keys.every((key) => e[key] === where[key]),
@@ -156,20 +157,20 @@ export const cju: GetCircuitJsonUtilFn = ((
               parser.parse(newElm)
             }
 
-            soup.push(newElm)
+            circuitJson.push(newElm)
             internalStore.editCount++
             return newElm
           },
           delete: (id: string) => {
-            const elm = soup.find(
+            const elm = circuitJson.find(
               (e) => (e as any)[`${component_type}_id`] === id,
             )
             if (!elm) return
-            soup.splice(soup.indexOf(elm), 1)
+            circuitJson.splice(circuitJson.indexOf(elm), 1)
             internalStore.editCount++
           },
           update: (id: string, newProps: any) => {
-            const elm = soup.find(
+            const elm = circuitJson.find(
               (e) =>
                 e.type === component_type &&
                 (e as any)[`${component_type}_id`] === id,
@@ -183,7 +184,7 @@ export const cju: GetCircuitJsonUtilFn = ((
             // TODO when applySelector is isolated we can use it, until then we
             // do a poor man's selector implementation for two common cases
             if (component_type === "source_component") {
-              return soup.find(
+              return circuitJson.find(
                 (e) =>
                   e.type === "source_component" &&
                   e.name === selector.replace(/\./g, ""),
@@ -196,12 +197,12 @@ export const cju: GetCircuitJsonUtilFn = ((
               const [component_name, port_selector] = selector
                 .replace(/\./g, "")
                 .split(/[\s\>]+/)
-              const source_component = soup.find(
+              const source_component = circuitJson.find(
                 (e) =>
                   e.type === "source_component" && e.name === component_name,
               ) as SourceComponentBase
               if (!source_component) return null
-              const source_port = soup.find(
+              const source_port = circuitJson.find(
                 (e) =>
                   e.type === "source_port" &&
                   e.source_component_id ===
@@ -213,13 +214,13 @@ export const cju: GetCircuitJsonUtilFn = ((
               if (component_type === "source_port") return source_port
 
               if (component_type === "pcb_port") {
-                return soup.find(
+                return circuitJson.find(
                   (e) =>
                     e.type === "pcb_port" &&
                     e.source_port_id === source_port.source_port_id,
                 )
               } else if (component_type === "schematic_port") {
-                return soup.find(
+                return circuitJson.find(
                   (e) =>
                     e.type === "schematic_port" &&
                     e.source_port_id === source_port.source_port_id,
