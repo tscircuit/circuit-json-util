@@ -5,6 +5,8 @@ import type {
   SourcePort,
 } from "circuit-json"
 import * as Soup from "circuit-json"
+import type { SubtreeOptions } from "./subtree"
+import { buildSubtree } from "./subtree"
 
 export type CircuitJsonOps<
   K extends AnyCircuitElement["type"],
@@ -95,6 +97,11 @@ export const cju: GetCircuitJsonUtilFn = ((
         }
         if (prop === "editCount") {
           return internalStore.editCount
+        }
+
+        if (prop === "subtree") {
+          return (opts: SubtreeOptions) =>
+            cju(buildSubtree(circuitJson, opts), options)
         }
 
         const component_type = prop
