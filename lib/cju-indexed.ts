@@ -7,9 +7,10 @@ import type {
 import * as Soup from "circuit-json"
 import type {
   CircuitJsonOps,
-  CircuitJsonUtilObjects as CircuitJsonUtilObjects,
-  CircuitJsonInputUtilObjects as CircuitJsonInputUtilObjects,
+  CircuitJsonUtilObjects,
+  CircuitJsonInputUtilObjects,
 } from "./cju"
+import { moveElement } from "./move-element"
 
 export type IndexedCircuitJsonUtilOptions = {
   validateInserts?: boolean
@@ -837,6 +838,37 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
                   }
                 }
               }
+            }
+
+            return elm as Extract<
+              AnyCircuitElement,
+              { type: typeof component_type }
+            >
+          },
+          moveTo: (id: string, pos: { x: number; y: number }) => {
+            let elm: AnyCircuitElement | undefined | null
+
+            const indexConfig = options.indexConfig || {}
+            if (indexConfig.byId && internalStore.indexes.byId) {
+              elm = internalStore.indexes.byId.get(`${component_type}:${id}`)
+            } else if (indexConfig.byType && internalStore.indexes.byType) {
+              const elementsOfType =
+                internalStore.indexes.byType.get(component_type) || []
+              elm = elementsOfType.find(
+                (e: any) => e[`${component_type}_id`] === id,
+              )
+            } else {
+              elm = soup.find(
+                (e) =>
+                  e.type === component_type &&
+                  (e as any)[`${component_type}_id`] === id,
+              )
+            }
+
+            if (!elm) return null
+
+            if (moveElement(elm, soup, pos)) {
+              internalStore.editCount++
             }
 
             return elm as Extract<
