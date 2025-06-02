@@ -7,6 +7,7 @@ import type {
 import * as Soup from "circuit-json"
 import type { SubtreeOptions } from "./subtree"
 import { buildSubtree } from "./subtree"
+import { moveElement } from "./move-element"
 
 export type CircuitJsonOps<
   K extends AnyCircuitElement["type"],
@@ -25,6 +26,10 @@ export type CircuitJsonOps<
     id: string,
     newProps: Partial<Extract<T, { type: K }>>,
   ) => Extract<T, { type: K }>
+  moveTo: (
+    id: string,
+    pos: { x: number; y: number },
+  ) => Extract<T, { type: K }> | null
   delete: (id: string) => void
   list: (where?: any) => Extract<T, { type: K }>[]
 }
@@ -185,6 +190,20 @@ export const cju: GetCircuitJsonUtilFn = ((
             if (!elm) return null
             Object.assign(elm, newProps)
             internalStore.editCount++
+            return elm
+          },
+          moveTo: (id: string, pos: { x: number; y: number }) => {
+            const elm = circuitJson.find(
+              (e) =>
+                e.type === component_type &&
+                (e as any)[`${component_type}_id`] === id,
+            ) as Extract<T, { type: K }> | undefined
+            if (!elm) return null
+
+            if (moveElement(elm as any, circuitJson, pos)) {
+              internalStore.editCount++
+            }
+
             return elm
           },
           select: (selector: string) => {
