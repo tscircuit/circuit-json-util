@@ -12,14 +12,14 @@ test("suIndexed produces same output as su", () => {
       ftype: "simple_resistor",
       resistance: 10_000,
       subcircuit_id: "main",
-    },
+    } as any,
     {
       type: "source_port",
       name: "left",
       source_port_id: "source_port_0",
       source_component_id: "simple_resistor_0",
       subcircuit_id: "main",
-    },
+    } as any,
     {
       type: "pcb_component",
       pcb_component_id: "pcb_component_0",
@@ -29,7 +29,7 @@ test("suIndexed produces same output as su", () => {
       width: 5,
       height: 2,
       subcircuit_id: "main",
-    },
+    } as any,
   ]
 
   const regularSu = cju(soup)

@@ -8,9 +8,9 @@ test("should return default values for empty input", () => {
 
 test("should calculate bounds and center for a single element", () => {
   const elements = [
-    { type: "pcb_component", x: 10, y: 20, width: 5, height: 5 },
+    { type: "pcb_component", x: 10, y: 20, width: 5, height: 5 } as any,
   ]
-  const result = findBoundsAndCenter(elements)
+  const result = findBoundsAndCenter(elements as any)
   expect(result).toEqual({
     center: { x: 10, y: 20 },
     width: 5,
@@ -20,10 +20,10 @@ test("should calculate bounds and center for a single element", () => {
 
 test("should calculate bounds and center for multiple elements", () => {
   const elements = [
-    { type: "pcb_component", x: 0, y: 0, width: 10, height: 10 },
-    { type: "pcb_component", x: 20, y: 20, width: 10, height: 10 },
+    { type: "pcb_component", x: 0, y: 0, width: 10, height: 10 } as any,
+    { type: "pcb_component", x: 20, y: 20, width: 10, height: 10 } as any,
   ]
-  const result = findBoundsAndCenter(elements)
+  const result = findBoundsAndCenter(elements as any)
   expect(result).toEqual({
     center: { x: 10, y: 10 },
     width: 30,
@@ -39,10 +39,10 @@ test("should handle pcb_trace elements correctly", () => {
         { x: 0, y: 0 },
         { x: 10, y: 10 },
       ],
-    },
-    { type: "pcb_component", x: 20, y: 20, width: 10, height: 10 },
+    } as any,
+    { type: "pcb_component", x: 20, y: 20, width: 10, height: 10 } as any,
   ]
-  const result = findBoundsAndCenter(elements)
+  const result = findBoundsAndCenter(elements as any)
   expect(result).toEqual({
     center: { x: 12.475, y: 12.475 },
     width: 25.05,

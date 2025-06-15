@@ -7,38 +7,38 @@ test("subtree by source group", () => {
     {
       type: "source_group",
       source_group_id: "g1",
-    },
+    } as any,
     {
       type: "source_trace",
       source_trace_id: "st1",
       source_group_id: "g1",
       connected_source_port_ids: [],
       connected_source_net_ids: [],
-    },
+    } as any,
     {
       type: "schematic_trace",
       schematic_trace_id: "sct1",
       source_trace_id: "st1",
       junctions: [],
       edges: [],
-    },
+    } as any,
     {
       type: "pcb_trace",
       pcb_trace_id: "pt1",
       source_trace_id: "st1",
       route: [],
-    },
+    } as any,
     {
       type: "source_group",
       source_group_id: "g2",
-    },
+    } as any,
     {
       type: "source_trace",
       source_trace_id: "st2",
       source_group_id: "g2",
       connected_source_port_ids: [],
       connected_source_net_ids: [],
-    },
+    } as any,
   ]
 
   const st = cju(soup).subtree({ source_group_id: "g1" })

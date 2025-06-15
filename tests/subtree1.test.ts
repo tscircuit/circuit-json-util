@@ -12,13 +12,13 @@ test("subtree by subcircuit", () => {
       ftype: "simple_resistor",
       resistance: 1000,
       subcircuit_id: "sub1",
-    },
+    } as any,
     {
       type: "source_port",
       name: "p1",
       source_port_id: "sp1",
       source_component_id: "sc1",
-    },
+    } as any,
     {
       type: "pcb_component",
       pcb_component_id: "pc1",
@@ -29,7 +29,7 @@ test("subtree by subcircuit", () => {
       width: 1,
       height: 1,
       subcircuit_id: "sub1",
-    },
+    } as any,
     {
       type: "pcb_port",
       pcb_port_id: "pp1",
@@ -38,13 +38,13 @@ test("subtree by subcircuit", () => {
       x: 0,
       y: 0,
       layers: ["top"],
-    },
+    } as any,
     {
       type: "pcb_trace",
       pcb_trace_id: "pt1",
       pcb_component_id: "pc1",
       route: [],
-    },
+    } as any,
     {
       type: "source_component",
       source_component_id: "sc2",
@@ -53,7 +53,7 @@ test("subtree by subcircuit", () => {
       ftype: "simple_resistor",
       resistance: 2000,
       subcircuit_id: "sub2",
-    },
+    } as any,
   ]
 
   const st = cju(soup).subtree({ subcircuit_id: "sub1" })
