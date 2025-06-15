@@ -15,7 +15,7 @@ test("cju editCount increments correctly", () => {
 
   const su = cju(soup)
   expect(su.editCount).toBe(0)
-  expect((su.toArray() as any).editCount).toBe(0)
+  expect((su.toArray() as unknown as { editCount: number }).editCount).toBe(0)
 
   // Insert
   su.source_port.insert({
@@ -23,17 +23,17 @@ test("cju editCount increments correctly", () => {
     source_component_id: "sc1",
   })
   expect(su.editCount).toBe(1)
-  expect((su.toArray() as any).editCount).toBe(1)
+  expect((su.toArray() as unknown as { editCount: number }).editCount).toBe(1)
 
   // Update
   su.source_component.update("sc1", { resistance: 200 })
   expect(su.editCount).toBe(2)
-  expect((su.toArray() as any).editCount).toBe(2)
+  expect((su.toArray() as unknown as { editCount: number }).editCount).toBe(2)
 
   // Delete
   su.source_port.delete("source_port_0")
   expect(su.editCount).toBe(3)
-  expect((su.toArray() as any).editCount).toBe(3)
+  expect((su.toArray() as unknown as { editCount: number }).editCount).toBe(3)
 
   // Get should not increment
   su.source_component.get("sc1")
@@ -63,7 +63,7 @@ test("cjuIndexed editCount increments correctly", () => {
     indexConfig: { byId: true, byType: true },
   })
   expect(su.editCount).toBe(0)
-  expect((su.toArray() as any).editCount).toBe(0)
+  expect((su.toArray() as unknown as { editCount: number }).editCount).toBe(0)
 
   // Insert
   su.source_port.insert({
@@ -71,17 +71,17 @@ test("cjuIndexed editCount increments correctly", () => {
     source_component_id: "sc1",
   })
   expect(su.editCount).toBe(1)
-  expect((su.toArray() as any).editCount).toBe(1)
+  expect((su.toArray() as unknown as { editCount: number }).editCount).toBe(1)
 
   // Update
   su.source_component.update("sc1", { resistance: 200 })
   expect(su.editCount).toBe(2)
-  expect((su.toArray() as any).editCount).toBe(2)
+  expect((su.toArray() as unknown as { editCount: number }).editCount).toBe(2)
 
   // Delete
   su.source_port.delete("source_port_0")
   expect(su.editCount).toBe(3)
-  expect((su.toArray() as any).editCount).toBe(3)
+  expect((su.toArray() as unknown as { editCount: number }).editCount).toBe(3)
 
   // Get should not increment
   su.source_component.get("sc1")
