@@ -32,6 +32,7 @@ export type CircuitJsonOps<
 export type CircuitJsonUtilObjects = {
   [K in AnyCircuitElement["type"]]: CircuitJsonOps<K, AnyCircuitElement>
 } & {
+  subtree: (where?: any) => CircuitJsonUtilObjects
   toArray: () => AnyCircuitElement[]
   editCount: number
 }
