@@ -18,21 +18,21 @@ export const getBoundsOfPcbElements = (
     let height: number | undefined
 
     if ("x" in elm && "y" in elm) {
-      centerX = elm.x
-      centerY = elm.y
+      centerX = Number((elm as any).x)
+      centerY = Number((elm as any).y)
     }
 
     if ("outer_diameter" in elm) {
-      width = elm.outer_diameter
-      height = elm.outer_diameter
+      width = Number((elm as any).outer_diameter)
+      height = Number((elm as any).outer_diameter)
     }
 
     if ("width" in elm) {
-      width = elm.width
+      width = Number((elm as any).width)
     }
 
     if ("height" in elm) {
-      height = elm.height
+      height = Number((elm as any).height)
     }
 
     if ("center" in elm) {

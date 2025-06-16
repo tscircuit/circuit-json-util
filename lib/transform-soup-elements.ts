@@ -57,9 +57,12 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_smtpad" ||
     elm.type === "pcb_port"
   ) {
-    const { x, y } = applyToPoint(matrix, { x: elm.x, y: elm.y })
-    elm.x = x
-    elm.y = y
+    const { x, y } = applyToPoint(matrix, {
+      x: Number((elm as any).x),
+      y: Number((elm as any).y),
+    })
+    ;(elm as any).x = x
+    ;(elm as any).y = y
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
     // TODO adjust size/rotation
     elm.center = applyToPoint(matrix, elm.center)

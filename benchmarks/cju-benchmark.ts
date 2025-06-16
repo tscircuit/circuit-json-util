@@ -21,7 +21,7 @@ function generateTestSoup(elementCount: number): AnyCircuitElement[] {
       resistance: i % 2 === 0 ? 10_000 : undefined,
       capacitance: i % 2 === 0 ? undefined : 0.0001,
       subcircuit_id: `sub_${Math.floor(i / 10)}`,
-    } as AnyCircuitElement)
+    } as unknown as AnyCircuitElement)
   }
 
   // Generate source ports (3 for each component)
@@ -35,7 +35,7 @@ function generateTestSoup(elementCount: number): AnyCircuitElement[] {
         name: j === 0 ? "left" : j === 1 ? "right" : "bottom",
         port_hints: [j === 0 ? "input" : j === 1 ? "output" : "ground"],
         subcircuit_id: `sub_${Math.floor(i / 10)}`,
-      } as AnyCircuitElement)
+      } as unknown as AnyCircuitElement)
     }
   }
 
@@ -50,7 +50,7 @@ function generateTestSoup(elementCount: number): AnyCircuitElement[] {
       width: 10,
       height: 5,
       subcircuit_id: `sub_${Math.floor(i / 10)}`,
-    } as AnyCircuitElement)
+    } as unknown as AnyCircuitElement)
   }
 
   // Generate pcb_ports (one for each source port)
@@ -64,7 +64,7 @@ function generateTestSoup(elementCount: number): AnyCircuitElement[] {
         x: i * 10 + (j === 0 ? 0 : j === 1 ? 10 : 5),
         y: i * 5 + (j === 0 ? 2.5 : j === 1 ? 2.5 : 5),
         subcircuit_id: `sub_${Math.floor(i / 10)}`,
-      } as AnyCircuitElement)
+      } as unknown as AnyCircuitElement)
     }
   }
 
@@ -82,7 +82,7 @@ function generateTestSoup(elementCount: number): AnyCircuitElement[] {
       width: 0.2,
       layer: "F.Cu",
       subcircuit_id: `sub_${Math.floor(i / 10)}`,
-    } as AnyCircuitElement)
+    } as unknown as AnyCircuitElement)
   }
 
   return soup
@@ -258,6 +258,6 @@ console.log("-".repeat(70))
 const operations = Object.keys(smallResults)
 for (const operation of operations) {
   console.log(
-    `${operation.padEnd(18)} | ${smallResults[operation].speedup.toFixed(2).padStart(13)}x | ${mediumResults[operation].speedup.toFixed(2).padStart(14)}x | ${largeResults[operation].speedup.toFixed(2).padStart(13)}x`,
+    `${operation.padEnd(18)} | ${smallResults[operation]!.speedup.toFixed(2).padStart(13)}x | ${mediumResults[operation]!.speedup.toFixed(2).padStart(14)}x | ${largeResults[operation]!.speedup.toFixed(2).padStart(13)}x`,
   )
 }
