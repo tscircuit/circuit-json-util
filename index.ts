@@ -9,6 +9,7 @@ export * from "./lib/readable-name-functions/get-readable-name-for-element"
 export * from "./lib/get-bounds-of-pcb-elements"
 export * from "./lib/find-bounds-and-center"
 export * from "./lib/get-primary-id"
+export * from "./lib/subtree"
 
 export { default as cju } from "./lib/cju"
 export { default as cjuIndexed } from "./lib/cju-indexed"
