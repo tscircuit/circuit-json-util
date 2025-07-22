@@ -50,3 +50,33 @@ test("should handle pcb_trace elements correctly", () => {
     height: 25.05,
   })
 })
+
+test("should handle polygon SMT pad elements correctly", () => {
+  const elements = [
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pad1",
+      shape: "polygon",
+      points: [
+        { x: 0, y: 0 },
+        { x: 5, y: 0 },
+        { x: 5, y: 3 },
+        { x: 0, y: 3 },
+      ],
+      layer: "top",
+    } as unknown as AnyCircuitElement,
+    {
+      type: "pcb_component", 
+      x: 10, 
+      y: 10, 
+      width: 4, 
+      height: 4 
+    } as unknown as AnyCircuitElement,
+  ]
+  const result = findBoundsAndCenter(elements as unknown as AnyCircuitElement[])
+  expect(result).toEqual({
+    center: { x: 6, y: 6 },
+    width: 12,
+    height: 12,
+  })
+})
