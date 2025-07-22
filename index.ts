@@ -10,6 +10,7 @@ export * from "./lib/get-bounds-of-pcb-elements"
 export * from "./lib/find-bounds-and-center"
 export * from "./lib/get-primary-id"
 export * from "./lib/subtree"
+export * from "./lib/reposition-pcb-component"
 
 export { default as cju } from "./lib/cju"
 export { default as cjuIndexed } from "./lib/cju-indexed"
