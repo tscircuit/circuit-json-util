@@ -62,3 +62,15 @@ const subcircuitElements = indexedSu.source_component.list({
 ```
 
 The indexed version maintains the same API as the standard version but provides significant performance improvements, especially for large circuit json arrays.
+
+## Repositioning PCB Components
+
+Use `repositionPcbComponentTo` to move a component and all of its related elements to a new center:
+
+```ts
+import { repositionPcbComponentTo } from "@tscircuit/circuit-json-util"
+
+repositionPcbComponentTo(circuitJson, "pc1", { x: 10, y: 5 })
+```
+
+All ports, pads and traces referencing the component are translated by the same offset.
