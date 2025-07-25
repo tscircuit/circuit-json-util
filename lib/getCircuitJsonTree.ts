@@ -29,8 +29,8 @@ export const getCircuitJsonTree = (
   const groupChildMap: Map<ParentGroupId, ChildGroupId[]> = new Map()
 
   for (const elm of circuitJson) {
-    if (elm.type === "source_group" && elm.parent_subcircuit_id) {
-      const parentId = elm.parent_subcircuit_id
+    if (elm.type === "source_group" && elm.parent_source_group_id) {
+      const parentId = elm.parent_source_group_id
       const childId = elm.source_group_id
       const children = groupChildMap.get(parentId) ?? []
       children.push(childId)
