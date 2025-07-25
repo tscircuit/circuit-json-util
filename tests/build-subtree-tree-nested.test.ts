@@ -1,6 +1,7 @@
 import type { AnyCircuitElement } from "circuit-json"
 import { buildSubtree } from "../lib/subtree"
 import { test, expect } from "bun:test"
+import { stringifyCircuitJsonTree } from "lib/stringifyCircuitJsonTree"
 
 test("buildSubtree returns nested tree snapshot", () => {
   const soup: AnyCircuitElement[] = [
@@ -64,103 +65,5 @@ test("buildSubtree returns nested tree snapshot", () => {
 
   const { tree } = buildSubtree(soup, { source_group_id: "g1" })
 
-  expect(tree).toMatchInlineSnapshot(`
-  {
-    "children": [
-      {
-        "children": [
-          {
-            "member_source_group_ids": [
-              "g2",
-            ],
-            "source_group_id": "g1",
-            "type": "source_group",
-          },
-          {
-            "ftype": "simple_resistor",
-            "name": "R1",
-            "resistance": 1000,
-            "source_component_id": "sc1",
-            "source_group_id": "g1",
-            "supplier_part_numbers": {},
-            "type": "source_component",
-          },
-        ],
-        "node_type": "group",
-        "source_group_id": "g1",
-      },
-      {
-        "children": [
-          {
-            "source_group_id": "g2",
-            "type": "source_group",
-          },
-          {
-            "capacitance": 0.000001,
-            "ftype": "simple_capacitor",
-            "name": "C1",
-            "source_component_id": "sc2",
-            "source_group_id": "g2",
-            "supplier_part_numbers": {},
-            "type": "source_component",
-          },
-        ],
-        "node_type": "group",
-        "source_group_id": "g2",
-      },
-      {
-        "children": [
-          {
-            "center": {
-              "x": 0,
-              "y": 0,
-            },
-            "height": 1,
-            "layer": "top",
-            "pcb_component_id": "pc1",
-            "rotation": 0,
-            "source_component_id": "sc1",
-            "type": "pcb_component",
-            "width": 1,
-          },
-          {
-            "pcb_component_id": "pc1",
-            "pcb_trace_id": "pt1",
-            "route": [],
-            "type": "pcb_trace",
-          },
-        ],
-        "node_type": "component",
-        "pcb_component_id": "pc1",
-      },
-      {
-        "children": [
-          {
-            "center": {
-              "x": 1,
-              "y": 1,
-            },
-            "height": 1,
-            "layer": "top",
-            "pcb_component_id": "pc2",
-            "rotation": 0,
-            "source_component_id": "sc2",
-            "type": "pcb_component",
-            "width": 1,
-          },
-          {
-            "pcb_component_id": "pc2",
-            "pcb_trace_id": "pt2",
-            "route": [],
-            "type": "pcb_trace",
-          },
-        ],
-        "node_type": "component",
-        "pcb_component_id": "pc2",
-      },
-    ],
-    "node_type": "group",
-    "source_group_id": "g1",
-  }
-  `)
+  expect(stringifyCircuitJsonTree(tree)).toMatchInlineSnapshot()
 })

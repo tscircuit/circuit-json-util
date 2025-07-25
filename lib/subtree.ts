@@ -4,7 +4,9 @@ export interface CircuitJsonTreeNode {
   node_type: "group" | "component"
   source_group_id?: string
   pcb_component_id?: string
+  source_component_id?: string
   schematic_component_id?: string
+  element: AnyCircuitElement
   children: Array<CircuitJsonTreeNode | AnyCircuitElement>
 }
 
@@ -106,6 +108,10 @@ export function buildSubtree(
     node_type: "group",
     source_group_id: opts.source_group_id,
     children: [],
+    element: soup.find(
+      (e) =>
+        e.type === "source_group" && e.source_group_id === opts.source_group_id,
+    )!,
   }
 
   const groupMap = new Map<string, CircuitJsonTreeNode>()
@@ -118,7 +124,8 @@ export function buildSubtree(
       const node: CircuitJsonTreeNode = {
         node_type: "group",
         source_group_id: id,
-        children: [elm],
+        children: [],
+        element: elm,
       }
       root.children.push(node)
       if (id) groupMap.set(id, node)
@@ -132,7 +139,8 @@ export function buildSubtree(
       const node: CircuitJsonTreeNode = {
         node_type: "component",
         pcb_component_id: pcbId,
-        children: [elm],
+        children: [],
+        element: elm,
       }
       const g = groupId && groupMap.get(groupId)
       if (g) g.children.push(node)
@@ -144,7 +152,8 @@ export function buildSubtree(
       const node: CircuitJsonTreeNode = {
         node_type: "component",
         schematic_component_id: schId,
-        children: [elm],
+        children: [],
+        element: elm,
       }
       const g = groupId && groupMap.get(groupId)
       if (g) g.children.push(node)
