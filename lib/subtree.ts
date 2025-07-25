@@ -1,5 +1,13 @@
 import type { AnyCircuitElement } from "circuit-json"
 
+export interface CircuitJsonTreeNode {
+  node_type: "group" | "component"
+  source_group_id?: string
+  pcb_component_id?: string
+  schematic_component_id?: string
+  children: Array<CircuitJsonTreeNode | AnyCircuitElement>
+}
+
 export type SubtreeOptions = {
   subcircuit_id?: string
   source_group_id?: string
@@ -28,8 +36,12 @@ function connect(
 export function buildSubtree(
   soup: AnyCircuitElement[],
   opts: SubtreeOptions,
-): AnyCircuitElement[] {
-  if (!opts.subcircuit_id && !opts.source_group_id) return [...soup]
+): { tree: CircuitJsonTreeNode; elements: AnyCircuitElement[] } {
+  if (!opts.subcircuit_id && !opts.source_group_id)
+    return {
+      tree: { node_type: "group", children: [...soup] },
+      elements: [...soup],
+    }
 
   const idMap = new Map<string, AnyCircuitElement>()
   for (const elm of soup) {
@@ -88,5 +100,80 @@ export function buildSubtree(
     }
   }
 
-  return soup.filter((e) => included.has(e))
+  const elements = soup.filter((e) => included.has(e))
+
+  const root: CircuitJsonTreeNode = {
+    node_type: "group",
+    source_group_id: opts.source_group_id,
+    children: [],
+  }
+
+  const groupMap = new Map<string, CircuitJsonTreeNode>()
+  const pcbMap = new Map<string, CircuitJsonTreeNode>()
+  const schMap = new Map<string, CircuitJsonTreeNode>()
+
+  for (const elm of elements) {
+    if (elm.type === "source_group") {
+      const id = (elm as any).source_group_id as string | undefined
+      const node: CircuitJsonTreeNode = {
+        node_type: "group",
+        source_group_id: id,
+        children: [elm],
+      }
+      root.children.push(node)
+      if (id) groupMap.set(id, node)
+    }
+  }
+
+  for (const elm of elements) {
+    if (elm.type === "pcb_component") {
+      const pcbId = (elm as any).pcb_component_id as string | undefined
+      const groupId = (elm as any).source_group_id as string | undefined
+      const node: CircuitJsonTreeNode = {
+        node_type: "component",
+        pcb_component_id: pcbId,
+        children: [elm],
+      }
+      const g = groupId && groupMap.get(groupId)
+      if (g) g.children.push(node)
+      else root.children.push(node)
+      if (pcbId) pcbMap.set(pcbId, node)
+    } else if (elm.type === "schematic_component") {
+      const schId = (elm as any).schematic_component_id as string | undefined
+      const groupId = (elm as any).source_group_id as string | undefined
+      const node: CircuitJsonTreeNode = {
+        node_type: "component",
+        schematic_component_id: schId,
+        children: [elm],
+      }
+      const g = groupId && groupMap.get(groupId)
+      if (g) g.children.push(node)
+      else root.children.push(node)
+      if (schId) schMap.set(schId, node)
+    }
+  }
+
+  for (const elm of elements) {
+    if (
+      elm.type === "source_group" ||
+      elm.type === "pcb_component" ||
+      elm.type === "schematic_component"
+    ) {
+      continue
+    }
+    const pcbId = (elm as any).pcb_component_id as string | undefined
+    const schId = (elm as any).schematic_component_id as string | undefined
+    const groupId = (elm as any).source_group_id as string | undefined
+    if (pcbId && pcbMap.has(pcbId)) {
+      pcbMap.get(pcbId)!.children.push(elm)
+    } else if (schId && schMap.has(schId)) {
+      schMap.get(schId)!.children.push(elm)
+    } else if (groupId && groupMap.has(groupId)) {
+      groupMap.get(groupId)!.children.push(elm)
+    } else {
+      root.children.push(elm)
+    }
+  }
+
+  return { tree: root, elements }
 }

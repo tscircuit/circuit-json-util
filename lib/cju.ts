@@ -101,8 +101,10 @@ export const cju: GetCircuitJsonUtilFn = ((
         }
 
         if (prop === "subtree") {
-          return (opts: SubtreeOptions) =>
-            cju(buildSubtree(circuitJson, opts), options)
+          return (opts: SubtreeOptions) => {
+            const { elements } = buildSubtree(circuitJson, opts)
+            return cju(elements, options)
+          }
         }
 
         const component_type = prop
