@@ -43,6 +43,7 @@ export function buildSubtree(
   for (const elm of soup) {
     const entries = Object.entries(elm as any)
     for (const [key, val] of entries) {
+      if (key === "parent_source_group_id") continue
       if (key.endsWith("_id") && typeof val === "string") {
         const other = idMap.get(val)
         connect(adj, elm, other)
