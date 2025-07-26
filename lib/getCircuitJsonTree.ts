@@ -20,7 +20,7 @@ export interface CircuitJsonTreeNode {
 export const getCircuitJsonTree = (
   circuitJson: AnyCircuitElement[],
   opts?: {
-    source_group_id: string
+    source_group_id?: string
   },
 ): CircuitJsonTreeNode => {
   type ChildGroupId = string
