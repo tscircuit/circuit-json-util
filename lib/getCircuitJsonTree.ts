@@ -85,7 +85,14 @@ export const getCircuitJsonTree = (
               nodeType: "component",
               sourceComponent: elm,
               childNodes: [],
-              otherChildElements: [], // TODO
+              otherChildElements: [
+                ...circuitJson.filter(
+                  (e) =>
+                    e.type === "pcb_component" &&
+                    e.source_component_id ===
+                      (elm as SourceComponentBase).source_component_id,
+                ),
+              ], // TODO populate
             } as CircuitJsonTreeNode
           }),
       ],
@@ -96,9 +103,12 @@ export const getCircuitJsonTree = (
   }
 
   if (!lastGroupId) {
-    throw new Error(
-      "Could not compute circuit tree because no groups were processed",
-    )
+    console.warn("No groups were processed, returning tree without sourceGroup")
+    return {
+      nodeType: "group",
+      childNodes: [], // TODO populate
+      otherChildElements: circuitJson,
+    }
   }
 
   return groupNodes.get(opts?.source_group_id ?? lastGroupId)!
