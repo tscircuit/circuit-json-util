@@ -19,14 +19,27 @@ test("getCircuitJsonTree1", async () => {
   )
   `)
 
-  const tree = getCircuitJsonTree(circuitJson)
+  const tree1 = getCircuitJsonTree(circuitJson)
 
-  expect(getStringFromCircuitJsonTree(tree)).toMatchInlineSnapshot(`
+  expect(getStringFromCircuitJsonTree(tree1)).toMatchInlineSnapshot(`
     "source_group_2
       G1
         G2
           R1
           C1
         R2"
+  `)
+
+  const tree2 = getCircuitJsonTree(circuitJson, {
+    source_group_id: (circuitJson.find((elm: any) => elm.name === "G1") as any)
+      ?.source_group_id!,
+  })
+
+  expect(getStringFromCircuitJsonTree(tree2)).toMatchInlineSnapshot(`
+    "G1
+      G2
+        R1
+        C1
+      R2"
   `)
 })
