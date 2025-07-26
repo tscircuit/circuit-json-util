@@ -35,6 +35,9 @@ export const getCircuitJsonTree = (
       const children = groupChildMap.get(parentId) ?? []
       children.push(childId)
       groupChildMap.set(parentId, children)
+      if (!groupChildMap.has(childId)) {
+        groupChildMap.set(childId, [])
+      }
     }
   }
 
@@ -57,13 +60,15 @@ export const getCircuitJsonTree = (
     const nextGroupId = getNextGroupId()
     if (!nextGroupId) break
 
+    const sourceGroup = circuitJson.find(
+      (elm) =>
+        elm.type === "source_group" && elm.source_group_id === nextGroupId,
+    ) as SourceGroup
+
     // Create the tree node for this group
     const node: CircuitJsonTreeNode = {
       nodeType: "group",
-      sourceGroup: circuitJson.find(
-        (elm) =>
-          elm.type === "source_group" && elm.source_group_id === nextGroupId,
-      ) as SourceGroup,
+      sourceGroup,
       otherChildElements: [],
       childNodes: [
         ...(groupChildMap
