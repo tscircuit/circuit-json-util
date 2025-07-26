@@ -96,9 +96,12 @@ export const getCircuitJsonTree = (
   }
 
   if (!lastGroupId) {
-    throw new Error(
-      "Could not compute circuit tree because no groups were processed",
-    )
+    console.warn("No groups were processed, returning tree without sourceGroup")
+    return {
+      nodeType: "group",
+      childNodes: [],
+      otherChildElements: circuitJson,
+    }
   }
 
   return groupNodes.get(opts?.source_group_id ?? lastGroupId)!
