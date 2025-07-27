@@ -6,6 +6,8 @@ export const convertAbbrToType = (abbr: string): string => {
       return "source_net"
     case "power":
       return "simple_power_source"
+    case "silkscreenpath":
+      return "pcb_silkscreen_path"
   }
   return abbr
 }

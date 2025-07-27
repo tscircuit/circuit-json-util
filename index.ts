@@ -14,5 +14,10 @@ export * from "./lib/reposition-pcb-component"
 export * from "./lib/getCircuitJsonTree"
 export * from "./lib/getStringFromCircuitJsonTree"
 
+export {
+  transformPCBElement as transformPcbElement,
+  transformPCBElements as transformPcbElements,
+} from "./lib/transform-soup-elements"
+
 export { default as cju } from "./lib/cju"
 export { default as cjuIndexed } from "./lib/cju-indexed"
