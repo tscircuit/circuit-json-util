@@ -50,6 +50,9 @@ export const transformSchematicElements = (
 }
 
 export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
+  const tsr = decomposeTSR(matrix)
+  const flipPadWidthHeight =
+    Math.round(tsr.rotation.angle / (Math.PI / 2)) % 2 === 1
   if (
     elm.type === "pcb_plated_hole" ||
     elm.type === "pcb_hole" ||
@@ -73,10 +76,16 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
   } else if (
     elm.type === "pcb_silkscreen_circle" ||
-    elm.type === "pcb_silkscreen_rect" ||
-    elm.type === "pcb_component"
+    elm.type === "pcb_silkscreen_rect"
   ) {
     elm.center = applyToPoint(matrix, elm.center)
+  } else if (elm.type === "pcb_component") {
+    elm.center = applyToPoint(matrix, elm.center)
+    elm.rotation = elm.rotation + (tsr.rotation.angle / Math.PI) * 180
+    elm.rotation = elm.rotation % 360
+    if (flipPadWidthHeight) {
+      ;[elm.width, elm.height] = [elm.height, elm.width]
+    }
   } else if (
     elm.type === "pcb_silkscreen_path" ||
     elm.type === "pcb_trace" ||
