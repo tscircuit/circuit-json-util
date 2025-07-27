@@ -41,6 +41,15 @@ export const getCircuitJsonTree = (
     }
   }
 
+  // Ensure that every source_group, including root-level groups that have no parent,
+  // is present in the groupChildMap. This guarantees that even standalone boards
+  // (with no nested groups) are processed and appear at the top of the tree.
+  for (const elm of circuitJson) {
+    if (elm.type === "source_group" && !groupChildMap.has(elm.source_group_id)) {
+      groupChildMap.set(elm.source_group_id, [])
+    }
+  }
+
   const groupNodes = new Map<GroupId, CircuitJsonTreeNode>()
 
   const getNextGroupId = () => {
