@@ -69,6 +69,14 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
     // TODO adjust size/rotation
     elm.center = applyToPoint(matrix, elm.center)
+  } else if (elm.type === "pcb_cutout") {
+    // Transform the position of the cutout
+    const { x, y } = applyToPoint(matrix, {
+      x: elm.x,
+      y: elm.y,
+    })
+    elm.x = x
+    elm.y = y
   } else if (
     elm.type === "pcb_silkscreen_text" ||
     elm.type === "pcb_fabrication_note_text"
@@ -128,6 +136,9 @@ export const transformPCBElements = (
   if (flipPadWidthHeight) {
     transformedElms = transformedElms.map((elm) => {
       if (elm.type === "pcb_smtpad" && elm.shape === "rect") {
+        ;[elm.width, elm.height] = [elm.height, elm.width]
+      }
+      if (elm.type === "pcb_cutout" && elm.shape === "rect") {
         ;[elm.width, elm.height] = [elm.height, elm.width]
       }
       return elm
