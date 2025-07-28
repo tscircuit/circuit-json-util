@@ -67,8 +67,17 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     ;(elm as any).x = x
     ;(elm as any).y = y
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
-    // TODO adjust size/rotation
+    // Rotate the keepout / board outline centre point
     elm.center = applyToPoint(matrix, elm.center)
+
+    // When the rotation is an odd multiple of 90° the width/height should be swapped
+    if (flipPadWidthHeight) {
+      // Only swap when both dimensions exist on the element (keeps backwards-compatibility)
+      if ("width" in elm && "height" in elm) {
+        // @ts-ignore – runtime check guarantees properties exist
+        ;[elm.width, elm.height] = [elm.height as number, elm.width as number]
+      }
+    }
   } else if (
     elm.type === "pcb_silkscreen_text" ||
     elm.type === "pcb_fabrication_note_text"
