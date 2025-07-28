@@ -69,6 +69,13 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
     // TODO adjust size/rotation
     elm.center = applyToPoint(matrix, elm.center)
+  } else if (elm.type === "pcb_cutout") {
+    // Transform center position
+    elm.center = applyToPoint(matrix, elm.center)
+    // Handle width/height rotation for rectangular cutouts
+    if (flipPadWidthHeight && elm.shape === "rect") {
+      ;[elm.width, elm.height] = [elm.height, elm.width]
+    }
   } else if (
     elm.type === "pcb_silkscreen_text" ||
     elm.type === "pcb_fabrication_note_text"
