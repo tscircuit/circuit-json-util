@@ -28,15 +28,37 @@ export const getCircuitJsonTree = (
   type GroupId = string
   const groupChildMap: Map<ParentGroupId, ChildGroupId[]> = new Map()
 
+  // Get all source group IDs present in the circuit JSON
+  const existingGroupIds = new Set<string>()
+  for (const elm of circuitJson) {
+    if (elm.type === "source_group") {
+      existingGroupIds.add(elm.source_group_id)
+    }
+  }
+
+  // Find orphaned groups (groups whose parent is not in the circuit JSON)
+  const orphanedGroups: string[] = []
+
   for (const elm of circuitJson) {
     if (elm.type === "source_group" && elm.parent_source_group_id) {
       const parentId = elm.parent_source_group_id
       const childId = elm.source_group_id
-      const children = groupChildMap.get(parentId) ?? []
-      children.push(childId)
-      groupChildMap.set(parentId, children)
-      if (!groupChildMap.has(childId)) {
-        groupChildMap.set(childId, [])
+      
+      // If parent doesn't exist in circuit JSON, this is an orphaned group
+      if (!existingGroupIds.has(parentId)) {
+        orphanedGroups.push(childId)
+        // Treat orphaned groups as root-level groups
+        if (!groupChildMap.has(childId)) {
+          groupChildMap.set(childId, [])
+        }
+      } else {
+        // Normal parent-child relationship
+        const children = groupChildMap.get(parentId) ?? []
+        children.push(childId)
+        groupChildMap.set(parentId, children)
+        if (!groupChildMap.has(childId)) {
+          groupChildMap.set(childId, [])
+        }
       }
     }
   }
@@ -120,5 +142,27 @@ export const getCircuitJsonTree = (
     }
   }
 
-  return groupNodes.get(opts?.source_group_id ?? lastGroupId)!
+  // Determine which group to return as root
+  let rootGroupId: string | null = null
+  if (opts && opts.source_group_id !== undefined) {
+    // Use explicitly specified group
+    rootGroupId = opts.source_group_id
+  } else if (orphanedGroups.length > 0) {
+    // Use the first orphaned group as root (most likely scenario when filtering circuit JSON)
+    rootGroupId = orphanedGroups[0]!
+  } else {
+    // Fall back to the last processed group (typically the top-level parent)
+    rootGroupId = lastGroupId as string | null
+  }
+
+  if (!rootGroupId) {
+    console.warn("No valid root group found, returning tree without sourceGroup")
+    return {
+      nodeType: "group",
+      childNodes: [], 
+      otherChildElements: circuitJson,
+    }
+  }
+
+  return groupNodes.get(rootGroupId)!
 }
