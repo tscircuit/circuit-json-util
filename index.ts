@@ -11,6 +11,7 @@ export * from "./lib/find-bounds-and-center"
 export * from "./lib/get-primary-id"
 export * from "./lib/subtree"
 export * from "./lib/reposition-pcb-component"
+export * from "./lib/reposition-pcb-group"
 export * from "./lib/getCircuitJsonTree"
 export * from "./lib/getStringFromCircuitJsonTree"
 
