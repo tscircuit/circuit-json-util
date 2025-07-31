@@ -2,7 +2,7 @@ import type { AnyCircuitElement } from "circuit-json"
 import { repositionPcbGroupTo } from "../lib/reposition-pcb-group"
 import { test, expect } from "bun:test"
 
-const makeSoupWithGroup = (): AnyCircuitElement[] => [
+const makeCircuitJsonWithGroup = (): AnyCircuitElement[] => [
   {
     type: "source_group",
     source_group_id: "g1",
@@ -110,20 +110,20 @@ const makeSoupWithGroup = (): AnyCircuitElement[] => [
 ]
 
 test("repositionPcbGroupTo moves group elements and deep children", () => {
-  const soup = makeSoupWithGroup()
+  const circuitJson = makeCircuitJsonWithGroup()
 
   // Original positions: pc1 at (0,0), pc2 at (5,0), group center should be around (2.5, 0)
   // Move group to center at (20, 15)
-  repositionPcbGroupTo(soup, "g1", { x: 20, y: 15 })
+  repositionPcbGroupTo(circuitJson, "g1", { x: 20, y: 15 })
 
-  const comp1 = soup.find((e) => (e as any).pcb_component_id === "pc1") as any
-  const comp2 = soup.find((e) => (e as any).pcb_component_id === "pc2") as any
-  const comp3 = soup.find((e) => (e as any).pcb_component_id === "pc3") as any
-  const port1 = soup.find((e) => (e as any).pcb_port_id === "pp1") as any
-  const port2 = soup.find((e) => (e as any).pcb_port_id === "pp2") as any
-  const pad1 = soup.find((e) => (e as any).pcb_smtpad_id === "pad1") as any
-  const pad2 = soup.find((e) => (e as any).pcb_smtpad_id === "pad2") as any
-  const trace = soup.find((e) => e.type === "pcb_trace") as any
+  const comp1 = circuitJson.find((e) => (e as any).pcb_component_id === "pc1") as any
+  const comp2 = circuitJson.find((e) => (e as any).pcb_component_id === "pc2") as any
+  const comp3 = circuitJson.find((e) => (e as any).pcb_component_id === "pc3") as any
+  const port1 = circuitJson.find((e) => (e as any).pcb_port_id === "pp1") as any
+  const port2 = circuitJson.find((e) => (e as any).pcb_port_id === "pp2") as any
+  const pad1 = circuitJson.find((e) => (e as any).pcb_smtpad_id === "pad1") as any
+  const pad2 = circuitJson.find((e) => (e as any).pcb_smtpad_id === "pad2") as any
+  const trace = circuitJson.find((e) => e.type === "pcb_trace") as any
 
   // Components in group should be moved
   expect(comp1.center.x).toBeCloseTo(17.5, 1) // moved from 0 to 17.5 (20 - 2.5)
@@ -155,7 +155,7 @@ test("repositionPcbGroupTo moves group elements and deep children", () => {
 })
 
 test("repositionPcbGroupTo handles empty group", () => {
-  const soup: AnyCircuitElement[] = [
+  const circuitJson: AnyCircuitElement[] = [
     {
       type: "source_group",
       source_group_id: "empty_group",
@@ -172,14 +172,14 @@ test("repositionPcbGroupTo handles empty group", () => {
   ]
 
   // Should not throw error or modify anything
-  repositionPcbGroupTo(soup, "empty_group", { x: 10, y: 10 })
+  repositionPcbGroupTo(circuitJson, "empty_group", { x: 10, y: 10 })
   
-  const comp = soup.find((e) => e.type === "pcb_component") as any
+  const comp = circuitJson.find((e) => e.type === "pcb_component") as any
   expect(comp.center).toEqual({ x: 0, y: 0 })
 })
 
 test("repositionPcbGroupTo handles nonexistent group", () => {
-  const soup: AnyCircuitElement[] = [
+  const circuitJson: AnyCircuitElement[] = [
     {
       type: "pcb_component",
       pcb_component_id: "pc1",
@@ -192,8 +192,8 @@ test("repositionPcbGroupTo handles nonexistent group", () => {
   ]
 
   // Should not throw error or modify anything
-  repositionPcbGroupTo(soup, "nonexistent", { x: 10, y: 10 })
+  repositionPcbGroupTo(circuitJson, "nonexistent", { x: 10, y: 10 })
   
-  const comp = soup.find((e) => e.type === "pcb_component") as any
+  const comp = circuitJson.find((e) => e.type === "pcb_component") as any
   expect(comp.center).toEqual({ x: 0, y: 0 })
 })
