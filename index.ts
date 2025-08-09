@@ -14,6 +14,7 @@ export * from "./lib/reposition-pcb-component"
 export * from "./lib/reposition-pcb-group"
 export * from "./lib/getCircuitJsonTree"
 export * from "./lib/getStringFromCircuitJsonTree"
+export * from "./lib/get-minimum-flex-container"
 
 export {
   transformPCBElement as transformPcbElement,
