@@ -1,15 +1,6 @@
 export type Size = { width: number; height: number }
 
-/**
- * Options for flex container sizing. This mirrors the subset of
- * `@tscircuit/miniflex` options used by `getMinimumFlexContainer`.
- */
-export interface FlexBoxOptions {
-  direction?: "row" | "row-reverse" | "column" | "column-reverse"
-  columnGap?: number
-  rowGap?: number
-}
-
+import type { FlexBoxOptions } from "@tscircuit/miniflex"
 /**
  * Compute the smallest possible dimensions (width & height) for a flex container
  * so that **all** children fit without overflowing _before_ any flex grow / shrink
