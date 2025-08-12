@@ -27,6 +27,12 @@ export const transformSchematicElement = (
     // } else if (elm.type === "schematic_group") {
     //   elm.center = applyToPoint(matrix, elm.center)
   } else if (elm.type === "schematic_trace") {
+    elm.route = elm.route.map((rp: any) => {
+      const tp = applyToPoint(matrix, rp) as { x: number; y: number }
+      rp.x = tp.x
+      rp.y = tp.y
+      return rp
+    })
   } else if (elm.type === "schematic_box") {
     const { x, y } = applyToPoint(matrix, { x: elm.x, y: elm.y })
     elm.x = x
