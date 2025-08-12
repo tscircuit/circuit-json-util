@@ -6,12 +6,16 @@ export const findBoundsAndCenter = (
   elements: AnyCircuitElement[],
 ): { center: { x: number; y: number }; width: number; height: number } => {
   const debugObjects = elements
-    .filter((elm) => elm.type.startsWith("pcb_"))
+    .filter(
+      (elm) => elm.type.startsWith("pcb_") || elm.type.startsWith("schematic_"),
+    )
     .concat(
       elements
-        .filter((elm) => elm.type === "pcb_trace")
+        .filter(
+          (elm) => elm.type === "pcb_trace" || elm.type === "schematic_trace",
+        )
         // @ts-ignore
-        .flatMap((elm: PcbTrace) => elm.route),
+        .flatMap((elm: any) => elm.route),
     )
     .map((elm) => getDebugLayoutObject(elm))
     .filter(isTruthy)
