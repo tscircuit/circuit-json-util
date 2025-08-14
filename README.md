@@ -74,3 +74,19 @@ repositionPcbComponentTo(circuitJson, "pc1", { x: 10, y: 5 })
 ```
 
 All ports, pads and traces referencing the component are translated by the same offset.
+
+Use `repositionSchematicComponentTo` to move a schematic component and all related elements:
+
+```ts
+import { repositionSchematicComponentTo } from "@tscircuit/circuit-json-util"
+
+repositionSchematicComponentTo(circuitJson, "sc1", { x: 10, y: 5 })
+```
+
+Move all elements in a schematic source group with `repositionSchematicGroupTo`:
+
+```ts
+import { repositionSchematicGroupTo } from "@tscircuit/circuit-json-util"
+
+repositionSchematicGroupTo(circuitJson, "g1", { x: 20, y: 15 })
+```
