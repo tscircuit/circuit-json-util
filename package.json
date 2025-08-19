@@ -19,7 +19,7 @@
   "peerDependencies": {
     "circuit-json": "*",
     "transformation-matrix": "*",
-    "zod": "*"
+    "zod": "3"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.2",
