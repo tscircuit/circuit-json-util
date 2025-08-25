@@ -96,37 +96,56 @@ export const getCircuitJsonTree = (
         elm.type === "source_group" && elm.source_group_id === nextGroupId,
     ) as SourceGroup
 
-    // Create the tree node for this group
+    // Create the tree node for this group. Child nodes should be in the order
+    // they were defined in the original source code. To determine this, we use
+    // the order of schematic elements which mirrors the authoring order.
+    const childNodes: Array<CircuitJsonTreeNode> = []
+
+    const schematicGroup = circuitJson.find(
+      (elm) =>
+        elm.type === "schematic_group" && elm.source_group_id === nextGroupId,
+    ) as { schematic_group_id: string } | undefined
+    const schematicGroupId = schematicGroup?.schematic_group_id
+
+    for (const elm of circuitJson) {
+      if (elm.type === "schematic_component" &&
+          elm.schematic_group_id === schematicGroupId) {
+        const sourceComponent = circuitJson.find(
+          (e) =>
+            e.type === "source_component" &&
+            e.source_component_id === elm.source_component_id,
+        ) as SourceComponentBase
+        childNodes.push({
+          nodeType: "component",
+          sourceComponent,
+          childNodes: [],
+          otherChildElements: [
+            ...circuitJson.filter(
+              (e) =>
+                e.type === "pcb_component" &&
+                e.source_component_id === sourceComponent.source_component_id,
+            ),
+          ],
+        })
+      }
+      if (elm.type === "schematic_group") {
+        const sourceGroupId = elm.source_group_id
+        if (sourceGroupId === nextGroupId) continue
+        const sourceGroup = circuitJson.find(
+          (e) =>
+            e.type === "source_group" && e.source_group_id === sourceGroupId,
+        ) as SourceGroup | undefined
+        if (sourceGroup?.parent_source_group_id === nextGroupId) {
+          childNodes.push(groupNodes.get(sourceGroupId)!)
+        }
+      }
+    }
+
     const node: CircuitJsonTreeNode = {
       nodeType: "group",
       sourceGroup,
       otherChildElements: [],
-      childNodes: [
-        ...(groupChildMap
-          .get(nextGroupId)
-          ?.map((childId) => groupNodes.get(childId)!) ?? []),
-        ...circuitJson
-          .filter(
-            (elm) =>
-              elm.type === "source_component" &&
-              elm.source_group_id === nextGroupId,
-          )
-          .map((elm) => {
-            return {
-              nodeType: "component",
-              sourceComponent: elm,
-              childNodes: [],
-              otherChildElements: [
-                ...circuitJson.filter(
-                  (e) =>
-                    e.type === "pcb_component" &&
-                    e.source_component_id ===
-                      (elm as SourceComponentBase).source_component_id,
-                ),
-              ], // TODO populate
-            } as CircuitJsonTreeNode
-          }),
-      ],
+      childNodes,
     }
 
     groupNodes.set(nextGroupId, node)
