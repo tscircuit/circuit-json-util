@@ -144,8 +144,8 @@ export const transformPCBElements = (
   matrix: Matrix,
 ) => {
   const tsr = decomposeTSR(matrix)
-  const flipPadWidthHeight =
-    Math.round(tsr.rotation.angle / (Math.PI / 2)) % 2 === 1
+  const quarterTurns = Math.round(tsr.rotation.angle / (Math.PI / 2))
+  const flipPadWidthHeight = Math.abs(quarterTurns) % 2 === 1
   let transformedElms = elms.map((elm) => transformPCBElement(elm, matrix))
   if (flipPadWidthHeight) {
     transformedElms = transformedElms.map((elm) => {
