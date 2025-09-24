@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  UPSTREAM_REPO: "pcb-viewer" # for example: "eval"
+  UPSTREAM_REPO: "test-github-automerge" # for example: "eval"
   PACKAGE_NAMES: "@tscircuit/circuit-json-util" # comma-separated list, e.g. "@tscircuit/core,@tscircuit/props"
 
 jobs:
