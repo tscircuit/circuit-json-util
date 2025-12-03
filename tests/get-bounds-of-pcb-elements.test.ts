@@ -38,3 +38,34 @@ test("getBoundsOfPcbElements", () => {
 
   expect(bounds).toEqual({ minX: -5, minY: -5, maxX: 20, maxY: 20 })
 })
+
+test("getBoundsOfPcbElements with polygon-shaped SMT pad", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pcb_smtpad_2",
+      pcb_component_id: "pcb_component_0",
+      pcb_port_id: "pcb_port_2",
+      layer: "top",
+      shape: "polygon",
+      x: 0,
+      y: 0,
+      points: [
+        { x: 0.22597110000003795, y: 0.47454819999995834 },
+        { x: 0.585965299999998, y: 0.47454819999995834 },
+        { x: 0.585965299999998, y: 0.17452339999999822 },
+        { x: 0.4059555000000046, y: 0.17452339999999822 },
+        { x: 0.22597110000003795, y: 0.35453319999999167 },
+      ],
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds).toEqual({
+    minX: 0.22597110000003795,
+    minY: 0.17452339999999822,
+    maxX: 0.585965299999998,
+    maxY: 0.47454819999995834,
+  })
+})

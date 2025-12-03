@@ -88,6 +88,21 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     })
     ;(elm as any).x = x
     ;(elm as any).y = y
+
+    // Handle polygon-shaped SMT pads with points array
+    if (
+      elm.type === "pcb_smtpad" &&
+      elm.shape === "polygon" &&
+      Array.isArray(elm.points)
+    ) {
+      elm.points = elm.points.map((point: any) => {
+        const tp = applyToPoint(matrix, { x: point.x, y: point.y })
+        return {
+          x: tp.x,
+          y: tp.y,
+        }
+      })
+    }
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
     // TODO adjust size/rotation
     elm.center = applyToPoint(matrix, elm.center)

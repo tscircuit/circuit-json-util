@@ -11,6 +11,21 @@ export const getBoundsOfPcbElements = (
   for (const elm of elements) {
     if (!elm.type.startsWith("pcb_")) continue
 
+    // Handle polygon-shaped SMT pads with points array
+    if (
+      elm.type === "pcb_smtpad" &&
+      elm.shape === "polygon" &&
+      Array.isArray(elm.points)
+    ) {
+      for (const point of elm.points) {
+        minX = Math.min(minX, point.x)
+        minY = Math.min(minY, point.y)
+        maxX = Math.max(maxX, point.x)
+        maxY = Math.max(maxY, point.y)
+      }
+      continue
+    }
+
     let centerX: number | undefined
     let centerY: number | undefined
 
