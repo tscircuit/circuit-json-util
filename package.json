@@ -1,7 +1,7 @@
 {
   "name": "@tscircuit/circuit-json-util",
   "type": "module",
-  "version": "0.0.72",
+  "version": "0.0.73",
   "description": "Utility library for working with tscircuit circuit json",
   "files": [
     "dist"
