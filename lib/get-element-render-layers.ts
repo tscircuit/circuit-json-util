@@ -1,6 +1,6 @@
 import type { AnyCircuitElement, PcbRenderLayer } from "circuit-json"
 
-export function getElementRenderLayer(
+export function getElementRenderLayers(
   element: AnyCircuitElement,
 ): PcbRenderLayer[] {
   // Copper elements (pads, traces, copper pour, copper text)
