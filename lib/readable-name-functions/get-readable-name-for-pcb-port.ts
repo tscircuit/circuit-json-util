@@ -11,7 +11,9 @@ export const getReadableNameForPcbPort = (
   }
 
   // Get the component information
-  const pcbComponent = cju(soup).pcb_component.get(pcbPort?.pcb_component_id)
+  const pcbComponent = pcbPort.pcb_component_id
+    ? cju(soup).pcb_component.get(pcbPort.pcb_component_id)
+    : undefined
 
   if (!pcbComponent) {
     return `pcb_port[#${pcb_port_id}]`

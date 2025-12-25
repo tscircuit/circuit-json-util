@@ -26,7 +26,9 @@ export function getReadableNameForPcbTrace(
     const pcbPort = cju(soup).pcb_port.get(pcb_port_id)
     if (!pcbPort) return null
 
-    const pcbComponent = cju(soup).pcb_component.get(pcbPort.pcb_component_id)
+    const pcbComponent = pcbPort.pcb_component_id
+      ? cju(soup).pcb_component.get(pcbPort.pcb_component_id)
+      : undefined
     if (!pcbComponent) return null
     const sourceComponent = cju(soup).source_component.get(
       pcbComponent.source_component_id,
