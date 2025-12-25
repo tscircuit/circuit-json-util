@@ -13,6 +13,7 @@ test("getBoundsOfPcbElements", () => {
       height: 5,
       rotation: 0,
       layer: "top",
+      obstructs_within_bounds: false,
     },
     {
       type: "pcb_smtpad",

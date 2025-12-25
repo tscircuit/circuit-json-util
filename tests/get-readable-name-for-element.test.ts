@@ -27,6 +27,7 @@ test("getReadableNameForElement for pcb_port, pcb_smtpad, and pcb_trace", () => 
       rotation: 0,
       center: { x: 5, y: 5 },
       layer: "top",
+      obstructs_within_bounds: false,
     },
     {
       type: "pcb_port",
@@ -102,6 +103,7 @@ test("getReadableNameForElement for pcb_port, pcb_smtpad, and pcb_trace", () => 
       rotation: 0,
       center: { x: 0, y: 0 },
       layer: "top",
+      obstructs_within_bounds: false,
     },
   ]
 

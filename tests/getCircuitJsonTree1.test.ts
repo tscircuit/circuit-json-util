@@ -2,9 +2,10 @@ import { test, expect } from "bun:test"
 import { getCircuitJsonTree } from "../lib/getCircuitJsonTree"
 import { runTscircuitCode } from "tscircuit"
 import { getStringFromCircuitJsonTree } from "lib/getStringFromCircuitJsonTree"
+import type { AnyCircuitElement } from "circuit-json"
 
 test("getCircuitJsonTree1", async () => {
-  const circuitJson = await runTscircuitCode(`
+  const circuitJson = (await runTscircuitCode(`
 
   export default () => (
     <board autoroutingDisabled>
@@ -17,7 +18,7 @@ test("getCircuitJsonTree1", async () => {
       </group>
     </board>
   )
-  `)
+  `)) as AnyCircuitElement[]
 
   const tree1 = getCircuitJsonTree(circuitJson)
 

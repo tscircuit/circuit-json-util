@@ -2,9 +2,10 @@ import { test, expect } from "bun:test"
 import { getCircuitJsonTree } from "../lib/getCircuitJsonTree"
 import { runTscircuitCode } from "tscircuit"
 import { getStringFromCircuitJsonTree } from "lib/getStringFromCircuitJsonTree"
+import type { AnyCircuitElement } from "circuit-json"
 
 test("getCircuitJsonTree - board only includes root source_group", async () => {
-  const circuitJson = await runTscircuitCode(`
+  const circuitJson = (await runTscircuitCode(`
 
   export default () => (
     <board autoroutingDisabled>
@@ -12,7 +13,7 @@ test("getCircuitJsonTree - board only includes root source_group", async () => {
       <capacitor name="C1" capacitance="100nF" />
     </board>
   )
-  `)
+  `)) as AnyCircuitElement[]
 
   const tree = getCircuitJsonTree(circuitJson)
 
@@ -21,4 +22,4 @@ test("getCircuitJsonTree - board only includes root source_group", async () => {
       R1
       C1"
   `)
-}) 
+})
