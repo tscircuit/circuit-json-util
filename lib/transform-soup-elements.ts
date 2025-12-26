@@ -123,6 +123,32 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     if (flipPadWidthHeight) {
       ;[elm.width, elm.height] = [elm.height, elm.width]
     }
+    // Transform cutouts within the component
+    if ((elm as any).cutouts) {
+      (elm as any).cutouts = (elm as any).cutouts.map((cutout: any) => {
+        const transformedCutout = { ...cutout }
+        if (transformedCutout.center) {
+          transformedCutout.center = applyToPoint(matrix, transformedCutout.center)
+        }
+        if (transformedCutout.rotation !== undefined) {
+          transformedCutout.rotation = transformedCutout.rotation + (tsr.rotation.angle / Math.PI) * 180
+          transformedCutout.rotation = transformedCutout.rotation % 360
+        }
+        if (flipPadWidthHeight && transformedCutout.width && transformedCutout.height) {
+          ;[transformedCutout.width, transformedCutout.height] = [transformedCutout.height, transformedCutout.width]
+        }
+        return transformedCutout
+      })
+    }
+  } else if (elm.type === "pcb_cutout") {
+    elm.center = applyToPoint(matrix, elm.center)
+    if (elm.rotation !== undefined) {
+      elm.rotation = elm.rotation + (tsr.rotation.angle / Math.PI) * 180
+      elm.rotation = elm.rotation % 360
+    }
+    if (flipPadWidthHeight && elm.width && elm.height) {
+      ;[elm.width, elm.height] = [elm.height, elm.width]
+    }
   } else if (
     elm.type === "pcb_silkscreen_path" ||
     elm.type === "pcb_trace" ||
