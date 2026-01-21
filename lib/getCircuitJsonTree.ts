@@ -43,7 +43,7 @@ export const getCircuitJsonTree = (
     if (elm.type === "source_group" && elm.parent_source_group_id) {
       const parentId = elm.parent_source_group_id
       const childId = elm.source_group_id
-      
+
       // If parent doesn't exist in circuit JSON, this is an orphaned group
       if (!existingGroupIds.has(parentId)) {
         orphanedGroups.push(childId)
@@ -67,7 +67,10 @@ export const getCircuitJsonTree = (
   // is present in the groupChildMap. This guarantees that even standalone boards
   // (with no nested groups) are processed and appear at the top of the tree.
   for (const elm of circuitJson) {
-    if (elm.type === "source_group" && !groupChildMap.has(elm.source_group_id)) {
+    if (
+      elm.type === "source_group" &&
+      !groupChildMap.has(elm.source_group_id)
+    ) {
       groupChildMap.set(elm.source_group_id, [])
     }
   }
@@ -156,10 +159,12 @@ export const getCircuitJsonTree = (
   }
 
   if (!rootGroupId) {
-    console.warn("No valid root group found, returning tree without sourceGroup")
+    console.warn(
+      "No valid root group found, returning tree without sourceGroup",
+    )
     return {
       nodeType: "group",
-      childNodes: [], 
+      childNodes: [],
       otherChildElements: circuitJson,
     }
   }

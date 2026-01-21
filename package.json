@@ -3,15 +3,15 @@
   "type": "module",
   "version": "0.0.75",
   "description": "Utility library for working with tscircuit circuit json",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "dist/index.js",
   "scripts": {
     "test": "bun test",
     "prepublish": "npm run build",
     "build": "tsup-node ./index.ts --format esm --dts --sourcemap",
-    "benchmark": "bun run lib/benchmarks/su-benchmark.ts"
+    "benchmark": "bun run lib/benchmarks/su-benchmark.ts",
+    "format": "biome format . --write",
+    "format:check": "biome format ."
   },
   "keywords": [],
   "author": "",

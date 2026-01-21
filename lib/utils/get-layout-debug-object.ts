@@ -145,12 +145,12 @@ export const getDebugLayoutObject = (lo: any): LayoutDebugObject | null => {
   if (lo.points && Array.isArray(lo.points) && lo.points.length > 0) {
     const xCoords = lo.points.map((point: { x: number }) => point.x)
     const yCoords = lo.points.map((point: { y: number }) => point.y)
-    
+
     const minX = Math.min(...xCoords)
     const maxX = Math.max(...xCoords)
     const minY = Math.min(...yCoords)
     const maxY = Math.max(...yCoords)
-    
+
     x = (minX + maxX) / 2
     y = (minY + maxY) / 2
     width = maxX - minX
