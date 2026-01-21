@@ -1,9 +1,11 @@
 {
   "name": "@tscircuit/circuit-json-util",
   "type": "module",
-  "version": "0.0.76",
+  "version": "0.0.77",
   "description": "Utility library for working with tscircuit circuit json",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "scripts": {
     "test": "bun test",
