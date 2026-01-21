@@ -9,9 +9,9 @@ test("should handle regular elements with x, y, width, height", () => {
     width: 5,
     height: 3,
   }
-  
+
   const result = getDebugLayoutObject(element)
-  
+
   expect(result).toEqual({
     x: 10,
     y: 20,
@@ -36,9 +36,9 @@ test("should handle polygon elements with points array", () => {
     ],
     layer: "top",
   }
-  
+
   const result = getDebugLayoutObject(element)
-  
+
   expect(result).toEqual({
     x: 2, // center x: (0 + 4) / 2
     y: 3, // center y: (0 + 6) / 2
@@ -61,9 +61,9 @@ test("should handle polygon with irregular shape", () => {
       { x: -1, y: 4 },
     ],
   }
-  
+
   const result = getDebugLayoutObject(element)
-  
+
   expect(result).toEqual({
     x: 2, // center x: (-1 + 5) / 2
     y: 4.5, // center y: (1 + 8) / 2
@@ -80,9 +80,9 @@ test("should return null for elements without coordinates or points", () => {
     type: "some_element",
     name: "test",
   }
-  
+
   const result = getDebugLayoutObject(element)
-  
+
   expect(result).toBeNull()
 })
 
@@ -91,8 +91,8 @@ test("should handle empty points array", () => {
     type: "pcb_smtpad",
     points: [],
   }
-  
+
   const result = getDebugLayoutObject(element)
-  
+
   expect(result).toBeNull()
 })

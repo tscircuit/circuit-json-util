@@ -4,11 +4,11 @@ import type { AnyCircuitElement } from "circuit-json"
 
 const filterByType = (
   elements: AnyCircuitElement[],
-  type: string
+  type: string,
 ): AnyCircuitElement[] => {
   type = convertAbbrToType(type)
   return elements.filter(
-    (elm) => ("ftype" in elm && elm.ftype === type) || elm.type === type
+    (elm) => ("ftype" in elm && elm.ftype === type) || elm.type === type,
   )
 }
 
@@ -18,7 +18,7 @@ const filterByType = (
  */
 export const applySelector = (
   elements: AnyCircuitElement[],
-  selectorRaw: string
+  selectorRaw: string,
 ): AnyCircuitElement[] => {
   const selectorAST = parsel.parse(selectorRaw)
   return applySelectorAST(elements, selectorAST!)
@@ -30,7 +30,7 @@ const doesElmMatchClassName = (elm: AnyCircuitElement, className: string) =>
 
 export const applySelectorAST = (
   elements: AnyCircuitElement[],
-  selectorAST: parsel.AST
+  selectorAST: parsel.AST,
 ): AnyCircuitElement[] => {
   switch (selectorAST.type) {
     case "complex": {
@@ -43,7 +43,7 @@ export const applySelectorAST = (
             let matchElms: AnyCircuitElement[]
             if (left.type === "class") {
               matchElms = elements.filter((elm) =>
-                doesElmMatchClassName(elm, left.name)
+                doesElmMatchClassName(elm, left.name),
               )
             } else if (left.type === "type") {
               matchElms = filterByType(elements, left.name)
@@ -55,8 +55,9 @@ export const applySelectorAST = (
               elements.filter(
                 (elm: any) =>
                   elm[`${matchElm.type}_id`] ===
-                    (matchElm as any)[`${matchElm.type}_id`] && elm !== matchElm
-              )
+                    (matchElm as any)[`${matchElm.type}_id`] &&
+                  elm !== matchElm,
+              ),
             )
             return applySelectorAST(childrenOfMatchingElms, right)
           } else {
@@ -65,7 +66,7 @@ export const applySelectorAST = (
         }
         default: {
           throw new Error(
-            `Couldn't apply selector AST for complex combinator "${selectorAST.combinator}"`
+            `Couldn't apply selector AST for complex combinator "${selectorAST.combinator}"`,
           )
         }
       }
@@ -85,7 +86,7 @@ export const applySelectorAST = (
       })
 
       return elements.filter((elm) =>
-        conditionsToMatch.every((condFn) => condFn?.(elm))
+        conditionsToMatch.every((condFn) => condFn?.(elm)),
       )
     }
     case "type": {
@@ -93,14 +94,14 @@ export const applySelectorAST = (
     }
     case "class": {
       return elements.filter((elm) =>
-        doesElmMatchClassName(elm, selectorAST.name)
+        doesElmMatchClassName(elm, selectorAST.name),
       )
     }
     default: {
       throw new Error(
         `Couldn't apply selector AST for type: "${
           selectorAST.type
-        }" ${JSON.stringify(selectorAST, null, " ")}`
+        }" ${JSON.stringify(selectorAST, null, " ")}`,
       )
     }
   }

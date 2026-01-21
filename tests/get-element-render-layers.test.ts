@@ -4,13 +4,22 @@ import type { AnyCircuitElement } from "circuit-json"
 
 test("getElementRenderLayers returns correct layers for different element types", () => {
   expect(
-    getElementRenderLayers({ type: "pcb_smtpad", layer: "top" } as AnyCircuitElement),
+    getElementRenderLayers({
+      type: "pcb_smtpad",
+      layer: "top",
+    } as AnyCircuitElement),
   ).toEqual(["top_copper"])
   expect(
-    getElementRenderLayers({ type: "pcb_copper_pour", layer: "bottom" } as AnyCircuitElement),
+    getElementRenderLayers({
+      type: "pcb_copper_pour",
+      layer: "bottom",
+    } as AnyCircuitElement),
   ).toEqual(["bottom_copper"])
   expect(
-    getElementRenderLayers({ type: "pcb_silkscreen_text", layer: "top" } as AnyCircuitElement),
+    getElementRenderLayers({
+      type: "pcb_silkscreen_text",
+      layer: "top",
+    } as AnyCircuitElement),
   ).toEqual(["top_silkscreen"])
   expect(
     getElementRenderLayers({
@@ -24,5 +33,7 @@ test("getElementRenderLayers returns correct layers for different element types"
       route: [{ layer: "top" }, { layer: "bottom" }],
     } as AnyCircuitElement),
   ).toEqual(["top_copper", "bottom_copper"])
-  expect(getElementRenderLayers({ type: "pcb_board" } as AnyCircuitElement)).toEqual([])
+  expect(
+    getElementRenderLayers({ type: "pcb_board" } as AnyCircuitElement),
+  ).toEqual([])
 })

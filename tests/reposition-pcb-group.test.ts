@@ -116,21 +116,31 @@ test("repositionPcbGroupTo moves group elements and deep children", () => {
   // Move group to center at (20, 15)
   repositionPcbGroupTo(circuitJson, "g1", { x: 20, y: 15 })
 
-  const comp1 = circuitJson.find((e) => (e as any).pcb_component_id === "pc1") as any
-  const comp2 = circuitJson.find((e) => (e as any).pcb_component_id === "pc2") as any
-  const comp3 = circuitJson.find((e) => (e as any).pcb_component_id === "pc3") as any
+  const comp1 = circuitJson.find(
+    (e) => (e as any).pcb_component_id === "pc1",
+  ) as any
+  const comp2 = circuitJson.find(
+    (e) => (e as any).pcb_component_id === "pc2",
+  ) as any
+  const comp3 = circuitJson.find(
+    (e) => (e as any).pcb_component_id === "pc3",
+  ) as any
   const port1 = circuitJson.find((e) => (e as any).pcb_port_id === "pp1") as any
   const port2 = circuitJson.find((e) => (e as any).pcb_port_id === "pp2") as any
-  const pad1 = circuitJson.find((e) => (e as any).pcb_smtpad_id === "pad1") as any
-  const pad2 = circuitJson.find((e) => (e as any).pcb_smtpad_id === "pad2") as any
+  const pad1 = circuitJson.find(
+    (e) => (e as any).pcb_smtpad_id === "pad1",
+  ) as any
+  const pad2 = circuitJson.find(
+    (e) => (e as any).pcb_smtpad_id === "pad2",
+  ) as any
   const trace = circuitJson.find((e) => e.type === "pcb_trace") as any
 
   // Components in group should be moved
   expect(comp1.center.x).toBeCloseTo(17.5, 1) // moved from 0 to 17.5 (20 - 2.5)
-  expect(comp1.center.y).toBeCloseTo(15, 1)   // moved from 0 to 15
+  expect(comp1.center.y).toBeCloseTo(15, 1) // moved from 0 to 15
 
   expect(comp2.center.x).toBeCloseTo(22.5, 1) // moved from 5 to 22.5 (20 + 2.5)
-  expect(comp2.center.y).toBeCloseTo(15, 1)   // moved from 0 to 15
+  expect(comp2.center.y).toBeCloseTo(15, 1) // moved from 0 to 15
 
   // Component not in group should remain unchanged
   expect(comp3.center).toEqual({ x: 10, y: 10 })
@@ -173,7 +183,7 @@ test("repositionPcbGroupTo handles empty group", () => {
 
   // Should not throw error or modify anything
   repositionPcbGroupTo(circuitJson, "empty_group", { x: 10, y: 10 })
-  
+
   const comp = circuitJson.find((e) => e.type === "pcb_component") as any
   expect(comp.center).toEqual({ x: 0, y: 0 })
 })
@@ -193,7 +203,7 @@ test("repositionPcbGroupTo handles nonexistent group", () => {
 
   // Should not throw error or modify anything
   repositionPcbGroupTo(circuitJson, "nonexistent", { x: 10, y: 10 })
-  
+
   const comp = circuitJson.find((e) => e.type === "pcb_component") as any
   expect(comp.center).toEqual({ x: 0, y: 0 })
 })
