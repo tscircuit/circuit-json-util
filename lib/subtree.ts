@@ -2,7 +2,9 @@ import type { AnyCircuitElement } from "circuit-json"
 
 export type SubtreeOptions = {
   subcircuit_id?: string
+  subcircuit_ids?: string[]
   source_group_id?: string
+  source_board_id?: string
 }
 
 function connect(
@@ -31,9 +33,65 @@ export function buildSubtree(
 ): AnyCircuitElement[] {
   if (!opts.subcircuit_id && !opts.source_group_id) return [...soup]
 
+  // For subcircuit_id, also include nested subcircuits
+  let effectiveOpts = opts
+  if (opts.subcircuit_id) {
+    // Find all subcircuit_ids that are children of the target subcircuit
+    const subcircuitIds = new Set<string>([opts.subcircuit_id])
+
+    // Build group hierarchy
+    const groupChildren = new Map<string, string[]>()
+    const groupSubcircuit = new Map<string, string>()
+
+    for (const elm of soup) {
+      if (elm.type === "source_group") {
+        const groupId = elm.source_group_id
+        const subcircuitId = elm.subcircuit_id
+        if (subcircuitId) {
+          groupSubcircuit.set(groupId, subcircuitId)
+        }
+        const parentId = elm.parent_source_group_id
+        if (parentId) {
+          if (!groupChildren.has(parentId)) {
+            groupChildren.set(parentId, [])
+          }
+          groupChildren.get(parentId)!.push(groupId)
+        }
+      }
+    }
+
+    // Find the root group for the target subcircuit
+    let rootGroupId: string | undefined
+    for (const [groupId, subcircuitId] of groupSubcircuit) {
+      if (subcircuitId === opts.subcircuit_id) {
+        rootGroupId = groupId
+        break
+      }
+    }
+
+    if (rootGroupId) {
+      // Recursively collect all child subcircuit_ids
+      const collectChildSubcircuits = (groupId: string) => {
+        const children = groupChildren.get(groupId) || []
+        for (const childId of children) {
+          const childSubcircuit = groupSubcircuit.get(childId)
+          if (childSubcircuit) {
+            subcircuitIds.add(childSubcircuit)
+          }
+          collectChildSubcircuits(childId)
+        }
+      }
+      collectChildSubcircuits(rootGroupId)
+
+      // Update opts to include all these subcircuits
+      effectiveOpts = { ...opts, subcircuit_ids: Array.from(subcircuitIds) }
+    }
+  }
+
   const idMap = new Map<string, AnyCircuitElement>()
   for (const elm of soup) {
-    const idVal = (elm as any)[`${elm.type}_id`]
+    const idKey = `${elm.type}_id` as keyof typeof elm
+    const idVal = elm[idKey]
     if (typeof idVal === "string") {
       idMap.set(idVal, elm)
     }
@@ -41,9 +99,9 @@ export function buildSubtree(
 
   const adj = new Map<AnyCircuitElement, Set<AnyCircuitElement>>()
   for (const elm of soup) {
-    const entries = Object.entries(elm as any)
+    const entries = Object.entries(elm)
     for (const [key, val] of entries) {
-      if (key === "parent_source_group_id") continue
+      if (key === "parent_source_group_id") continue // Skip parent relationships to avoid traversing up
       if (key.endsWith("_id") && typeof val === "string") {
         const other = idMap.get(val)
         connect(adj, elm, other)
@@ -62,16 +120,36 @@ export function buildSubtree(
   const included = new Set<AnyCircuitElement>()
 
   for (const elm of soup) {
+    let shouldInclude = false
     if (
-      (opts.subcircuit_id &&
-        (elm as any).subcircuit_id === opts.subcircuit_id) ||
-      (opts.source_group_id &&
-        ((elm as any).source_group_id === opts.source_group_id ||
-          (Array.isArray((elm as any).member_source_group_ids) &&
-            (elm as any).member_source_group_ids.includes(
-              opts.source_group_id,
-            ))))
+      effectiveOpts.subcircuit_id &&
+      "subcircuit_id" in elm &&
+      elm.subcircuit_id === effectiveOpts.subcircuit_id
     ) {
+      shouldInclude = true
+    } else if (
+      effectiveOpts.subcircuit_ids &&
+      "subcircuit_id" in elm &&
+      elm.subcircuit_id &&
+      effectiveOpts.subcircuit_ids.includes(elm.subcircuit_id)
+    ) {
+      shouldInclude = true
+    } else if (
+      effectiveOpts.source_group_id &&
+      "source_group_id" in elm &&
+      elm.source_group_id === effectiveOpts.source_group_id
+    ) {
+      shouldInclude = true
+    } else if (
+      effectiveOpts.source_group_id &&
+      "member_source_group_ids" in elm &&
+      Array.isArray(elm.member_source_group_ids) &&
+      elm.member_source_group_ids.includes(effectiveOpts.source_group_id)
+    ) {
+      shouldInclude = true
+    }
+
+    if (shouldInclude) {
       queue.push(elm)
       included.add(elm)
     }

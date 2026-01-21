@@ -3,9 +3,7 @@
   "type": "module",
   "version": "0.0.76",
   "description": "Utility library for working with tscircuit circuit json",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "dist/index.js",
   "scripts": {
     "test": "bun test",
