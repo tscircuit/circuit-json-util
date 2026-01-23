@@ -113,7 +113,9 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
   } else if (
     elm.type === "pcb_silkscreen_circle" ||
-    elm.type === "pcb_silkscreen_rect"
+    elm.type === "pcb_silkscreen_rect" ||
+    elm.type === "pcb_silkscreen_oval" ||
+    elm.type === "pcb_silkscreen_pill"
   ) {
     elm.center = applyToPoint(matrix, elm.center)
   } else if (elm.type === "pcb_component") {
