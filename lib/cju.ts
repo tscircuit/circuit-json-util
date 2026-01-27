@@ -7,6 +7,7 @@ import type {
 import * as Soup from "circuit-json"
 import type { SubtreeOptions } from "./subtree"
 import { buildSubtree } from "./subtree"
+import { getElementPosition, setElementPosition } from "./get-element-position"
 
 export type CircuitJsonOps<
   K extends AnyCircuitElement["type"],
@@ -25,6 +26,10 @@ export type CircuitJsonOps<
     id: string,
     newProps: Partial<Extract<T, { type: K }>>,
   ) => Extract<T, { type: K }>
+  moveTo: (
+    id: string,
+    pos: { x: number; y: number },
+  ) => Extract<T, { type: K }> | null
   delete: (id: string) => void
   list: (where?: any) => Extract<T, { type: K }>[]
 }
@@ -186,6 +191,47 @@ export const cju: GetCircuitJsonUtilFn = ((
             if (!elm) return null
             Object.assign(elm, newProps)
             internalStore.editCount++
+            return elm
+          },
+          moveTo: (id: string, pos: { x: number; y: number }) => {
+            const elm = circuitJson.find(
+              (e) =>
+                e.type === component_type &&
+                (e as any)[`${component_type}_id`] === id,
+            ) as Extract<T, { type: K }> | undefined
+            if (!elm) return null
+            const cur = getElementPosition(elm as any)
+            if (cur) {
+              const dx = pos.x - cur.x
+              const dy = pos.y - cur.y
+              setElementPosition(elm as any, pos)
+              if (component_type === "schematic_component") {
+                for (const ce of circuitJson) {
+                  if (
+                    ce.type === "schematic_port" &&
+                    (ce as any).schematic_component_id === id
+                  ) {
+                    const cp = getElementPosition(ce)
+                    if (cp)
+                      setElementPosition(ce, {
+                        x: cp.x + dx,
+                        y: cp.y + dy,
+                      })
+                  } else if (
+                    ce.type === "schematic_text" &&
+                    (ce as any).schematic_component_id === id
+                  ) {
+                    const cp = getElementPosition(ce)
+                    if (cp)
+                      setElementPosition(ce, {
+                        x: cp.x + dx,
+                        y: cp.y + dy,
+                      })
+                  }
+                }
+              }
+              internalStore.editCount++
+            }
             return elm
           },
           select: (selector: string) => {
