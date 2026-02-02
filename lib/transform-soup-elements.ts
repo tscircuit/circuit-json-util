@@ -143,6 +143,22 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.y1 = p1t.y
     elm.x2 = p2t.x
     elm.y2 = p2t.y
+  } else if (elm.type === "pcb_cutout") {
+    elm.center = applyToPoint(matrix, elm.center)
+    if (elm.shape === "polygon") {
+      elm.points = elm.points.map((p) => {
+        const tp = applyToPoint(matrix, p) as { x: number; y: number }
+        p.x = tp.x
+        p.y = tp.y
+        return p
+      })
+    } else if (elm.shape === "rect" && flipPadWidthHeight) {
+      ;[elm.width, elm.height] = [elm.height, elm.width]
+    }
+    if (typeof elm.rotation === "number") {
+      elm.rotation = elm.rotation + (tsr.rotation.angle / Math.PI) * 180
+      elm.rotation = elm.rotation % 360
+    }
   } else if (elm.type === "cad_component") {
     const newPos = applyToPoint(matrix, {
       x: elm.position.x,
