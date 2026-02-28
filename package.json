@@ -3,9 +3,7 @@
   "type": "module",
   "version": "0.0.77",
   "description": "Utility library for working with tscircuit circuit json",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "dist/index.js",
   "scripts": {
     "test": "bun test",
@@ -27,7 +25,7 @@
     "@biomejs/biome": "^1.9.2",
     "@tscircuit/miniflex": "^0.0.4",
     "@types/bun": "^1.2.9",
-    "circuit-json": "^0.0.346",
+    "circuit-json": "^0.0.387",
     "esbuild": "^0.20.2",
     "esbuild-register": "^3.5.0",
     "transformation-matrix": "^2.16.1",

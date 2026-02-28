@@ -53,6 +53,18 @@ export function getElementRenderLayers(
     return [`${layer}_fabrication_note` as PcbRenderLayer]
   }
 
+  // Courtyard elements
+
+  if (
+    element.type === "pcb_courtyard_circle" ||
+    element.type === "pcb_courtyard_polygon" ||
+    element.type === "pcb_courtyard_rect" ||
+    element.type === "pcb_courtyard_outline"
+  ) {
+    const layer = element.layer
+    return [`${layer}_courtyard` as PcbRenderLayer]
+  }
+
   // Elements without layer filtering (always drawn)
   // These include: pcb_board, pcb_hole, pcb_plated_hole, pcb_via, pcb_cutout,
   // pcb_note_rect, pcb_note_path, pcb_note_text, pcb_note_line, pcb_note_dimension
