@@ -32,6 +32,7 @@ export type CircuitJsonOps<
 export type CircuitJsonUtilObjects = {
   [K in AnyCircuitElement["type"]]: CircuitJsonOps<K, AnyCircuitElement>
 } & {
+  insert: (elm: AnyCircuitElementInput) => AnyCircuitElement
   subtree: (where?: any) => CircuitJsonUtilObjects
   toArray: () => AnyCircuitElement[]
   editCount: number
@@ -103,6 +104,35 @@ export const cju: GetCircuitJsonUtilFn = ((
         if (prop === "subtree") {
           return (opts: SubtreeOptions) =>
             cju(buildSubtree(circuitJson, opts), options)
+        }
+
+        if (prop === "insert") {
+          return (elm: AnyCircuitElementInput) => {
+            const component_type = elm.type
+            if (!component_type) {
+              throw new Error("insert requires an element with a type")
+            }
+
+            internalStore.counts[component_type] ??= -1
+            internalStore.counts[component_type]++
+            const index = internalStore.counts[component_type]
+
+            const newElm = {
+              ...elm,
+              type: component_type,
+              [`${component_type}_id`]: `${component_type}_${index}`,
+            } as AnyCircuitElement
+
+            if (options.validateInserts) {
+              const parser =
+                (Soup as any)[component_type] ?? Soup.any_soup_element
+              parser.parse(newElm)
+            }
+
+            circuitJson.push(newElm)
+            internalStore.editCount++
+            return newElm
+          }
         }
 
         const component_type = prop
