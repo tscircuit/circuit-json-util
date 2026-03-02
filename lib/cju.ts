@@ -33,6 +33,7 @@ export type CircuitJsonUtilObjects = {
   [K in AnyCircuitElement["type"]]: CircuitJsonOps<K, AnyCircuitElement>
 } & {
   insert: (elm: AnyCircuitElementInput) => AnyCircuitElement
+  insertAll: (elms: AnyCircuitElementInput[]) => AnyCircuitElement[]
   subtree: (where?: any) => CircuitJsonUtilObjects
   toArray: () => AnyCircuitElement[]
   editCount: number
@@ -132,6 +133,12 @@ export const cju: GetCircuitJsonUtilFn = ((
             circuitJson.push(newElm)
             internalStore.editCount++
             return newElm
+          }
+        }
+
+        if (prop === "insertAll") {
+          return (elms: AnyCircuitElementInput[]) => {
+            return elms.map((elm) => su.insert(elm))
           }
         }
 
