@@ -108,12 +108,14 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.center = applyToPoint(matrix, elm.center)
   } else if (
     elm.type === "pcb_silkscreen_text" ||
-    elm.type === "pcb_fabrication_note_text"
+    elm.type === "pcb_fabrication_note_text" ||
+    elm.type === "pcb_note_text"
   ) {
     elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
   } else if (
     elm.type === "pcb_silkscreen_circle" ||
-    elm.type === "pcb_silkscreen_rect"
+    elm.type === "pcb_silkscreen_rect" ||
+    elm.type === "pcb_note_rect"
   ) {
     elm.center = applyToPoint(matrix, elm.center)
   } else if (elm.type === "pcb_component") {
@@ -126,7 +128,8 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   } else if (
     elm.type === "pcb_silkscreen_path" ||
     elm.type === "pcb_trace" ||
-    elm.type === "pcb_fabrication_note_path"
+    elm.type === "pcb_fabrication_note_path" ||
+    elm.type === "pcb_note_path"
   ) {
     elm.route = elm.route.map((rp) => {
       const tp = applyToPoint(matrix, rp) as { x: number; y: number }
@@ -134,7 +137,10 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
       rp.y = tp.y
       return rp
     })
-  } else if (elm.type === "pcb_silkscreen_line") {
+  } else if (
+    elm.type === "pcb_silkscreen_line" ||
+    elm.type === "pcb_note_line"
+  ) {
     const p1 = { x: elm.x1, y: elm.y1 }
     const p2 = { x: elm.x2, y: elm.y2 }
     const p1t = applyToPoint(matrix, p1)
