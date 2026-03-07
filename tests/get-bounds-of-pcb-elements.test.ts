@@ -70,3 +70,144 @@ test("getBoundsOfPcbElements with polygon-shaped SMT pad", () => {
     maxY: 0.47454819999995834,
   })
 })
+
+const expectBoundsClose = (
+  actual: { minX: number; minY: number; maxX: number; maxY: number },
+  expected: { minX: number; minY: number; maxX: number; maxY: number },
+) => {
+  expect(actual.minX).toBeCloseTo(expected.minX, 8)
+  expect(actual.minY).toBeCloseTo(expected.minY, 8)
+  expect(actual.maxX).toBeCloseTo(expected.maxX, 8)
+  expect(actual.maxY).toBeCloseTo(expected.maxY, 8)
+}
+
+test("getBoundsOfPcbElements handles pcb_plated_hole oval rotation", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      shape: "oval",
+      pcb_plated_hole_id: "ph1",
+      x: 10,
+      y: 20,
+      outer_width: 8,
+      outer_height: 4,
+      hole_width: 4,
+      hole_height: 2,
+      ccw_rotation: 30,
+      layers: ["top", "bottom"],
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+  expectBoundsClose(bounds, {
+    minX: 5.53589838,
+    minY: 16.26794919,
+    maxX: 14.46410162,
+    maxY: 23.73205081,
+  })
+})
+
+test("getBoundsOfPcbElements handles pcb_plated_hole circular_hole_with_rect_pad", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      shape: "circular_hole_with_rect_pad",
+      pcb_plated_hole_id: "ph2",
+      x: 0,
+      y: 0,
+      hole_shape: "circle",
+      pad_shape: "rect",
+      hole_diameter: 4,
+      rect_pad_width: 6,
+      rect_pad_height: 2,
+      hole_offset_x: 4,
+      hole_offset_y: 0,
+      layers: ["top", "bottom"],
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+  expect(bounds).toEqual({ minX: -3, minY: -2, maxX: 6, maxY: 2 })
+})
+
+test("getBoundsOfPcbElements handles pcb_plated_hole pill_hole_with_rect_pad", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      shape: "pill_hole_with_rect_pad",
+      pcb_plated_hole_id: "ph3",
+      x: 0,
+      y: 0,
+      hole_shape: "pill",
+      pad_shape: "rect",
+      hole_width: 10,
+      hole_height: 2,
+      rect_pad_width: 4,
+      rect_pad_height: 4,
+      hole_offset_x: 5,
+      hole_offset_y: 0,
+      layers: ["top", "bottom"],
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+  expect(bounds).toEqual({ minX: -2, minY: -2, maxX: 10, maxY: 2 })
+})
+
+test("getBoundsOfPcbElements handles pcb_plated_hole rotated_pill_hole_with_rect_pad", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      shape: "rotated_pill_hole_with_rect_pad",
+      pcb_plated_hole_id: "ph4",
+      x: 0,
+      y: 0,
+      hole_shape: "rotated_pill",
+      pad_shape: "rect",
+      hole_width: 8,
+      hole_height: 2,
+      hole_ccw_rotation: 45,
+      rect_pad_width: 4,
+      rect_pad_height: 2,
+      rect_ccw_rotation: 0,
+      hole_offset_x: 0,
+      hole_offset_y: 0,
+      layers: ["top", "bottom"],
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+  expectBoundsClose(bounds, {
+    minX: -3.53553391,
+    minY: -3.53553391,
+    maxX: 3.53553391,
+    maxY: 3.53553391,
+  })
+})
+
+test("getBoundsOfPcbElements handles pcb_plated_hole hole_with_polygon_pad with rotation", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      shape: "hole_with_polygon_pad",
+      pcb_plated_hole_id: "ph5",
+      x: 10,
+      y: 5,
+      hole_shape: "circle",
+      hole_diameter: 2,
+      hole_offset_x: 3,
+      hole_offset_y: 0,
+      ccw_rotation: 90,
+      pad_outline: [
+        { x: -1, y: -2 },
+        { x: 2, y: -2 },
+        { x: 2, y: 1 },
+        { x: -1, y: 1 },
+      ],
+      layers: ["top", "bottom"],
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+  expect(bounds).toEqual({ minX: 9, minY: 4, maxX: 12, maxY: 7 })
+})
