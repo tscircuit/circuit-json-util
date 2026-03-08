@@ -70,3 +70,51 @@ test("getBoundsOfPcbElements with polygon-shaped SMT pad", () => {
     maxY: 0.47454819999995834,
   })
 })
+
+test("getBoundsOfPcbElements with pcb_hole uses hole_diameter", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_hole",
+      pcb_hole_id: "pcb_hole_0",
+      hole_shape: "circle",
+      hole_diameter: 3.2,
+      x: -15.5,
+      y: -15.5,
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds).toEqual({
+    minX: -17.1,
+    minY: -17.1,
+    maxX: -13.9,
+    maxY: -13.9,
+  })
+})
+
+test("getBoundsOfPcbElements with rectangular plated hole pad includes pad extents", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "pcb_plated_hole_4",
+      x: -15.81,
+      y: -13.5,
+      shape: "circular_hole_with_rect_pad",
+      hole_diameter: 1,
+      rect_pad_width: 1.5,
+      rect_pad_height: 1.5,
+      hole_offset_x: 0,
+      hole_offset_y: 0,
+      rect_ccw_rotation: 0,
+      layers: ["top", "bottom"],
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds.minX).toBeCloseTo(-16.56)
+  expect(bounds.minY).toBeCloseTo(-14.25)
+  expect(bounds.maxX).toBeCloseTo(-15.06)
+  expect(bounds.maxY).toBeCloseTo(-12.75)
+})
