@@ -47,6 +47,7 @@ It reduces the amount of code to retrieve or join elements from circuit json, it
 | `getStringFromCircuitJsonTree` | [`lib/getStringFromCircuitJsonTree.ts`](./lib/getStringFromCircuitJsonTree.ts) | Renders a circuit-json tree as text for debugging. |
 | `getMinimumFlexContainer` | [`lib/get-minimum-flex-container.ts`](./lib/get-minimum-flex-container.ts) | Computes a minimum flex container from layout constraints. |
 | `getElementRenderLayers` | [`lib/get-element-render-layers.ts`](./lib/get-element-render-layers.ts) | Returns schematic/PCB render layers used for an element. |
+| `computeGapBetweenCopper` | [`lib/compute-gap-between-copper.ts`](./lib/compute-gap-between-copper.ts) | Computes the minimum copper-to-copper gap between two circuit elements by decomposing them into primitive shapes. |
 
 ## Standard Usage
 
@@ -134,3 +135,39 @@ repositionSchematicGroupTo(circuitJson, "g1", { x: 20, y: 15 })
 ```
 
 
+
+## Compute Copper Gap
+
+Use `computeGapBetweenCopper` to calculate the minimum copper clearance between two PCB elements.
+
+It decomposes each element into primitive shapes (`circle`, `rect`, `polygon`) and returns the minimum distance across all shape-pair combinations. If an element does not produce any supported copper shapes, the function returns `Infinity`.
+
+```ts
+import { computeGapBetweenCopper } from "@tscircuit/circuit-json-util"
+
+const gap = computeGapBetweenCopper(
+  {
+    type: "pcb_smtpad",
+    pcb_smtpad_id: "pad1",
+    shape: "circle",
+    x: 0,
+    y: 0,
+    radius: 0.5,
+    layer: "top",
+  },
+  {
+    type: "pcb_smtpad",
+    pcb_smtpad_id: "pad2",
+    shape: "rect",
+    x: 2,
+    y: 0,
+    width: 1,
+    height: 1,
+    layer: "top",
+  },
+)
+
+console.log(gap) // 1
+```
+
+Currently supported decomposition targets include `pcb_smtpad` (circle/rect/polygon), `pcb_trace` wire segments, `pcb_via`, and `pcb_plated_hole`.

@@ -19,6 +19,7 @@ export * from "./lib/getCircuitJsonTree"
 export * from "./lib/getStringFromCircuitJsonTree"
 export * from "./lib/get-minimum-flex-container"
 export * from "./lib/get-element-render-layers"
+export * from "./lib/compute-gap-between-copper"
 
 export {
   transformPCBElement as transformPcbElement,
