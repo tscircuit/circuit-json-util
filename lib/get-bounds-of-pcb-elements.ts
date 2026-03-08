@@ -1,5 +1,66 @@
 import type { AnyCircuitElement } from "circuit-json"
 
+const mergeBounds = (
+  currentBounds: {
+    minX: number
+    minY: number
+    maxX: number
+    maxY: number
+  },
+  nextBounds: {
+    minX: number
+    minY: number
+    maxX: number
+    maxY: number
+  },
+) => ({
+  minX: Math.min(currentBounds.minX, nextBounds.minX),
+  minY: Math.min(currentBounds.minY, nextBounds.minY),
+  maxX: Math.max(currentBounds.maxX, nextBounds.maxX),
+  maxY: Math.max(currentBounds.maxY, nextBounds.maxY),
+})
+
+const getCircleBounds = (x: number, y: number, diameter: number) => {
+  const radius = diameter / 2
+  return {
+    minX: x - radius,
+    minY: y - radius,
+    maxX: x + radius,
+    maxY: y + radius,
+  }
+}
+
+const getRotatedRectBounds = (
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  rotationDegrees: number,
+) => {
+  const halfWidth = width / 2
+  const halfHeight = height / 2
+  const theta = (rotationDegrees * Math.PI) / 180
+  const cosTheta = Math.cos(theta)
+  const sinTheta = Math.sin(theta)
+
+  const corners = [
+    { x: -halfWidth, y: -halfHeight },
+    { x: halfWidth, y: -halfHeight },
+    { x: halfWidth, y: halfHeight },
+    { x: -halfWidth, y: halfHeight },
+  ].map((corner) => ({
+    x: x + corner.x * cosTheta - corner.y * sinTheta,
+    y: y + corner.x * sinTheta + corner.y * cosTheta,
+  }))
+
+  return {
+    minX: Math.min(...corners.map((corner) => corner.x)),
+    minY: Math.min(...corners.map((corner) => corner.y)),
+    maxX: Math.max(...corners.map((corner) => corner.x)),
+    maxY: Math.max(...corners.map((corner) => corner.y)),
+  }
+}
+
 export const getBoundsOfPcbElements = (
   elements: AnyCircuitElement[],
 ): { minX: number; minY: number; maxX: number; maxY: number } => {
@@ -24,6 +85,74 @@ export const getBoundsOfPcbElements = (
         maxY = Math.max(maxY, point.y)
       }
       continue
+    }
+
+    if (elm.type === "pcb_hole" && elm.hole_shape === "circle") {
+      const holeBounds = getCircleBounds(elm.x, elm.y, elm.hole_diameter)
+      minX = Math.min(minX, holeBounds.minX)
+      minY = Math.min(minY, holeBounds.minY)
+      maxX = Math.max(maxX, holeBounds.maxX)
+      maxY = Math.max(maxY, holeBounds.maxY)
+      continue
+    }
+
+    if (elm.type === "pcb_plated_hole") {
+      let platedHoleBounds:
+        | {
+            minX: number
+            minY: number
+            maxX: number
+            maxY: number
+          }
+        | undefined
+
+      if ("outer_diameter" in elm && typeof elm.outer_diameter === "number") {
+        platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.outer_diameter)
+      } else if (
+        "hole_diameter" in elm &&
+        typeof elm.hole_diameter === "number"
+      ) {
+        platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.hole_diameter)
+      }
+
+      if (
+        "rect_pad_width" in elm &&
+        typeof elm.rect_pad_width === "number" &&
+        "rect_pad_height" in elm &&
+        typeof elm.rect_pad_height === "number"
+      ) {
+        const rectBounds = getRotatedRectBounds(
+          elm.x,
+          elm.y,
+          elm.rect_pad_width,
+          elm.rect_pad_height,
+          "rect_ccw_rotation" in elm ? (elm.rect_ccw_rotation ?? 0) : 0,
+        )
+        platedHoleBounds = platedHoleBounds
+          ? mergeBounds(platedHoleBounds, rectBounds)
+          : rectBounds
+      }
+
+      if ("hole_diameter" in elm && typeof elm.hole_diameter === "number") {
+        const drillBounds = getCircleBounds(
+          elm.x +
+            ("hole_offset_x" in elm ? ((elm.hole_offset_x as number) ?? 0) : 0),
+          elm.y +
+            ("hole_offset_y" in elm ? ((elm.hole_offset_y as number) ?? 0) : 0),
+          elm.hole_diameter,
+        )
+        platedHoleBounds = platedHoleBounds
+          ? mergeBounds(platedHoleBounds, drillBounds)
+          : drillBounds
+      }
+
+      if (platedHoleBounds) {
+        minX = Math.min(minX, platedHoleBounds.minX)
+        minY = Math.min(minY, platedHoleBounds.minY)
+        maxX = Math.max(maxX, platedHoleBounds.maxX)
+        maxY = Math.max(maxY, platedHoleBounds.maxY)
+        continue
+      }
     }
 
     let centerX: number | undefined
