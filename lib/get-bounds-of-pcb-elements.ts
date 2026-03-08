@@ -106,14 +106,19 @@ export const getBoundsOfPcbElements = (
           }
         | undefined
 
-      if (typeof elm.outer_diameter === "number") {
+      if ("outer_diameter" in elm && typeof elm.outer_diameter === "number") {
         platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.outer_diameter)
-      } else if (typeof elm.hole_diameter === "number") {
+      } else if (
+        "hole_diameter" in elm &&
+        typeof elm.hole_diameter === "number"
+      ) {
         platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.hole_diameter)
       }
 
       if (
+        "rect_pad_width" in elm &&
         typeof elm.rect_pad_width === "number" &&
+        "rect_pad_height" in elm &&
         typeof elm.rect_pad_height === "number"
       ) {
         const rectBounds = getRotatedRectBounds(
@@ -121,17 +126,19 @@ export const getBoundsOfPcbElements = (
           elm.y,
           elm.rect_pad_width,
           elm.rect_pad_height,
-          elm.rect_ccw_rotation ?? 0,
+          "rect_ccw_rotation" in elm ? (elm.rect_ccw_rotation ?? 0) : 0,
         )
         platedHoleBounds = platedHoleBounds
           ? mergeBounds(platedHoleBounds, rectBounds)
           : rectBounds
       }
 
-      if (typeof elm.hole_diameter === "number") {
+      if ("hole_diameter" in elm && typeof elm.hole_diameter === "number") {
         const drillBounds = getCircleBounds(
-          elm.x + (elm.hole_offset_x ?? 0),
-          elm.y + (elm.hole_offset_y ?? 0),
+          elm.x +
+            ("hole_offset_x" in elm ? ((elm.hole_offset_x as number) ?? 0) : 0),
+          elm.y +
+            ("hole_offset_y" in elm ? ((elm.hole_offset_y as number) ?? 0) : 0),
           elm.hole_diameter,
         )
         platedHoleBounds = platedHoleBounds
