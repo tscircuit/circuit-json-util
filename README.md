@@ -47,6 +47,7 @@ It reduces the amount of code to retrieve or join elements from circuit json, it
 | `getStringFromCircuitJsonTree` | [`lib/getStringFromCircuitJsonTree.ts`](./lib/getStringFromCircuitJsonTree.ts) | Renders a circuit-json tree as text for debugging. |
 | `getMinimumFlexContainer` | [`lib/get-minimum-flex-container.ts`](./lib/get-minimum-flex-container.ts) | Computes a minimum flex container from layout constraints. |
 | `getElementRenderLayers` | [`lib/get-element-render-layers.ts`](./lib/get-element-render-layers.ts) | Returns schematic/PCB render layers used for an element. |
+| `computeClearanceBetweenElements` | [`lib/compute-clearance-between-elements.ts`](./lib/compute-clearance-between-elements.ts) | Computes the minimum edge-to-edge clearance between two circuit elements using geometric decomposition. |
 | `computeGapBetweenCopper` | [`lib/compute-gap-between-copper.ts`](./lib/compute-gap-between-copper.ts) | Computes the minimum copper-to-copper gap between two circuit elements by decomposing them into primitive shapes. |
 
 ## Standard Usage
