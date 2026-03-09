@@ -20,6 +20,7 @@ export * from "./lib/getStringFromCircuitJsonTree"
 export * from "./lib/get-minimum-flex-container"
 export * from "./lib/get-element-render-layers"
 export * from "./lib/compute-gap-between-copper"
+export * from "./lib/compute-clearance-between-elements"
 
 export {
   transformPCBElement as transformPcbElement,
