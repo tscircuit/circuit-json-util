@@ -29,3 +29,4 @@ export {
 
 export { default as cju } from "./lib/cju"
 export { default as cjuIndexed } from "./lib/cju-indexed"
+export * from "./lib/categorize-error-or-warning"
