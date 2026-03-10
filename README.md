@@ -49,7 +49,7 @@ It reduces the amount of code to retrieve or join elements from circuit json, it
 | `getElementRenderLayers` | [`lib/get-element-render-layers.ts`](./lib/get-element-render-layers.ts) | Returns schematic/PCB render layers used for an element. |
 | `computeClearanceBetweenElements` | [`lib/compute-clearance-between-elements.ts`](./lib/compute-clearance-between-elements.ts) | Computes the minimum edge-to-edge clearance between two circuit elements using geometric decomposition. |
 | `computeGapBetweenCopper` | [`lib/compute-gap-between-copper.ts`](./lib/compute-gap-between-copper.ts) | Computes the minimum copper-to-copper gap between two circuit elements by decomposing them into primitive shapes. |
-| `categorizeErrorOrWarning` | [`lib/categorize-error-or-warning.ts`](./lib/categorize-error-or-warning.ts) | Categorizes DRC error/warning types into `"netlist"`, `"placement"`, `"routing"`, or `"unknown"`. |
+| `categorizeErrorOrWarning` | [`lib/categorize-error-or-warning.ts`](./lib/categorize-error-or-warning.ts) | Categorizes DRC error/warning types into `"netlist"`, `"pin_specification"`, `"placement"`, `"routing"`, or `"unknown"`. |
 
 ## Standard Usage
 
@@ -117,6 +117,7 @@ Use `categorizeErrorOrWarning` to map DRC result types to high-level check categ
 import { categorizeErrorOrWarning } from "@tscircuit/circuit-json-util"
 
 categorizeErrorOrWarning("source_pin_must_be_connected_error") // "netlist"
+categorizeErrorOrWarning("source_no_power_pin_defined_warning") // "pin_specification"
 categorizeErrorOrWarning({ error_type: "pcb_trace_error" }) // "routing"
 categorizeErrorOrWarning({
   warning_type: "pcb_connector_not_in_accessible_orientation_warning",
