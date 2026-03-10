@@ -1,4 +1,9 @@
-export type DrcCategory = "netlist" | "placement" | "routing" | "unknown"
+export type DrcCategory =
+  | "netlist"
+  | "pin_specification"
+  | "placement"
+  | "routing"
+  | "unknown"
 
 type DrcLike = {
   type?: string
@@ -7,6 +12,12 @@ type DrcLike = {
 }
 
 const NETLIST_TYPES = new Set(["source_pin_must_be_connected_error"])
+
+const PIN_SPECIFICATION_TYPES = new Set([
+  "source_component_pins_underspecified_warning",
+  "source_no_power_pin_defined_warning",
+  "source_no_ground_pin_defined_warning",
+])
 
 const PLACEMENT_TYPES = new Set([
   "pcb_placement_error",
@@ -33,6 +44,7 @@ export const categorizeErrorOrWarning = (
   if (!drcType) return "unknown"
 
   if (NETLIST_TYPES.has(drcType)) return "netlist"
+  if (PIN_SPECIFICATION_TYPES.has(drcType)) return "pin_specification"
   if (PLACEMENT_TYPES.has(drcType)) return "placement"
   if (ROUTING_TYPES.has(drcType)) return "routing"
 

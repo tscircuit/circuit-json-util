@@ -5,6 +5,15 @@ test("categorizeErrorOrWarning categorizes known DRC error/warning types", () =>
   expect(categorizeErrorOrWarning("source_pin_must_be_connected_error")).toBe(
     "netlist",
   )
+  expect(
+    categorizeErrorOrWarning("source_component_pins_underspecified_warning"),
+  ).toBe("pin_specification")
+  expect(categorizeErrorOrWarning("source_no_power_pin_defined_warning")).toBe(
+    "pin_specification",
+  )
+  expect(categorizeErrorOrWarning("source_no_ground_pin_defined_warning")).toBe(
+    "pin_specification",
+  )
 
   expect(categorizeErrorOrWarning("pcb_component_outside_board_error")).toBe(
     "placement",
@@ -25,6 +34,11 @@ test("categorizeErrorOrWarning reads error_type/warning_type/type from objects",
       error_type: "source_pin_must_be_connected_error",
     }),
   ).toBe("netlist")
+  expect(
+    categorizeErrorOrWarning({
+      warning_type: "source_no_power_pin_defined_warning",
+    }),
+  ).toBe("pin_specification")
 
   expect(
     categorizeErrorOrWarning({
