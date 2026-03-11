@@ -115,7 +115,9 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   } else if (
     elm.type === "pcb_silkscreen_circle" ||
     elm.type === "pcb_silkscreen_rect" ||
-    elm.type === "pcb_note_rect"
+    elm.type === "pcb_note_rect" ||
+    elm.type === "pcb_courtyard_rect" ||
+    elm.type === "pcb_courtyard_circle"
   ) {
     elm.center = applyToPoint(matrix, elm.center)
   } else if (elm.type === "pcb_component") {
@@ -125,6 +127,20 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     if (flipPadWidthHeight) {
       ;[elm.width, elm.height] = [elm.height, elm.width]
     }
+  } else if (elm.type === "pcb_courtyard_outline") {
+    elm.outline = elm.outline.map((p) => {
+      const tp = applyToPoint(matrix, p) as { x: number; y: number }
+      p.x = tp.x
+      p.y = tp.y
+      return p
+    })
+  } else if (elm.type === "pcb_courtyard_polygon") {
+    elm.points = elm.points.map((p) => {
+      const tp = applyToPoint(matrix, p) as { x: number; y: number }
+      p.x = tp.x
+      p.y = tp.y
+      return p
+    })
   } else if (
     elm.type === "pcb_silkscreen_path" ||
     elm.type === "pcb_trace" ||
