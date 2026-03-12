@@ -213,6 +213,20 @@ export const getBoundsOfPcbElements = (
         maxX = Math.max(maxX, point.x)
         maxY = Math.max(maxY, point.y)
       }
+    } else if (elm.type === "pcb_courtyard_outline") {
+      for (const point of elm.outline) {
+        minX = Math.min(minX, point.x)
+        minY = Math.min(minY, point.y)
+        maxX = Math.max(maxX, point.x)
+        maxY = Math.max(maxY, point.y)
+      }
+    } else if (elm.type === "pcb_courtyard_polygon") {
+      for (const point of elm.points) {
+        minX = Math.min(minX, point.x)
+        minY = Math.min(minY, point.y)
+        maxX = Math.max(maxX, point.x)
+        maxY = Math.max(maxY, point.y)
+      }
     }
   }
 

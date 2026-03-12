@@ -93,6 +93,83 @@ test("getBoundsOfPcbElements with pcb_hole uses hole_diameter", () => {
   })
 })
 
+test("getBoundsOfPcbElements with pcb_courtyard_rect", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_courtyard_rect",
+      pcb_courtyard_rect_id: "cr1",
+      pcb_component_id: "pc1",
+      center: { x: 2, y: 3 },
+      width: 4,
+      height: 6,
+      layer: "top",
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds).toEqual({ minX: 0, minY: 0, maxX: 4, maxY: 6 })
+})
+
+test("getBoundsOfPcbElements with pcb_courtyard_circle", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_courtyard_circle",
+      pcb_courtyard_circle_id: "cc1",
+      pcb_component_id: "pc1",
+      center: { x: 5, y: 5 },
+      radius: 3,
+      layer: "top",
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds).toEqual({ minX: 2, minY: 2, maxX: 8, maxY: 8 })
+})
+
+test("getBoundsOfPcbElements with pcb_courtyard_outline", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_courtyard_outline",
+      pcb_courtyard_outline_id: "co1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      outline: [
+        { x: -3, y: -2 },
+        { x: 7, y: -2 },
+        { x: 7, y: 4 },
+        { x: -3, y: 4 },
+      ],
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds).toEqual({ minX: -3, minY: -2, maxX: 7, maxY: 4 })
+})
+
+test("getBoundsOfPcbElements with pcb_courtyard_polygon", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_courtyard_polygon",
+      pcb_courtyard_polygon_id: "cp1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      points: [
+        { x: 1, y: 1 },
+        { x: 6, y: 1 },
+        { x: 6, y: 8 },
+        { x: 1, y: 8 },
+      ],
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds).toEqual({ minX: 1, minY: 1, maxX: 6, maxY: 8 })
+})
+
 test("getBoundsOfPcbElements with rectangular plated hole pad includes pad extents", () => {
   const elements: AnyCircuitElement[] = [
     {
