@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test"
 import { getElementRenderLayers } from "../lib/get-element-render-layers"
-import type { AnyCircuitElement, PcbRenderLayer } from "circuit-json"
+import type { AnyCircuitElement } from "circuit-json"
 
 test("getElementRenderLayers returns correct layers for different element types", () => {
   expect(
