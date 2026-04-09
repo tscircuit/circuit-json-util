@@ -50,32 +50,41 @@ test("getElementRenderLayers returns correct layers for different element types"
   ).toEqual([])
 })
 
-test("pcb_note elements return user_note layers", () => {
-  const expectedLayers: PcbRenderLayer[] = ["top_user_note", "bottom_user_note"]
-
+test("pcb_note elements return user_note layer based on element layer", () => {
   expect(
     getElementRenderLayers({
       type: "pcb_note_rect",
+      layer: "top",
     } as AnyCircuitElement),
-  ).toEqual(expectedLayers)
+  ).toEqual(["top_user_note"])
+  expect(
+    getElementRenderLayers({
+      type: "pcb_note_rect",
+      layer: "bottom",
+    } as AnyCircuitElement),
+  ).toEqual(["bottom_user_note"])
   expect(
     getElementRenderLayers({
       type: "pcb_note_text",
+      layer: "top",
     } as AnyCircuitElement),
-  ).toEqual(expectedLayers)
+  ).toEqual(["top_user_note"])
   expect(
     getElementRenderLayers({
       type: "pcb_note_line",
+      layer: "bottom",
     } as AnyCircuitElement),
-  ).toEqual(expectedLayers)
+  ).toEqual(["bottom_user_note"])
   expect(
     getElementRenderLayers({
       type: "pcb_note_path",
+      layer: "top",
     } as AnyCircuitElement),
-  ).toEqual(expectedLayers)
+  ).toEqual(["top_user_note"])
   expect(
     getElementRenderLayers({
       type: "pcb_note_dimension",
+      layer: "bottom",
     } as AnyCircuitElement),
-  ).toEqual(expectedLayers)
+  ).toEqual(["bottom_user_note"])
 })
