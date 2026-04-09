@@ -65,8 +65,21 @@ export function getElementRenderLayers(
     return [`${layer}_courtyard` as PcbRenderLayer]
   }
 
+  // PCB note elements (user annotations)
+  // These don't have a layer field in circuit-json, so they belong to both
+  // user_note layers. This prevents them from leaking into copper/silkscreen/
+  // soldermask renders when specific layers are requested.
+  if (
+    element.type === "pcb_note_rect" ||
+    element.type === "pcb_note_path" ||
+    element.type === "pcb_note_text" ||
+    element.type === "pcb_note_line" ||
+    element.type === "pcb_note_dimension"
+  ) {
+    return ["top_user_note", "bottom_user_note"]
+  }
+
   // Elements without layer filtering (always drawn)
-  // These include: pcb_board, pcb_hole, pcb_plated_hole, pcb_via, pcb_cutout,
-  // pcb_note_rect, pcb_note_path, pcb_note_text, pcb_note_line, pcb_note_dimension
+  // These include: pcb_board, pcb_hole, pcb_plated_hole, pcb_via, pcb_cutout
   return []
 }
