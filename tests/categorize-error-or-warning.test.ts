@@ -18,6 +18,9 @@ test("categorizeErrorOrWarning categorizes known DRC error/warning types", () =>
   expect(categorizeErrorOrWarning("pcb_component_outside_board_error")).toBe(
     "placement",
   )
+  expect(categorizeErrorOrWarning("pcb_courtyard_overlap_error")).toBe(
+    "placement",
+  )
   expect(
     categorizeErrorOrWarning(
       "pcb_connector_not_in_accessible_orientation_warning",
