@@ -22,6 +22,7 @@ const PIN_SPECIFICATION_TYPES = new Set([
 const PLACEMENT_TYPES = new Set([
   "pcb_placement_error",
   "pcb_component_outside_board_error",
+  "pcb_courtyard_overlap_error",
   "pcb_footprint_overlap_error",
   "pcb_connector_not_in_accessible_orientation_warning",
 ])
