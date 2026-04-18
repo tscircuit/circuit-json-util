@@ -7,10 +7,10 @@ import {
 } from "./geometry"
 import type { Circle, CopperShape, Polygon, Rect } from "./types"
 
-const distanceBetweenCircleAndCircle = (a: Circle, b: Circle) =>
+export const distanceBetweenCircleAndCircle = (a: Circle, b: Circle) =>
   Math.max(0, Math.hypot(a.x - b.x, a.y - b.y) - a.radius - b.radius)
 
-const distanceBetweenPolygonAndPolygon = (a: Polygon, b: Polygon) => {
+export const distanceBetweenPolygonAndPolygon = (a: Polygon, b: Polygon) => {
   if (a.points.length < 3 || b.points.length < 3) {
     return Number.POSITIVE_INFINITY
   }
@@ -49,7 +49,10 @@ const distanceBetweenPolygonAndPolygon = (a: Polygon, b: Polygon) => {
   return minDistance
 }
 
-const distanceBetweenCircleAndPolygon = (circle: Circle, polygon: Polygon) => {
+export const distanceBetweenCircleAndPolygon = (
+  circle: Circle,
+  polygon: Polygon,
+) => {
   if (polygon.points.length < 3) {
     return Number.POSITIVE_INFINITY
   }

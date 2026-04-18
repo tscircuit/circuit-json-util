@@ -21,6 +21,7 @@ export * from "./lib/get-minimum-flex-container"
 export * from "./lib/get-element-render-layers"
 export * from "./lib/compute-gap-between-copper"
 export * from "./lib/compute-clearance-between-elements"
+export * from "./lib/shape-distances/distance-between-shapes"
 
 export {
   transformPCBElement as transformPcbElement,
