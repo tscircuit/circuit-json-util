@@ -1,7 +1,22 @@
 import { expect, test } from "bun:test"
-import { translate } from "transformation-matrix"
-import type { AnyCircuitElement } from "circuit-json"
+import { compose, rotateDEG, scale, translate } from "transformation-matrix"
+import type { AnyCircuitElement, PcbComponent } from "circuit-json"
 import { transformPCBElements } from "../lib/transform-soup-elements"
+
+const createPcbComponent = (
+  overrides: Partial<Record<string, unknown>> = {},
+): AnyCircuitElement => ({
+  type: "pcb_component",
+  pcb_component_id: "pc1",
+  source_component_id: "sc1",
+  layer: "top",
+  center: { x: 1, y: 2 },
+  width: 4,
+  height: 2,
+  rotation: 0,
+  obstructs_within_bounds: true,
+  ...overrides,
+})
 
 test("transformPCBElements moves pcb_silkscreen_path route", () => {
   const elms: AnyCircuitElement[] = [
@@ -189,4 +204,77 @@ test("transformPCBElements moves pcb_note_line x1,y1,x2,y2", () => {
   expect(line.y1).toBe(4)
   expect(line.x2).toBe(8)
   expect(line.y2).toBe(9)
+})
+
+test("transformPCBElements rotates pcb_component insertion_direction for 90/180/270 degree transforms", () => {
+  const cases = [
+    { rotationDegrees: 90, expectedDirection: "from_front" },
+    { rotationDegrees: 180, expectedDirection: "from_left" },
+    { rotationDegrees: 270, expectedDirection: "from_back" },
+  ] as const
+
+  for (const { rotationDegrees, expectedDirection } of cases) {
+    const elms: AnyCircuitElement[] = [
+      createPcbComponent({ insertion_direction: "from_right" }),
+    ]
+
+    transformPCBElements(elms, compose(rotateDEG(rotationDegrees)))
+
+    const component = elms[0] as PcbComponent
+    expect(component).toBeDefined()
+    if (component) expect(component.insertion_direction).toBe(expectedDirection)
+  }
+})
+
+test("transformPCBElements mirrors pcb_component insertion_direction for flipped transforms", () => {
+  const elms: AnyCircuitElement[] = [
+    createPcbComponent({
+      pcb_component_id: "pc-front",
+      insertion_direction: "from_front",
+    }),
+    createPcbComponent({
+      pcb_component_id: "pc-left",
+      insertion_direction: "from_left",
+    }),
+  ]
+
+  transformPCBElements(elms, compose(scale(1, -1)))
+
+  expect((elms[0] as PcbComponent).insertion_direction).toBe("from_back")
+  expect((elms[1] as PcbComponent).insertion_direction).toBe("from_left")
+})
+
+test("transformPCBElements applies rotation before Y-mirror for pcb_component insertion_direction", () => {
+  const elms: AnyCircuitElement[] = [
+    createPcbComponent({ insertion_direction: "from_left" }),
+  ]
+
+  transformPCBElements(elms, compose(scale(1, -1), rotateDEG(90)))
+
+  expect((elms[0] as PcbComponent).insertion_direction).toBe("from_front")
+})
+
+test('transformPCBElements keeps pcb_component insertion_direction "from_above" unchanged', () => {
+  const elms: AnyCircuitElement[] = [
+    createPcbComponent({ insertion_direction: "from_above" }),
+  ]
+
+  transformPCBElements(elms, compose(scale(1, -1), rotateDEG(90)))
+
+  expect((elms[0] as PcbComponent).insertion_direction).toBe("from_above")
+})
+
+test("transformPCBElements moves pcb_component cable_insertion_center", () => {
+  const elms: AnyCircuitElement[] = [
+    createPcbComponent({
+      cable_insertion_center: { x: 3, y: 4 },
+    }),
+  ]
+
+  transformPCBElements(elms, translate(5, 6))
+
+  expect((elms[0] as PcbComponent).cable_insertion_center).toEqual({
+    x: 8,
+    y: 10,
+  })
 })
