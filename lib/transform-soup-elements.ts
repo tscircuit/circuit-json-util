@@ -6,6 +6,70 @@ import {
   vecToDirection,
 } from "./direction-to-vec"
 
+type PcbInsertionDirection =
+  | "from_above"
+  | "from_left"
+  | "from_right"
+  | "from_front"
+  | "from_back"
+
+const getQuarterTurns = (angleRadians: number) =>
+  Math.round(angleRadians / (Math.PI / 2))
+
+const insertionDirectionToVec = (
+  direction: Exclude<PcbInsertionDirection, "from_above">,
+) => {
+  switch (direction) {
+    case "from_left":
+      return { x: -1, y: 0 }
+    case "from_right":
+      return { x: 1, y: 0 }
+    case "from_front":
+      return { x: 0, y: 1 }
+    case "from_back":
+      return { x: 0, y: -1 }
+  }
+}
+
+const vecToInsertionDirection = ({
+  x,
+  y,
+}: {
+  x: number
+  y: number
+}): Exclude<PcbInsertionDirection, "from_above"> => {
+  if (x > 0) return "from_right"
+  if (x < 0) return "from_left"
+  if (y > 0) return "from_front"
+  return "from_back"
+}
+
+export const transformInsertionDirection = (
+  direction: PcbInsertionDirection | undefined,
+  opts: { rotationDegrees: number; isFlipped: boolean },
+) => {
+  if (!direction || direction === "from_above") return direction
+
+  let { x, y } = insertionDirectionToVec(direction)
+  let quarterTurns = Math.round(opts.rotationDegrees / 90)
+
+  while (quarterTurns > 0) {
+    ;[x, y] = [-y, x]
+    quarterTurns--
+  }
+
+  while (quarterTurns < 0) {
+    ;[x, y] = [y, -x]
+    quarterTurns++
+  }
+
+  if (opts.isFlipped) {
+    y = -y
+  }
+
+  return vecToInsertionDirection({ x, y })
+}
+
 export const transformSchematicElement = (
   elm: AnyCircuitElement,
   matrix: Matrix,
@@ -74,7 +138,9 @@ export const transformSchematicElements = (
 export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   const tsr = decomposeTSR(matrix)
   const flipPadWidthHeight =
-    Math.round(tsr.rotation.angle / (Math.PI / 2)) % 2 === 1
+    Math.abs(getQuarterTurns(tsr.rotation.angle)) % 2 === 1
+  const rotationDegrees = (tsr.rotation.angle / Math.PI) * 180
+  const isFlipped = tsr.scale.sy < 0
   if (
     elm.type === "pcb_plated_hole" ||
     elm.type === "pcb_hole" ||
@@ -122,8 +188,21 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.center = applyToPoint(matrix, elm.center)
   } else if (elm.type === "pcb_component") {
     elm.center = applyToPoint(matrix, elm.center)
-    elm.rotation = elm.rotation + (tsr.rotation.angle / Math.PI) * 180
+    elm.rotation = elm.rotation + rotationDegrees
     elm.rotation = elm.rotation % 360
+    if (elm.cable_insertion_center) {
+      elm.cable_insertion_center = applyToPoint(
+        matrix,
+        elm.cable_insertion_center,
+      )
+    }
+    elm.insertion_direction = transformInsertionDirection(
+      elm.insertion_direction,
+      {
+        rotationDegrees,
+        isFlipped,
+      },
+    )
     if (flipPadWidthHeight) {
       ;[elm.width, elm.height] = [elm.height, elm.width]
     }
@@ -181,7 +260,7 @@ export const transformPCBElements = (
   matrix: Matrix,
 ) => {
   const tsr = decomposeTSR(matrix)
-  const quarterTurns = Math.round(tsr.rotation.angle / (Math.PI / 2))
+  const quarterTurns = getQuarterTurns(tsr.rotation.angle)
   const flipPadWidthHeight = Math.abs(quarterTurns) % 2 === 1
   let transformedElms = elms.map((elm) => transformPCBElement(elm, matrix))
   if (flipPadWidthHeight) {
