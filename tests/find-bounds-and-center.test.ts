@@ -75,6 +75,56 @@ test("should handle pcb_trace elements correctly", () => {
   })
 })
 
+test("should handle circular_hole_with_rect_pad plated hole correctly", () => {
+  const elements = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "pcb_plated_hole_0",
+      x: 0,
+      y: 0,
+      shape: "circular_hole_with_rect_pad",
+      hole_diameter: 1,
+      rect_pad_width: 1.5,
+      rect_pad_height: 1.5,
+      hole_offset_x: 0,
+      hole_offset_y: 0,
+      rect_ccw_rotation: 0,
+      layers: ["top", "bottom"],
+    } as AnyCircuitElement,
+  ]
+  const result = findBoundsAndCenter(elements as unknown as AnyCircuitElement[])
+  expect(result).toEqual({
+    center: { x: 0, y: 0 },
+    width: 1.5,
+    height: 1.5,
+  })
+})
+
+test("should handle circular_hole_with_rect_pad where hole is larger than pad", () => {
+  const elements = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "pcb_plated_hole_1",
+      x: 5,
+      y: 5,
+      shape: "circular_hole_with_rect_pad",
+      hole_diameter: 3,
+      rect_pad_width: 2,
+      rect_pad_height: 2,
+      hole_offset_x: 0,
+      hole_offset_y: 0,
+      rect_ccw_rotation: 0,
+      layers: ["top", "bottom"],
+    } as unknown as AnyCircuitElement,
+  ]
+  const result = findBoundsAndCenter(elements as unknown as AnyCircuitElement[])
+  expect(result).toEqual({
+    center: { x: 5, y: 5 },
+    width: 3,
+    height: 3,
+  })
+})
+
 test("should handle polygon SMT pad elements correctly", () => {
   const elements = [
     {

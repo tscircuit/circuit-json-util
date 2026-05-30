@@ -166,6 +166,16 @@ export const getDebugLayoutObject = (lo: any): LayoutDebugObject | null => {
     if ("outer_diameter" in lo) {
       width = lo.outer_diameter
       height = lo.outer_diameter
+    } else if ("rect_pad_width" in lo && "rect_pad_height" in lo) {
+      width = lo.rect_pad_width as number
+      height = lo.rect_pad_height as number
+      if ("hole_diameter" in lo) {
+        width = Math.max(width, lo.hole_diameter as number)
+        height = Math.max(height, lo.hole_diameter as number)
+      }
+    } else if ("hole_diameter" in lo) {
+      width = lo.hole_diameter
+      height = lo.hole_diameter
     }
   }
 
