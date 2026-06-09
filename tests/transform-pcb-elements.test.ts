@@ -119,6 +119,28 @@ test("transformPCBElements moves pcb_courtyard_rect center", () => {
   expect(rect.center).toEqual({ x: 6, y: 12 })
 })
 
+test("transformPCBElements rotates pcb_courtyard_rect ccw_rotation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_courtyard_rect",
+      pcb_courtyard_rect_id: "cr1",
+      pcb_component_id: "pc1",
+      center: { x: 1, y: 0 },
+      width: 3,
+      height: 2,
+      layer: "top",
+      ccw_rotation: 45,
+    } as any,
+  ]
+
+  transformPCBElements(elms, compose(translate(10, 20), rotateDEG(90)))
+
+  const rect = elms[0] as any
+  expect(rect.center.x).toBeCloseTo(10)
+  expect(rect.center.y).toBeCloseTo(21)
+  expect(rect.ccw_rotation).toBe(135)
+})
+
 test("transformPCBElements moves pcb_courtyard_circle center", () => {
   const elms: AnyCircuitElement[] = [
     {

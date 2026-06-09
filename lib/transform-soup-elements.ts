@@ -178,11 +178,13 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_note_text"
   ) {
     elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
+  } else if (elm.type === "pcb_courtyard_rect") {
+    elm.center = applyToPoint(matrix, elm.center)
+    elm.ccw_rotation = ((elm.ccw_rotation ?? 0) + rotationDegrees) % 360
   } else if (
     elm.type === "pcb_silkscreen_circle" ||
     elm.type === "pcb_silkscreen_rect" ||
     elm.type === "pcb_note_rect" ||
-    elm.type === "pcb_courtyard_rect" ||
     elm.type === "pcb_courtyard_circle"
   ) {
     elm.center = applyToPoint(matrix, elm.center)
