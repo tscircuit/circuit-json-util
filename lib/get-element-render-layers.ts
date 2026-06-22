@@ -1,8 +1,4 @@
-import type {
-  AnyCircuitElement,
-  LayerRef,
-  PcbRenderLayer,
-} from "circuit-json"
+import type { AnyCircuitElement, LayerRef, PcbRenderLayer } from "circuit-json"
 
 const mapLayersToCopperRenderLayers = (
   layers: LayerRef[],
