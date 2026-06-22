@@ -35,12 +35,6 @@ test("getElementRenderLayers returns correct layers for different element types"
   ).toEqual(["top_copper", "bottom_copper"])
   expect(
     getElementRenderLayers({
-      type: "pcb_keepout",
-      layers: ["top", "inner2", "bottom"],
-    } as AnyCircuitElement),
-  ).toEqual(["top_copper", "inner2_copper", "bottom_copper"])
-  expect(
-    getElementRenderLayers({
       type: "pcb_courtyard_rect",
       layer: "bottom",
     } as AnyCircuitElement),
@@ -54,6 +48,15 @@ test("getElementRenderLayers returns correct layers for different element types"
   expect(
     getElementRenderLayers({ type: "pcb_board" } as AnyCircuitElement),
   ).toEqual([])
+})
+
+test("pcb_keepout elements return copper render layers from declared layers", () => {
+  expect(
+    getElementRenderLayers({
+      type: "pcb_keepout",
+      layers: ["top", "inner1", "bottom"],
+    } as AnyCircuitElement),
+  ).toEqual(["top_copper", "inner1_copper", "bottom_copper"])
 })
 
 test("pcb_note elements return user_note layer based on element layer", () => {
