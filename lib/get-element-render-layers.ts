@@ -1,8 +1,6 @@
 import type { AnyCircuitElement, PcbRenderLayer } from "circuit-json"
 
-const mapLayersToCopperRenderLayers = (
-  layers: string[],
-): PcbRenderLayer[] => {
+const mapLayersToCopperRenderLayers = (layers: string[]): PcbRenderLayer[] => {
   const renderLayers = new Set<PcbRenderLayer>()
 
   for (const layer of layers) {
