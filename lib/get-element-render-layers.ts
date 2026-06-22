@@ -1,5 +1,17 @@
 import type { AnyCircuitElement, PcbRenderLayer } from "circuit-json"
 
+const mapLayersToCopperRenderLayers = (
+  layers: string[],
+): PcbRenderLayer[] => {
+  const renderLayers = new Set<PcbRenderLayer>()
+
+  for (const layer of layers) {
+    renderLayers.add(`${layer}_copper` as PcbRenderLayer)
+  }
+
+  return Array.from(renderLayers)
+}
+
 export function getElementRenderLayers(
   element: AnyCircuitElement,
 ): PcbRenderLayer[] {
@@ -12,13 +24,13 @@ export function getElementRenderLayers(
   if (element.type === "pcb_trace") {
     // Traces can span multiple layers, return all layers from route
     if (!element.route || !Array.isArray(element.route)) return []
-    const layers = new Set<PcbRenderLayer>()
+    const layers = new Set<string>()
     for (const point of element.route) {
       if ("layer" in point && point.layer) {
-        layers.add(`${point.layer}_copper` as PcbRenderLayer)
+        layers.add(point.layer)
       }
     }
-    return Array.from(layers)
+    return mapLayersToCopperRenderLayers(Array.from(layers))
   }
 
   if (element.type === "pcb_copper_pour") {
@@ -29,6 +41,11 @@ export function getElementRenderLayers(
   if (element.type === "pcb_copper_text") {
     const layer = element.layer
     return [`${layer}_copper` as PcbRenderLayer]
+  }
+
+  if (element.type === "pcb_keepout") {
+    if (!Array.isArray(element.layers)) return []
+    return mapLayersToCopperRenderLayers(element.layers)
   }
 
   // Silkscreen elements

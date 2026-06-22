@@ -35,6 +35,12 @@ test("getElementRenderLayers returns correct layers for different element types"
   ).toEqual(["top_copper", "bottom_copper"])
   expect(
     getElementRenderLayers({
+      type: "pcb_keepout",
+      layers: ["top", "inner2", "bottom"],
+    } as AnyCircuitElement),
+  ).toEqual(["top_copper", "inner2_copper", "bottom_copper"])
+  expect(
+    getElementRenderLayers({
       type: "pcb_courtyard_rect",
       layer: "bottom",
     } as AnyCircuitElement),
