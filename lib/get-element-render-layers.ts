@@ -1,6 +1,12 @@
-import type { AnyCircuitElement, PcbRenderLayer } from "circuit-json"
+import type {
+  AnyCircuitElement,
+  LayerRef,
+  PcbRenderLayer,
+} from "circuit-json"
 
-const mapLayersToCopperRenderLayers = (layers: string[]): PcbRenderLayer[] => {
+const mapLayersToCopperRenderLayers = (
+  layers: LayerRef[],
+): PcbRenderLayer[] => {
   const renderLayers = new Set<PcbRenderLayer>()
 
   for (const layer of layers) {
@@ -22,7 +28,7 @@ export function getElementRenderLayers(
   if (element.type === "pcb_trace") {
     // Traces can span multiple layers, return all layers from route
     if (!element.route || !Array.isArray(element.route)) return []
-    const layers = new Set<string>()
+    const layers = new Set<LayerRef>()
     for (const point of element.route) {
       if ("layer" in point && point.layer) {
         layers.add(point.layer)
