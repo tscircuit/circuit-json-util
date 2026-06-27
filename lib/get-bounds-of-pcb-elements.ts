@@ -87,6 +87,24 @@ export const getBoundsOfPcbElements = (
       continue
     }
 
+    if (
+      elm.type === "pcb_smtpad" &&
+      (elm.shape === "rotated_rect" || elm.shape === "rotated_pill")
+    ) {
+      const rotatedBounds = getRotatedRectBounds(
+        elm.x,
+        elm.y,
+        elm.width,
+        elm.height,
+        elm.ccw_rotation,
+      )
+      minX = Math.min(minX, rotatedBounds.minX)
+      minY = Math.min(minY, rotatedBounds.minY)
+      maxX = Math.max(maxX, rotatedBounds.maxX)
+      maxY = Math.max(maxY, rotatedBounds.maxY)
+      continue
+    }
+
     if (elm.type === "pcb_hole" && elm.hole_shape === "circle") {
       const holeBounds = getCircleBounds(elm.x, elm.y, elm.hole_diameter)
       minX = Math.min(minX, holeBounds.minX)

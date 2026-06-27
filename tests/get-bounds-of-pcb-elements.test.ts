@@ -195,3 +195,85 @@ test("getBoundsOfPcbElements with rectangular plated hole pad includes pad exten
   expect(bounds.maxX).toBeCloseTo(-15.06)
   expect(bounds.maxY).toBeCloseTo(-12.75)
 })
+
+test("getBoundsOfPcbElements with rotated_pill smtpad uses rotated bounds", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pad1",
+      x: 0,
+      y: 0,
+      width: 0.3,
+      height: 1.3,
+      radius: 0.15,
+      ccw_rotation: 90,
+      layer: "top",
+      shape: "rotated_pill",
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds.minX).toBeCloseTo(-1.3 / 2)
+  expect(bounds.maxX).toBeCloseTo(+1.3 / 2)
+  expect(bounds.minY).toBeCloseTo(-0.3 / 2)
+  expect(bounds.maxY).toBeCloseTo(+0.3 / 2)
+})
+
+test("getBoundsOfPcbElements with rotated_rect smtpad uses rotated bounds", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pad1",
+      x: 0,
+      y: 0,
+      width: 2,
+      height: 0.5,
+      ccw_rotation: 90,
+      layer: "top",
+      shape: "rotated_rect",
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds.minX).toBeCloseTo(-0.25)
+  expect(bounds.maxX).toBeCloseTo(0.25)
+  expect(bounds.minY).toBeCloseTo(-1)
+  expect(bounds.maxY).toBeCloseTo(1)
+})
+
+test("getBoundsOfPcbElements with rotated_pill smtpad do not overlap", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pad1",
+      x: 0,
+      y: 0.2,
+      width: 0.3,
+      height: 1.3,
+      radius: 0.15,
+      ccw_rotation: 90,
+      layer: "top",
+      shape: "rotated_pill",
+    } as any,
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pad2",
+      x: 0,
+      y: -0.2,
+      width: 0.3,
+      height: 1.3,
+      radius: 0.15,
+      ccw_rotation: 90,
+      layer: "top",
+      shape: "rotated_pill",
+    } as any,
+  ]
+
+  const bounds = getBoundsOfPcbElements([elements[0] as any])
+  const bounds2 = getBoundsOfPcbElements([elements[1] as any])
+
+  const gap = bounds.minY - bounds2.maxY
+  expect(gap).toBeCloseTo(0.1)
+})
