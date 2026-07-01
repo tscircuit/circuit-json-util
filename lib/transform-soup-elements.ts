@@ -267,7 +267,10 @@ export const transformPCBElements = (
   let transformedElms = elms.map((elm) => transformPCBElement(elm, matrix))
   if (flipPadWidthHeight) {
     transformedElms = transformedElms.map((elm) => {
-      if (elm.type === "pcb_smtpad" && elm.shape === "rect") {
+      if (
+        elm.type === "pcb_smtpad" &&
+        (elm.shape === "rect" || elm.shape === "pill")
+      ) {
         ;[elm.width, elm.height] = [elm.height, elm.width]
       }
       return elm

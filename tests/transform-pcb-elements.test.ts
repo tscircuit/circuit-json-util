@@ -141,6 +141,33 @@ test("transformPCBElements rotates pcb_courtyard_rect ccw_rotation", () => {
   expect(rect.ccw_rotation).toBe(135)
 })
 
+test("transformPCBElements swaps pill smtpad dimensions for 90 degree transforms", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pad1",
+      pcb_component_id: "pc1",
+      pcb_port_id: "port1",
+      layer: "top",
+      shape: "pill",
+      x: 1,
+      y: 0,
+      width: 0.3,
+      height: 1.5,
+      radius: 0.15,
+    } as any,
+  ]
+
+  transformPCBElements(elms, compose(translate(10, 20), rotateDEG(90)))
+
+  const pad = elms[0] as any
+  expect(pad.x).toBeCloseTo(10)
+  expect(pad.y).toBeCloseTo(21)
+  expect(pad.width).toBe(1.5)
+  expect(pad.height).toBe(0.3)
+  expect(pad.radius).toBe(0.15)
+})
+
 test("transformPCBElements moves pcb_courtyard_circle center", () => {
   const elms: AnyCircuitElement[] = [
     {
