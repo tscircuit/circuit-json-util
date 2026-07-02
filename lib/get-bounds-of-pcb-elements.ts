@@ -186,6 +186,9 @@ export const getBoundsOfPcbElements = (
       centerY = elm.center.y
     }
 
+    const rotation =
+      typeof (elm as any).rotation === "number" ? (elm as any).rotation : 0
+
     if (centerX !== undefined && centerY !== undefined) {
       minX = Math.min(minX, centerX)
       minY = Math.min(minY, centerY)
@@ -193,10 +196,26 @@ export const getBoundsOfPcbElements = (
       maxY = Math.max(maxY, centerY)
 
       if (width !== undefined && height !== undefined) {
-        minX = Math.min(minX, centerX - width / 2)
-        minY = Math.min(minY, centerY - height / 2)
-        maxX = Math.max(maxX, centerX + width / 2)
-        maxY = Math.max(maxY, centerY + height / 2)
+        if (rotation) {
+          // Account for the element's rotation so the box encloses the
+          // rotated extent, not the unrotated width/height.
+          const rotatedBounds = getRotatedRectBounds(
+            centerX,
+            centerY,
+            width,
+            height,
+            rotation,
+          )
+          minX = Math.min(minX, rotatedBounds.minX)
+          minY = Math.min(minY, rotatedBounds.minY)
+          maxX = Math.max(maxX, rotatedBounds.maxX)
+          maxY = Math.max(maxY, rotatedBounds.maxY)
+        } else {
+          minX = Math.min(minX, centerX - width / 2)
+          minY = Math.min(minY, centerY - height / 2)
+          maxX = Math.max(maxX, centerX + width / 2)
+          maxY = Math.max(maxY, centerY + height / 2)
+        }
       }
 
       if ("radius" in elm) {
