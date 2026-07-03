@@ -1,7 +1,3 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
-import path from "node:path"
-import { expect } from "bun:test"
-
 const rotate = (x: number, y: number, deg: number) => {
   const t = (deg * Math.PI) / 180
   const c = Math.cos(t)
@@ -58,19 +54,4 @@ export const renderBoundsSvg = (
     `<polygon points="${poly}" fill="#93c5fd" fill-opacity="0.6" stroke="#1d4ed8" stroke-width="0.06"/>`,
     `</svg>`,
   ].join("")
-}
-
-export const expectSvgSnapshot = (
-  svg: string,
-  testDir: string,
-  name: string,
-) => {
-  const dir = path.join(testDir, "__snapshots__")
-  const snapshotPath = path.join(dir, `${name}.snap.svg`)
-  if (!existsSync(dir)) mkdirSync(dir, { recursive: true })
-  if (!existsSync(snapshotPath) || process.env.BUN_UPDATE_SNAPSHOTS) {
-    writeFileSync(snapshotPath, svg)
-    return
-  }
-  expect(svg).toBe(readFileSync(snapshotPath, "utf-8"))
 }

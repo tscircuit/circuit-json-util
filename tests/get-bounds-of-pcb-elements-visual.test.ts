@@ -1,10 +1,7 @@
 import type { AnyCircuitElement } from "circuit-json"
-import { test } from "bun:test"
+import { expect, test } from "bun:test"
 import { getBoundsOfPcbElements } from "../lib/get-bounds-of-pcb-elements"
-import {
-  expectSvgSnapshot,
-  renderBoundsSvg,
-} from "./fixtures/bounds-svg-snapshot"
+import { renderBoundsSvg } from "./fixtures/bounds-svg-snapshot"
 
 test("getBoundsOfPcbElements visual: bounds vs a rotated pcb_component", () => {
   const component = {
@@ -19,9 +16,8 @@ test("getBoundsOfPcbElements visual: bounds vs a rotated pcb_component", () => {
     obstructs_within_bounds: false,
   }
   const bounds = getBoundsOfPcbElements([component as AnyCircuitElement])
-  expectSvgSnapshot(
-    renderBoundsSvg(component, bounds),
-    import.meta.dir,
+  expect(renderBoundsSvg(component, bounds)).toMatchSvgSnapshot(
+    import.meta.path,
     "bounds-rotated-component",
   )
 })
