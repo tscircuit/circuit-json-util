@@ -16,7 +16,7 @@ test("getBoundsOfPcbElements visual: bounds vs a rotated pcb_component", () => {
     obstructs_within_bounds: false,
   }
   const bounds = getBoundsOfPcbElements([component as AnyCircuitElement])
-  expect(renderBoundsSvg(component, bounds)).toMatchSvgSnapshot(
+  expect(renderBoundsSvg({ component, bounds })).toMatchSvgSnapshot(
     import.meta.path,
     "bounds-rotated-component",
   )
