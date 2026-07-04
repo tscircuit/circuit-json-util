@@ -1,12 +1,16 @@
+import { getSvgFromGraphicsObject } from "graphics-debug"
+
 const rotate = (x: number, y: number, deg: number) => {
   const t = (deg * Math.PI) / 180
   const c = Math.cos(t)
   const s = Math.sin(t)
-  return [x * c - y * s, x * s + y * c] as const
+  return { x: x * c - y * s, y: x * s + y * c }
 }
 
-// Draws the rotated component outline (blue) and the bounds box (red) so a
-// reviewer can see whether the bounds actually enclose the component.
+// Draws the rotated component outline (blue) and the computed bounds box (red)
+// so a reviewer can see whether the bounds actually enclose the component.
+// Rendered with graphics-debug, the standard tscircuit way to snapshot debug
+// geometry.
 export const renderBoundsSvg = (
   component: {
     center: { x: number; y: number }
@@ -17,7 +21,8 @@ export const renderBoundsSvg = (
   bounds: { minX: number; minY: number; maxX: number; maxY: number },
 ) => {
   const { center, width, height, rotation } = component
-  const corners = (
+
+  const componentOutline = (
     [
       [-width / 2, -height / 2],
       [width / 2, -height / 2],
@@ -25,33 +30,31 @@ export const renderBoundsSvg = (
       [-width / 2, height / 2],
     ] as const
   ).map(([x, y]) => {
-    const [rx, ry] = rotate(x, y, rotation)
-    return [center.x + rx, center.y + ry] as const
+    const r = rotate(x, y, rotation)
+    return { x: center.x + r.x, y: center.y + r.y }
   })
 
-  // svg y is down, so negate y
-  const svgPts = [
-    ...corners.map(([x, y]) => [x, -y] as const),
-    [bounds.minX, -bounds.minY] as const,
-    [bounds.maxX, -bounds.maxY] as const,
+  const boundsOutline = [
+    { x: bounds.minX, y: bounds.minY },
+    { x: bounds.maxX, y: bounds.minY },
+    { x: bounds.maxX, y: bounds.maxY },
+    { x: bounds.minX, y: bounds.maxY },
   ]
-  const pad = 0.6
-  const minX = Math.min(...svgPts.map((p) => p[0])) - pad
-  const minY = Math.min(...svgPts.map((p) => p[1])) - pad
-  const maxX = Math.max(...svgPts.map((p) => p[0])) + pad
-  const maxY = Math.max(...svgPts.map((p) => p[1])) + pad
-  const f = (n: number) => Number(n.toFixed(4))
 
-  const poly = corners.map(([x, y]) => `${f(x)},${f(-y)}`).join(" ")
-  const bx = f(bounds.minX)
-  const by = f(-bounds.maxY)
-  const bw = f(bounds.maxX - bounds.minX)
-  const bh = f(bounds.maxY - bounds.minY)
-
-  return [
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${f(minX)} ${f(minY)} ${f(maxX - minX)} ${f(maxY - minY)}">`,
-    `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" fill="none" stroke="#dc2626" stroke-width="0.06"/>`,
-    `<polygon points="${poly}" fill="#93c5fd" fill-opacity="0.6" stroke="#1d4ed8" stroke-width="0.06"/>`,
-    `</svg>`,
-  ].join("")
+  return getSvgFromGraphicsObject({
+    lines: [
+      {
+        points: [...boundsOutline, boundsOutline[0]!],
+        strokeColor: "#dc2626",
+        strokeWidth: 2,
+        label: "bounds",
+      },
+      {
+        points: [...componentOutline, componentOutline[0]!],
+        strokeColor: "#1d4ed8",
+        strokeWidth: 2,
+        label: "component",
+      },
+    ],
+  })
 }
