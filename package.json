@@ -29,7 +29,7 @@
     "circuit-json": "^0.0.418",
     "esbuild": "^0.20.2",
     "esbuild-register": "^3.5.0",
-    "graphics-debug": "^0.0.60",
+    "graphics-debug": "^0.0.95",
     "transformation-matrix": "^2.16.1",
     "tscircuit": "^0.0.1474",
     "tsup": "^8.0.2",
