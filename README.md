@@ -43,6 +43,7 @@ It reduces the amount of code to retrieve or join elements from circuit json, it
 | `repositionPcbGroupTo` | [`lib/reposition-pcb-group.ts`](./lib/reposition-pcb-group.ts) | Repositions all PCB elements in a source group. |
 | `repositionSchematicComponentTo` | [`lib/reposition-schematic-component.ts`](./lib/reposition-schematic-component.ts) | Repositions a schematic component and linked schematic primitives. |
 | `repositionSchematicGroupTo` | [`lib/reposition-schematic-group.ts`](./lib/reposition-schematic-group.ts) | Repositions all schematic elements in a source group. |
+| `getSchematicGroupSize` | [`lib/get-schematic-group-size.ts`](./lib/get-schematic-group-size.ts) | Computes the rendered bounds of a schematic source group. |
 | `getCircuitJsonTree` | [`lib/getCircuitJsonTree.ts`](./lib/getCircuitJsonTree.ts) | Builds a tree representation of relation-linked circuit-json elements. |
 | `getStringFromCircuitJsonTree` | [`lib/getStringFromCircuitJsonTree.ts`](./lib/getStringFromCircuitJsonTree.ts) | Renders a circuit-json tree as text for debugging. |
 | `getMinimumFlexContainer` | [`lib/get-minimum-flex-container.ts`](./lib/get-minimum-flex-container.ts) | Computes a minimum flex container from layout constraints. |
