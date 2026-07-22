@@ -36,6 +36,7 @@ It reduces the amount of code to retrieve or join elements from circuit json, it
 | `getReadableNameForPcbTrace` | [`lib/readable-name-functions/get-readable-name-for-pcb-trace.ts`](./lib/readable-name-functions/get-readable-name-for-pcb-trace.ts) | Produces a readable label for a PCB trace. |
 | `getBoundsOfPcbElements` | [`lib/get-bounds-of-pcb-elements.ts`](./lib/get-bounds-of-pcb-elements.ts) | Computes aggregate XY bounds for PCB elements. |
 | `getBoardBounds` | [`lib/get-board-bounds.ts`](./lib/get-board-bounds.ts) | Computes board bounds/size from `width`+`height`+`center`, or from `outline` points. |
+| `getSchematicElementBounds` | [`lib/get-schematic-element-bounds.ts`](./lib/get-schematic-element-bounds.ts) | Computes the axis-aligned bounds of a schematic component, net label, or trace. |
 | `findBoundsAndCenter` | [`lib/find-bounds-and-center.ts`](./lib/find-bounds-and-center.ts) | Computes bounds and center for a set of points. |
 | `getPrimaryId` | [`lib/get-primary-id.ts`](./lib/get-primary-id.ts) | Returns the name of an element type's primary id field. |
 | `buildSubtree` | [`lib/subtree.ts`](./lib/subtree.ts) | Builds a relation-aware subtree from selected root elements. |
