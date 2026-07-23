@@ -8,6 +8,16 @@ import * as Soup from "circuit-json"
 import type { SubtreeOptions } from "./subtree"
 import { buildSubtree } from "./subtree"
 
+// Keep the existing permissive input while preserving discriminated variants.
+type CircuitJsonElementInsertInput<
+  CircuitElementType extends AnyCircuitElement["type"],
+  CircuitElement extends { type: CircuitElementType },
+> =
+  | Omit<CircuitElement, "type" | `${CircuitElementType}_id`>
+  | (CircuitElement extends { type: CircuitElementType }
+      ? Omit<CircuitElement, "type" | `${CircuitElementType}_id`>
+      : never)
+
 export type CircuitJsonOps<
   K extends AnyCircuitElement["type"],
   T extends AnyCircuitElement | AnyCircuitElementInput,
@@ -19,7 +29,7 @@ export type CircuitJsonOps<
     [key: `${string}_id`]: string
   }) => Extract<T, { type: K }> | null
   insert: (
-    elm: Omit<Extract<T, { type: K }>, "type" | `${K}_id`>,
+    elm: CircuitJsonElementInsertInput<K, Extract<T, { type: K }>>,
   ) => Extract<T, { type: K }>
   update: (
     id: string,
