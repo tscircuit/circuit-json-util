@@ -146,6 +146,7 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_hole" ||
     elm.type === "pcb_via" ||
     elm.type === "pcb_smtpad" ||
+    elm.type === "pcb_solder_paste" ||
     elm.type === "pcb_port"
   ) {
     const { x, y } = applyToPoint(matrix, {
@@ -178,12 +179,18 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_note_text"
   ) {
     elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
+  } else if (elm.type === "pcb_copper_text") {
+    if (elm.anchor_position) {
+      elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
+    }
   } else if (elm.type === "pcb_courtyard_rect") {
     elm.center = applyToPoint(matrix, elm.center)
     elm.ccw_rotation = ((elm.ccw_rotation ?? 0) + rotationDegrees) % 360
   } else if (
     elm.type === "pcb_silkscreen_circle" ||
     elm.type === "pcb_silkscreen_rect" ||
+    elm.type === "pcb_silkscreen_pill" ||
+    elm.type === "pcb_silkscreen_oval" ||
     elm.type === "pcb_note_rect" ||
     elm.type === "pcb_courtyard_circle"
   ) {
@@ -225,6 +232,7 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   } else if (
     elm.type === "pcb_silkscreen_path" ||
     elm.type === "pcb_trace" ||
+    elm.type === "pcb_trace_hint" ||
     elm.type === "pcb_fabrication_note_path" ||
     elm.type === "pcb_note_path"
   ) {
@@ -268,7 +276,7 @@ export const transformPCBElements = (
   if (flipPadWidthHeight) {
     transformedElms = transformedElms.map((elm) => {
       if (
-        elm.type === "pcb_smtpad" &&
+        (elm.type === "pcb_smtpad" || elm.type === "pcb_solder_paste") &&
         (elm.shape === "rect" || elm.shape === "pill")
       ) {
         ;[elm.width, elm.height] = [elm.height, elm.width]

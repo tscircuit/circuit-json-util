@@ -70,3 +70,52 @@ test("repositionPcbComponentTo moves component and children", () => {
   expect(trace.route[1].x).toBe(15)
   expect(trace.route[1].y).toBe(5)
 })
+
+test("repositionPcbComponentTo moves solder paste with its pads (tscircuit/core#2897)", () => {
+  const soup: AnyCircuitElement[] = [
+    {
+      type: "pcb_component",
+      pcb_component_id: "pc1",
+      source_component_id: "sc1",
+      center: { x: 0, y: 0 },
+      layer: "top",
+      rotation: 0,
+      width: 2,
+      height: 2,
+    } as any,
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pad1",
+      pcb_component_id: "pc1",
+      x: -0.5,
+      y: 0,
+      width: 1,
+      height: 1,
+      layer: "top",
+      shape: "rect",
+    } as any,
+    {
+      type: "pcb_solder_paste",
+      pcb_solder_paste_id: "paste1",
+      pcb_component_id: "pc1",
+      pcb_smtpad_id: "pad1",
+      x: -0.5,
+      y: 0,
+      width: 0.7,
+      height: 0.7,
+      layer: "top",
+      shape: "rect",
+    } as any,
+  ]
+
+  repositionPcbComponentTo(soup, "pc1", { x: 10, y: 5 })
+
+  const pad = soup.find((e) => e.type === "pcb_smtpad") as any
+  const paste = soup.find((e) => e.type === "pcb_solder_paste") as any
+
+  expect(pad.x).toBe(9.5)
+  expect(pad.y).toBe(5)
+  // paste must stay aligned with its pad, not be left at the old position
+  expect(paste.x).toBe(9.5)
+  expect(paste.y).toBe(5)
+})
