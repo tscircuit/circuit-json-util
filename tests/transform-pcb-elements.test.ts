@@ -327,3 +327,137 @@ test("transformPCBElements moves pcb_component cable_insertion_center", () => {
     y: 10,
   })
 })
+
+test("transformPCBElements moves pcb_solder_paste with its pad", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pad1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      shape: "rect",
+      x: 1,
+      y: 2,
+      width: 1,
+      height: 0.5,
+    } as any,
+    {
+      type: "pcb_solder_paste",
+      pcb_solder_paste_id: "paste1",
+      pcb_component_id: "pc1",
+      pcb_smtpad_id: "pad1",
+      layer: "top",
+      shape: "rect",
+      x: 1,
+      y: 2,
+      width: 0.7,
+      height: 0.35,
+    } as any,
+  ]
+
+  transformPCBElements(elms, translate(5, 10))
+
+  const pad = elms[0] as any
+  const paste = elms[1] as any
+  expect(pad.x).toBe(6)
+  expect(pad.y).toBe(12)
+  expect(paste.x).toBe(6)
+  expect(paste.y).toBe(12)
+})
+
+test("transformPCBElements swaps rect pcb_solder_paste dimensions for 90 degree transforms", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_solder_paste",
+      pcb_solder_paste_id: "paste1",
+      pcb_component_id: "pc1",
+      pcb_smtpad_id: "pad1",
+      layer: "top",
+      shape: "rect",
+      x: 1,
+      y: 0,
+      width: 0.3,
+      height: 1.5,
+    } as any,
+  ]
+
+  transformPCBElements(elms, compose(translate(10, 20), rotateDEG(90)))
+
+  const paste = elms[0] as any
+  expect(paste.x).toBeCloseTo(10)
+  expect(paste.y).toBeCloseTo(21)
+  expect(paste.width).toBe(1.5)
+  expect(paste.height).toBe(0.3)
+})
+
+test("transformPCBElements moves pcb_copper_text anchor_position", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_copper_text",
+      pcb_copper_text_id: "ct1",
+      pcb_component_id: "pc1",
+      text: "GND",
+      anchor_position: { x: 1, y: 2 },
+      font: "tscircuit2024",
+      font_size: 1,
+      layer: "top",
+    } as any,
+  ]
+
+  transformPCBElements(elms, translate(5, 10))
+
+  const text = elms[0] as any
+  expect(text.anchor_position).toEqual({ x: 6, y: 12 })
+})
+
+test("transformPCBElements moves pcb_trace_hint route", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_trace_hint",
+      pcb_trace_hint_id: "th1",
+      pcb_component_id: "pc1",
+      pcb_port_id: "pp1",
+      route: [
+        { x: 0, y: 0 },
+        { x: 1, y: 1, via: true },
+      ],
+    } as any,
+  ]
+
+  transformPCBElements(elms, translate(2, 3))
+
+  const hint = elms[0] as any
+  expect(hint.route[0].x).toBe(2)
+  expect(hint.route[0].y).toBe(3)
+  expect(hint.route[1].x).toBe(3)
+  expect(hint.route[1].y).toBe(4)
+  expect(hint.route[1].via).toBe(true)
+})
+
+test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval centers", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_silkscreen_pill",
+      pcb_silkscreen_pill_id: "spill1",
+      pcb_component_id: "pc1",
+      center: { x: 1, y: 2 },
+      width: 2,
+      height: 1,
+      layer: "top",
+    } as any,
+    {
+      type: "pcb_silkscreen_oval",
+      pcb_silkscreen_oval_id: "soval1",
+      pcb_component_id: "pc1",
+      center: { x: 3, y: 4 },
+      radius_x: 1,
+      radius_y: 0.5,
+      layer: "top",
+    } as any,
+  ]
+
+  transformPCBElements(elms, translate(5, 10))
+
+  expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
+  expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
+})
