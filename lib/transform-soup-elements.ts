@@ -230,9 +230,22 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
       p.y = tp.y
       return p
     })
+  } else if (elm.type === "pcb_trace") {
+    elm.route = elm.route.map((rp) => {
+      // "through_pad" route points describe a segment with start/end rather
+      // than a single x/y position.
+      if (!("x" in rp)) {
+        rp.start = applyToPoint(matrix, rp.start) as { x: number; y: number }
+        rp.end = applyToPoint(matrix, rp.end) as { x: number; y: number }
+        return rp
+      }
+      const tp = applyToPoint(matrix, rp) as { x: number; y: number }
+      rp.x = tp.x
+      rp.y = tp.y
+      return rp
+    })
   } else if (
     elm.type === "pcb_silkscreen_path" ||
-    elm.type === "pcb_trace" ||
     elm.type === "pcb_trace_hint" ||
     elm.type === "pcb_fabrication_note_path" ||
     elm.type === "pcb_note_path"
