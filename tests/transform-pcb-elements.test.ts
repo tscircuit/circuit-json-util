@@ -257,9 +257,9 @@ test("transformPCBElements moves pcb_note_line x1,y1,x2,y2", () => {
 
 test("transformPCBElements rotates pcb_component insertion_direction for 90/180/270 degree transforms", () => {
   const cases = [
-    { rotationDegrees: 90, expectedDirection: "from_front" },
+    { rotationDegrees: 90, expectedDirection: "from_top" },
     { rotationDegrees: 180, expectedDirection: "from_left" },
-    { rotationDegrees: 270, expectedDirection: "from_back" },
+    { rotationDegrees: 270, expectedDirection: "from_bottom" },
   ] as const
 
   for (const { rotationDegrees, expectedDirection } of cases) {
@@ -279,7 +279,7 @@ test("transformPCBElements mirrors pcb_component insertion_direction for flipped
   const elms: AnyCircuitElement[] = [
     createPcbComponent({
       pcb_component_id: "pc-front",
-      insertion_direction: "from_front",
+      insertion_direction: "from_top",
     }),
     createPcbComponent({
       pcb_component_id: "pc-left",
@@ -289,7 +289,7 @@ test("transformPCBElements mirrors pcb_component insertion_direction for flipped
 
   transformPCBElements(elms, compose(scale(1, -1)))
 
-  expect((elms[0] as PcbComponent).insertion_direction).toBe("from_back")
+  expect((elms[0] as PcbComponent).insertion_direction).toBe("from_bottom")
   expect((elms[1] as PcbComponent).insertion_direction).toBe("from_left")
 })
 
@@ -300,17 +300,29 @@ test("transformPCBElements applies rotation before Y-mirror for pcb_component in
 
   transformPCBElements(elms, compose(scale(1, -1), rotateDEG(90)))
 
-  expect((elms[0] as PcbComponent).insertion_direction).toBe("from_front")
+  expect((elms[0] as PcbComponent).insertion_direction).toBe("from_top")
 })
 
-test('transformPCBElements keeps pcb_component insertion_direction "from_above" unchanged', () => {
+test('transformPCBElements keeps pcb_component insertion_direction "from_above" unchanged under rotation', () => {
   const elms: AnyCircuitElement[] = [
     createPcbComponent({ insertion_direction: "from_above" }),
   ]
 
-  transformPCBElements(elms, compose(scale(1, -1), rotateDEG(90)))
+  transformPCBElements(elms, rotateDEG(90))
 
   expect((elms[0] as PcbComponent).insertion_direction).toBe("from_above")
+})
+
+test("transformPCBElements flips Z insertion_direction for mirrored transforms", () => {
+  const elms: AnyCircuitElement[] = [
+    createPcbComponent({ insertion_direction: "from_above" }),
+    createPcbComponent({ insertion_direction: "from_below" }),
+  ]
+
+  transformPCBElements(elms, compose(scale(1, -1), rotateDEG(90)))
+
+  expect((elms[0] as PcbComponent).insertion_direction).toBe("from_below")
+  expect((elms[1] as PcbComponent).insertion_direction).toBe("from_above")
 })
 
 test("transformPCBElements moves pcb_component cable_insertion_center", () => {

@@ -1,4 +1,4 @@
-import type { AnyCircuitElement } from "circuit-json"
+import type { AnyCircuitElement, InsertionDirection } from "circuit-json"
 import { type Matrix, applyToPoint, decomposeTSR } from "transformation-matrix"
 import {
   directionToVec,
@@ -6,27 +6,20 @@ import {
   vecToDirection,
 } from "./direction-to-vec"
 
-type PcbInsertionDirection =
-  | "from_above"
-  | "from_left"
-  | "from_right"
-  | "from_front"
-  | "from_back"
-
 const getQuarterTurns = (angleRadians: number) =>
   Math.round(angleRadians / (Math.PI / 2))
 
 const insertionDirectionToVec = (
-  direction: Exclude<PcbInsertionDirection, "from_above">,
+  direction: Exclude<InsertionDirection, "from_above" | "from_below">,
 ) => {
   switch (direction) {
     case "from_left":
       return { x: -1, y: 0 }
     case "from_right":
       return { x: 1, y: 0 }
-    case "from_front":
+    case "from_top":
       return { x: 0, y: 1 }
-    case "from_back":
+    case "from_bottom":
       return { x: 0, y: -1 }
   }
 }
@@ -37,18 +30,26 @@ const vecToInsertionDirection = ({
 }: {
   x: number
   y: number
-}): Exclude<PcbInsertionDirection, "from_above"> => {
+}): Exclude<InsertionDirection, "from_above" | "from_below"> => {
   if (x > 0) return "from_right"
   if (x < 0) return "from_left"
-  if (y > 0) return "from_front"
-  return "from_back"
+  if (y > 0) return "from_top"
+  return "from_bottom"
 }
 
 export const transformInsertionDirection = (
-  direction: PcbInsertionDirection | undefined,
+  direction: InsertionDirection | undefined,
   opts: { rotationDegrees: number; isFlipped: boolean },
 ) => {
-  if (!direction || direction === "from_above") return direction
+  if (!direction) return direction
+
+  // Rotating within the board plane leaves a Z-axis insertion pointing along
+  // Z, but moving the part to the other layer reverses which side of the board
+  // the mating part approaches from.
+  if (direction === "from_above" || direction === "from_below") {
+    if (!opts.isFlipped) return direction
+    return direction === "from_above" ? "from_below" : "from_above"
+  }
 
   let { x, y } = insertionDirectionToVec(direction)
   let quarterTurns = Math.round(opts.rotationDegrees / 90)
