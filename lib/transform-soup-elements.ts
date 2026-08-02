@@ -1,4 +1,4 @@
-import type { AnyCircuitElement } from "circuit-json"
+import type { AnyCircuitElement, InsertionDirection } from "circuit-json"
 import { type Matrix, applyToPoint, decomposeTSR } from "transformation-matrix"
 import {
   directionToVec,
@@ -6,27 +6,20 @@ import {
   vecToDirection,
 } from "./direction-to-vec"
 
-type PcbInsertionDirection =
-  | "from_above"
-  | "from_left"
-  | "from_right"
-  | "from_front"
-  | "from_back"
-
 const getQuarterTurns = (angleRadians: number) =>
   Math.round(angleRadians / (Math.PI / 2))
 
 const insertionDirectionToVec = (
-  direction: Exclude<PcbInsertionDirection, "from_above">,
+  direction: Exclude<InsertionDirection, "from_above" | "from_below">,
 ) => {
   switch (direction) {
     case "from_left":
       return { x: -1, y: 0 }
     case "from_right":
       return { x: 1, y: 0 }
-    case "from_front":
+    case "from_top":
       return { x: 0, y: 1 }
-    case "from_back":
+    case "from_bottom":
       return { x: 0, y: -1 }
   }
 }
@@ -37,18 +30,26 @@ const vecToInsertionDirection = ({
 }: {
   x: number
   y: number
-}): Exclude<PcbInsertionDirection, "from_above"> => {
+}): Exclude<InsertionDirection, "from_above" | "from_below"> => {
   if (x > 0) return "from_right"
   if (x < 0) return "from_left"
-  if (y > 0) return "from_front"
-  return "from_back"
+  if (y > 0) return "from_top"
+  return "from_bottom"
 }
 
 export const transformInsertionDirection = (
-  direction: PcbInsertionDirection | undefined,
+  direction: InsertionDirection | undefined,
   opts: { rotationDegrees: number; isFlipped: boolean },
 ) => {
-  if (!direction || direction === "from_above") return direction
+  if (!direction) return direction
+
+  // Rotating within the board plane leaves a Z-axis insertion pointing along
+  // Z, but moving the part to the other layer reverses which side of the board
+  // the mating part approaches from.
+  if (direction === "from_above" || direction === "from_below") {
+    if (!opts.isFlipped) return direction
+    return direction === "from_above" ? "from_below" : "from_above"
+  }
 
   let { x, y } = insertionDirectionToVec(direction)
   let quarterTurns = Math.round(opts.rotationDegrees / 90)
@@ -229,9 +230,22 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
       p.y = tp.y
       return p
     })
+  } else if (elm.type === "pcb_trace") {
+    elm.route = elm.route.map((rp) => {
+      // "through_pad" route points describe a segment with start/end rather
+      // than a single x/y position.
+      if (!("x" in rp)) {
+        rp.start = applyToPoint(matrix, rp.start) as { x: number; y: number }
+        rp.end = applyToPoint(matrix, rp.end) as { x: number; y: number }
+        return rp
+      }
+      const tp = applyToPoint(matrix, rp) as { x: number; y: number }
+      rp.x = tp.x
+      rp.y = tp.y
+      return rp
+    })
   } else if (
     elm.type === "pcb_silkscreen_path" ||
-    elm.type === "pcb_trace" ||
     elm.type === "pcb_trace_hint" ||
     elm.type === "pcb_fabrication_note_path" ||
     elm.type === "pcb_note_path"

@@ -227,10 +227,15 @@ export const getBoundsOfPcbElements = (
     } else if (elm.type === "pcb_trace") {
       for (const point of elm.route) {
         // TODO add trace thickness support
-        minX = Math.min(minX, point.x)
-        minY = Math.min(minY, point.y)
-        maxX = Math.max(maxX, point.x)
-        maxY = Math.max(maxY, point.y)
+        // "through_pad" route points describe a segment with start/end rather
+        // than a single x/y position.
+        const positions = "x" in point ? [point] : [point.start, point.end]
+        for (const { x, y } of positions) {
+          minX = Math.min(minX, x)
+          minY = Math.min(minY, y)
+          maxX = Math.max(maxX, x)
+          maxY = Math.max(maxY, y)
+        }
       }
     } else if (elm.type === "pcb_courtyard_outline") {
       for (const point of elm.outline) {
