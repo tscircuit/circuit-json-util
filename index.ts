@@ -23,6 +23,7 @@ export * from "./lib/get-element-render-layers"
 export * from "./lib/compute-gap-between-copper"
 export * from "./lib/compute-clearance-between-elements"
 export * from "./lib/shape-distances/distance-between-shapes"
+export * from "./lib/analyze-pcb-pin1-location"
 
 export {
   transformPCBElement as transformPcbElement,
