@@ -11,7 +11,10 @@ type DrcLike = {
   warning_type?: string
 }
 
-const NETLIST_TYPES = new Set(["source_pin_must_be_connected_error"])
+const NETLIST_TYPES = new Set([
+  "source_pin_must_be_connected_error",
+  "source_property_ignored_warning",
+])
 
 const PIN_SPECIFICATION_TYPES = new Set([
   "source_component_pins_underspecified_warning",
