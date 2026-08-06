@@ -18,10 +18,14 @@ test("categorizeErrorOrWarning categorizes known DRC error/warning types", () =>
     "pin_specification",
   )
 
+  expect(categorizeErrorOrWarning("pcb_placement_error")).toBe("placement")
   expect(categorizeErrorOrWarning("pcb_component_outside_board_error")).toBe(
     "placement",
   )
   expect(categorizeErrorOrWarning("pcb_courtyard_overlap_error")).toBe(
+    "placement",
+  )
+  expect(categorizeErrorOrWarning("pcb_footprint_overlap_error")).toBe(
     "placement",
   )
   expect(
@@ -30,6 +34,9 @@ test("categorizeErrorOrWarning categorizes known DRC error/warning types", () =>
     ),
   ).toBe("placement")
 
+  expect(categorizeErrorOrWarning("pcb_port_not_connected_error")).toBe(
+    "routing",
+  )
   expect(categorizeErrorOrWarning("pcb_trace_missing_error")).toBe("routing")
   expect(categorizeErrorOrWarning("pcb_via_clearance_error")).toBe("routing")
 })
