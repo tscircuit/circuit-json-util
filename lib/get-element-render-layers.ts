@@ -31,6 +31,10 @@ export function getElementRenderLayers(
     return [`${layer}_copper` as PcbRenderLayer]
   }
 
+  if (element.type === "pcb_keepout") {
+    return element.layers.map((layer) => `${layer}_copper` as PcbRenderLayer)
+  }
+
   // Silkscreen elements
   if (
     element.type === "pcb_silkscreen_text" ||
