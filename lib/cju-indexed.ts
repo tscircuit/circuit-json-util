@@ -7,9 +7,10 @@ import type {
 import * as Soup from "circuit-json"
 import type {
   CircuitJsonOps,
-  CircuitJsonUtilObjects as CircuitJsonUtilObjects,
-  CircuitJsonInputUtilObjects as CircuitJsonInputUtilObjects,
+  CircuitJsonUtilObjects,
+  CircuitJsonInputUtilObjects,
 } from "./cju"
+import { getElementPosition, setElementPosition } from "./get-element-position"
 
 export type IndexedCircuitJsonUtilOptions = {
   validateInserts?: boolean
@@ -837,6 +838,68 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
                   }
                 }
               }
+            }
+
+            return elm as Extract<
+              AnyCircuitElement,
+              { type: typeof component_type }
+            >
+          },
+          moveTo: (id: string, pos: { x: number; y: number }) => {
+            let elm: AnyCircuitElement | undefined | null
+
+            const indexConfig = options.indexConfig || {}
+            if (indexConfig.byId && internalStore.indexes.byId) {
+              elm = internalStore.indexes.byId.get(`${component_type}:${id}`)
+            } else if (indexConfig.byType && internalStore.indexes.byType) {
+              const elementsOfType =
+                internalStore.indexes.byType.get(component_type) || []
+              elm = elementsOfType.find(
+                (e: any) => e[`${component_type}_id`] === id,
+              )
+            } else {
+              elm = soup.find(
+                (e) =>
+                  e.type === component_type &&
+                  (e as any)[`${component_type}_id`] === id,
+              )
+            }
+
+            if (!elm) return null
+
+            const cur = getElementPosition(elm)
+            if (cur) {
+              const dx = pos.x - cur.x
+              const dy = pos.y - cur.y
+              setElementPosition(elm, pos)
+
+              if (component_type === "schematic_component") {
+                for (const ce of soup) {
+                  if (
+                    ce.type === "schematic_port" &&
+                    (ce as any).schematic_component_id === id
+                  ) {
+                    const cp = getElementPosition(ce)
+                    if (cp)
+                      setElementPosition(ce, {
+                        x: cp.x + dx,
+                        y: cp.y + dy,
+                      })
+                  } else if (
+                    ce.type === "schematic_text" &&
+                    (ce as any).schematic_component_id === id
+                  ) {
+                    const cp = getElementPosition(ce)
+                    if (cp)
+                      setElementPosition(ce, {
+                        x: cp.x + dx,
+                        y: cp.y + dy,
+                      })
+                  }
+                }
+              }
+
+              internalStore.editCount++
             }
 
             return elm as Extract<
