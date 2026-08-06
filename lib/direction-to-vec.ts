@@ -7,8 +7,8 @@ export const directionToVec = (direction: "up" | "down" | "left" | "right") => {
 }
 
 export const vecToDirection = ({ x, y }: { x: number; y: number }) => {
-  if (x > y) y = 0
-  if (y > x) x = 0
+  if (Math.abs(x) > Math.abs(y)) y = 0
+  else if (Math.abs(y) > Math.abs(x)) x = 0
   if (x > 0 && y === 0) return "right"
   else if (x < 0 && y === 0) return "left"
   else if (x === 0 && y > 0) return "up"
