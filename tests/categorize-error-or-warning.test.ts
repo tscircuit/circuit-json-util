@@ -6,7 +6,10 @@ test("categorizeErrorOrWarning categorizes known DRC error/warning types", () =>
     "netlist",
   )
   expect(categorizeErrorOrWarning("source_property_ignored_warning")).toBe(
-    "unknown",
+    "source",
+  )
+  expect(categorizeErrorOrWarning("source_property_ignored_warning")).not.toBe(
+    "netlist",
   )
   expect(
     categorizeErrorOrWarning("source_component_pins_underspecified_warning"),
@@ -52,7 +55,7 @@ test("categorizeErrorOrWarning reads error_type/warning_type/type from objects",
       type: "source_property_ignored_warning",
       error_type: "source_property_ignored_warning",
     }),
-  ).toBe("unknown")
+  ).toBe("source")
   expect(
     categorizeErrorOrWarning({
       warning_type: "source_no_power_pin_defined_warning",
