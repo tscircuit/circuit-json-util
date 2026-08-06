@@ -187,7 +187,11 @@ export const getBoundsOfPcbElements = (
     }
 
     const rotation =
-      typeof (elm as any).rotation === "number" ? (elm as any).rotation : 0
+      typeof (elm as any).rotation === "number"
+        ? (elm as any).rotation
+        : typeof (elm as any).ccw_rotation === "number"
+          ? (elm as any).ccw_rotation
+          : 0
 
     if (centerX !== undefined && centerY !== undefined) {
       minX = Math.min(minX, centerX)

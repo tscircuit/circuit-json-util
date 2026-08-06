@@ -1,6 +1,6 @@
-import { getBoundsOfPcbElements } from "../lib/get-bounds-of-pcb-elements"
-import type { AnyCircuitElement } from "circuit-json"
 import { expect, test } from "bun:test"
+import type { AnyCircuitElement } from "circuit-json"
+import { getBoundsOfPcbElements } from "../lib/get-bounds-of-pcb-elements"
 
 test("getBoundsOfPcbElements", () => {
   const elements: AnyCircuitElement[] = [
@@ -219,4 +219,54 @@ test("getBoundsOfPcbElements accounts for pcb_component rotation", () => {
   expect(bounds.maxY).toBeCloseTo(2.121, 2)
   expect(bounds.minX).toBeCloseTo(-2.121, 2)
   expect(bounds.minY).toBeCloseTo(-2.121, 2)
+})
+
+test("includes pcb_courtyard_rect in bounds", () => {
+  // https://github.com/tscircuit/circuit-json-util/issues/70
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pad1",
+      shape: "rect",
+      x: 0,
+      y: 0,
+      width: 1,
+      height: 1,
+      layer: "top",
+    } as AnyCircuitElement,
+    {
+      type: "pcb_courtyard_rect",
+      pcb_courtyard_rect_id: "courtyard1",
+      pcb_component_id: "comp1",
+      center: { x: 5, y: 0 },
+      width: 4,
+      height: 2,
+      layer: "top",
+    } as AnyCircuitElement,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+  expect(bounds.maxX).toBe(7)
+  expect(bounds.minY).toBe(-1)
+  expect(bounds.maxY).toBe(1)
+})
+
+test("includes rotated pcb_courtyard_rect corners in bounds", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_courtyard_rect",
+      pcb_courtyard_rect_id: "courtyard1",
+      pcb_component_id: "comp1",
+      center: { x: 0, y: 0 },
+      width: 4,
+      height: 2,
+      ccw_rotation: 90,
+      layer: "top",
+    } as AnyCircuitElement,
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+  // rotated 90°: width/height swap
+  expect(bounds.maxX).toBeCloseTo(1)
+  expect(bounds.maxY).toBeCloseTo(2)
 })
