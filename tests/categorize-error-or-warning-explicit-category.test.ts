@@ -13,6 +13,7 @@ test("categorizeErrorOrWarning honors valid explicit categories", () => {
     "pin_specification",
     "placement",
     "routing",
+    "unknown",
   ] as const) {
     expect(
       categorizeErrorOrWarning({

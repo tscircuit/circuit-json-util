@@ -1,9 +1,6 @@
-import {
-  type DrcCategory as CircuitJsonDrcCategory,
-  drc_category,
-} from "circuit-json"
+import { type DrcCategory, drc_category } from "circuit-json"
 
-export type DrcCategory = CircuitJsonDrcCategory | "unknown"
+export type { DrcCategory } from "circuit-json"
 
 type DrcLike = {
   type?: string

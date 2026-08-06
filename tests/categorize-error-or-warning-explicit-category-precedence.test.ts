@@ -8,4 +8,11 @@ test("explicit categories take precedence over inferred types", () => {
       drc_category: "routing",
     }),
   ).toBe("routing")
+
+  expect(
+    categorizeErrorOrWarning({
+      type: "pcb_trace_error",
+      drc_category: "unknown",
+    }),
+  ).toBe("unknown")
 })
