@@ -1,20 +1,18 @@
-export type DrcCategory =
-  | "netlist"
-  | "pin_specification"
-  | "placement"
-  | "routing"
-  | "unknown"
+import {
+  type DrcCategory as CircuitJsonDrcCategory,
+  drc_category,
+} from "circuit-json"
+
+export type DrcCategory = CircuitJsonDrcCategory | "unknown"
 
 type DrcLike = {
   type?: string
   error_type?: string
   warning_type?: string
+  drc_category?: unknown
 }
 
-const NETLIST_TYPES = new Set([
-  "source_pin_must_be_connected_error",
-  "source_property_ignored_warning",
-])
+const NETLIST_TYPES = new Set(["source_pin_must_be_connected_error"])
 
 const PIN_SPECIFICATION_TYPES = new Set([
   "source_component_pins_underspecified_warning",
@@ -40,6 +38,11 @@ const ROUTING_TYPES = new Set([
 export const categorizeErrorOrWarning = (
   value: string | DrcLike,
 ): DrcCategory => {
+  if (typeof value === "object") {
+    const explicitCategory = drc_category.safeParse(value.drc_category)
+    if (explicitCategory.success) return explicitCategory.data
+  }
+
   const drcType =
     typeof value === "string"
       ? value

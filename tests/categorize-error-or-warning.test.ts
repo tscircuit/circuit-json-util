@@ -6,7 +6,7 @@ test("categorizeErrorOrWarning categorizes known DRC error/warning types", () =>
     "netlist",
   )
   expect(categorizeErrorOrWarning("source_property_ignored_warning")).toBe(
-    "netlist",
+    "unknown",
   )
   expect(
     categorizeErrorOrWarning("source_component_pins_underspecified_warning"),
@@ -45,7 +45,7 @@ test("categorizeErrorOrWarning reads error_type/warning_type/type from objects",
       type: "source_property_ignored_warning",
       error_type: "source_property_ignored_warning",
     }),
-  ).toBe("netlist")
+  ).toBe("unknown")
   expect(
     categorizeErrorOrWarning({
       warning_type: "source_no_power_pin_defined_warning",
@@ -64,4 +64,50 @@ test("categorizeErrorOrWarning reads error_type/warning_type/type from objects",
 test("categorizeErrorOrWarning returns unknown when no mapping exists", () => {
   expect(categorizeErrorOrWarning("totally_unknown_error")).toBe("unknown")
   expect(categorizeErrorOrWarning({})).toBe("unknown")
+})
+
+test("categorizeErrorOrWarning honors valid explicit categories", () => {
+  expect(
+    categorizeErrorOrWarning({
+      type: "source_property_ignored_warning",
+      drc_category: "netlist",
+    }),
+  ).toBe("netlist")
+
+  for (const category of [
+    "pin_specification",
+    "placement",
+    "routing",
+  ] as const) {
+    expect(
+      categorizeErrorOrWarning({
+        type: "source_property_ignored_warning",
+        drc_category: category,
+      }),
+    ).toBe(category)
+  }
+})
+
+test("explicit categories take precedence over inferred types", () => {
+  expect(
+    categorizeErrorOrWarning({
+      error_type: "source_pin_must_be_connected_error",
+      drc_category: "routing",
+    }),
+  ).toBe("routing")
+})
+
+test("invalid explicit categories fall back to type inference", () => {
+  expect(
+    categorizeErrorOrWarning({
+      error_type: "source_pin_must_be_connected_error",
+      drc_category: "invalid",
+    }),
+  ).toBe("netlist")
+  expect(
+    categorizeErrorOrWarning({
+      type: "source_property_ignored_warning",
+      drc_category: "invalid",
+    }),
+  ).toBe("unknown")
 })
