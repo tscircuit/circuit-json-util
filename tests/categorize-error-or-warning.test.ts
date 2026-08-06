@@ -5,6 +5,12 @@ test("categorizeErrorOrWarning categorizes known DRC error/warning types", () =>
   expect(categorizeErrorOrWarning("source_pin_must_be_connected_error")).toBe(
     "netlist",
   )
+  expect(categorizeErrorOrWarning("source_property_ignored_warning")).toBe(
+    "source",
+  )
+  expect(categorizeErrorOrWarning("source_property_ignored_warning")).not.toBe(
+    "netlist",
+  )
   expect(
     categorizeErrorOrWarning("source_component_pins_underspecified_warning"),
   ).toBe("pin_specification")
@@ -15,10 +21,14 @@ test("categorizeErrorOrWarning categorizes known DRC error/warning types", () =>
     "pin_specification",
   )
 
+  expect(categorizeErrorOrWarning("pcb_placement_error")).toBe("placement")
   expect(categorizeErrorOrWarning("pcb_component_outside_board_error")).toBe(
     "placement",
   )
   expect(categorizeErrorOrWarning("pcb_courtyard_overlap_error")).toBe(
+    "placement",
+  )
+  expect(categorizeErrorOrWarning("pcb_footprint_overlap_error")).toBe(
     "placement",
   )
   expect(
@@ -27,6 +37,9 @@ test("categorizeErrorOrWarning categorizes known DRC error/warning types", () =>
     ),
   ).toBe("placement")
 
+  expect(categorizeErrorOrWarning("pcb_port_not_connected_error")).toBe(
+    "routing",
+  )
   expect(categorizeErrorOrWarning("pcb_trace_missing_error")).toBe("routing")
   expect(categorizeErrorOrWarning("pcb_via_clearance_error")).toBe("routing")
 })
@@ -37,6 +50,12 @@ test("categorizeErrorOrWarning reads error_type/warning_type/type from objects",
       error_type: "source_pin_must_be_connected_error",
     }),
   ).toBe("netlist")
+  expect(
+    categorizeErrorOrWarning({
+      type: "source_property_ignored_warning",
+      error_type: "source_property_ignored_warning",
+    }),
+  ).toBe("source")
   expect(
     categorizeErrorOrWarning({
       warning_type: "source_no_power_pin_defined_warning",

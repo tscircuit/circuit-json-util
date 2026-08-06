@@ -3,6 +3,7 @@ export type DrcCategory =
   | "pin_specification"
   | "placement"
   | "routing"
+  | "source"
   | "unknown"
 
 type DrcLike = {
@@ -34,6 +35,8 @@ const ROUTING_TYPES = new Set([
   "pcb_via_clearance_error",
 ])
 
+const SOURCE_TYPES = new Set(["source_property_ignored_warning"])
+
 export const categorizeErrorOrWarning = (
   value: string | DrcLike,
 ): DrcCategory => {
@@ -48,6 +51,7 @@ export const categorizeErrorOrWarning = (
   if (PIN_SPECIFICATION_TYPES.has(drcType)) return "pin_specification"
   if (PLACEMENT_TYPES.has(drcType)) return "placement"
   if (ROUTING_TYPES.has(drcType)) return "routing"
+  if (SOURCE_TYPES.has(drcType)) return "source"
 
   return "unknown"
 }
