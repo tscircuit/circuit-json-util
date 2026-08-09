@@ -61,6 +61,56 @@ const getRotatedRectBounds = (
   }
 }
 
+const getRotatedOvalBounds = (
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  rotationDegrees: number,
+) => {
+  const radiusX = width / 2
+  const radiusY = height / 2
+  const theta = (rotationDegrees * Math.PI) / 180
+  const cosTheta = Math.cos(theta)
+  const sinTheta = Math.sin(theta)
+  const halfWidth = Math.hypot(radiusX * cosTheta, radiusY * sinTheta)
+  const halfHeight = Math.hypot(radiusX * sinTheta, radiusY * cosTheta)
+
+  return {
+    minX: x - halfWidth,
+    minY: y - halfHeight,
+    maxX: x + halfWidth,
+    maxY: y + halfHeight,
+  }
+}
+
+const getRotatedPillBounds = (
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  rotationDegrees: number,
+) => {
+  const radius = Math.min(width, height) / 2
+  const halfLineLength = Math.max(width, height) / 2 - radius
+  const theta = (rotationDegrees * Math.PI) / 180
+  const axis =
+    width >= height ? { x: halfLineLength, y: 0 } : { x: 0, y: halfLineLength }
+  const rotatedAxis = {
+    x: axis.x * Math.cos(theta) - axis.y * Math.sin(theta),
+    y: axis.x * Math.sin(theta) + axis.y * Math.cos(theta),
+  }
+  const halfWidth = Math.abs(rotatedAxis.x) + radius
+  const halfHeight = Math.abs(rotatedAxis.y) + radius
+
+  return {
+    minX: x - halfWidth,
+    minY: y - halfHeight,
+    maxX: x + halfWidth,
+    maxY: y + halfHeight,
+  }
+}
+
 export const getBoundsOfPcbElements = (
   elements: AnyCircuitElement[],
 ): { minX: number; minY: number; maxX: number; maxY: number } => {
@@ -113,6 +163,22 @@ export const getBoundsOfPcbElements = (
         typeof elm.hole_diameter === "number"
       ) {
         platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.hole_diameter)
+      }
+
+      if (
+        (elm.shape === "oval" || elm.shape === "pill") &&
+        typeof elm.outer_width === "number" &&
+        typeof elm.outer_height === "number"
+      ) {
+        const getOuterBounds =
+          elm.shape === "pill" ? getRotatedPillBounds : getRotatedOvalBounds
+        platedHoleBounds = getOuterBounds(
+          elm.x,
+          elm.y,
+          elm.outer_width,
+          elm.outer_height,
+          elm.ccw_rotation ?? 0,
+        )
       }
 
       if (
