@@ -197,6 +197,13 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   ) {
     elm.center = applyToPoint(matrix, elm.center)
   } else if (elm.type === "pcb_component") {
+    // `cutout_aperture_direction` is the same board-space direction kind as
+    // `insertion_direction`; circuit-json releases it independently, so keep
+    // this structural boundary compatible with versions before and after the
+    // field was added.
+    const componentWithApertureDirection = elm as typeof elm & {
+      cutout_aperture_direction?: InsertionDirection
+    }
     elm.center = applyToPoint(matrix, elm.center)
     elm.rotation = elm.rotation + rotationDegrees
     elm.rotation = elm.rotation % 360
@@ -213,6 +220,11 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
         isFlipped,
       },
     )
+    componentWithApertureDirection.cutout_aperture_direction =
+      transformInsertionDirection(
+        componentWithApertureDirection.cutout_aperture_direction,
+        { rotationDegrees, isFlipped },
+      )
     if (flipPadWidthHeight) {
       ;[elm.width, elm.height] = [elm.height, elm.width]
     }
