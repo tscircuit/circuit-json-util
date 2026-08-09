@@ -196,6 +196,81 @@ test("getBoundsOfPcbElements with rectangular plated hole pad includes pad exten
   expect(bounds.maxY).toBeCloseTo(-12.75)
 })
 
+test("getBoundsOfPcbElements with rotated pill plated hole", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "pcb_plated_hole_pill",
+      shape: "pill",
+      outer_width: 1.2,
+      outer_height: 1.8,
+      hole_width: 0.6,
+      hole_height: 1.2,
+      x: -28.125,
+      y: -7.075,
+      ccw_rotation: 270,
+      layers: ["top", "bottom"],
+    },
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds.minX).toBeCloseTo(-29.025)
+  expect(bounds.minY).toBeCloseTo(-7.675)
+  expect(bounds.maxX).toBeCloseTo(-27.225)
+  expect(bounds.maxY).toBeCloseTo(-6.475)
+})
+
+test("getBoundsOfPcbElements uses tight bounds for a pill rotated 45 degrees", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "pcb_plated_hole_pill_45",
+      shape: "pill",
+      outer_width: 4,
+      outer_height: 2,
+      hole_width: 3,
+      hole_height: 1,
+      x: 0,
+      y: 0,
+      ccw_rotation: 45,
+      layers: ["top", "bottom"],
+    },
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds.minX).toBeCloseTo(-1.707, 3)
+  expect(bounds.minY).toBeCloseTo(-1.707, 3)
+  expect(bounds.maxX).toBeCloseTo(1.707, 3)
+  expect(bounds.maxY).toBeCloseTo(1.707, 3)
+})
+
+test("getBoundsOfPcbElements with rotated oval plated hole", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "pcb_plated_hole_oval",
+      shape: "oval",
+      outer_width: 4,
+      outer_height: 2,
+      hole_width: 3,
+      hole_height: 1,
+      x: 0,
+      y: 0,
+      ccw_rotation: 45,
+      layers: ["top", "bottom"],
+    },
+  ]
+
+  const bounds = getBoundsOfPcbElements(elements)
+
+  expect(bounds.minX).toBeCloseTo(-1.581, 3)
+  expect(bounds.minY).toBeCloseTo(-1.581, 3)
+  expect(bounds.maxX).toBeCloseTo(1.581, 3)
+  expect(bounds.maxY).toBeCloseTo(1.581, 3)
+})
+
 // A 4x2 pcb_component rotated 45deg spans ~±2.121 in both axes, but the bounds
 // are computed from the unrotated width/height and come out ±2 / ±1 instead.
 test("getBoundsOfPcbElements accounts for pcb_component rotation", () => {
