@@ -246,6 +246,28 @@ test("getBoundsOfPcbElements uses tight bounds for a pill rotated 45 degrees", (
   expect(bounds.maxY).toBeCloseTo(1.707, 3)
 })
 
+test("getBoundsOfPcbElements accounts for rotated SMT pad ccw_rotation", () => {
+  const bounds = getBoundsOfPcbElements([
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pcb_smtpad_rotated_pill",
+      shape: "rotated_pill",
+      x: 0,
+      y: 0,
+      width: 0.5599938,
+      height: 1.7450054,
+      radius: 0.2799969,
+      ccw_rotation: 90,
+      layer: "top",
+    },
+  ])
+
+  expect(bounds.minX).toBeCloseTo(-0.8725027)
+  expect(bounds.minY).toBeCloseTo(-0.2799969)
+  expect(bounds.maxX).toBeCloseTo(0.8725027)
+  expect(bounds.maxY).toBeCloseTo(0.2799969)
+})
+
 test("getBoundsOfPcbElements with rotated oval plated hole", () => {
   const elements: AnyCircuitElement[] = [
     {
