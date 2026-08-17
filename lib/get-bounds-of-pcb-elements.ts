@@ -1,19 +1,16 @@
 import type { AnyCircuitElement } from "circuit-json"
 
+export interface PcbBounds {
+  minX: number
+  minY: number
+  maxX: number
+  maxY: number
+}
+
 const mergeBounds = (
-  currentBounds: {
-    minX: number
-    minY: number
-    maxX: number
-    maxY: number
-  },
-  nextBounds: {
-    minX: number
-    minY: number
-    maxX: number
-    maxY: number
-  },
-) => ({
+  currentBounds: PcbBounds,
+  nextBounds: PcbBounds,
+): PcbBounds => ({
   minX: Math.min(currentBounds.minX, nextBounds.minX),
   minY: Math.min(currentBounds.minY, nextBounds.minY),
   maxX: Math.max(currentBounds.maxX, nextBounds.maxX),
@@ -111,219 +108,260 @@ const getRotatedPillBounds = (
   }
 }
 
-export const getBoundsOfPcbElements = (
-  elements: AnyCircuitElement[],
-): { minX: number; minY: number; maxX: number; maxY: number } => {
-  let minX = Number.POSITIVE_INFINITY
-  let minY = Number.POSITIVE_INFINITY
-  let maxX = Number.NEGATIVE_INFINITY
-  let maxY = Number.NEGATIVE_INFINITY
+const getBoundsFromPoints = (
+  points: Array<{ x: number; y: number }>,
+): PcbBounds | null => {
+  if (points.length === 0) return null
 
-  for (const elm of elements) {
-    if (!elm.type.startsWith("pcb_")) continue
+  return {
+    minX: Math.min(...points.map((point) => point.x)),
+    minY: Math.min(...points.map((point) => point.y)),
+    maxX: Math.max(...points.map((point) => point.x)),
+    maxY: Math.max(...points.map((point) => point.y)),
+  }
+}
 
-    // Handle polygon-shaped SMT pads with points array
+const getRoutePoints = (route: unknown): Array<{ x: number; y: number }> => {
+  if (!Array.isArray(route)) return []
+
+  return route.flatMap((point): Array<{ x: number; y: number }> => {
+    if (!point || typeof point !== "object") return []
     if (
-      elm.type === "pcb_smtpad" &&
-      elm.shape === "polygon" &&
-      Array.isArray(elm.points)
+      "x" in point &&
+      "y" in point &&
+      typeof point.x === "number" &&
+      typeof point.y === "number"
     ) {
-      for (const point of elm.points) {
-        minX = Math.min(minX, point.x)
-        minY = Math.min(minY, point.y)
-        maxX = Math.max(maxX, point.x)
-        maxY = Math.max(maxY, point.y)
-      }
-      continue
+      return [{ x: point.x, y: point.y }]
     }
 
-    if (elm.type === "pcb_hole" && elm.hole_shape === "circle") {
-      const holeBounds = getCircleBounds(elm.x, elm.y, elm.hole_diameter)
-      minX = Math.min(minX, holeBounds.minX)
-      minY = Math.min(minY, holeBounds.minY)
-      maxX = Math.max(maxX, holeBounds.maxX)
-      maxY = Math.max(maxY, holeBounds.maxY)
-      continue
+    if ("start" in point && "end" in point) {
+      const positions = [point.start, point.end]
+      return positions.filter(
+        (position): position is { x: number; y: number } =>
+          Boolean(
+            position &&
+              typeof position === "object" &&
+              "x" in position &&
+              "y" in position &&
+              typeof position.x === "number" &&
+              typeof position.y === "number",
+          ),
+      )
     }
 
-    if (elm.type === "pcb_plated_hole") {
-      let platedHoleBounds:
-        | {
-            minX: number
-            minY: number
-            maxX: number
-            maxY: number
-          }
-        | undefined
+    return []
+  })
+}
 
-      if ("outer_diameter" in elm && typeof elm.outer_diameter === "number") {
-        platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.outer_diameter)
-      } else if (
-        "hole_diameter" in elm &&
-        typeof elm.hole_diameter === "number"
-      ) {
-        platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.hole_diameter)
-      }
+/** Returns the axis-aligned bounds of one drawable PCB element. */
+export const getPcbElementBounds = (
+  elm: AnyCircuitElement,
+): PcbBounds | null => {
+  if (!elm.type.startsWith("pcb_")) return null
 
-      if (
-        (elm.shape === "oval" || elm.shape === "pill") &&
-        typeof elm.outer_width === "number" &&
-        typeof elm.outer_height === "number"
-      ) {
-        const getOuterBounds =
-          elm.shape === "pill" ? getRotatedPillBounds : getRotatedOvalBounds
-        platedHoleBounds = getOuterBounds(
-          elm.x,
-          elm.y,
-          elm.outer_width,
-          elm.outer_height,
-          elm.ccw_rotation ?? 0,
-        )
-      }
-
-      if (
-        "rect_pad_width" in elm &&
-        typeof elm.rect_pad_width === "number" &&
-        "rect_pad_height" in elm &&
-        typeof elm.rect_pad_height === "number"
-      ) {
-        const rectBounds = getRotatedRectBounds(
-          elm.x,
-          elm.y,
-          elm.rect_pad_width,
-          elm.rect_pad_height,
-          "rect_ccw_rotation" in elm ? (elm.rect_ccw_rotation ?? 0) : 0,
-        )
-        platedHoleBounds = platedHoleBounds
-          ? mergeBounds(platedHoleBounds, rectBounds)
-          : rectBounds
-      }
-
-      if ("hole_diameter" in elm && typeof elm.hole_diameter === "number") {
-        const drillBounds = getCircleBounds(
-          elm.x +
-            ("hole_offset_x" in elm ? ((elm.hole_offset_x as number) ?? 0) : 0),
-          elm.y +
-            ("hole_offset_y" in elm ? ((elm.hole_offset_y as number) ?? 0) : 0),
-          elm.hole_diameter,
-        )
-        platedHoleBounds = platedHoleBounds
-          ? mergeBounds(platedHoleBounds, drillBounds)
-          : drillBounds
-      }
-
-      if (platedHoleBounds) {
-        minX = Math.min(minX, platedHoleBounds.minX)
-        minY = Math.min(minY, platedHoleBounds.minY)
-        maxX = Math.max(maxX, platedHoleBounds.maxX)
-        maxY = Math.max(maxY, platedHoleBounds.maxY)
-        continue
-      }
-    }
-
-    let centerX: number | undefined
-    let centerY: number | undefined
-
-    let width: number | undefined
-    let height: number | undefined
-
-    if ("x" in elm && "y" in elm) {
-      centerX = Number((elm as any).x)
-      centerY = Number((elm as any).y)
-    }
-
-    if ("outer_diameter" in elm) {
-      width = Number((elm as any).outer_diameter)
-      height = Number((elm as any).outer_diameter)
-    }
-
-    if ("width" in elm) {
-      width = Number((elm as any).width)
-    }
-
-    if ("height" in elm) {
-      height = Number((elm as any).height)
-    }
-
-    if ("center" in elm) {
-      // @ts-ignore
-      centerX = elm.center.x
-      // @ts-ignore
-      centerY = elm.center.y
-    }
-
-    let rotation = 0
-    if ("rotation" in elm && typeof elm.rotation === "number") {
-      rotation = elm.rotation
-    }
-    if ("ccw_rotation" in elm && typeof elm.ccw_rotation === "number") {
-      rotation = elm.ccw_rotation
-    }
-
-    if (centerX !== undefined && centerY !== undefined) {
-      minX = Math.min(minX, centerX)
-      minY = Math.min(minY, centerY)
-      maxX = Math.max(maxX, centerX)
-      maxY = Math.max(maxY, centerY)
-
-      if (width !== undefined && height !== undefined) {
-        if (rotation) {
-          // Account for the element's rotation so the box encloses the
-          // rotated extent, not the unrotated width/height.
-          const rotatedBounds = getRotatedRectBounds(
-            centerX,
-            centerY,
-            width,
-            height,
-            rotation,
-          )
-          minX = Math.min(minX, rotatedBounds.minX)
-          minY = Math.min(minY, rotatedBounds.minY)
-          maxX = Math.max(maxX, rotatedBounds.maxX)
-          maxY = Math.max(maxY, rotatedBounds.maxY)
-        } else {
-          minX = Math.min(minX, centerX - width / 2)
-          minY = Math.min(minY, centerY - height / 2)
-          maxX = Math.max(maxX, centerX + width / 2)
-          maxY = Math.max(maxY, centerY + height / 2)
-        }
-      }
-
-      if ("radius" in elm) {
-        minX = Math.min(minX, centerX - elm.radius)
-        minY = Math.min(minY, centerY - elm.radius)
-        maxX = Math.max(maxX, centerX + elm.radius)
-        maxY = Math.max(maxY, centerY + elm.radius)
-      }
-    } else if (elm.type === "pcb_trace") {
-      for (const point of elm.route) {
-        // TODO add trace thickness support
-        // "through_pad" route points describe a segment with start/end rather
-        // than a single x/y position.
-        const positions = "x" in point ? [point] : [point.start, point.end]
-        for (const { x, y } of positions) {
-          minX = Math.min(minX, x)
-          minY = Math.min(minY, y)
-          maxX = Math.max(maxX, x)
-          maxY = Math.max(maxY, y)
-        }
-      }
-    } else if (elm.type === "pcb_courtyard_outline") {
-      for (const point of elm.outline) {
-        minX = Math.min(minX, point.x)
-        minY = Math.min(minY, point.y)
-        maxX = Math.max(maxX, point.x)
-        maxY = Math.max(maxY, point.y)
-      }
-    } else if (elm.type === "pcb_courtyard_polygon") {
-      for (const point of elm.points) {
-        minX = Math.min(minX, point.x)
-        minY = Math.min(minY, point.y)
-        maxX = Math.max(maxX, point.x)
-        maxY = Math.max(maxY, point.y)
-      }
-    }
+  if (
+    elm.type === "pcb_smtpad" &&
+    elm.shape === "polygon" &&
+    Array.isArray(elm.points)
+  ) {
+    return getBoundsFromPoints(elm.points)
   }
 
-  return { minX, minY, maxX, maxY }
+  if (elm.type === "pcb_hole" && elm.hole_shape === "circle") {
+    return getCircleBounds(elm.x, elm.y, elm.hole_diameter)
+  }
+
+  if (elm.type === "pcb_plated_hole") {
+    let platedHoleBounds: PcbBounds | undefined
+
+    if ("outer_diameter" in elm && typeof elm.outer_diameter === "number") {
+      platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.outer_diameter)
+    } else if (
+      "hole_diameter" in elm &&
+      typeof elm.hole_diameter === "number"
+    ) {
+      platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.hole_diameter)
+    }
+
+    if (
+      (elm.shape === "oval" || elm.shape === "pill") &&
+      typeof elm.outer_width === "number" &&
+      typeof elm.outer_height === "number"
+    ) {
+      const getOuterBounds =
+        elm.shape === "pill" ? getRotatedPillBounds : getRotatedOvalBounds
+      platedHoleBounds = getOuterBounds(
+        elm.x,
+        elm.y,
+        elm.outer_width,
+        elm.outer_height,
+        elm.ccw_rotation ?? 0,
+      )
+    }
+
+    if (
+      "rect_pad_width" in elm &&
+      typeof elm.rect_pad_width === "number" &&
+      "rect_pad_height" in elm &&
+      typeof elm.rect_pad_height === "number"
+    ) {
+      const rectBounds = getRotatedRectBounds(
+        elm.x,
+        elm.y,
+        elm.rect_pad_width,
+        elm.rect_pad_height,
+        "rect_ccw_rotation" in elm ? (elm.rect_ccw_rotation ?? 0) : 0,
+      )
+      platedHoleBounds = platedHoleBounds
+        ? mergeBounds(platedHoleBounds, rectBounds)
+        : rectBounds
+    }
+
+    if ("hole_diameter" in elm && typeof elm.hole_diameter === "number") {
+      const drillBounds = getCircleBounds(
+        elm.x +
+          ("hole_offset_x" in elm ? ((elm.hole_offset_x as number) ?? 0) : 0),
+        elm.y +
+          ("hole_offset_y" in elm ? ((elm.hole_offset_y as number) ?? 0) : 0),
+        elm.hole_diameter,
+      )
+      platedHoleBounds = platedHoleBounds
+        ? mergeBounds(platedHoleBounds, drillBounds)
+        : drillBounds
+    }
+
+    if (platedHoleBounds) return platedHoleBounds
+  }
+
+  const elementRecord = elm as unknown as Record<string, unknown>
+  const routeBounds = getBoundsFromPoints(getRoutePoints(elementRecord.route))
+  if (routeBounds) return routeBounds
+
+  const outlineBounds = getBoundsFromPoints(
+    getRoutePoints(elementRecord.outline),
+  )
+  if (outlineBounds) return outlineBounds
+
+  const pointsBounds = getBoundsFromPoints(getRoutePoints(elementRecord.points))
+  if (pointsBounds) return pointsBounds
+
+  let centerX: number | undefined
+  let centerY: number | undefined
+
+  let width: number | undefined
+  let height: number | undefined
+
+  if ("x" in elm && "y" in elm) {
+    centerX = Number(elm.x)
+    centerY = Number(elm.y)
+  }
+
+  if ("outer_diameter" in elm) {
+    width = Number(elm.outer_diameter)
+    height = Number(elm.outer_diameter)
+  }
+
+  if ("width" in elm) {
+    width = Number(elm.width)
+  }
+
+  if ("height" in elm) {
+    height = Number(elm.height)
+  }
+
+  if (
+    "center" in elm &&
+    elm.center &&
+    typeof elm.center === "object" &&
+    "x" in elm.center &&
+    "y" in elm.center
+  ) {
+    centerX = Number(elm.center.x)
+    centerY = Number(elm.center.y)
+  }
+
+  let rotation = 0
+  if ("rotation" in elm && typeof elm.rotation === "number") {
+    rotation = elm.rotation
+  }
+  if ("ccw_rotation" in elm && typeof elm.ccw_rotation === "number") {
+    rotation = elm.ccw_rotation
+  }
+
+  if (centerX !== undefined && centerY !== undefined) {
+    if (width !== undefined && height !== undefined) {
+      return rotation
+        ? getRotatedRectBounds(centerX, centerY, width, height, rotation)
+        : {
+            minX: centerX - width / 2,
+            minY: centerY - height / 2,
+            maxX: centerX + width / 2,
+            maxY: centerY + height / 2,
+          }
+    }
+
+    if ("radius" in elm && typeof elm.radius === "number") {
+      return getCircleBounds(centerX, centerY, elm.radius * 2)
+    }
+
+    return { minX: centerX, minY: centerY, maxX: centerX, maxY: centerY }
+  }
+
+  const anchoredPoint = [elementRecord.anchor_position, elementRecord.position]
+    .filter((position): position is { x: number; y: number } =>
+      Boolean(
+        position &&
+          typeof position === "object" &&
+          "x" in position &&
+          "y" in position &&
+          typeof position.x === "number" &&
+          typeof position.y === "number",
+      ),
+    )
+    .at(0)
+
+  return anchoredPoint
+    ? {
+        minX: anchoredPoint.x,
+        minY: anchoredPoint.y,
+        maxX: anchoredPoint.x,
+        maxY: anchoredPoint.y,
+      }
+    : null
 }
+
+export const getBoundsOfPcbElements = (
+  elements: AnyCircuitElement[],
+): PcbBounds => {
+  let bounds: PcbBounds = {
+    minX: Number.POSITIVE_INFINITY,
+    minY: Number.POSITIVE_INFINITY,
+    maxX: Number.NEGATIVE_INFINITY,
+    maxY: Number.NEGATIVE_INFINITY,
+  }
+
+  for (const element of elements) {
+    const elementBounds = getPcbElementBounds(element)
+    if (elementBounds) bounds = mergeBounds(bounds, elementBounds)
+  }
+
+  return bounds
+}
+
+/** Returns PCB elements whose axis-aligned bounds intersect the given bounds. */
+export const getPcbElementsWithinBounds = (
+  elements: AnyCircuitElement[],
+  bounds: PcbBounds,
+): AnyCircuitElement[] =>
+  elements.filter((element) => {
+    const elementBounds = getPcbElementBounds(element)
+    if (!elementBounds) return false
+
+    return (
+      elementBounds.minX <= bounds.maxX &&
+      elementBounds.maxX >= bounds.minX &&
+      elementBounds.minY <= bounds.maxY &&
+      elementBounds.maxY >= bounds.minY
+    )
+  })

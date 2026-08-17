@@ -35,6 +35,8 @@ It reduces the amount of code to retrieve or join elements from circuit json, it
 | `getReadableNameForPcbSmtpad` | [`lib/readable-name-functions/get-readable-name-for-pcb-smtpad.ts`](./lib/readable-name-functions/get-readable-name-for-pcb-smtpad.ts) | Produces a readable label for a PCB SMT pad. |
 | `getReadableNameForPcbTrace` | [`lib/readable-name-functions/get-readable-name-for-pcb-trace.ts`](./lib/readable-name-functions/get-readable-name-for-pcb-trace.ts) | Produces a readable label for a PCB trace. |
 | `getBoundsOfPcbElements` | [`lib/get-bounds-of-pcb-elements.ts`](./lib/get-bounds-of-pcb-elements.ts) | Computes aggregate XY bounds for PCB elements. |
+| `getPcbElementBounds` | [`lib/get-bounds-of-pcb-elements.ts`](./lib/get-bounds-of-pcb-elements.ts) | Computes the axis-aligned XY bounds of one PCB element. |
+| `getPcbElementsWithinBounds` | [`lib/get-bounds-of-pcb-elements.ts`](./lib/get-bounds-of-pcb-elements.ts) | Selects PCB elements whose bounds intersect a region. |
 | `getBoardBounds` | [`lib/get-board-bounds.ts`](./lib/get-board-bounds.ts) | Computes board bounds/size from `width`+`height`+`center`, or from `outline` points. |
 | `getSchematicElementBounds` | [`lib/get-schematic-element-bounds.ts`](./lib/get-schematic-element-bounds.ts) | Computes the axis-aligned bounds of a schematic component, net label, or trace. |
 | `findBoundsAndCenter` | [`lib/find-bounds-and-center.ts`](./lib/find-bounds-and-center.ts) | Computes bounds and center for a set of points. |
