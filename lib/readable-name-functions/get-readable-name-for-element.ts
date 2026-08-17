@@ -1,9 +1,9 @@
 import type { AnyCircuitElement } from "circuit-json"
-import { getReadableNameForPcbTrace } from "./get-readable-name-for-pcb-trace"
-import { getReadableNameForPcbSmtpad } from "./get-readable-name-for-pcb-smtpad"
+import { getElementById } from "../get-element-by-id"
+import { getElementId } from "../get-element-id"
 import { getReadableNameForPcbPort } from "./get-readable-name-for-pcb-port"
-import { getElementById } from "lib/get-element-by-id"
-import { getElementId } from "lib/get-element-id"
+import { getReadableNameForPcbSmtpad } from "./get-readable-name-for-pcb-smtpad"
+import { getReadableNameForPcbTrace } from "./get-readable-name-for-pcb-trace"
 
 export const getReadableNameForElement = (
   soup: AnyCircuitElement[],

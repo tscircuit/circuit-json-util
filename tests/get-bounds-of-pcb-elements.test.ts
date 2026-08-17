@@ -1,6 +1,10 @@
-import { getBoundsOfPcbElements } from "../lib/get-bounds-of-pcb-elements"
-import type { AnyCircuitElement } from "circuit-json"
 import { expect, test } from "bun:test"
+import type { AnyCircuitElement } from "circuit-json"
+import {
+  getBoundsOfPcbElements,
+  getPcbElementBounds,
+  getPcbElementsWithinBounds,
+} from "../lib/get-bounds-of-pcb-elements"
 
 test("getBoundsOfPcbElements", () => {
   const elements: AnyCircuitElement[] = [
@@ -316,4 +320,96 @@ test("getBoundsOfPcbElements accounts for pcb_component rotation", () => {
   expect(bounds.maxY).toBeCloseTo(2.121, 2)
   expect(bounds.minX).toBeCloseTo(-2.121, 2)
   expect(bounds.minY).toBeCloseTo(-2.121, 2)
+})
+
+test("getPcbElementBounds returns one element's rotated bounds", () => {
+  const bounds = getPcbElementBounds({
+    type: "pcb_component",
+    pcb_component_id: "component",
+    source_component_id: "source_component",
+    center: { x: 4, y: -2 },
+    width: 4,
+    height: 2,
+    rotation: 90,
+    layer: "top",
+    obstructs_within_bounds: false,
+  })
+
+  expect(bounds).not.toBeNull()
+  expect(bounds!.minX).toBeCloseTo(3)
+  expect(bounds!.maxX).toBeCloseTo(5)
+  expect(bounds!.minY).toBeCloseTo(-4)
+  expect(bounds!.maxY).toBeCloseTo(0)
+})
+
+test("getPcbElementBounds returns null for non-PCB elements", () => {
+  expect(
+    getPcbElementBounds({
+      type: "source_component",
+      source_component_id: "source_component",
+      name: "R1",
+      ftype: "simple_resistor",
+      resistance: 1000,
+    }),
+  ).toBeNull()
+})
+
+test("getPcbElementsWithinBounds selects intersecting PCB geometry", () => {
+  const elements: AnyCircuitElement[] = [
+    {
+      type: "pcb_component",
+      pcb_component_id: "near",
+      source_component_id: "source_near",
+      center: { x: 0, y: 0 },
+      width: 2,
+      height: 2,
+      rotation: 0,
+      layer: "top",
+      obstructs_within_bounds: false,
+    },
+    {
+      type: "pcb_component",
+      pcb_component_id: "far",
+      source_component_id: "source_far",
+      center: { x: 10, y: 10 },
+      width: 2,
+      height: 2,
+      rotation: 0,
+      layer: "top",
+      obstructs_within_bounds: false,
+    },
+    {
+      type: "pcb_trace",
+      pcb_trace_id: "crossing_trace",
+      route: [
+        { x: -5, y: 0, width: 0.2, layer: "top", route_type: "wire" },
+        { x: 5, y: 0, width: 0.2, layer: "top", route_type: "wire" },
+      ],
+    },
+    {
+      type: "source_component",
+      source_component_id: "source_near",
+      name: "R1",
+      ftype: "simple_resistor",
+      resistance: 1000,
+    },
+  ]
+
+  const selected = getPcbElementsWithinBounds(elements, {
+    minX: -2,
+    minY: -2,
+    maxX: 2,
+    maxY: 2,
+  })
+
+  expect(selected.map((element) => element.type)).toEqual([
+    "pcb_component",
+    "pcb_trace",
+  ])
+  expect(
+    selected.some(
+      (element) =>
+        element.type === "pcb_component" && element.pcb_component_id === "far",
+    ),
+  ).toBe(false)
 })
