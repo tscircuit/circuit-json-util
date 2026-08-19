@@ -1,7 +1,7 @@
 {
   "name": "@tscircuit/circuit-json-util",
   "type": "module",
-  "version": "0.0.108",
+  "version": "0.0.110",
   "repository": {
     "type": "git",
     "url": "https://github.com/tscircuit/circuit-json-util.git"
