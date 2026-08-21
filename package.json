@@ -1,13 +1,15 @@
 {
   "name": "@tscircuit/circuit-json-util",
   "type": "module",
-  "version": "0.0.110",
+  "version": "0.0.111",
   "repository": {
     "type": "git",
     "url": "https://github.com/tscircuit/circuit-json-util.git"
   },
   "description": "Utility library for working with tscircuit circuit json",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "scripts": {
     "test": "bun test",
