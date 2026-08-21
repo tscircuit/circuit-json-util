@@ -163,7 +163,10 @@ export const getDebugLayoutObject = (lo: any): LayoutDebugObject | null => {
   if (x === undefined || y === undefined) return null
 
   if (width === undefined) {
-    if ("outer_diameter" in lo) {
+    if ("radius" in lo) {
+      width = lo.radius * 2
+      height = lo.radius * 2
+    } else if ("outer_diameter" in lo) {
       width = lo.outer_diameter
       height = lo.outer_diameter
     } else if ("rect_pad_width" in lo && "rect_pad_height" in lo) {

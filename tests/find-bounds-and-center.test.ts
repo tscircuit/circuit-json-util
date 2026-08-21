@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test"
-import { findBoundsAndCenter } from "lib/find-bounds-and-center"
 import type { AnyCircuitElement } from "circuit-json"
+import { findBoundsAndCenter } from "lib/find-bounds-and-center"
 
 test("should return default values for empty input", () => {
   const result = findBoundsAndCenter([])
@@ -152,5 +152,27 @@ test("should handle polygon SMT pad elements correctly", () => {
     center: { x: 6, y: 6 },
     width: 12,
     height: 12,
+  })
+})
+
+test("should calculate bounds for silkscreen circles using their radius", () => {
+  const elements = [
+    {
+      type: "pcb_silkscreen_circle",
+      pcb_silkscreen_circle_id: "pcb_silkscreen_circle_0",
+      pcb_component_id: "pcb_component_0",
+      center: { x: 10, y: 20 },
+      radius: 2,
+      layer: "top",
+      stroke_width: 0.1,
+    } as AnyCircuitElement,
+  ]
+
+  const result = findBoundsAndCenter(elements)
+
+  expect(result).toEqual({
+    center: { x: 10, y: 20 },
+    width: 4,
+    height: 4,
   })
 })
