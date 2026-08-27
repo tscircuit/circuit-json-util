@@ -9,11 +9,21 @@
   "description": "Utility library for working with tscircuit circuit json",
   "files": ["dist"],
   "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./compute-gap-between-copper": {
+      "types": "./dist/lib/compute-gap-between-copper.d.ts",
+      "import": "./dist/lib/compute-gap-between-copper.js"
+    }
+  },
   "scripts": {
     "test": "bun test",
     "prepublish": "npm run build",
-    "prepare": "bun run build",
-    "build": "tsup-node ./index.ts --format esm --dts --dts-resolve --sourcemap",
+    "prepare": "tsup-node ./lib/compute-gap-between-copper.ts --format esm --dts --sourcemap --out-dir dist/lib",
+    "build": "tsup-node ./index.ts ./lib/compute-gap-between-copper.ts --format esm --dts --dts-resolve --sourcemap",
     "benchmark": "bun run lib/benchmarks/su-benchmark.ts",
     "format": "biome format . --write",
     "format:check": "biome format ."
