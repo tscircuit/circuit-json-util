@@ -9,6 +9,12 @@
   "description": "Utility library for working with tscircuit circuit json",
   "files": ["dist"],
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "compute-gap-between-copper": ["dist/lib/compute-gap-between-copper.d.ts"]
+    }
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
