@@ -128,3 +128,105 @@ test("computeGapBetweenCopper returns 0 for overlapping shapes", () => {
 
   expect(computeGapBetweenCopper(a, b)).toBe(0)
 })
+
+const circleToSpecialShapeCases: Array<{
+  name: string
+  element: AnyCircuitElement
+}> = [
+  {
+    name: "rotated rectangular SMT pad",
+    element: {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "rotated_rect",
+      shape: "rotated_rect",
+      x: 0,
+      y: 0,
+      width: 2,
+      height: 4,
+      ccw_rotation: 90,
+      layer: "top",
+    },
+  },
+  {
+    name: "rotated pill SMT pad",
+    element: {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "rotated_pill",
+      shape: "rotated_pill",
+      x: 0,
+      y: 0,
+      width: 2,
+      height: 4,
+      radius: 1,
+      ccw_rotation: 90,
+      layer: "top",
+    },
+  },
+  {
+    name: "oval plated hole",
+    element: {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "oval_hole",
+      shape: "oval",
+      x: 0,
+      y: 0,
+      outer_width: 2,
+      outer_height: 4,
+      hole_width: 1,
+      hole_height: 3,
+      ccw_rotation: 90,
+      layers: ["top", "bottom"],
+    },
+  },
+  {
+    name: "rectangular copper pour",
+    element: {
+      type: "pcb_copper_pour",
+      pcb_copper_pour_id: "rect_pour",
+      shape: "rect",
+      center: { x: 0, y: 0 },
+      width: 4,
+      height: 2,
+      layer: "top",
+      covered_with_solder_mask: true,
+    },
+  },
+  {
+    name: "polygon-pad plated hole",
+    element: {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "polygon_hole",
+      shape: "hole_with_polygon_pad",
+      hole_shape: "circle",
+      hole_diameter: 0.5,
+      hole_offset_x: 0,
+      hole_offset_y: 0,
+      x: 0,
+      y: 0,
+      pad_outline: [
+        { x: -2, y: -1 },
+        { x: 2, y: -1 },
+        { x: 2, y: 1 },
+        { x: -2, y: 1 },
+      ],
+      layers: ["top", "bottom"],
+    },
+  },
+]
+
+test.each(circleToSpecialShapeCases)(
+  "computeGapBetweenCopper handles $name",
+  ({ element }) => {
+    const circle = {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "test_circle",
+      shape: "circle",
+      x: 3,
+      y: 0,
+      radius: 0.5,
+      layer: "top",
+    } satisfies AnyCircuitElement
+
+    expect(computeGapBetweenCopper(element, circle)).toBeCloseTo(0.5)
+  },
+)
