@@ -6,10 +6,18 @@ import type {
 } from "circuit-json"
 import * as Soup from "circuit-json"
 import type {
+  CircuitJsonInputUtilObjects,
   CircuitJsonOps,
-  CircuitJsonUtilObjects as CircuitJsonUtilObjects,
-  CircuitJsonInputUtilObjects as CircuitJsonInputUtilObjects,
+  CircuitJsonUtilObjects,
 } from "./cju"
+import {
+  assertPrimaryIdIsAvailable,
+  getNextAvailablePrimaryId,
+  invalidatePrimaryIdRegistries,
+  registerGeneratedPrimaryId,
+  registerInsertedElementPrimaryId,
+  unregisterDeletedElementPrimaryId,
+} from "./primary-id-insertion"
 
 export type IndexedCircuitJsonUtilOptions = {
   validateInserts?: boolean
@@ -70,13 +78,11 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
       const type = elm.type
       const idVal = (elm as any)[`${type}_id`]
       if (!idVal) continue
-      const idNum = Number.parseInt(idVal.split("_").pop() || "")
-      if (!Number.isNaN(idNum)) {
-        internalStore.counts[type] = Math.max(
-          internalStore.counts[type] ?? 0,
-          idNum,
-        )
-      }
+      registerGeneratedPrimaryId({
+        counts: internalStore.counts,
+        elementType: type,
+        primaryId: idVal,
+      })
     }
 
     // Build indexes
@@ -172,6 +178,118 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
     }
     // Store internal state
     ;(soup as any)._internal_store_indexed = internalStore
+  }
+
+  const addElementToIndexes = (element: AnyCircuitElement) => {
+    const indexConfig = options.indexConfig || {}
+
+    if (indexConfig.byId && internalStore.indexes.byId) {
+      internalStore.indexes.byId.set(createIdKey(element), element)
+    }
+
+    if (indexConfig.byType && internalStore.indexes.byType) {
+      const elementsOfType =
+        internalStore.indexes.byType.get(element.type) || []
+      elementsOfType.push(element)
+      internalStore.indexes.byType.set(element.type, elementsOfType)
+    }
+
+    if (indexConfig.byRelation && internalStore.indexes.byRelation) {
+      for (const [key, value] of Object.entries(element)) {
+        if (
+          key.endsWith("_id") &&
+          key !== `${element.type}_id` &&
+          typeof value === "string"
+        ) {
+          const relationTypeMap =
+            internalStore.indexes.byRelation.get(key) || new Map()
+          const relatedElements = relationTypeMap.get(value) || []
+          relatedElements.push(element)
+          relationTypeMap.set(value, relatedElements)
+          internalStore.indexes.byRelation.set(key, relationTypeMap)
+        }
+      }
+    }
+
+    if (
+      indexConfig.bySubcircuit &&
+      internalStore.indexes.bySubcircuit &&
+      "subcircuit_id" in element
+    ) {
+      const subcircuitId = element.subcircuit_id
+      if (subcircuitId && typeof subcircuitId === "string") {
+        const subcircuitElements =
+          internalStore.indexes.bySubcircuit.get(subcircuitId) || []
+        subcircuitElements.push(element)
+        internalStore.indexes.bySubcircuit.set(subcircuitId, subcircuitElements)
+      }
+    }
+
+    if (indexConfig.byCustomField && internalStore.indexes.byCustomField) {
+      for (const field of indexConfig.byCustomField) {
+        if (!(field in element)) continue
+
+        const fieldValue = (element as unknown as Record<string, unknown>)[
+          field
+        ]
+        if (
+          fieldValue === undefined ||
+          (typeof fieldValue !== "string" && typeof fieldValue !== "number")
+        ) {
+          continue
+        }
+
+        const fieldMap = internalStore.indexes.byCustomField.get(field)!
+        const fieldValueString = String(fieldValue)
+        const elementsWithFieldValue = fieldMap.get(fieldValueString) || []
+        elementsWithFieldValue.push(element)
+        fieldMap.set(fieldValueString, elementsWithFieldValue)
+      }
+    }
+  }
+
+  const insertElement = (
+    componentType: string,
+    elm: Record<string, unknown>,
+  ): AnyCircuitElement => {
+    const primaryIdField = `${componentType}_id`
+    const requestedPrimaryId = elm[primaryIdField]
+    const primaryId =
+      requestedPrimaryId === null ||
+      requestedPrimaryId === undefined ||
+      requestedPrimaryId === ""
+        ? getNextAvailablePrimaryId({
+            circuitJson: soup,
+            counts: internalStore.counts,
+            elementType: componentType,
+          })
+        : assertPrimaryIdIsAvailable({
+            circuitJson: soup,
+            elementType: componentType,
+            primaryId: requestedPrimaryId,
+          })
+
+    const newElm = {
+      ...elm,
+      type: componentType,
+      [primaryIdField]: primaryId,
+    } as AnyCircuitElement
+
+    if (options.validateInserts) {
+      const parser = (Soup as any)[componentType] ?? Soup.any_soup_element
+      parser.parse(newElm)
+    }
+
+    registerGeneratedPrimaryId({
+      counts: internalStore.counts,
+      elementType: componentType,
+      primaryId,
+    })
+    soup.push(newElm)
+    registerInsertedElementPrimaryId({ circuitJson: soup, element: newElm })
+    internalStore.editCount++
+    addElementToIndexes(newElm)
+    return newElm
   }
 
   const suIndexed = new Proxy(
@@ -449,107 +567,8 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
             >[]
           },
 
-          insert: (elm: any) => {
-            internalStore.counts[component_type] ??= -1
-            internalStore.counts[component_type]++
-            const index = internalStore.counts[component_type]
-            const newElm = {
-              type: component_type,
-              [`${component_type}_id`]: `${component_type}_${index}`,
-              ...elm,
-            }
-
-            if (options.validateInserts) {
-              const parser =
-                (Soup as any)[component_type] ?? Soup.any_soup_element
-              parser.parse(newElm)
-            }
-
-            soup.push(newElm)
-            internalStore.editCount++
-
-            // Update indexes with the new element
-            const indexConfig = options.indexConfig || {}
-
-            // Update ID index
-            if (indexConfig.byId && internalStore.indexes.byId) {
-              const idKey = createIdKey(newElm)
-              internalStore.indexes.byId.set(idKey, newElm)
-            }
-
-            // Update type index
-            if (indexConfig.byType && internalStore.indexes.byType) {
-              const elementsOfType =
-                internalStore.indexes.byType.get(component_type) || []
-              elementsOfType.push(newElm)
-              internalStore.indexes.byType.set(component_type, elementsOfType)
-            }
-
-            // Update relation index
-            if (indexConfig.byRelation && internalStore.indexes.byRelation) {
-              const elementEntries = Object.entries(newElm)
-              for (const [key, value] of elementEntries) {
-                if (
-                  key.endsWith("_id") &&
-                  key !== `${newElm.type}_id` &&
-                  typeof value === "string"
-                ) {
-                  const relationTypeMap =
-                    internalStore.indexes.byRelation.get(key) || new Map()
-                  const relatedElements =
-                    relationTypeMap.get(value as string) || []
-                  relatedElements.push(newElm)
-                  relationTypeMap.set(value as string, relatedElements)
-                  internalStore.indexes.byRelation.set(key, relationTypeMap)
-                }
-              }
-            }
-
-            // Update subcircuit index
-            if (
-              indexConfig.bySubcircuit &&
-              internalStore.indexes.bySubcircuit &&
-              "subcircuit_id" in newElm
-            ) {
-              const subcircuitId = (newElm as any).subcircuit_id
-              if (subcircuitId && typeof subcircuitId === "string") {
-                const subcircuitElements =
-                  internalStore.indexes.bySubcircuit.get(subcircuitId) || []
-                subcircuitElements.push(newElm)
-                internalStore.indexes.bySubcircuit.set(
-                  subcircuitId,
-                  subcircuitElements,
-                )
-              }
-            }
-
-            // Update custom field indexes
-            if (
-              indexConfig.byCustomField &&
-              internalStore.indexes.byCustomField
-            ) {
-              for (const field of indexConfig.byCustomField) {
-                if (field in newElm) {
-                  const fieldValue = (newElm as any)[field]
-                  if (
-                    fieldValue !== undefined &&
-                    (typeof fieldValue === "string" ||
-                      typeof fieldValue === "number")
-                  ) {
-                    const fieldValueStr = String(fieldValue)
-                    const fieldMap =
-                      internalStore.indexes.byCustomField.get(field)!
-                    const elementsWithFieldValue =
-                      fieldMap.get(fieldValueStr) || []
-                    elementsWithFieldValue.push(newElm)
-                    fieldMap.set(fieldValueStr, elementsWithFieldValue)
-                  }
-                }
-              }
-            }
-
-            return newElm
-          },
+          insert: (elm: Record<string, unknown>) =>
+            insertElement(component_type, elm),
 
           delete: (id: string) => {
             const indexConfig = options.indexConfig || {}
@@ -565,7 +584,11 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
                 (e: any) => e[`${component_type}_id`] === id,
               )
             } else {
-              elm = soup.find((e) => (e as any)[`${component_type}_id`] === id)
+              elm = soup.find(
+                (e) =>
+                  e.type === component_type &&
+                  (e as any)[`${component_type}_id`] === id,
+              )
             }
 
             if (!elm) return
@@ -574,6 +597,10 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
             const elmIndex = soup.indexOf(elm)
             if (elmIndex >= 0) {
               soup.splice(elmIndex, 1)
+              unregisterDeletedElementPrimaryId({
+                circuitJson: soup,
+                element: elm,
+              })
               internalStore.editCount++
             }
 
@@ -676,6 +703,12 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
 
             if (!elm) return null
 
+            const primaryIdField = `${elm.type}_id`
+            const updatesPrimaryId =
+              ("type" in newProps && newProps.type !== elm.type) ||
+              (primaryIdField in newProps &&
+                newProps[primaryIdField] !== (elm as any)[primaryIdField])
+
             // Need to remove from indexes before updating
             if (indexConfig.byRelation && internalStore.indexes.byRelation) {
               // Remove from relation indexes
@@ -764,6 +797,7 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
 
             // Update the element
             Object.assign(elm, newProps)
+            if (updatesPrimaryId) invalidatePrimaryIdRegistries()
             internalStore.editCount++
 
             // Add to indexes with updated values
