@@ -28,7 +28,7 @@
   "scripts": {
     "test": "bun test",
     "prepublish": "npm run build",
-    "prepare": "tsup-node index.ts lib/*.ts lib/readable-name-functions/*.ts lib/shape-distances/*.ts lib/utils/*.ts --format esm --dts --sourcemap",
+    "prepare": "tsup-node ./lib/compute-gap-between-copper.ts --format esm --dts --sourcemap --out-dir dist/lib",
     "build": "tsup-node ./index.ts ./lib/compute-gap-between-copper.ts --format esm --dts --dts-resolve --sourcemap",
     "benchmark": "bun run lib/benchmarks/su-benchmark.ts",
     "format": "biome format . --write",
