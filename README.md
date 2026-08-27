@@ -79,6 +79,24 @@ const source_traces = su(circuitJson).source_trace.list({
 })
 ```
 
+The type-safe table `insert` accepts an optional primary ID. A non-empty string
+is retained, while an omitted, `undefined`, or empty ID is generated. For
+backward compatibility, runtime JavaScript callers that pass `null` also get a
+generated ID, although `null` is not part of the TypeScript input. A duplicate
+primary ID in the same table is rejected without modifying the circuit json.
+IDs matching the library's generated `${type}_${index}` pattern also reserve
+that index, so later calls continue with an unused ID. Root-level `insert` and
+`insertAll` retain their historical behavior of always generating primary IDs.
+Primary-ID reservations track insert, delete, and update calls made through the
+utility; direct in-place ID mutations are unsupported.
+
+```ts
+const pcbTrace = su(circuitJson).pcb_trace.insert({
+  pcb_trace_id: "autorouter-output-main",
+  route: [],
+})
+```
+
 ## Optimized Indexed Version
 
 For large circuit json, the library provides an optimized version with indexing for faster lookups:
