@@ -12,6 +12,7 @@
   "scripts": {
     "test": "bun test",
     "prepublish": "npm run build",
+    "prepare": "bun run build",
     "build": "tsup-node ./index.ts --format esm --dts --sourcemap",
     "benchmark": "bun run lib/benchmarks/su-benchmark.ts",
     "format": "biome format . --write",
