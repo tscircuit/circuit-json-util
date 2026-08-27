@@ -6,6 +6,7 @@ import type {
   PcbTrace,
 } from "circuit-json"
 import { EPSILON } from "./geometry"
+import { getBRepCopperPourPolygon } from "./get-brep-polygon"
 import {
   getRotatedTranslatedPoints,
   getRoundedRectShapes,
@@ -109,7 +110,7 @@ const decomposePlatedHole = (hole: PcbPlatedHole): CopperShape[] => {
 }
 
 const decomposeCopperPour = (pour: PcbCopperPour): CopperShape[] => {
-  if (pour.shape === "brep") return []
+  if (pour.shape === "brep") return [getBRepCopperPourPolygon(pour)]
   if (pour.shape === "polygon") {
     return [{ kind: "polygon", points: pour.points }]
   }

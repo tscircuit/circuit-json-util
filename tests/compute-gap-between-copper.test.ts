@@ -230,3 +230,49 @@ test.each(circleToSpecialShapeCases)(
     expect(computeGapBetweenCopper(element, circle)).toBeCloseTo(0.5)
   },
 )
+
+const brepPour = {
+  type: "pcb_copper_pour",
+  pcb_copper_pour_id: "brep_pour",
+  shape: "brep",
+  layer: "top",
+  covered_with_solder_mask: true,
+  brep_shape: {
+    outer_ring: {
+      vertices: [
+        { x: -5, y: -5 },
+        { x: 5, y: -5 },
+        { x: 5, y: 5 },
+        { x: -5, y: 5 },
+      ],
+    },
+    inner_rings: [
+      {
+        vertices: [
+          { x: 0, y: -1, bulge: 1 },
+          { x: 0, y: 1, bulge: 1 },
+        ],
+      },
+    ],
+  },
+} satisfies AnyCircuitElement
+
+const circlePadAt = (x: number, radius: number) =>
+  ({
+    type: "pcb_smtpad",
+    pcb_smtpad_id: `circle_${x}_${radius}`,
+    shape: "circle",
+    x,
+    y: 0,
+    radius,
+    layer: "top",
+  }) satisfies AnyCircuitElement
+
+test("computeGapBetweenCopper supports BREP pours and their holes", () => {
+  expect(computeGapBetweenCopper(brepPour, circlePadAt(4, 0.25))).toBe(0)
+  expect(computeGapBetweenCopper(brepPour, circlePadAt(0, 0.5))).toBeCloseTo(
+    0.5,
+    2,
+  )
+  expect(computeGapBetweenCopper(brepPour, circlePadAt(0.9, 0.2))).toBe(0)
+})
