@@ -150,12 +150,15 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_solder_paste" ||
     elm.type === "pcb_port"
   ) {
-    const { x, y } = applyToPoint(matrix, {
-      x: Number((elm as any).x),
-      y: Number((elm as any).y),
-    })
-    ;(elm as any).x = x
-    ;(elm as any).y = y
+    // Polygon pads may define only points, without a center to transform.
+    if ("x" in elm && "y" in elm) {
+      const { x, y } = applyToPoint(matrix, {
+        x: Number(elm.x),
+        y: Number(elm.y),
+      })
+      elm.x = x
+      elm.y = y
+    }
 
     // Handle polygon-shaped SMT pads with points array
     if (
