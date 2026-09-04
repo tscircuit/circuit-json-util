@@ -413,3 +413,57 @@ test("getPcbElementsWithinBounds selects intersecting PCB geometry", () => {
     ),
   ).toBe(false)
 })
+
+test("getBoundsOfPcbElements with hole_with_polygon_pad plated hole uses the pad outline", () => {
+  const square = [
+    { x: -2, y: -2 },
+    { x: 2, y: -2 },
+    { x: 2, y: 2 },
+    { x: -2, y: 2 },
+  ]
+  const base = {
+    type: "pcb_plated_hole" as const,
+    pcb_plated_hole_id: "ph1",
+    shape: "hole_with_polygon_pad" as const,
+    x: 10,
+    y: 10,
+    layers: ["top" as const, "bottom" as const],
+    pad_outline: square,
+    hole_offset_x: 0,
+    hole_offset_y: 0,
+  }
+
+  // circular drill: copper outline must win over the 0.8mm drill
+  expect(
+    getBoundsOfPcbElements([
+      { ...base, hole_shape: "circle" as const, hole_diameter: 0.8 },
+    ]),
+  ).toEqual({ minX: 8, minY: 8, maxX: 12, maxY: 12 })
+
+  // oval drill has no hole_diameter: previously collapsed to a zero-size box
+  expect(
+    getBoundsOfPcbElements([
+      { ...base, hole_shape: "oval" as const, hole_width: 1, hole_height: 0.6 },
+    ]),
+  ).toEqual({ minX: 8, minY: 8, maxX: 12, maxY: 12 })
+
+  // ccw_rotation rotates the outline around the hole position
+  const rotated = getBoundsOfPcbElements([
+    {
+      ...base,
+      hole_shape: "circle" as const,
+      hole_diameter: 0.8,
+      pad_outline: [
+        { x: -3, y: -0.5 },
+        { x: 3, y: -0.5 },
+        { x: 3, y: 0.5 },
+        { x: -3, y: 0.5 },
+      ],
+      ccw_rotation: 90,
+    },
+  ])
+  expect(rotated.minX).toBeCloseTo(9.5, 6)
+  expect(rotated.maxX).toBeCloseTo(10.5, 6)
+  expect(rotated.minY).toBeCloseTo(7, 6)
+  expect(rotated.maxY).toBeCloseTo(13, 6)
+})
