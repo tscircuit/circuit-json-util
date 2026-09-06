@@ -150,12 +150,21 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_solder_paste" ||
     elm.type === "pcb_port"
   ) {
-    const { x, y } = applyToPoint(matrix, {
-      x: Number((elm as any).x),
-      y: Number((elm as any).y),
-    })
-    ;(elm as any).x = x
-    ;(elm as any).y = y
+    const rawX = (elm as any).x
+    const rawY = (elm as any).y
+    if (
+      rawX !== undefined &&
+      rawY !== undefined &&
+      Number.isFinite(Number(rawX)) &&
+      Number.isFinite(Number(rawY))
+    ) {
+      const { x, y } = applyToPoint(matrix, {
+        x: Number(rawX),
+        y: Number(rawY),
+      })
+      ;(elm as any).x = x
+      ;(elm as any).y = y
+    }
 
     // Handle polygon-shaped SMT pads with points array
     if (

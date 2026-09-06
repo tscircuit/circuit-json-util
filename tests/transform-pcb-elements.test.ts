@@ -1,7 +1,10 @@
 import { expect, test } from "bun:test"
 import { compose, rotateDEG, scale, translate } from "transformation-matrix"
 import type { AnyCircuitElement, PcbComponent } from "circuit-json"
-import { transformPCBElements } from "../lib/transform-soup-elements"
+import {
+  transformPCBElement,
+  transformPCBElements,
+} from "../lib/transform-soup-elements"
 
 const createPcbComponent = (
   overrides: Partial<Record<string, unknown>> = {},
@@ -472,4 +475,31 @@ test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval cen
 
   expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
   expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
+})
+
+test("transformPCBElement does not add NaN x/y to points-only polygon SMT pad", () => {
+  const pad = {
+    type: "pcb_smtpad",
+    pcb_smtpad_id: "pad_poly1",
+    pcb_component_id: "pc1",
+    layer: "top",
+    shape: "polygon",
+    points: [
+      { x: 0, y: 0 },
+      { x: 1, y: 0 },
+      { x: 1, y: 1 },
+    ],
+  } as any
+
+  transformPCBElement(pad, translate(2, 3))
+
+  expect(pad.points).toEqual([
+    { x: 2, y: 3 },
+    { x: 3, y: 3 },
+    { x: 3, y: 4 },
+  ])
+  expect("x" in pad).toBe(false)
+  expect("y" in pad).toBe(false)
+  expect(Number.isNaN(pad.x)).toBe(false)
+  expect(Number.isNaN(pad.y)).toBe(false)
 })
