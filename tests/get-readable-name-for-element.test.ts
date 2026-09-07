@@ -2,7 +2,7 @@ import { getReadableNameForElement } from "../lib/readable-name-functions/get-re
 import type { AnyCircuitElement } from "circuit-json"
 import { expect, test } from "bun:test"
 
-test("getReadableNameForElement for pcb_port, pcb_smtpad, and pcb_trace", () => {
+const makeSoup = (): AnyCircuitElement[] => {
   const soup: AnyCircuitElement[] = [
     {
       type: "source_component",
@@ -106,6 +106,11 @@ test("getReadableNameForElement for pcb_port, pcb_smtpad, and pcb_trace", () => 
       obstructs_within_bounds: false,
     },
   ]
+  return soup
+}
+
+test("getReadableNameForElement for pcb_port, pcb_smtpad, and pcb_trace", () => {
+  const soup = makeSoup()
 
   // Test pcb_port
   expect(getReadableNameForElement(soup, "pp1")).toBe("pcb_port[.R1 > .1]")
@@ -116,5 +121,32 @@ test("getReadableNameForElement for pcb_port, pcb_smtpad, and pcb_trace", () => 
   // Test pcb_trace
   expect(getReadableNameForElement(soup, "pt1")).toBe(
     "trace[.R1 > port.left, .C1 > port.positive]",
+  )
+})
+test.each([
+  { hints: ["1"], expected: ".R1 > port.1" },
+  { hints: [], expected: "port[pp1]" },
+])("trace names handle port hints $hints", ({ hints, expected }) => {
+  const soup = makeSoup()
+  const sourcePort = soup.find(
+    (element) =>
+      element.type === "source_port" && element.source_port_id === "sp1",
+  )!
+  if (sourcePort.type !== "source_port") throw new Error("Expected source port")
+  sourcePort.port_hints = [...hints]
+
+  expect(getReadableNameForElement(soup, "pt1")).toBe(
+    `trace[${expected}, .C1 > port.positive]`,
+  )
+})
+
+test("trace names fall back to the PCB port ID when the source port is missing", () => {
+  const soup = makeSoup().filter(
+    (element) =>
+      element.type !== "source_port" || element.source_port_id !== "sp1",
+  )
+
+  expect(getReadableNameForElement(soup, "pt1")).toBe(
+    "trace[port[pp1], .C1 > port.positive]",
   )
 })
