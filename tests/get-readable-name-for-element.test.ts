@@ -123,6 +123,7 @@ test("getReadableNameForElement for pcb_port, pcb_smtpad, and pcb_trace", () => 
     "trace[.R1 > port.left, .C1 > port.positive]",
   )
 })
+
 test.each([
   { hints: ["1"], expected: ".R1 > port.1" },
   { hints: [], expected: "port[pp1]" },
