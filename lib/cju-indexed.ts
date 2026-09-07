@@ -188,6 +188,24 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
           return internalStore.editCount
         }
 
+        if (prop === "insert") {
+          return (elm: AnyCircuitElementInput) => {
+            if (!elm.type) {
+              throw new Error("insert requires an element with a type")
+            }
+
+            // Generic inserts generate a fresh ID, as in cju.insert. Reuse
+            // table insertion so validation, counters, and indexes stay in sync.
+            const { [`${elm.type}_id`]: _id, ...input } = elm as any
+            return suIndexed[elm.type].insert(input)
+          }
+        }
+
+        if (prop === "insertAll") {
+          return (elms: AnyCircuitElementInput[]) =>
+            elms.map((elm) => suIndexed.insert(elm))
+        }
+
         const component_type = prop
 
         return {
