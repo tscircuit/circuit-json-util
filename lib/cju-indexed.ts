@@ -565,7 +565,11 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
                 (e: any) => e[`${component_type}_id`] === id,
               )
             } else {
-              elm = soup.find((e) => (e as any)[`${component_type}_id`] === id)
+              elm = soup.find(
+                (e) =>
+                  e.type === component_type &&
+                  (e as any)[`${component_type}_id`] === id,
+              )
             }
 
             if (!elm) return
