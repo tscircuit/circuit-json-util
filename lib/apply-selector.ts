@@ -80,7 +80,8 @@ export const applySelectorAST = (
           }
           case "type": {
             const name = convertAbbrToType(part.name)
-            return (elm: any) => elm.type === name
+            return (elm: any) =>
+              elm.type === name || ("ftype" in elm && elm.ftype === name)
           }
         }
       })
