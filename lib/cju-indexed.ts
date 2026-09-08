@@ -763,10 +763,19 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
             }
 
             // Update the element
+            const oldIdKey = createIdKey(elm)
             Object.assign(elm, newProps)
             internalStore.editCount++
 
             // Add to indexes with updated values
+            if (indexConfig.byId && internalStore.indexes.byId) {
+              const newIdKey = createIdKey(elm)
+              if (newIdKey !== oldIdKey) {
+                internalStore.indexes.byId.delete(oldIdKey)
+                internalStore.indexes.byId.set(newIdKey, elm)
+              }
+            }
+
             if (indexConfig.byRelation && internalStore.indexes.byRelation) {
               const elementEntries = Object.entries(elm)
               for (const [key, value] of elementEntries) {
