@@ -17,7 +17,19 @@ const getCenter = (elm: any): { x: number; y: number } | null => {
   return null
 }
 
-const addCenterBasedShapes = (elm: any, shapes: CopperShape[]) => {
+const addClearanceShapes = (elm: any, shapes: CopperShape[]) => {
+  if (elm.shape === "polygon" && Array.isArray(elm.points)) {
+    const points = elm.points.filter(
+      (point: any): point is Point =>
+        isFiniteNumber(point?.x) && isFiniteNumber(point?.y),
+    )
+
+    if (points.length >= 3) {
+      shapes.push({ kind: "polygon", points })
+    }
+    return
+  }
+
   const center = getCenter(elm)
   if (!center) return
 
@@ -48,26 +60,17 @@ const addCenterBasedShapes = (elm: any, shapes: CopperShape[]) => {
     isFiniteNumber(elm.width) &&
     isFiniteNumber(elm.height)
   ) {
+    const rotationDegrees =
+      elm.type === "pcb_cutout" ? elm.rotation : elm.ccw_rotation
     shapes.push({
       kind: "rect",
       centerX: center.x,
       centerY: center.y,
       width: elm.width,
       height: elm.height,
-      rotationDegrees: isFiniteNumber(elm.ccw_rotation) ? elm.ccw_rotation : 0,
+      rotationDegrees: isFiniteNumber(rotationDegrees) ? rotationDegrees : 0,
     })
     return
-  }
-
-  if (elm.shape === "polygon" && Array.isArray(elm.points)) {
-    const points = elm.points.filter(
-      (point: any): point is Point =>
-        isFiniteNumber(point?.x) && isFiniteNumber(point?.y),
-    )
-
-    if (points.length >= 3) {
-      shapes.push({ kind: "polygon", points })
-    }
   }
 }
 
@@ -120,7 +123,7 @@ export const decomposeClearanceIntoShapes = (
     elm.type === "pcb_cutout" ||
     elm.type === "pcb_board"
   ) {
-    addCenterBasedShapes(elm, shapes)
+    addClearanceShapes(elm, shapes)
     return shapes
   }
 
