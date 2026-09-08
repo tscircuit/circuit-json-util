@@ -3,7 +3,7 @@ import { convertCircuitJsonToPcbSvg } from "circuit-to-svg"
 import { Circuit } from "tscircuit"
 import { categorizeErrorOrWarning } from "../lib/categorize-error-or-warning"
 
-test("repro: a missing pin error is excluded from the netlist category", async () => {
+test("a missing pin error is included in the netlist category", async () => {
   const circuit = new Circuit()
   circuit.add(
     <board width={56} height={32} routingDisabled>
@@ -34,13 +34,9 @@ test("repro: a missing pin error is excluded from the netlist category", async (
         pcbY={-7}
         fontSize={0.9}
       />
+      <pcbnotetext text="Category: netlist (correct)" pcbY={-10} fontSize={1} />
       <pcbnotetext
-        text="Category: unknown (expected: netlist)"
-        pcbY={-10}
-        fontSize={1}
-      />
-      <pcbnotetext
-        text="Netlist filter reports 0 errors"
+        text="Netlist filter reports 1 error"
         pcbY={-13}
         fontSize={1}
       />
@@ -55,13 +51,12 @@ test("repro: a missing pin error is excluded from the netlist category", async (
   expect(connectionErrors).toHaveLength(1)
   expect(connectionErrors[0]?.selectors_not_found).toEqual(["U1.GPIO26"])
 
-  // Capture the current bug; the fix should categorize this as "netlist".
-  expect(connectionErrors.map(categorizeErrorOrWarning)).toEqual(["unknown"])
+  expect(connectionErrors.map(categorizeErrorOrWarning)).toEqual(["netlist"])
   expect(
     connectionErrors.filter(
       (error) => categorizeErrorOrWarning(error) === "netlist",
     ),
-  ).toHaveLength(0)
+  ).toHaveLength(1)
 
   expect(
     convertCircuitJsonToPcbSvg(circuitJson, { showPcbNotes: true }),
