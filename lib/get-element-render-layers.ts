@@ -46,6 +46,7 @@ export function getElementRenderLayers(
   // Fabrication note elements
   if (
     element.type === "pcb_fabrication_note_text" ||
+    element.type === "pcb_fabrication_note_dimension" ||
     element.type === "pcb_fabrication_note_rect" ||
     element.type === "pcb_fabrication_note_path"
   ) {
