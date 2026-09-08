@@ -3,6 +3,7 @@
     // Base Options recommended for all projects
     "baseUrl": ".",
     "esModuleInterop": true,
+    "jsx": "react-jsx",
     "skipLibCheck": true,
     "target": "es2022",
     "allowJs": true,

@@ -7,9 +7,7 @@
     "url": "https://github.com/tscircuit/circuit-json-util.git"
   },
   "description": "Utility library for working with tscircuit circuit json",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "dist/index.js",
   "scripts": {
     "test": "bun test",
@@ -33,6 +31,7 @@
     "@types/bun": "^1.2.9",
     "bun-match-svg": "^0.0.15",
     "circuit-json": "^0.0.464",
+    "circuit-to-svg": "^0.0.413",
     "esbuild": "^0.20.2",
     "esbuild-register": "^3.5.0",
     "graphics-debug": "^0.0.95",
