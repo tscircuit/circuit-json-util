@@ -2,6 +2,9 @@ import { expect, test } from "bun:test"
 import { categorizeErrorOrWarning } from "../lib/categorize-error-or-warning"
 
 test("categorizeErrorOrWarning categorizes known DRC error/warning types", () => {
+  expect(categorizeErrorOrWarning("source_trace_not_connected_error")).toBe(
+    "netlist",
+  )
   expect(categorizeErrorOrWarning("source_pin_must_be_connected_error")).toBe(
     "netlist",
   )
