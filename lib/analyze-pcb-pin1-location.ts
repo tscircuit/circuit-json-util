@@ -95,8 +95,9 @@ const pinMatchesLocation = (
 
 /**
  * Infers the semantic pin 1 location from PCB pad positions and numeric port
- * hints. Returns null when pin 1 is missing or the geometry cannot distinguish
- * a rotation from a reflection.
+ * hints. Two-pad footprints use a canonical frame based on the pin 1 -> pin 2
+ * direction. Otherwise returns null when pin 1 is missing or the geometry
+ * cannot distinguish a rotation from a reflection.
  */
 export const analyzePcbPin1Location = (
   elements: readonly PcbPin1LocationElement[],
@@ -138,6 +139,25 @@ export const analyzePcbPin1Location = (
     1,
   )
   const tolerance = span * 1e-6
+
+  // Two-pad LEDs/diodes have no winding order: both sides of their single row
+  // match, so the topology filter below cannot choose a frame. Use one fixed
+  // rotation family for axis-aligned pins 1 and 2. Starting with pin 1 on the
+  // left, rotate topside_left by 90/180/270 degrees for bottom/right/top.
+  // The side is a convention for this degenerate row, not extra geometry.
+  // Applying the same convention to local and supplier pads preserves their
+  // relative rotation, including the 180-degree polarity reversal.
+  if (numberedPads.length === 2 && nextNumberedPad.pinNumber === 2) {
+    const dx = nextNumberedPad.center.x - pin1Center.x
+    const dy = nextNumberedPad.center.y - pin1Center.y
+    if (Math.abs(dy) <= tolerance && Math.abs(dx) > tolerance) {
+      return dx > 0 ? "topside_left" : "bottomside_right"
+    }
+    if (Math.abs(dx) <= tolerance && Math.abs(dy) > tolerance) {
+      return dy > 0 ? "leftside_bottom" : "rightside_top"
+    }
+  }
+
   const topologyCandidates = candidates.filter((pin1Location) => {
     const { side } = PIN1_LOCATION_PARTS[pin1Location]
     return side === "leftside" || side === "rightside"
