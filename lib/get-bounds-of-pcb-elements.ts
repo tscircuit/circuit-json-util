@@ -160,6 +160,13 @@ export const getPcbElementBounds = (
 ): PcbBounds | null => {
   if (!elm.type.startsWith("pcb_")) return null
 
+  if (elm.type === "pcb_silkscreen_line" || elm.type === "pcb_note_line") {
+    return getBoundsFromPoints([
+      { x: elm.x1, y: elm.y1 },
+      { x: elm.x2, y: elm.y2 },
+    ])
+  }
+
   if (
     elm.type === "pcb_smtpad" &&
     elm.shape === "polygon" &&
