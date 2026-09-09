@@ -1,5 +1,9 @@
 import { expect, test } from "bun:test"
-import type { AnyCircuitElement, PcbPin1Location } from "circuit-json"
+import {
+  type AnyCircuitElement,
+  type PcbPin1Location,
+  getRotationBetweenPcbPin1Locations,
+} from "circuit-json"
 import { analyzePcbPin1Location } from "../lib/analyze-pcb-pin1-location"
 
 type RightAngleRotation = 0 | 90 | 180 | 270
@@ -78,11 +82,68 @@ test("analyzes all semantic pin 1 locations", () => {
   }
 })
 
-test("returns null for ambiguous linear footprints and missing pin 1", () => {
+test("returns null for ambiguous multi-pad footprints and missing pin 1", () => {
   expect(
-    analyzePcbPin1Location([createPad(1, -1, 0), createPad(2, 1, 0)]),
+    analyzePcbPin1Location([
+      createPad(1, -1, 0),
+      createPad(2, 0, 0),
+      createPad(3, 1, 0),
+    ]),
   ).toBeNull()
   expect(
     analyzePcbPin1Location([createPad(2, -1, 0), createPad(3, 1, 0)]),
   ).toBeNull()
+})
+
+const ledPads = [createPad(1, -0.749, 0), createPad(2, 0.749, 0)]
+const rightAngles: RightAngleRotation[] = [0, 90, 180, 270]
+
+test("infers a consistent two-pad LED frame at each right-angle rotation", () => {
+  const expected: PcbPin1Location[] = [
+    "topside_left",
+    "leftside_bottom",
+    "bottomside_right",
+    "rightside_top",
+  ]
+  for (const [index, rotation] of rightAngles.entries()) {
+    expect(analyzePcbPin1Location(rotatePads(ledPads, rotation))).toBe(
+      expected[index]!,
+    )
+  }
+})
+
+test("recovers supplier-to-local LED rotation for every pair of frames", () => {
+  for (const supplierRotation of rightAngles) {
+    for (const localRotation of rightAngles) {
+      const supplier = analyzePcbPin1Location(
+        rotatePads(ledPads, supplierRotation),
+      )
+      const local = analyzePcbPin1Location(rotatePads(ledPads, localRotation))
+      expect(supplier).not.toBeNull()
+      expect(local).not.toBeNull()
+      expect(getRotationBetweenPcbPin1Locations(supplier!, local!)).toBe(
+        ((localRotation - supplierRotation + 360) % 360) as RightAngleRotation,
+      )
+    }
+  }
+})
+
+test("two-pad frames do not depend on pad order, origin or small rounding errors", () => {
+  expect(
+    analyzePcbPin1Location([
+      createPad(2, -8.251, -2 + 1e-8),
+      createPad(1, -9.749, -2),
+    ]),
+  ).toBe("topside_left")
+})
+
+test("does not guess a two-pad frame without distinct axis-aligned pins 1 and 2", () => {
+  for (const pads of [
+    [createPad(1, 0, 0), createPad(2, 0, 0)],
+    [createPad(1, -1, -1), createPad(2, 1, 1)],
+    [createPad(1, -1, 0), createPad(1, 1, 0)],
+    [createPad(1, -1, 0), createPad(3, 1, 0)],
+  ]) {
+    expect(analyzePcbPin1Location(pads)).toBeNull()
+  }
 })
