@@ -192,6 +192,7 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_silkscreen_rect" ||
     elm.type === "pcb_silkscreen_pill" ||
     elm.type === "pcb_silkscreen_oval" ||
+    elm.type === "pcb_fabrication_note_rect" ||
     elm.type === "pcb_note_rect" ||
     elm.type === "pcb_courtyard_circle"
   ) {

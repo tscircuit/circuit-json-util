@@ -97,6 +97,65 @@ test("getBoundsOfPcbElements with pcb_hole uses hole_diameter", () => {
   })
 })
 
+test("rect/oval/pill pcb_hole bounds use hole_width and hole_height", () => {
+  for (const hole_shape of ["rect", "oval", "pill"] as const) {
+    const hole = {
+      type: "pcb_hole",
+      pcb_hole_id: "h1",
+      hole_shape,
+      hole_width: 4,
+      hole_height: 2,
+      x: 5,
+      y: 3,
+    } as AnyCircuitElement
+
+    expect(getPcbElementBounds(hole)).toEqual({
+      minX: 3,
+      maxX: 7,
+      minY: 2,
+      maxY: 4,
+    })
+    expect(
+      getPcbElementsWithinBounds([hole], {
+        minX: 3,
+        maxX: 3.1,
+        minY: 2.9,
+        maxY: 3.1,
+      }),
+    ).toEqual([hole])
+  }
+})
+
+test("pcb_silkscreen_line and pcb_note_line include stroke in bounds", () => {
+  for (const type of ["pcb_silkscreen_line", "pcb_note_line"] as const) {
+    const line = {
+      type,
+      pcb_component_id: "c1",
+      layer: "top",
+      x1: 4,
+      y1: 3,
+      x2: -2,
+      y2: -1,
+      stroke_width: 0.2,
+    } as AnyCircuitElement
+
+    expect(getPcbElementBounds(line)).toEqual({
+      minX: -2.1,
+      maxX: 4.1,
+      minY: -1.1,
+      maxY: 3.1,
+    })
+    expect(
+      getPcbElementsWithinBounds([line], {
+        minX: 3.95,
+        maxX: 4.05,
+        minY: 2.95,
+        maxY: 3.05,
+      }),
+    ).toEqual([line])
+  }
+})
+
 test("getBoundsOfPcbElements with pcb_courtyard_rect", () => {
   const elements: AnyCircuitElement[] = [
     {

@@ -119,3 +119,34 @@ test("repositionPcbComponentTo moves solder paste with its pads (tscircuit/core#
   expect(paste.x).toBe(9.5)
   expect(paste.y).toBe(5)
 })
+
+test("repositionPcbComponentTo moves fabrication note rectangles with the component", () => {
+  const soup: AnyCircuitElement[] = [
+    {
+      type: "pcb_component",
+      pcb_component_id: "pc1",
+      source_component_id: "sc1",
+      center: { x: 1, y: 1 },
+      layer: "top",
+      rotation: 0,
+      width: 5,
+      height: 5,
+    } as any,
+    {
+      type: "pcb_fabrication_note_rect",
+      pcb_fabrication_note_rect_id: "fnr1",
+      pcb_component_id: "pc1",
+      center: { x: 2, y: 3 },
+      width: 4,
+      height: 2,
+      layer: "top",
+    } as any,
+  ]
+
+  repositionPcbComponentTo(soup, "pc1", { x: 11, y: -1 })
+
+  const rect = soup.find((e) => e.type === "pcb_fabrication_note_rect") as any
+  expect(rect.center).toEqual({ x: 12, y: 1 })
+  expect(rect.width).toBe(4)
+  expect(rect.height).toBe(2)
+})
