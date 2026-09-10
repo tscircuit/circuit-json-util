@@ -327,14 +327,21 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
             ) {
               const field = keys[0]
               const fieldMap = internalStore.indexes.byCustomField.get(field!)
+              const fieldValue = where[field!]
 
-              if (fieldMap) {
-                const fieldValue = String(where[field!])
-                const elementsWithFieldValue = fieldMap.get(fieldValue) || []
+              // Only strings and numbers are stored in custom-field indexes.
+              if (
+                fieldMap &&
+                (typeof fieldValue === "string" ||
+                  typeof fieldValue === "number")
+              ) {
+                const elementsWithFieldValue =
+                  fieldMap.get(String(fieldValue)) || []
 
                 return (
                   (elementsWithFieldValue.find(
-                    (e: any) => e.type === component_type,
+                    (e: any) =>
+                      e.type === component_type && e[field!] === fieldValue,
                   ) as Extract<
                     AnyCircuitElement,
                     { type: typeof component_type }
@@ -346,6 +353,8 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
             // If we're looking by subcircuit_id and it's indexed
             if (
               "subcircuit_id" in where &&
+              typeof where.subcircuit_id === "string" &&
+              where.subcircuit_id.length > 0 &&
               indexConfig.bySubcircuit &&
               internalStore.indexes.bySubcircuit
             ) {
@@ -414,6 +423,8 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
             if (
               keys.length === 1 &&
               keys[0] === "subcircuit_id" &&
+              typeof where.subcircuit_id === "string" &&
+              where.subcircuit_id.length > 0 &&
               indexConfig.bySubcircuit &&
               internalStore.indexes.bySubcircuit
             ) {
