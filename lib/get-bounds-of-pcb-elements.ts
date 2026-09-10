@@ -172,6 +172,53 @@ export const getPcbElementBounds = (
     return getCircleBounds(elm.x, elm.y, elm.hole_diameter)
   }
 
+  if (elm.type === "pcb_hole" && "hole_width" in elm && "hole_height" in elm) {
+    if (elm.hole_shape === "rotated_pill") {
+      return getRotatedPillBounds(
+        elm.x,
+        elm.y,
+        elm.hole_width,
+        elm.hole_height,
+        elm.ccw_rotation,
+      )
+    }
+    if (elm.hole_shape === "oval") {
+      return getRotatedOvalBounds(
+        elm.x,
+        elm.y,
+        elm.hole_width,
+        elm.hole_height,
+        0,
+      )
+    }
+    if (elm.hole_shape === "pill") {
+      return getRotatedPillBounds(
+        elm.x,
+        elm.y,
+        elm.hole_width,
+        elm.hole_height,
+        0,
+      )
+    }
+    return getRotatedRectBounds(
+      elm.x,
+      elm.y,
+      elm.hole_width,
+      elm.hole_height,
+      0,
+    )
+  }
+
+  if (elm.type === "pcb_silkscreen_line" || elm.type === "pcb_note_line") {
+    const halfStroke = elm.stroke_width / 2
+    return {
+      minX: Math.min(elm.x1, elm.x2) - halfStroke,
+      minY: Math.min(elm.y1, elm.y2) - halfStroke,
+      maxX: Math.max(elm.x1, elm.x2) + halfStroke,
+      maxY: Math.max(elm.y1, elm.y2) + halfStroke,
+    }
+  }
+
   if (elm.type === "pcb_plated_hole") {
     let platedHoleBounds: PcbBounds | undefined
 

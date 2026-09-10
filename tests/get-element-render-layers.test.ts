@@ -23,6 +23,18 @@ test("getElementRenderLayers returns correct layers for different element types"
   ).toEqual(["top_silkscreen"])
   expect(
     getElementRenderLayers({
+      type: "pcb_silkscreen_pill",
+      layer: "bottom",
+    } as AnyCircuitElement),
+  ).toEqual(["bottom_silkscreen"])
+  expect(
+    getElementRenderLayers({
+      type: "pcb_silkscreen_oval",
+      layer: "top",
+    } as AnyCircuitElement),
+  ).toEqual(["top_silkscreen"])
+  expect(
+    getElementRenderLayers({
       type: "pcb_fabrication_note_text",
       layer: "top",
     } as AnyCircuitElement),
