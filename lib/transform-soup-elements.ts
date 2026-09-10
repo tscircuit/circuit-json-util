@@ -174,6 +174,9 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
     // TODO adjust size/rotation
     elm.center = applyToPoint(matrix, elm.center)
+    if (elm.type === "pcb_board" && elm.outline) {
+      elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
+    }
   } else if (
     elm.type === "pcb_silkscreen_text" ||
     elm.type === "pcb_fabrication_note_text" ||
