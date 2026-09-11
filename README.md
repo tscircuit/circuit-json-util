@@ -55,6 +55,24 @@ It reduces the amount of code to retrieve or join elements from circuit json, it
 | `analyzePcbPin1Location` | [`lib/analyze-pcb-pin1-location.ts`](./lib/analyze-pcb-pin1-location.ts) | Infers a semantic pin 1 location from PCB pad geometry and numeric port hints. |
 | `categorizeErrorOrWarning` | [`lib/categorize-error-or-warning.ts`](./lib/categorize-error-or-warning.ts) | Categorizes DRC error/warning types into `"netlist"`, `"pin_specification"`, `"placement"`, `"routing"`, `"source"`, or `"unknown"`. |
 
+## Board and keepout transforms
+
+`transformPCBElement` and `transformPCBElements` mutate their inputs using a
+`transformation-matrix` affine XY transform. Board outlines move with their
+centers, and `width`/`height` describe the resulting axis-aligned bounds.
+Rectangular boards become polygons when rotation or shear cannot be represented
+by an axis-aligned rectangle. This requires an outline or both dimensions.
+Missing dimensions otherwise remain unknown when needed to compute an extent.
+
+Rectangular keepouts support transforms that keep their edges axis-aligned,
+including quarter-turn rotations, reflections, and axis scaling. Circular
+keepouts support translation, rotation, reflection, and uniform scaling.
+The current dependency's keepout schema cannot represent rotated rectangles,
+sheared rectangles, or ellipses, so unsupported transforms throw rather than
+silently enlarge the keepout. These board/keepout errors are detected before
+either API mutates its inputs. This does not extend scaling support to other
+PCB element types or change board thickness.
+
 ## Standard Usage
 
 ```ts
