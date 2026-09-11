@@ -5,6 +5,107 @@ import {
   rotateDirection,
   vecToDirection,
 } from "./direction-to-vec"
+import { getBoundsOfPcbElements } from "./get-bounds-of-pcb-elements"
+
+type BoardOrKeepout = Extract<
+  AnyCircuitElement,
+  { type: "pcb_board" | "pcb_keepout" }
+>
+
+const getTransformedBoardOrKeepout = (
+  elm: BoardOrKeepout,
+  matrix: Matrix,
+): BoardOrKeepout => {
+  const { a, b, c, d, e, f } = matrix
+  if (![a, b, c, d, e, f].every(Number.isFinite)) {
+    throw new Error(`${elm.type}: transform matrix must be finite`)
+  }
+  // Ignore only floating-point residue relative to each transformed axis.
+  const xTolerance = Math.hypot(a, b) * 1e-12
+  const yTolerance = Math.hypot(c, d) * 1e-12
+  const ax = Math.abs(a) <= xTolerance ? 0 : Math.abs(a)
+  const bx = Math.abs(b) <= xTolerance ? 0 : Math.abs(b)
+  const cy = Math.abs(c) <= yTolerance ? 0 : Math.abs(c)
+  const dy = Math.abs(d) <= yTolerance ? 0 : Math.abs(d)
+  const axisAligned = (ax === 0 || bx === 0) && (cy === 0 || dy === 0)
+  const center = applyToPoint(matrix, elm.center)
+
+  if (elm.type === "pcb_keepout" && elm.shape === "circle") {
+    const xScale = Math.hypot(a, b)
+    const yScale = Math.hypot(c, d)
+    const scale = Math.max(xScale, yScale)
+    if (
+      Math.abs(xScale - yScale) > scale * 1e-12 ||
+      (scale > 0 &&
+        Math.abs((a / scale) * (c / scale) + (b / scale) * (d / scale)) > 1e-12)
+    ) {
+      throw new Error(
+        "pcb_keepout circle: nonuniform scaling or shear cannot be represented",
+      )
+    }
+    return { ...elm, center, radius: elm.radius * xScale }
+  }
+
+  if (elm.type === "pcb_keepout" && !axisAligned) {
+    throw new Error(
+      "pcb_keepout rect: rotation or shear producing a non-axis-aligned rectangle cannot be represented",
+    )
+  }
+
+  if (elm.type === "pcb_board") {
+    let outline = elm.outline
+    if (!outline?.length && !axisAligned) {
+      if (elm.width === undefined || elm.height === undefined) {
+        throw new Error(
+          "pcb_board: a non-axis-aligned transform requires an outline or both width and height",
+        )
+      }
+      outline = [
+        { x: elm.center.x - elm.width / 2, y: elm.center.y - elm.height / 2 },
+        { x: elm.center.x + elm.width / 2, y: elm.center.y - elm.height / 2 },
+        { x: elm.center.x + elm.width / 2, y: elm.center.y + elm.height / 2 },
+        { x: elm.center.x - elm.width / 2, y: elm.center.y + elm.height / 2 },
+      ]
+    }
+    if (outline?.length) {
+      const transformed = {
+        ...elm,
+        center,
+        shape: "polygon" as const,
+        outline: outline.map((point) => applyToPoint(matrix, point)),
+      }
+      const bounds = getBoundsOfPcbElements([transformed])
+      return {
+        ...transformed,
+        width: bounds.maxX - bounds.minX,
+        height: bounds.maxY - bounds.minY,
+      }
+    }
+  }
+
+  const transformedExtent = (
+    widthFactor: number,
+    heightFactor: number,
+  ): number | undefined =>
+    (widthFactor !== 0 && elm.width === undefined) ||
+    (heightFactor !== 0 && elm.height === undefined)
+      ? undefined
+      : widthFactor * (elm.width ?? 0) + heightFactor * (elm.height ?? 0)
+  if (elm.type === "pcb_keepout") {
+    return {
+      ...elm,
+      center,
+      width: ax * elm.width + cy * elm.height,
+      height: bx * elm.width + dy * elm.height,
+    }
+  }
+  return {
+    ...elm,
+    center,
+    width: transformedExtent(ax, cy),
+    height: transformedExtent(bx, dy),
+  }
+}
 
 const getQuarterTurns = (angleRadians: number) =>
   Math.round(angleRadians / (Math.PI / 2))
@@ -172,8 +273,7 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
       })
     }
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
-    // TODO adjust size/rotation
-    elm.center = applyToPoint(matrix, elm.center)
+    Object.assign(elm, getTransformedBoardOrKeepout(elm, matrix))
   } else if (
     elm.type === "pcb_silkscreen_text" ||
     elm.type === "pcb_fabrication_note_text" ||
@@ -283,6 +383,12 @@ export const transformPCBElements = (
   elms: AnyCircuitElement[],
   matrix: Matrix,
 ) => {
+  // Reject unrepresentable board/keepout geometry before mutating any element.
+  for (const elm of elms) {
+    if (elm.type === "pcb_board" || elm.type === "pcb_keepout") {
+      getTransformedBoardOrKeepout(elm, matrix)
+    }
+  }
   const tsr = decomposeTSR(matrix)
   const quarterTurns = getQuarterTurns(tsr.rotation.angle)
   const flipPadWidthHeight = Math.abs(quarterTurns) % 2 === 1
