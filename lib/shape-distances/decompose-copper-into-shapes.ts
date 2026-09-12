@@ -69,8 +69,9 @@ export const decomposeCopperIntoShapes = (
       if (
         !start ||
         !end ||
-        start.route_type !== "wire" ||
-        end.route_type !== "wire" ||
+        (start.route_type !== "wire" && start.route_type !== "via") ||
+        (end.route_type !== "wire" && end.route_type !== "via") ||
+        (start.route_type !== "wire" && end.route_type !== "wire") ||
         !isFiniteNumber(start.x) ||
         !isFiniteNumber(start.y) ||
         !isFiniteNumber(end.x) ||
@@ -79,7 +80,10 @@ export const decomposeCopperIntoShapes = (
         continue
       }
 
-      const width = isFiniteNumber(start.width) ? Math.max(0, start.width) : 0
+      // A via has no wire width. Use the adjacent wire's width for either
+      // side of the layer transition, as the trace renderer does.
+      const wire = start.route_type === "wire" ? start : end
+      const width = isFiniteNumber(wire.width) ? Math.max(0, wire.width) : 0
       const radius = width / 2
 
       shapes.push({ kind: "circle", x: start.x, y: start.y, radius })
