@@ -9,6 +9,15 @@ import {
 const getQuarterTurns = (angleRadians: number) =>
   Math.round(angleRadians / (Math.PI / 2))
 
+/** Applies only the linear part of a matrix, for direction vectors. */
+const applyToVector = (
+  matrix: Matrix,
+  v: { x: number; y: number },
+): { x: number; y: number } => ({
+  x: matrix.a * v.x + matrix.c * v.y,
+  y: matrix.b * v.x + matrix.d * v.y,
+})
+
 const insertionDirectionToVec = (
   direction: Exclude<InsertionDirection, "from_above" | "from_below">,
 ) => {
@@ -268,6 +277,18 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.y1 = p1t.y
     elm.x2 = p2t.x
     elm.y2 = p2t.y
+  } else if (
+    elm.type === "pcb_note_dimension" ||
+    elm.type === "pcb_fabrication_note_dimension"
+  ) {
+    elm.from = applyToPoint(matrix, elm.from) as { x: number; y: number }
+    elm.to = applyToPoint(matrix, elm.to) as { x: number; y: number }
+    if (typeof elm.text_ccw_rotation === "number") {
+      elm.text_ccw_rotation = (elm.text_ccw_rotation + rotationDegrees) % 360
+    }
+    if (elm.offset_direction) {
+      elm.offset_direction = applyToVector(matrix, elm.offset_direction)
+    }
   } else if (elm.type === "cad_component") {
     const newPos = applyToPoint(matrix, {
       x: elm.position.x,

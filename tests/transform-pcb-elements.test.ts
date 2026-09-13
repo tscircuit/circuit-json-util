@@ -473,3 +473,97 @@ test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval cen
   expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
   expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
 })
+
+test("transformPCBElements moves pcb_note_dimension from and to points", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_note_dimension",
+      pcb_note_dimension_id: "nd1",
+      from: { x: 0, y: 0 },
+      to: { x: 4, y: 0 },
+      font: "tscircuit2024",
+      font_size: 1,
+      layer: "top",
+    } as any,
+  ]
+
+  transformPCBElements(elms, translate(3, -2))
+
+  const dim = elms[0] as any
+  expect(dim.from).toEqual({ x: 3, y: -2 })
+  expect(dim.to).toEqual({ x: 7, y: -2 })
+})
+
+test("transformPCBElements rotates pcb_note_dimension points and composes text rotation and offset direction", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_note_dimension",
+      pcb_note_dimension_id: "nd2",
+      from: { x: 1, y: 0 },
+      to: { x: 3, y: 0 },
+      text_ccw_rotation: 90,
+      offset_direction: { x: 0, y: 1 },
+      font: "tscircuit2024",
+      font_size: 1,
+      layer: "top",
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(90))
+
+  const dim = elms[0] as any
+  expect(dim.from.x).toBeCloseTo(0)
+  expect(dim.from.y).toBeCloseTo(1)
+  expect(dim.to.x).toBeCloseTo(0)
+  expect(dim.to.y).toBeCloseTo(3)
+  expect(dim.text_ccw_rotation).toBe(180)
+  expect(dim.offset_direction.x).toBeCloseTo(-1)
+  expect(dim.offset_direction.y).toBeCloseTo(0)
+})
+
+test("transformPCBElements moves pcb_fabrication_note_dimension from and to points", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_fabrication_note_dimension",
+      pcb_fabrication_note_dimension_id: "fd1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      from: { x: 1, y: 1 },
+      to: { x: 5, y: 1 },
+      offset: 2,
+      font: "tscircuit2024",
+      font_size: 1,
+    } as any,
+  ]
+
+  transformPCBElements(elms, translate(-2, 4))
+
+  const dim = elms[0] as any
+  expect(dim.from).toEqual({ x: -1, y: 5 })
+  expect(dim.to).toEqual({ x: 3, y: 5 })
+  expect(dim.offset).toBe(2)
+})
+
+test("transformPCBElements rotates pcb_fabrication_note_dimension points and text rotation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_fabrication_note_dimension",
+      pcb_fabrication_note_dimension_id: "fd2",
+      pcb_component_id: "pc1",
+      layer: "top",
+      from: { x: 0, y: 0 },
+      to: { x: 2, y: 0 },
+      text_ccw_rotation: 0,
+      font: "tscircuit2024",
+      font_size: 1,
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(-90))
+
+  const dim = elms[0] as any
+  expect(dim.from).toEqual({ x: 0, y: 0 })
+  expect(dim.to.x).toBeCloseTo(0)
+  expect(dim.to.y).toBeCloseTo(-2)
+  expect(dim.text_ccw_rotation).toBe(-90)
+})
