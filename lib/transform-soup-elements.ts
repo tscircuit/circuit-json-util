@@ -268,6 +268,31 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.y1 = p1t.y
     elm.x2 = p2t.x
     elm.y2 = p2t.y
+  } else if (elm.type === "pcb_group") {
+    elm.center = applyToPoint(matrix, elm.center)
+    if (elm.anchor_position) {
+      elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
+    }
+    if (Array.isArray(elm.outline)) {
+      elm.outline = elm.outline.map((p) => applyToPoint(matrix, p))
+    }
+    if (
+      flipPadWidthHeight &&
+      elm.width !== undefined &&
+      elm.height !== undefined
+    ) {
+      ;[elm.width, elm.height] = [elm.height, elm.width]
+    }
+  } else if (elm.type === "pcb_copper_pour") {
+    if (elm.shape === "rect") {
+      elm.center = applyToPoint(matrix, elm.center)
+      elm.rotation = ((elm.rotation ?? 0) + rotationDegrees) % 360
+      if (flipPadWidthHeight) {
+        ;[elm.width, elm.height] = [elm.height, elm.width]
+      }
+    } else if (elm.shape === "polygon") {
+      elm.points = elm.points.map((p) => applyToPoint(matrix, p))
+    }
   } else if (elm.type === "cad_component") {
     const newPos = applyToPoint(matrix, {
       x: elm.position.x,
