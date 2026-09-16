@@ -7,9 +7,7 @@
     "url": "https://github.com/tscircuit/circuit-json-util.git"
   },
   "description": "Utility library for working with tscircuit circuit json",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "dist/index.js",
   "scripts": {
     "test": "bun test",
@@ -44,6 +42,7 @@
     "zod": "^3.23.6"
   },
   "dependencies": {
+    "gl-matrix": "^3.4.4",
     "parsel-js": "^1.1.2"
   }
 }

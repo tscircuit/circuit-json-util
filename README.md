@@ -38,6 +38,7 @@ It reduces the amount of code to retrieve or join elements from circuit json, it
 | `getPcbElementBounds` | [`lib/get-bounds-of-pcb-elements.ts`](./lib/get-bounds-of-pcb-elements.ts) | Computes the axis-aligned XY bounds of one PCB element. |
 | `getPcbElementsWithinBounds` | [`lib/get-bounds-of-pcb-elements.ts`](./lib/get-bounds-of-pcb-elements.ts) | Selects PCB elements whose bounds intersect a region. |
 | `getBoardBounds` | [`lib/get-board-bounds.ts`](./lib/get-board-bounds.ts) | Computes board bounds/size from `width`+`height`+`center`, or from `outline` points. |
+| `getCadModelToBoardTransform` | [`lib/get-cad-model-to-board-transform.ts`](./lib/get-cad-model-to-board-transform.ts) | Maps native CAD vertices to board-relative millimetres. |
 | `getSchematicElementBounds` | [`lib/get-schematic-element-bounds.ts`](./lib/get-schematic-element-bounds.ts) | Computes the axis-aligned bounds of a schematic component, net label, or trace. |
 | `findBoundsAndCenter` | [`lib/find-bounds-and-center.ts`](./lib/find-bounds-and-center.ts) | Computes bounds and center for a set of points. |
 | `getPrimaryId` | [`lib/get-primary-id.ts`](./lib/get-primary-id.ts) | Returns the name of an element type's primary id field. |
@@ -54,6 +55,40 @@ It reduces the amount of code to retrieve or join elements from circuit json, it
 | `computeGapBetweenCopper` | [`lib/compute-gap-between-copper.ts`](./lib/compute-gap-between-copper.ts) | Computes the minimum copper-to-copper gap between two circuit elements by decomposing them into primitive shapes. |
 | `analyzePcbPin1Location` | [`lib/analyze-pcb-pin1-location.ts`](./lib/analyze-pcb-pin1-location.ts) | Infers a semantic pin 1 location from PCB pad geometry and numeric port hints. |
 | `categorizeErrorOrWarning` | [`lib/categorize-error-or-warning.ts`](./lib/categorize-error-or-warning.ts) | Categorizes DRC error/warning types into `"netlist"`, `"pin_specification"`, `"placement"`, `"routing"`, `"source"`, or `"unknown"`. |
+
+## Native CAD model placement
+
+`getCadModelToBoardTransform(cad, { nativeBounds, boardContactPoint?, boardCenter? })`
+returns a plain 16-number, column-major affine matrix mapping original native
+model vertices to **right-handed, Z-up board-relative millimetres**, with Z=0 at
+the PCB midplane. `boardCenter` is the board's Circuit JSON world XY point
+(default `{ x: 0, y: 0 }`); it is subtracted before model offsets are composed.
+`CadModelBounds` is `{ min: Point3, max: Point3 }` in native axes and units.
+
+The operation order is native origin subtraction, unit conversion, native-axis
+size fitting, model-normal alignment to +Z, intrinsic XYZ CAD rotation in degrees,
+then board-relative CAD position. Rotation already includes bottom-side
+orientation: no layer inference, extra flip, or PCB thickness adjustment occurs.
+Normal directions are `x+`, `x-`, `y+`, `y-`, `z+` (default), and `z-`;
+the -Z alignment uses a 180-degree X rotation.
+
+Explicit `model_origin_position` wins. Otherwise `model_origin_alignment`
+falls back to `anchor_alignment`, then `"unknown"` (native zero). `"center"`
+uses the bounds center; `"bottom_center_of_component"` uses the bounds face
+center toward aligned -Z, before CAD rotation. `"center_of_component_on_board_surface"`
+requires a caller-measured `boardContactPoint` in native axes/units, mapped to
+`cad.position` without guessing contact from an envelope.
+
+`size` is positive target millimetres in native axes. Fit defaults to
+`"contain_within_bounds"` (minimum uniform ratio); `"fill_bounds"` fits each
+axis independently. For compatibility with legacy renderer fit helpers, a
+zero-extent axis contributes **ratio 1** in both modes: it can cap enlargement
+under contain, and stays flat under fill. Nonfinite coordinates, nonpositive
+units/size, inverted bounds, and unrepresentable transforms throw.
+
+No models are loaded or solids generated. Apply the returned matrix to the
+actual native solid/vertices and to bounds as needed; do not replace the solid
+with its bounding box. There are no loader or renderer-frame transforms here.
 
 ## Standard Usage
 
