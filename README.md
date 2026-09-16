@@ -54,6 +54,38 @@ It reduces the amount of code to retrieve or join elements from circuit json, it
 | `computeGapBetweenCopper` | [`lib/compute-gap-between-copper.ts`](./lib/compute-gap-between-copper.ts) | Computes the minimum copper-to-copper gap between two circuit elements by decomposing them into primitive shapes. |
 | `analyzePcbPin1Location` | [`lib/analyze-pcb-pin1-location.ts`](./lib/analyze-pcb-pin1-location.ts) | Infers a semantic pin 1 location from PCB pad geometry and numeric port hints. |
 | `categorizeErrorOrWarning` | [`lib/categorize-error-or-warning.ts`](./lib/categorize-error-or-warning.ts) | Categorizes DRC error/warning types into `"netlist"`, `"pin_specification"`, `"placement"`, `"routing"`, `"source"`, or `"unknown"`. |
+| `getPourPolygon` | [`lib/copper-geometry.ts`](./lib/copper-geometry.ts) | Converts rectangular, polygon, or BRep pours into copper polygons, preserving cutouts and bulge arcs. |
+| `getSmtPadPolygon` | [`lib/copper-geometry.ts`](./lib/copper-geometry.ts) | Converts SMT pad outlines into copper polygons. |
+| `getPlatedHolePolygon` | [`lib/copper-geometry.ts`](./lib/copper-geometry.ts) | Converts plated pads into copper polygons with drilled holes excluded. |
+| `getViaPolygon` | [`lib/copper-geometry.ts`](./lib/copper-geometry.ts) | Creates an annular copper polygon from a center and outer/hole diameters. |
+| `getTraceSegmentPolygon` | [`lib/copper-geometry.ts`](./lib/copper-geometry.ts) | Creates the convex hull of two endpoint disks, with equal or differing widths. |
+| `copperPolygonsTouch` | [`lib/copper-geometry.ts`](./lib/copper-geometry.ts) | Tests polygon contact or containment while respecting holes. |
+| `placePolygon` | [`lib/copper-geometry.ts`](./lib/copper-geometry.ts) | Rotates a polygon counterclockwise, then translates it to its board position. |
+| `circlePolygon` | [`lib/copper-geometry.ts`](./lib/copper-geometry.ts) | Creates a circular polygon with analytic arcs. |
+| `roundedRectangle` | [`lib/copper-geometry.ts`](./lib/copper-geometry.ts) | Creates a positioned and optionally rotated rectangle with rounded corners. |
+
+## Copper geometry
+
+These helpers return `Polygon` objects from `@flatten-js/core`. Coordinates are
+PCB board-world points in millimeters, with +X right, +Y up, and counterclockwise
+rotation in degrees. Polygon plated-pad outlines are footprint-local offsets;
+`getPlatedHolePolygon(pad, componentRotation)` places them in board coordinates
+using the pad's rotation, or the supplied component rotation when omitted.
+
+```ts
+import { copperPolygonsTouch, getPlatedHolePolygon, getPourPolygon } from "@tscircuit/circuit-json-util"
+
+const touches = copperPolygonsTouch(
+  getPourPolygon(pour),
+  getPlatedHolePolygon(platedHole),
+)
+```
+
+Callers must check net membership and shared copper layers themselves: these
+helpers operate only on planar geometry. `copperPolygonsTouch` uses a default
+numerical tolerance of `1e-7` mm, not a manufacturing clearance. If callers scale
+the polygons, they must scale that tolerance by the same factor. The helpers do
+not modify their circuit-json inputs or generate routes.
 
 ## Standard Usage
 
