@@ -8,6 +8,10 @@ export * from "./lib/get-element-id"
 export * from "./lib/readable-name-functions/get-readable-name-for-element"
 export * from "./lib/get-bounds-of-pcb-elements"
 export * from "./lib/get-board-bounds"
+export {
+  getCadModelToBoardTransform,
+  type CadModelBounds,
+} from "./lib/get-cad-model-to-board-transform"
 export * from "./lib/get-schematic-element-bounds"
 export * from "./lib/find-bounds-and-center"
 export * from "./lib/get-primary-id"
