@@ -403,8 +403,9 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
               indexConfig.byType &&
               internalStore.indexes.byType
             ) {
-              return (internalStore.indexes.byType.get(component_type) ||
-                []) as Extract<
+              return (
+                internalStore.indexes.byType.get(component_type) || []
+              ).slice() as Extract<
                 AnyCircuitElement,
                 { type: typeof component_type }
               >[]
