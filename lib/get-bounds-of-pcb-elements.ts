@@ -218,6 +218,28 @@ export const getPcbElementBounds = (
         : rectBounds
     }
 
+    if (
+      elm.shape === "hole_with_polygon_pad" &&
+      Array.isArray((elm as any).pad_outline)
+    ) {
+      const ccwRotation = (elm as any).ccw_rotation ?? 0
+      const rad = (ccwRotation * Math.PI) / 180
+      const cos = Math.cos(rad)
+      const sin = Math.sin(rad)
+      const rotatedPoints = (elm as any).pad_outline.map(
+        (p: { x: number; y: number }) => ({
+          x: elm.x + (p.x * cos - p.y * sin),
+          y: elm.y + (p.x * sin + p.y * cos),
+        }),
+      )
+      const polyBounds = getBoundsFromPoints(rotatedPoints)
+      if (polyBounds) {
+        platedHoleBounds = platedHoleBounds
+          ? mergeBounds(platedHoleBounds, polyBounds)
+          : polyBounds
+      }
+    }
+
     if ("hole_diameter" in elm && typeof elm.hole_diameter === "number") {
       const drillBounds = getCircleBounds(
         elm.x +
