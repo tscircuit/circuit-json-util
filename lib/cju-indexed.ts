@@ -174,6 +174,16 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
     ;(soup as any)._internal_store_indexed = internalStore
   }
 
+  // All wrappers for this array share the store. Mutations must maintain
+  // every existing index, including indexes this wrapper did not request.
+  const mutationIndexConfig = {
+    byId: !!internalStore.indexes.byId,
+    byType: !!internalStore.indexes.byType,
+    byRelation: !!internalStore.indexes.byRelation,
+    bySubcircuit: !!internalStore.indexes.bySubcircuit,
+    byCustomField: [...(internalStore.indexes.byCustomField?.keys() ?? [])],
+  }
+
   const suIndexed = new Proxy(
     {},
     {
@@ -469,7 +479,7 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
             internalStore.editCount++
 
             // Update indexes with the new element
-            const indexConfig = options.indexConfig || {}
+            const indexConfig = mutationIndexConfig
 
             // Update ID index
             if (indexConfig.byId && internalStore.indexes.byId) {
@@ -552,7 +562,7 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
           },
 
           delete: (id: string) => {
-            const indexConfig = options.indexConfig || {}
+            const indexConfig = mutationIndexConfig
             let elm: AnyCircuitElement | undefined
 
             // Find the element to delete
@@ -654,7 +664,7 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
           },
 
           update: (id: string, newProps: any) => {
-            const indexConfig = options.indexConfig || {}
+            const indexConfig = mutationIndexConfig
             let elm: AnyCircuitElement | undefined | null
 
             // Find the element to update
