@@ -168,6 +168,249 @@ test("transformPCBElements swaps pill smtpad dimensions for 90 degree transforms
   expect(pad.radius).toBe(0.15)
 })
 
+test("transformPCBElements rotates oval pcb_plated_hole ccw_rotation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "ph1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      shape: "oval",
+      x: 1,
+      y: 0,
+      outer_width: 1.5,
+      outer_height: 2.3,
+      hole_width: 0.9,
+      hole_height: 1.7,
+      ccw_rotation: 30,
+    } as any,
+  ]
+
+  transformPCBElements(elms, compose(translate(10, 20), rotateDEG(90)))
+
+  const hole = elms[0] as any
+  expect(hole.x).toBeCloseTo(10)
+  expect(hole.y).toBeCloseTo(21)
+  expect(hole.ccw_rotation).toBe(120)
+})
+
+test("transformPCBElements wraps pcb_plated_hole ccw_rotation into [0, 360)", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "ph1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      shape: "pill",
+      x: 0,
+      y: 0,
+      outer_width: 1.5,
+      outer_height: 2.3,
+      hole_width: 0.9,
+      hole_height: 1.7,
+      ccw_rotation: 270,
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(120))
+
+  const hole = elms[0] as any
+  expect(hole.ccw_rotation).toBe(30)
+})
+
+test("transformPCBElements rotates circular_hole_with_rect_pad offset and rect_ccw_rotation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "ph1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      shape: "circular_hole_with_rect_pad",
+      x: 1,
+      y: 0,
+      hole_diameter: 0.9,
+      hole_offset_x: 0.5,
+      hole_offset_y: 0,
+      rect_pad_width: 2,
+      rect_pad_height: 1,
+      rect_border_radius: 0,
+      pad_shape: "rect",
+      hole_shape: "circle",
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(90))
+
+  const hole = elms[0] as any
+  expect(hole.rect_ccw_rotation).toBe(90)
+  expect(hole.hole_offset_x).toBeCloseTo(0)
+  expect(hole.hole_offset_y).toBeCloseTo(0.5)
+})
+
+test("transformPCBElements converts pill_hole_with_rect_pad to rotated variant on rotation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "ph1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      shape: "pill_hole_with_rect_pad",
+      hole_shape: "pill",
+      pad_shape: "rect",
+      x: 0,
+      y: 0,
+      hole_width: 0.9,
+      hole_height: 1.7,
+      hole_offset_x: 0.2,
+      hole_offset_y: 0,
+      rect_pad_width: 2,
+      rect_pad_height: 1.2,
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(90))
+
+  const hole = elms[0] as any
+  expect(hole.shape).toBe("rotated_pill_hole_with_rect_pad")
+  expect(hole.hole_shape).toBe("rotated_pill")
+  expect(hole.hole_ccw_rotation).toBe(90)
+  expect(hole.rect_ccw_rotation).toBe(90)
+  expect(hole.hole_offset_x).toBeCloseTo(0)
+  expect(hole.hole_offset_y).toBeCloseTo(0.2)
+})
+
+test("transformPCBElements leaves pill_hole_with_rect_pad variant unchanged under pure translation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "ph1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      shape: "pill_hole_with_rect_pad",
+      hole_shape: "pill",
+      pad_shape: "rect",
+      x: 0,
+      y: 0,
+      hole_width: 0.9,
+      hole_height: 1.7,
+      hole_offset_x: 0.2,
+      hole_offset_y: 0,
+      rect_pad_width: 2,
+      rect_pad_height: 1.2,
+    } as any,
+  ]
+
+  transformPCBElements(elms, translate(3, 4))
+
+  const hole = elms[0] as any
+  expect(hole.shape).toBe("pill_hole_with_rect_pad")
+  expect(hole.hole_ccw_rotation).toBeUndefined()
+  expect(hole.rect_ccw_rotation).toBeUndefined()
+  expect(hole.hole_offset_x).toBeCloseTo(0.2)
+})
+
+test("transformPCBElements rotates hole_with_polygon_pad ccw_rotation without rewriting pad_outline", () => {
+  const outline = [
+    { x: -1, y: -0.5 },
+    { x: 1, y: -0.5 },
+    { x: 1, y: 0.5 },
+    { x: -1, y: 0.5 },
+  ]
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "ph1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      shape: "hole_with_polygon_pad",
+      hole_shape: "pill",
+      x: 1,
+      y: 0,
+      hole_width: 0.9,
+      hole_height: 1.7,
+      hole_offset_x: 0.2,
+      hole_offset_y: 0,
+      pad_outline: outline,
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(90))
+
+  const hole = elms[0] as any
+  expect(hole.ccw_rotation).toBe(90)
+  // pad_outline is footprint-local and rotated via ccw_rotation at render time
+  expect(hole.pad_outline).toEqual(outline)
+  expect(hole.hole_offset_x).toBeCloseTo(0)
+  expect(hole.hole_offset_y).toBeCloseTo(0.2)
+})
+
+test("transformPCBElements rotates rotated_pill pcb_hole ccw_rotation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_hole",
+      pcb_hole_id: "h1",
+      pcb_component_id: "pc1",
+      hole_shape: "rotated_pill",
+      hole_width: 0.9,
+      hole_height: 1.7,
+      x: 0,
+      y: 0,
+      ccw_rotation: 15,
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(90))
+
+  const hole = elms[0] as any
+  expect(hole.ccw_rotation).toBe(105)
+})
+
+test("transformPCBElements swaps rect pcb_hole dimensions for 90 degree transforms", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_hole",
+      pcb_hole_id: "h1",
+      pcb_component_id: "pc1",
+      hole_shape: "rect",
+      hole_width: 0.9,
+      hole_height: 1.7,
+      x: 0,
+      y: 0,
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(90))
+
+  const hole = elms[0] as any
+  expect(hole.hole_width).toBe(1.7)
+  expect(hole.hole_height).toBe(0.9)
+})
+
+test("transformPCBElements rotates rotated_rect smtpad ccw_rotation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_smtpad",
+      pcb_smtpad_id: "pad1",
+      pcb_component_id: "pc1",
+      pcb_port_id: "port1",
+      layer: "top",
+      shape: "rotated_rect",
+      x: 1,
+      y: 0,
+      width: 0.3,
+      height: 1.5,
+      ccw_rotation: 30,
+    } as any,
+  ]
+
+  transformPCBElements(elms, compose(translate(10, 20), rotateDEG(90)))
+
+  const pad = elms[0] as any
+  expect(pad.x).toBeCloseTo(10)
+  expect(pad.y).toBeCloseTo(21)
+  expect(pad.ccw_rotation).toBe(120)
+})
+
 test("transformPCBElements moves pcb_courtyard_circle center", () => {
   const elms: AnyCircuitElement[] = [
     {
