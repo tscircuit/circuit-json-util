@@ -171,6 +171,15 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
         }
       })
     }
+
+    if (
+      elm.type === "pcb_smtpad" &&
+      (elm.shape === "rotated_rect" || elm.shape === "rotated_pill") &&
+      typeof elm.ccw_rotation === "number"
+    ) {
+      elm.ccw_rotation =
+        (((elm.ccw_rotation + rotationDegrees) % 360) + 360) % 360
+    }
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
     // TODO adjust size/rotation
     elm.center = applyToPoint(matrix, elm.center)
