@@ -136,12 +136,39 @@ export const transformSchematicElements = (
   return elms.map((elm) => transformSchematicElement(elm, matrix))
 }
 
+const normalizeDegrees360 = (degrees: number) => ((degrees % 360) + 360) % 360
+
+// Element-local rotation fields ("ccw_rotation", "hole_ccw_rotation", ...)
+// hold the element's own counterclockwise angle relative to its parent frame.
+// Applying a parent rotation adds the matrix angle; a mirrored transform
+// (scale.sy < 0) reverses the handedness, so the field becomes angle - value.
+const rotateCcwField = (
+  value: number,
+  rotationDegrees: number,
+  isFlipped: boolean,
+) =>
+  normalizeDegrees360(
+    isFlipped ? rotationDegrees - value : value + rotationDegrees,
+  )
+
+// Directions and element-local coordinates (e.g. a plated hole's offset from
+// its pad, or a polygon pad outline expressed relative to x/y) transform by
+// the linear part of the matrix only — translation must not be applied.
+const applyLinearPart = (
+  matrix: Matrix,
+  direction: { x: number; y: number },
+) => ({
+  x: matrix.a * direction.x + matrix.c * direction.y,
+  y: matrix.b * direction.x + matrix.d * direction.y,
+})
+
 export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   const tsr = decomposeTSR(matrix)
   const flipPadWidthHeight =
     Math.abs(getQuarterTurns(tsr.rotation.angle)) % 2 === 1
   const rotationDegrees = (tsr.rotation.angle / Math.PI) * 180
   const isFlipped = tsr.scale.sy < 0
+  const hasRotation = normalizeDegrees360(rotationDegrees) !== 0 || isFlipped
   if (
     elm.type === "pcb_plated_hole" ||
     elm.type === "pcb_hole" ||
@@ -170,6 +197,69 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
           y: tp.y,
         }
       })
+    }
+
+    if (hasRotation) {
+      const anyElm = elm as any
+      for (const field of [
+        "ccw_rotation",
+        "rect_ccw_rotation",
+        "hole_ccw_rotation",
+      ] as const) {
+        if (typeof anyElm[field] === "number") {
+          anyElm[field] = rotateCcwField(
+            anyElm[field],
+            rotationDegrees,
+            isFlipped,
+          )
+        }
+      }
+    }
+
+    if (elm.type === "pcb_plated_hole") {
+      const hole = elm as any
+      if ("hole_offset_x" in hole || "hole_offset_y" in hole) {
+        const offset = applyLinearPart(matrix, {
+          x: Number(hole.hole_offset_x ?? 0),
+          y: Number(hole.hole_offset_y ?? 0),
+        })
+        hole.hole_offset_x = offset.x
+        hole.hole_offset_y = offset.y
+      }
+      // pad_outline points of "hole_with_polygon_pad" are footprint-local and
+      // are rotated by the element's ccw_rotation (or the owning component's
+      // rotation) at consumption time — see getPlatedHolePolygon — so they are
+      // not transformed here.
+      // The axis-aligned "pill_hole_with_rect_pad" variant carries no rotation
+      // fields, so a rotated instance is re-expressed as the rotated variant —
+      // the same convention the component emitters use at insert time.
+      if (
+        hole.shape === "pill_hole_with_rect_pad" &&
+        normalizeDegrees360(rotationDegrees) !== 0
+      ) {
+        hole.shape = "rotated_pill_hole_with_rect_pad"
+        hole.hole_shape = "rotated_pill"
+        hole.hole_ccw_rotation = rotateCcwField(0, rotationDegrees, isFlipped)
+        hole.rect_ccw_rotation = rotateCcwField(0, rotationDegrees, isFlipped)
+      }
+      // The rect pad of a "circular_hole_with_rect_pad" rotates too; the field
+      // is optional in the schema, so create it when a rotation is applied.
+      if (
+        hole.shape === "circular_hole_with_rect_pad" &&
+        typeof hole.rect_ccw_rotation !== "number" &&
+        normalizeDegrees360(rotationDegrees) !== 0
+      ) {
+        hole.rect_ccw_rotation = rotateCcwField(0, rotationDegrees, isFlipped)
+      }
+      // The hole inside a "hole_with_polygon_pad" carries ccw_rotation; the
+      // field is optional, so create it when a rotation is applied.
+      if (
+        hole.shape === "hole_with_polygon_pad" &&
+        typeof hole.ccw_rotation !== "number" &&
+        normalizeDegrees360(rotationDegrees) !== 0
+      ) {
+        hole.ccw_rotation = rotateCcwField(0, rotationDegrees, isFlipped)
+      }
     }
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
     // TODO adjust size/rotation
@@ -294,6 +384,19 @@ export const transformPCBElements = (
         (elm.shape === "rect" || elm.shape === "pill")
       ) {
         ;[elm.width, elm.height] = [elm.height, elm.width]
+      }
+      // Rect/oval/pill pcb_hole shapes carry axis-aligned hole_width/hole_height
+      // and no rotation field, so an odd quarter turn swaps their dimensions —
+      // the same convention used for smtpads.
+      if (
+        elm.type === "pcb_hole" &&
+        "hole_width" in elm &&
+        "hole_height" in elm &&
+        (elm.hole_shape === "rect" ||
+          elm.hole_shape === "oval" ||
+          elm.hole_shape === "pill")
+      ) {
+        ;[elm.hole_width, elm.hole_height] = [elm.hole_height, elm.hole_width]
       }
       return elm
     })
