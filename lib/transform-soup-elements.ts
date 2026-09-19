@@ -1,5 +1,11 @@
 import type { AnyCircuitElement, InsertionDirection } from "circuit-json"
-import { type Matrix, applyToPoint, decomposeTSR } from "transformation-matrix"
+import {
+  type Matrix,
+  applyToPoint,
+  compose,
+  decomposeTSR,
+  rotate,
+} from "transformation-matrix"
 import {
   directionToVec,
   rotateDirection,
@@ -162,7 +168,18 @@ const applyLinearPart = (
   y: matrix.b * direction.x + matrix.d * direction.y,
 })
 
-export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
+type TransformPCBElementContext = {
+  // pcb_component_id -> the component's rotation before this transform, used
+  // for rotation fields that are absolute board angles (the schema falls back
+  // to the owning component's rotation when the field is omitted)
+  componentRotationById?: Record<string, number | undefined>
+}
+
+export const transformPCBElement = (
+  elm: AnyCircuitElement,
+  matrix: Matrix,
+  ctx?: TransformPCBElementContext,
+) => {
   const tsr = decomposeTSR(matrix)
   const flipPadWidthHeight =
     Math.abs(getQuarterTurns(tsr.rotation.angle)) % 2 === 1
@@ -227,20 +244,56 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
         hole.hole_offset_y = offset.y
       }
       // pad_outline points of "hole_with_polygon_pad" are footprint-local and
-      // are rotated by the element's ccw_rotation (or the owning component's
-      // rotation) at consumption time — see getPlatedHolePolygon — so they are
-      // not transformed here.
+      // are rotated by the element's ccw_rotation at consumption time (falling
+      // back to the owning component's rotation when absent — see
+      // getPlatedHolePolygon). A pure rotation therefore needs no outline or
+      // field change at all: the updated component rotation already applies.
+      // A mirrored matrix is different — a reflection cannot be expressed by a
+      // rotation field, so the residual reflection is baked into the outline
+      // and ccw_rotation is pinned to the component's post-transform rotation.
+      if (
+        hole.shape === "hole_with_polygon_pad" &&
+        isFlipped &&
+        Array.isArray(hole.pad_outline)
+      ) {
+        const componentRotation =
+          ctx?.componentRotationById?.[hole.pcb_component_id] ?? 0
+        const oldRotation =
+          typeof hole.ccw_rotation === "number"
+            ? hole.ccw_rotation
+            : componentRotation
+        const newRotation = normalizeDegrees360(
+          componentRotation + rotationDegrees,
+        )
+        const residual = compose(
+          rotate((-newRotation * Math.PI) / 180),
+          { ...matrix, e: 0, f: 0 },
+          rotate((oldRotation * Math.PI) / 180),
+        )
+        hole.pad_outline = hole.pad_outline.map((point: any) =>
+          applyToPoint(residual, { x: point.x, y: point.y }),
+        )
+        hole.ccw_rotation = newRotation
+      }
       // The axis-aligned "pill_hole_with_rect_pad" variant carries no rotation
       // fields, so a rotated instance is re-expressed as the rotated variant —
-      // the same convention the component emitters use at insert time.
+      // the same convention the component emitters use at insert time. The
+      // fields are absolute board angles, so they seed from the component's
+      // rotation, matching the ccw_rotation ?? componentRotation fallback.
       if (
         hole.shape === "pill_hole_with_rect_pad" &&
         normalizeDegrees360(rotationDegrees) !== 0
       ) {
+        const componentRotation =
+          ctx?.componentRotationById?.[hole.pcb_component_id] ?? 0
         hole.shape = "rotated_pill_hole_with_rect_pad"
         hole.hole_shape = "rotated_pill"
-        hole.hole_ccw_rotation = rotateCcwField(0, rotationDegrees, isFlipped)
-        hole.rect_ccw_rotation = rotateCcwField(0, rotationDegrees, isFlipped)
+        hole.hole_ccw_rotation = normalizeDegrees360(
+          componentRotation + rotationDegrees,
+        )
+        hole.rect_ccw_rotation = normalizeDegrees360(
+          componentRotation + rotationDegrees,
+        )
       }
       // The rect pad of a "circular_hole_with_rect_pad" rotates too; the field
       // is optional in the schema, so create it when a rotation is applied.
@@ -250,15 +303,6 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
         normalizeDegrees360(rotationDegrees) !== 0
       ) {
         hole.rect_ccw_rotation = rotateCcwField(0, rotationDegrees, isFlipped)
-      }
-      // The hole inside a "hole_with_polygon_pad" carries ccw_rotation; the
-      // field is optional, so create it when a rotation is applied.
-      if (
-        hole.shape === "hole_with_polygon_pad" &&
-        typeof hole.ccw_rotation !== "number" &&
-        normalizeDegrees360(rotationDegrees) !== 0
-      ) {
-        hole.ccw_rotation = rotateCcwField(0, rotationDegrees, isFlipped)
       }
     }
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
@@ -376,7 +420,19 @@ export const transformPCBElements = (
   const tsr = decomposeTSR(matrix)
   const quarterTurns = getQuarterTurns(tsr.rotation.angle)
   const flipPadWidthHeight = Math.abs(quarterTurns) % 2 === 1
-  let transformedElms = elms.map((elm) => transformPCBElement(elm, matrix))
+  // Snapshot component rotations before any element is transformed so rotation
+  // fields that default to the component's angle can be materialized correctly
+  const componentRotationById: Record<string, number | undefined> = {}
+  for (const elm of elms) {
+    if (elm.type === "pcb_component") {
+      componentRotationById[(elm as any).pcb_component_id] = Number(
+        (elm as any).rotation ?? 0,
+      )
+    }
+  }
+  let transformedElms = elms.map((elm) =>
+    transformPCBElement(elm, matrix, { componentRotationById }),
+  )
   if (flipPadWidthHeight) {
     transformedElms = transformedElms.map((elm) => {
       if (
