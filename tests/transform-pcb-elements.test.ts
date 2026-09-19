@@ -279,6 +279,45 @@ test("transformPCBElements converts pill_hole_with_rect_pad to rotated variant o
   expect(hole.hole_offset_y).toBeCloseTo(0.2)
 })
 
+test("transformPCBElements seeds migrated pill_hole_with_rect_pad rotation fields from the component", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_component",
+      pcb_component_id: "pc1",
+      layer: "top",
+      center: { x: 0, y: 0 },
+      rotation: 45,
+      width: 2,
+      height: 2,
+    } as any,
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "ph1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      shape: "pill_hole_with_rect_pad",
+      hole_shape: "pill",
+      pad_shape: "rect",
+      x: 0,
+      y: 0,
+      hole_width: 0.9,
+      hole_height: 1.7,
+      hole_offset_x: 0,
+      hole_offset_y: 0,
+      rect_pad_width: 2,
+      rect_pad_height: 1.2,
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(90))
+
+  const hole = elms[1] as any
+  expect(hole.shape).toBe("rotated_pill_hole_with_rect_pad")
+  // absolute board angles: component 45 + transform 90
+  expect(hole.hole_ccw_rotation).toBe(135)
+  expect(hole.rect_ccw_rotation).toBe(135)
+})
+
 test("transformPCBElements leaves pill_hole_with_rect_pad variant unchanged under pure translation", () => {
   const elms: AnyCircuitElement[] = [
     {
@@ -309,7 +348,7 @@ test("transformPCBElements leaves pill_hole_with_rect_pad variant unchanged unde
   expect(hole.hole_offset_x).toBeCloseTo(0.2)
 })
 
-test("transformPCBElements rotates hole_with_polygon_pad ccw_rotation without rewriting pad_outline", () => {
+test("transformPCBElements leaves hole_with_polygon_pad ccw_rotation absent under pure rotation", () => {
   const outline = [
     { x: -1, y: -0.5 },
     { x: 1, y: -0.5 },
@@ -317,6 +356,15 @@ test("transformPCBElements rotates hole_with_polygon_pad ccw_rotation without re
     { x: -1, y: 0.5 },
   ]
   const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_component",
+      pcb_component_id: "pc1",
+      layer: "top",
+      center: { x: 0, y: 0 },
+      rotation: 45,
+      width: 2,
+      height: 2,
+    } as any,
     {
       type: "pcb_plated_hole",
       pcb_plated_hole_id: "ph1",
@@ -336,12 +384,80 @@ test("transformPCBElements rotates hole_with_polygon_pad ccw_rotation without re
 
   transformPCBElements(elms, rotateDEG(90))
 
-  const hole = elms[0] as any
-  expect(hole.ccw_rotation).toBe(90)
-  // pad_outline is footprint-local and rotated via ccw_rotation at render time
+  const hole = elms[1] as any
+  // consumers fall back to the component's updated rotation (45 + 90 = 135),
+  // so materializing a bare 90 would lose the component's 45
+  expect(hole.ccw_rotation).toBeUndefined()
   expect(hole.pad_outline).toEqual(outline)
   expect(hole.hole_offset_x).toBeCloseTo(0)
   expect(hole.hole_offset_y).toBeCloseTo(0.2)
+  expect((elms[0] as any).rotation).toBe(135)
+})
+
+test("transformPCBElements bakes mirrored transforms into hole_with_polygon_pad pad_outline", () => {
+  const outline = [
+    { x: -1, y: -0.5 },
+    { x: 1, y: -0.5 },
+    { x: 1, y: 0.5 },
+    { x: -1, y: 0.5 },
+  ]
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_component",
+      pcb_component_id: "pc1",
+      layer: "top",
+      center: { x: 0, y: 0 },
+      rotation: 45,
+      width: 2,
+      height: 2,
+    } as any,
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "ph1",
+      pcb_component_id: "pc1",
+      layer: "top",
+      shape: "hole_with_polygon_pad",
+      hole_shape: "pill",
+      x: 1,
+      y: 0,
+      hole_width: 0.9,
+      hole_height: 1.7,
+      hole_offset_x: 0.2,
+      hole_offset_y: 0,
+      pad_outline: outline,
+    } as any,
+  ]
+
+  // mirror across Y axis followed by 90deg ccw rotation
+  transformPCBElements(elms, compose(scale(1, -1), rotateDEG(90)))
+
+  const hole = elms[1] as any
+  // ccw_rotation is pinned to the component's post-transform rotation and the
+  // residual reflection is baked into pad_outline
+  expect(hole.ccw_rotation).toBe(135)
+  expect((elms[0] as any).rotation).toBe(135)
+
+  // rendered outline = rotate(pad_outline, ccw_rotation) placed at x/y must
+  // equal applying the full matrix to the original rendered outline
+  const rad = (hole.ccw_rotation * Math.PI) / 180
+  const render = (p: { x: number; y: number }) => ({
+    x: p.x * Math.cos(rad) - p.y * Math.sin(rad),
+    y: p.x * Math.sin(rad) + p.y * Math.cos(rad),
+  })
+  const expectedOutline = outline.map((p) => {
+    // original render rotation was the component's 45deg
+    const r = (45 * Math.PI) / 180
+    const c = Math.cos(r)
+    const s = Math.sin(r)
+    const rotated = { x: p.x * c - p.y * s, y: p.x * s + p.y * c }
+    // then the full linear part of the transform (rotate 90 then mirror Y)
+    return { x: -rotated.y, y: -rotated.x }
+  })
+  for (let i = 0; i < outline.length; i++) {
+    const got = render(hole.pad_outline[i]!)
+    expect(got.x).toBeCloseTo(expectedOutline[i]!.x)
+    expect(got.y).toBeCloseTo(expectedOutline[i]!.y)
+  }
 })
 
 test("transformPCBElements rotates rotated_pill pcb_hole ccw_rotation", () => {
