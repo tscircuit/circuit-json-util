@@ -116,14 +116,14 @@ const source_traces = su(circuitJson).source_trace.list({
 For large circuit json, the library provides an optimized version with indexing for faster lookups:
 
 ```ts
-import { suIndexed } from "@tscircuit/circuit-json-util"
+import { cjuIndexed } from "@tscircuit/circuit-json-util"
 
 const circuitJson = [
   /* large soup with many elements */
 ]
 
 // Configure the indexes you want to use
-const indexedSu = suIndexed(circuitJson, {
+const indexedSu = cjuIndexed(circuitJson, {
   indexConfig: {
     byId: true, // Index by element ID for fast .get() operations
     byType: true, // Index by element type for fast .list() operations
@@ -142,7 +142,7 @@ const subcircuitElements = indexedSu.source_component.list({
 })
 ```
 
-The indexed version maintains the same API as the standard version but provides significant performance improvements, especially for large circuit json arrays.
+The indexed version supports root-level `insert`, `insertAll`, and `subtree` as well as table operations. Root inserts assign IDs, including when an input supplies an ID, just like `cju`. Subtrees preserve the indexing and validation options and have their own collection; existing element objects are shared with the parent. `list()` returns a new array, so sorting or splicing it cannot modify the store's type index. The elements in that array remain live objects.
 
 
 ## Categorize DRC Errors and Warnings
