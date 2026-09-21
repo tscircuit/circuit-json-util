@@ -5,6 +5,7 @@ import type {
   SourcePort,
 } from "circuit-json"
 import * as Soup from "circuit-json"
+import { buildSubtree, type SubtreeOptions } from "./subtree"
 import type {
   CircuitJsonOps,
   CircuitJsonUtilObjects as CircuitJsonUtilObjects,
@@ -186,6 +187,24 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
         }
         if (prop === "editCount") {
           return internalStore.editCount
+        }
+
+        if (prop === "insert") {
+          return (elm: AnyCircuitElementInput) => {
+            const { type, ...props } = elm
+            if (!type) throw new Error("insert requires an element with a type")
+            // Top-level insert always assigns an ID, unlike a typed table insert.
+            delete (props as Record<string, unknown>)[`${type}_id`]
+            return suIndexed[type].insert(props)
+          }
+        }
+        if (prop === "insertAll") {
+          return (elms: AnyCircuitElementInput[]) =>
+            elms.map((elm) => suIndexed.insert(elm))
+        }
+        if (prop === "subtree") {
+          return (opts: SubtreeOptions) =>
+            cjuIndexed(buildSubtree(soup, opts), options)
         }
 
         const component_type = prop
@@ -403,8 +422,9 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
               indexConfig.byType &&
               internalStore.indexes.byType
             ) {
-              return (internalStore.indexes.byType.get(component_type) ||
-                []) as Extract<
+              return (
+                internalStore.indexes.byType.get(component_type) || []
+              ).slice() as Extract<
                 AnyCircuitElement,
                 { type: typeof component_type }
               >[]
@@ -443,7 +463,7 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
               ) as Extract<AnyCircuitElement, { type: typeof component_type }>[]
             }
 
-            return elementsToFilter as Extract<
+            return elementsToFilter.slice() as Extract<
               AnyCircuitElement,
               { type: typeof component_type }
             >[]
