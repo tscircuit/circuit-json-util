@@ -118,6 +118,7 @@ const nice_color_palettes = [
 ]
 
 export const getDebugLayoutObject = (lo: any): LayoutDebugObject | null => {
+  if (!lo) return null
   let {
     x,
     y,
@@ -140,6 +141,13 @@ export const getDebugLayoutObject = (lo: any): LayoutDebugObject | null => {
     y = (lo.y1 + lo.y2) / 2
     width = Math.abs(lo.x1 - lo.x2)
     height = Math.abs(lo.y1 - lo.y2)
+  }
+
+  if (lo.start && lo.end) {
+    x = (lo.start.x + lo.end.x) / 2
+    y = (lo.start.y + lo.end.y) / 2
+    width = Math.abs(lo.start.x - lo.end.x)
+    height = Math.abs(lo.start.y - lo.end.y)
   }
 
   if (lo.points && Array.isArray(lo.points) && lo.points.length > 0) {
