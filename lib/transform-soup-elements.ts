@@ -157,6 +157,25 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     ;(elm as any).x = x
     ;(elm as any).y = y
 
+    if (elm.type === "pcb_plated_hole") {
+      if (typeof (elm as any).rect_ccw_rotation === "number")
+        (elm as any).rect_ccw_rotation =
+          ((elm as any).rect_ccw_rotation + rotationDegrees) % 360
+      if (typeof (elm as any).ccw_rotation === "number")
+        (elm as any).ccw_rotation =
+          ((elm as any).ccw_rotation + rotationDegrees) % 360
+      if (
+        (elm as any).hole_offset_x !== undefined ||
+        (elm as any).hole_offset_y !== undefined
+      ) {
+        const ox = Number((elm as any).hole_offset_x ?? 0)
+        const oy = Number((elm as any).hole_offset_y ?? 0)
+        const rad = (rotationDegrees * Math.PI) / 180
+        ;(elm as any).hole_offset_x = ox * Math.cos(rad) - oy * Math.sin(rad)
+        ;(elm as any).hole_offset_y = ox * Math.sin(rad) + oy * Math.cos(rad)
+      }
+    }
+
     // Handle polygon-shaped SMT pads with points array
     if (
       elm.type === "pcb_smtpad" &&
@@ -294,6 +313,24 @@ export const transformPCBElements = (
         (elm.shape === "rect" || elm.shape === "pill")
       ) {
         ;[elm.width, elm.height] = [elm.height, elm.width]
+      }
+      if (elm.type === "pcb_plated_hole") {
+        const ph: any = elm
+        if (
+          ph.rect_pad_width !== undefined &&
+          ph.rect_pad_height !== undefined
+        ) {
+          ;[ph.rect_pad_width, ph.rect_pad_height] = [
+            ph.rect_pad_height,
+            ph.rect_pad_width,
+          ]
+        }
+        if (ph.outer_width !== undefined && ph.outer_height !== undefined) {
+          ;[ph.outer_width, ph.outer_height] = [ph.outer_height, ph.outer_width]
+        }
+        if (ph.hole_width !== undefined && ph.hole_height !== undefined) {
+          ;[ph.hole_width, ph.hole_height] = [ph.hole_height, ph.hole_width]
+        }
       }
       return elm
     })
