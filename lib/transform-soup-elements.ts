@@ -150,12 +150,16 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_solder_paste" ||
     elm.type === "pcb_port"
   ) {
-    const { x, y } = applyToPoint(matrix, {
-      x: Number((elm as any).x),
-      y: Number((elm as any).y),
-    })
-    ;(elm as any).x = x
-    ;(elm as any).y = y
+    // A points-only polygon pad has no center, and Number(undefined) is NaN.
+    // Only transform a center that is actually there, so we never introduce
+    // non-finite x/y onto an element that defines its geometry by points.
+    const centerX = Number((elm as any).x)
+    const centerY = Number((elm as any).y)
+    if (Number.isFinite(centerX) && Number.isFinite(centerY)) {
+      const { x, y } = applyToPoint(matrix, { x: centerX, y: centerY })
+      ;(elm as any).x = x
+      ;(elm as any).y = y
+    }
 
     // Handle polygon-shaped SMT pads with points array
     if (

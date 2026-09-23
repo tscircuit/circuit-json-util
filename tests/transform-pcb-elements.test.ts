@@ -473,3 +473,104 @@ test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval cen
   expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
   expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
 })
+
+const createPolygonSmtPad = (): AnyCircuitElement =>
+  ({
+    type: "pcb_smtpad",
+    pcb_smtpad_id: "pad_0",
+    pcb_component_id: "component_0",
+    layer: "top",
+    shape: "polygon",
+    points: [
+      { x: 4, y: 2 },
+      { x: 6, y: 2 },
+      { x: 6, y: 4 },
+      { x: 4, y: 4 },
+    ],
+  }) as any
+
+const expectNoNonFiniteNumbers = (elm: any) => {
+  for (const [key, value] of Object.entries(elm)) {
+    if (typeof value === "number") {
+      expect(`${key} is finite: ${Number.isFinite(value)}`).toBe(
+        `${key} is finite: true`,
+      )
+    }
+  }
+  for (const point of elm.points) {
+    expect(Number.isFinite(point.x)).toBe(true)
+    expect(Number.isFinite(point.y)).toBe(true)
+  }
+}
+
+test("transformPCBElements does not add a center to a points-only polygon pad under an identity transform", () => {
+  const elms: AnyCircuitElement[] = [createPolygonSmtPad()]
+
+  transformPCBElements(elms, compose(translate(0, 0)))
+
+  const pad = elms[0] as any
+  expect(pad.points).toEqual([
+    { x: 4, y: 2 },
+    { x: 6, y: 2 },
+    { x: 6, y: 4 },
+    { x: 4, y: 4 },
+  ])
+  expect("x" in pad).toBe(false)
+  expect("y" in pad).toBe(false)
+  expectNoNonFiniteNumbers(pad)
+})
+
+test("transformPCBElements translates a points-only polygon pad without adding a center", () => {
+  const elms: AnyCircuitElement[] = [createPolygonSmtPad()]
+
+  transformPCBElements(elms, translate(10, 5))
+
+  const pad = elms[0] as any
+  expect(pad.points).toEqual([
+    { x: 14, y: 7 },
+    { x: 16, y: 7 },
+    { x: 16, y: 9 },
+    { x: 14, y: 9 },
+  ])
+  expect("x" in pad).toBe(false)
+  expect("y" in pad).toBe(false)
+  expectNoNonFiniteNumbers(pad)
+})
+
+test("transformPCBElements rotates a points-only polygon pad without adding a center", () => {
+  const elms: AnyCircuitElement[] = [createPolygonSmtPad()]
+
+  transformPCBElements(elms, rotateDEG(90))
+
+  const pad = elms[0] as any
+  for (const [index, expected] of [
+    { x: -2, y: 4 },
+    { x: -2, y: 6 },
+    { x: -4, y: 6 },
+    { x: -4, y: 4 },
+  ].entries()) {
+    expect(pad.points[index].x).toBeCloseTo(expected.x, 10)
+    expect(pad.points[index].y).toBeCloseTo(expected.y, 10)
+  }
+  expect("x" in pad).toBe(false)
+  expect("y" in pad).toBe(false)
+  expectNoNonFiniteNumbers(pad)
+})
+
+test("transformPCBElements still transforms a polygon pad that does carry a center", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      ...(createPolygonSmtPad() as any),
+      x: 5,
+      y: 3,
+    } as any,
+  ]
+
+  transformPCBElements(elms, translate(10, 5))
+
+  const pad = elms[0] as any
+  expect(pad.x).toBe(15)
+  expect(pad.y).toBe(8)
+  expect(pad.points[0]).toEqual({ x: 14, y: 7 })
+  expectNoNonFiniteNumbers(pad)
+})
