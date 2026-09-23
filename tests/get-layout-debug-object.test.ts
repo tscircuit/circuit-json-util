@@ -96,3 +96,8 @@ test("should handle empty points array", () => {
 
   expect(result).toBeNull()
 })
+
+test("should return null for missing layout objects", () => {
+  expect(getDebugLayoutObject(undefined)).toBeNull()
+  expect(getDebugLayoutObject(null)).toBeNull()
+})
