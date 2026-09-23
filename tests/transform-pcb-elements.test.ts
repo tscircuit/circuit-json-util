@@ -473,3 +473,104 @@ test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval cen
   expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
   expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
 })
+
+test("transformPCBElements moves pcb_group center, outline and anchor_position", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_group",
+      pcb_group_id: "pg1",
+      source_group_id: "sg1",
+      center: { x: 1, y: 2 },
+      width: 4,
+      height: 2,
+      outline: [
+        { x: -1, y: -1 },
+        { x: 1, y: -1 },
+        { x: 1, y: 1 },
+        { x: -1, y: 1 },
+      ],
+      anchor_position: { x: -1, y: 1 },
+      anchor_alignment: "center",
+      pcb_component_ids: [],
+    } as any,
+  ]
+
+  transformPCBElements(elms, translate(2, 3))
+
+  const group = elms[0] as any
+  expect(group.center).toEqual({ x: 3, y: 5 })
+  expect(group.anchor_position).toEqual({ x: 1, y: 4 })
+  expect(group.outline[0]).toEqual({ x: 1, y: 2 })
+  expect(group.outline[2]).toEqual({ x: 3, y: 4 })
+})
+
+test("transformPCBElements swaps pcb_group dimensions on 90 degree rotation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_group",
+      pcb_group_id: "pg2",
+      source_group_id: "sg2",
+      center: { x: 1, y: 0 },
+      width: 4,
+      height: 2,
+      anchor_alignment: "center",
+      pcb_component_ids: [],
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(90))
+
+  const group = elms[0] as any
+  expect(group.center.x).toBeCloseTo(0)
+  expect(group.center.y).toBeCloseTo(1)
+  expect(group.width).toBe(2)
+  expect(group.height).toBe(4)
+})
+
+test("transformPCBElements moves pcb_copper_pour rect center and composes rotation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_copper_pour",
+      pcb_copper_pour_id: "pour1",
+      covered_with_solder_mask: true,
+      layer: "top",
+      shape: "rect",
+      center: { x: 2, y: 1 },
+      width: 4,
+      height: 2,
+      rotation: 0,
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(90))
+
+  const pour = elms[0] as any
+  expect(pour.center.x).toBeCloseTo(-1)
+  expect(pour.center.y).toBeCloseTo(2)
+  expect(pour.rotation).toBe(90)
+  expect(pour.width).toBe(2)
+  expect(pour.height).toBe(4)
+})
+
+test("transformPCBElements moves pcb_copper_pour polygon points", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_copper_pour",
+      pcb_copper_pour_id: "pour2",
+      covered_with_solder_mask: true,
+      layer: "top",
+      shape: "polygon",
+      points: [
+        { x: 0, y: 0 },
+        { x: 2, y: 0 },
+        { x: 2, y: 2 },
+      ],
+    } as any,
+  ]
+
+  transformPCBElements(elms, translate(3, 4))
+
+  const pour = elms[0] as any
+  expect(pour.points[0]).toEqual({ x: 3, y: 4 })
+  expect(pour.points[2]).toEqual({ x: 5, y: 6 })
+})
