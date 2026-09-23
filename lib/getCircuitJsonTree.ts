@@ -136,6 +136,16 @@ export const getCircuitJsonTree = (
     lastGroupId = nextGroupId
   }
 
+  if (opts?.source_group_id !== undefined) {
+    const selectedGroup = groupNodes.get(opts.source_group_id)
+    if (!selectedGroup) {
+      throw new Error(
+        `Unable to build circuit tree for source_group_id ${JSON.stringify(opts.source_group_id)}`,
+      )
+    }
+    return selectedGroup
+  }
+
   if (!lastGroupId) {
     console.warn("No groups were processed, returning tree without sourceGroup")
     return {
@@ -147,10 +157,7 @@ export const getCircuitJsonTree = (
 
   // Determine which group to return as root
   let rootGroupId: string | null = null
-  if (opts && opts.source_group_id !== undefined) {
-    // Use explicitly specified group
-    rootGroupId = opts.source_group_id
-  } else if (orphanedGroups.length > 0) {
+  if (orphanedGroups.length > 0) {
     // Use the first orphaned group as root (most likely scenario when filtering circuit JSON)
     rootGroupId = orphanedGroups[0]!
   } else {
