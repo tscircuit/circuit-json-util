@@ -1,10 +1,6 @@
 import type { AnyCircuitElement, InsertionDirection } from "circuit-json"
 import { type Matrix, applyToPoint, decomposeTSR } from "transformation-matrix"
-import {
-  directionToVec,
-  rotateDirection,
-  vecToDirection,
-} from "./direction-to-vec"
+import { directionToVec, vecToDirection } from "./direction-to-vec"
 
 const getQuarterTurns = (angleRadians: number) =>
   Math.round(angleRadians / (Math.PI / 2))
@@ -82,10 +78,18 @@ export const transformSchematicElement = (
     elm.center = applyToPoint(matrix, elm.center)
 
     if (elm.facing_direction) {
-      elm.facing_direction = rotateDirection(
-        elm.facing_direction,
-        -(Math.atan2(matrix.b, matrix.a) / Math.PI) * 2,
-      )
+      const direction = directionToVec(elm.facing_direction)
+      // Directions use the linear part of the matrix, including reflections.
+      const x = matrix.a * direction.x + matrix.c * direction.y
+      const y = matrix.b * direction.x + matrix.d * direction.y
+      elm.facing_direction =
+        Math.abs(x) > Math.abs(y)
+          ? x < 0
+            ? "left"
+            : "right"
+          : y < 0
+            ? "down"
+            : "up"
     }
   } else if (elm.type === "schematic_text") {
     elm.position = applyToPoint(matrix, elm.position)
