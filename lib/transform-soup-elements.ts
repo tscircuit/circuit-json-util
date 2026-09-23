@@ -89,6 +89,29 @@ export const transformSchematicElement = (
     }
   } else if (elm.type === "schematic_text") {
     elm.position = applyToPoint(matrix, elm.position)
+  } else if (elm.type === "schematic_net_label") {
+    elm.center = applyToPoint(matrix, elm.center)
+    if (elm.anchor_position) {
+      elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
+    }
+
+    const direction = {
+      left: { x: -1, y: 0 },
+      right: { x: 1, y: 0 },
+      top: { x: 0, y: 1 },
+      bottom: { x: 0, y: -1 },
+    }[elm.anchor_side]
+    const x = matrix.a * direction.x + matrix.c * direction.y
+    const y = matrix.b * direction.x + matrix.d * direction.y
+    // Anchor sides are cardinal; translation must not affect their direction.
+    elm.anchor_side =
+      Math.abs(x) > Math.abs(y)
+        ? x < 0
+          ? "left"
+          : "right"
+        : y < 0
+          ? "bottom"
+          : "top"
     // } else if (elm.type === "schematic_group") {
     //   elm.center = applyToPoint(matrix, elm.center)
   } else if (elm.type === "schematic_trace") {
