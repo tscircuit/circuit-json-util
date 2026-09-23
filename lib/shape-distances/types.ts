@@ -11,6 +11,11 @@ export type Rect = {
   rotationDegrees: number
 }
 
-export type Polygon = { kind: "polygon"; points: Point[] }
+export type Polygon = {
+  kind: "polygon"
+  points: Point[]
+  /** Rings where copper is absent, used by BREP copper pours. */
+  holes?: Point[][]
+}
 
 export type CopperShape = Circle | Rect | Polygon

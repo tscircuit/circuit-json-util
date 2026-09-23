@@ -70,14 +70,14 @@ export const segmentsIntersect = (
   )
 }
 
-export const getPolygonEdges = (polygon: Polygon): Array<[Point, Point]> => {
+const getRingEdges = (points: Point[]): Array<[Point, Point]> => {
   const edges: Array<[Point, Point]> = []
 
-  if (polygon.points.length < 2) return edges
+  if (points.length < 2) return edges
 
-  for (let i = 0; i < polygon.points.length; i += 1) {
-    const a = polygon.points[i]
-    const b = polygon.points[(i + 1) % polygon.points.length]
+  for (let i = 0; i < points.length; i += 1) {
+    const a = points[i]
+    const b = points[(i + 1) % points.length]
 
     if (!a || !b) continue
 
@@ -87,19 +87,16 @@ export const getPolygonEdges = (polygon: Polygon): Array<[Point, Point]> => {
   return edges
 }
 
-export const isPointInPolygon = (point: Point, polygon: Polygon) => {
-  for (const [a, b] of getPolygonEdges(polygon)) {
-    if (isPointOnSegment(point, a, b)) return true
-  }
+export const getPolygonEdges = (polygon: Polygon): Array<[Point, Point]> => [
+  ...getRingEdges(polygon.points),
+  ...(polygon.holes ?? []).flatMap(getRingEdges),
+]
 
+const isPointInRing = (point: Point, points: Point[]) => {
   let inside = false
-  for (
-    let i = 0, j = polygon.points.length - 1;
-    i < polygon.points.length;
-    j = i++
-  ) {
-    const pi = polygon.points[i]
-    const pj = polygon.points[j]
+  for (let i = 0, j = points.length - 1; i < points.length; j = i++) {
+    const pi = points[i]
+    const pj = points[j]
 
     if (!pi || !pj) continue
 
@@ -111,6 +108,17 @@ export const isPointInPolygon = (point: Point, polygon: Polygon) => {
   }
 
   return inside
+}
+
+export const isPointInPolygon = (point: Point, polygon: Polygon) => {
+  for (const [a, b] of getPolygonEdges(polygon)) {
+    if (isPointOnSegment(point, a, b)) return true
+  }
+
+  return (
+    isPointInRing(point, polygon.points) &&
+    !(polygon.holes ?? []).some((hole) => isPointInRing(point, hole))
+  )
 }
 
 export const rotatePoint = (point: Point, angleRadians: number) => ({
