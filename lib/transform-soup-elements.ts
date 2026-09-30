@@ -9,6 +9,9 @@ import {
 const getQuarterTurns = (angleRadians: number) =>
   Math.round(angleRadians / (Math.PI / 2))
 
+const normalizeDegrees = (rotationDegrees: number) =>
+  ((rotationDegrees % 360) + 360) % 360
+
 const insertionDirectionToVec = (
   direction: Exclude<InsertionDirection, "from_above" | "from_below">,
 ) => {
@@ -176,14 +179,21 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.center = applyToPoint(matrix, elm.center)
   } else if (
     elm.type === "pcb_silkscreen_text" ||
-    elm.type === "pcb_fabrication_note_text" ||
-    elm.type === "pcb_note_text"
+    elm.type === "pcb_fabrication_note_text"
   ) {
+    elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
+    elm.ccw_rotation = normalizeDegrees(
+      (elm.ccw_rotation ?? 0) + rotationDegrees,
+    )
+  } else if (elm.type === "pcb_note_text") {
     elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
   } else if (elm.type === "pcb_copper_text") {
     if (elm.anchor_position) {
       elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
     }
+    elm.ccw_rotation = normalizeDegrees(
+      (elm.ccw_rotation ?? 0) + rotationDegrees,
+    )
   } else if (elm.type === "pcb_courtyard_rect") {
     elm.center = applyToPoint(matrix, elm.center)
     elm.ccw_rotation = ((elm.ccw_rotation ?? 0) + rotationDegrees) % 360
