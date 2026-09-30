@@ -86,13 +86,89 @@ test("returns null for ambiguous multi-pad footprints and missing pin 1", () => 
   expect(
     analyzePcbPin1Location([
       createPad(1, -1, 0),
-      createPad(2, 0, 0),
-      createPad(3, 1, 0),
+      createPad(2, 1, 0),
+      createPad(3, 0, 0),
     ]),
   ).toBeNull()
   expect(
     analyzePcbPin1Location([createPad(2, -1, 0), createPad(3, 1, 0)]),
   ).toBeNull()
+})
+
+const createJstPad = (pin: number, x: number, y: number) =>
+  ({
+    type: "pcb_plated_hole",
+    pcb_plated_hole_id: `pcb_plated_hole_${pin}`,
+    shape: "circle",
+    x,
+    y,
+    hole_diameter: 0.75,
+    outer_diameter: 1.4,
+    layers: ["top", "bottom"],
+    port_hints: [`pin${pin}`],
+  }) as AnyCircuitElement
+
+test("matches the routed JST PH J1 and C131334 supplier pin order", () => {
+  // J1's authored footprint runs pin 1 -> 4 from -X to +X; the JLCsearch
+  // supplier footprint runs from +X to -X, with a small row Y offset.
+  const authored = [-3, -1, 1, 3].map((x, i) => createJstPad(i + 1, x, 0))
+  const supplier = [2.999994, 0.999998, -0.999998, -2.999994].map((x, i) =>
+    createJstPad(i + 1, x, -0.550037),
+  )
+  expect(analyzePcbPin1Location(authored)).toBe("topside_left")
+  expect(analyzePcbPin1Location(supplier)).toBe("bottomside_right")
+  expect(
+    getRotationBetweenPcbPin1Locations(
+      analyzePcbPin1Location(supplier)!,
+      analyzePcbPin1Location(authored)!,
+    ),
+  ).toBe(180)
+
+  for (const boardRotation of rightAngles) {
+    for (const supplierRotation of rightAngles) {
+      const local = analyzePcbPin1Location(rotatePads(authored, boardRotation))
+      const supplied = analyzePcbPin1Location(
+        rotatePads(supplier, supplierRotation),
+      )
+      expect(local).not.toBeNull()
+      expect(supplied).not.toBeNull()
+      expect(getRotationBetweenPcbPin1Locations(supplied!, local!)).toBe(
+        ((boardRotation + 180 - supplierRotation + 360) %
+          360) as RightAngleRotation,
+      )
+    }
+  }
+})
+
+test("refuses incomplete or nonmonotonic multi-pad rows", () => {
+  for (const pads of [
+    [
+      createPad(1, -3, 0),
+      createPad(2, -1, 0),
+      createPad(2, 1, 0),
+      createPad(4, 3, 0),
+    ],
+    [
+      createPad(1, -3, 0),
+      createPad(2, -1, 0),
+      createPad(4, 1, 0),
+      createPad(3, 3, 0),
+    ],
+    [
+      createPad(1, -3, 0),
+      createPad(2, -1, 0),
+      createPad(4, 1, 0),
+      createPad(5, 3, 0),
+    ],
+    [
+      createPad(1, -3, 0),
+      createPad(2, -1, 0),
+      createPad(3, -1, 0),
+      createPad(4, 3, 0),
+    ],
+  ]) {
+    expect(analyzePcbPin1Location(pads)).toBeNull()
+  }
 })
 
 const ledPads = [createPad(1, -0.749, 0), createPad(2, 0.749, 0)]
