@@ -473,3 +473,55 @@ test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval cen
   expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
   expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
 })
+
+test("transformPCBElements swaps plated hole dimensions for 90 degree transforms", () => {
+  const rectElms: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "ph1",
+      shape: "circular_hole_with_rect_pad",
+      x: 1,
+      y: 0,
+      hole_diameter: 0.5,
+      rect_pad_width: 2,
+      rect_pad_height: 1,
+      hole_offset_x: 0,
+      hole_offset_y: 0,
+      layers: ["top"],
+    } as any,
+  ]
+
+  transformPCBElements(rectElms, compose(translate(10, 20), rotateDEG(90)))
+
+  const rectPad = rectElms[0] as any
+  expect(rectPad.x).toBeCloseTo(10)
+  expect(rectPad.y).toBeCloseTo(21)
+  expect(rectPad.rect_pad_width).toBe(1)
+  expect(rectPad.rect_pad_height).toBe(2)
+
+  const pillElms: AnyCircuitElement[] = [
+    {
+      type: "pcb_plated_hole",
+      pcb_plated_hole_id: "ph2",
+      shape: "pill",
+      x: 1,
+      y: 0,
+      outer_width: 3,
+      outer_height: 1,
+      hole_width: 2,
+      hole_height: 0.5,
+      ccw_rotation: 0,
+      layers: ["top"],
+    } as any,
+  ]
+
+  transformPCBElements(pillElms, compose(translate(10, 20), rotateDEG(90)))
+
+  const pill = pillElms[0] as any
+  expect(pill.x).toBeCloseTo(10)
+  expect(pill.y).toBeCloseTo(21)
+  expect(pill.outer_width).toBe(1)
+  expect(pill.outer_height).toBe(3)
+  expect(pill.hole_width).toBe(0.5)
+  expect(pill.hole_height).toBe(2)
+})
