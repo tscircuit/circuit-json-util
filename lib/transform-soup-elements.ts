@@ -295,6 +295,39 @@ export const transformPCBElements = (
       ) {
         ;[elm.width, elm.height] = [elm.height, elm.width]
       }
+      if (elm.type === "pcb_plated_hole") {
+        // Rectangular-pad plated holes swap their pad (and non-circular drill
+        // hole) dimensions on quarter turns, matching smtpad behavior.
+        if (
+          elm.shape === "circular_hole_with_rect_pad" ||
+          elm.shape === "pill_hole_with_rect_pad" ||
+          elm.shape === "rotated_pill_hole_with_rect_pad"
+        ) {
+          ;[elm.rect_pad_width, elm.rect_pad_height] = [
+            elm.rect_pad_height,
+            elm.rect_pad_width,
+          ]
+          if (elm.shape !== "circular_hole_with_rect_pad") {
+            ;[elm.hole_width, elm.hole_height] = [
+              elm.hole_height,
+              elm.hole_width,
+            ]
+          }
+        }
+        // Oval/pill plated holes carry their orientation in the outer and
+        // hole dimensions; swapping them reorients the shape without touching
+        // ccw_rotation (which would double-count the quarter turn).
+        if (elm.shape === "oval" || elm.shape === "pill") {
+          ;[elm.outer_width, elm.outer_height] = [
+            elm.outer_height,
+            elm.outer_width,
+          ]
+          ;[elm.hole_width, elm.hole_height] = [
+            elm.hole_height,
+            elm.hole_width,
+          ]
+        }
+      }
       return elm
     })
   }
