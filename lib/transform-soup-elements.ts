@@ -1,4 +1,9 @@
-import type { AnyCircuitElement, InsertionDirection } from "circuit-json"
+import type {
+  AnyCircuitElement,
+  BRepShape,
+  InsertionDirection,
+  Ring,
+} from "circuit-json"
 import { type Matrix, applyToPoint, decomposeTSR } from "transformation-matrix"
 import {
   directionToVec,
@@ -8,6 +13,60 @@ import {
 
 const getQuarterTurns = (angleRadians: number) =>
   Math.round(angleRadians / (Math.PI / 2))
+
+const transformBrepRing = ({
+  isFlipped,
+  matrix,
+  ring,
+}: {
+  isFlipped: boolean
+  matrix: Matrix
+  ring: Ring
+}): Ring => {
+  if (!isFlipped) {
+    return {
+      vertices: ring.vertices.map((vertex) => ({
+        ...applyToPoint(matrix, vertex),
+        ...(vertex.bulge !== undefined ? { bulge: vertex.bulge } : {}),
+      })),
+    }
+  }
+
+  const vertexCount = ring.vertices.length
+  return {
+    vertices: [...ring.vertices].reverse().map((vertex, reversedIndex) => {
+      const sourceVertexIndex = vertexCount - 1 - reversedIndex
+      const precedingSourceVertex =
+        ring.vertices[(sourceVertexIndex - 1 + vertexCount) % vertexCount]
+
+      return {
+        ...applyToPoint(matrix, vertex),
+        ...(precedingSourceVertex?.bulge !== undefined
+          ? { bulge: -precedingSourceVertex.bulge }
+          : {}),
+      }
+    }),
+  }
+}
+
+const transformBrepShape = ({
+  brepShape,
+  isFlipped,
+  matrix,
+}: {
+  brepShape: BRepShape
+  isFlipped: boolean
+  matrix: Matrix
+}): BRepShape => ({
+  outer_ring: transformBrepRing({
+    isFlipped,
+    matrix,
+    ring: brepShape.outer_ring,
+  }),
+  inner_rings: brepShape.inner_rings.map((ring) =>
+    transformBrepRing({ isFlipped, matrix, ring }),
+  ),
+})
 
 const insertionDirectionToVec = (
   direction: Exclude<InsertionDirection, "from_above" | "from_below">,
@@ -184,6 +243,15 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     if (elm.anchor_position) {
       elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
     }
+  } else if (
+    elm.type === "pcb_silkscreen_graphic" ||
+    (elm.type === "pcb_copper_pour" && elm.shape === "brep")
+  ) {
+    elm.brep_shape = transformBrepShape({
+      brepShape: elm.brep_shape,
+      isFlipped,
+      matrix,
+    })
   } else if (elm.type === "pcb_courtyard_rect") {
     elm.center = applyToPoint(matrix, elm.center)
     elm.ccw_rotation = ((elm.ccw_rotation ?? 0) + rotationDegrees) % 360
