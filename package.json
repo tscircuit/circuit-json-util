@@ -7,9 +7,7 @@
     "url": "https://github.com/tscircuit/circuit-json-util.git"
   },
   "description": "Utility library for working with tscircuit circuit json",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "dist/index.js",
   "scripts": {
     "test": "bun test",
