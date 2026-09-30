@@ -111,6 +111,19 @@ const source_traces = su(circuitJson).source_trace.list({
 })
 ```
 
+Table-level inserts generate an ID when it is omitted and preserve an explicit
+ID when reconstructing existing Circuit JSON:
+
+```ts
+su(circuitJson).source_trace.insert({
+  source_trace_id: "source_trace_imported",
+  connected_source_port_ids: [],
+  connected_source_net_ids: [],
+})
+```
+
+Root-level `insert` and `insertAll` always generate fresh IDs.
+
 ## Optimized Indexed Version
 
 For large circuit json, the library provides an optimized version with indexing for faster lookups:

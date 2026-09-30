@@ -9,13 +9,25 @@ import type { SubtreeOptions } from "./subtree"
 import { buildSubtree } from "./subtree"
 
 // Keep the existing permissive input while preserving discriminated variants.
+type OptionalCircuitJsonElementId<
+  CircuitElementType extends AnyCircuitElement["type"],
+  CircuitElement extends { type: CircuitElementType },
+> = Partial<
+  Pick<
+    CircuitElement,
+    Extract<keyof CircuitElement, `${CircuitElementType}_id`>
+  >
+>
+
 type CircuitJsonElementInsertInput<
   CircuitElementType extends AnyCircuitElement["type"],
   CircuitElement extends { type: CircuitElementType },
 > =
-  | Omit<CircuitElement, "type" | `${CircuitElementType}_id`>
+  | (Omit<CircuitElement, "type" | `${CircuitElementType}_id`> &
+      OptionalCircuitJsonElementId<CircuitElementType, CircuitElement>)
   | (CircuitElement extends { type: CircuitElementType }
-      ? Omit<CircuitElement, "type" | `${CircuitElementType}_id`>
+      ? Omit<CircuitElement, "type" | `${CircuitElementType}_id`> &
+          OptionalCircuitJsonElementId<CircuitElementType, CircuitElement>
       : never)
 
 export type CircuitJsonOps<
