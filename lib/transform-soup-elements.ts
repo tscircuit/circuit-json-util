@@ -322,10 +322,7 @@ export const transformPCBElements = (
             elm.outer_height,
             elm.outer_width,
           ]
-          ;[elm.hole_width, elm.hole_height] = [
-            elm.hole_height,
-            elm.hole_width,
-          ]
+          ;[elm.hole_width, elm.hole_height] = [elm.hole_height, elm.hole_width]
         }
       }
       return elm
