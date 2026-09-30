@@ -56,6 +56,22 @@ const getPinNumber = (pad: PcbPin1LocationElement): number | null => {
   return null
 }
 
+const getCanonicalRowLocation = (
+  pin1: Point,
+  pin2: Point,
+  tolerance: number,
+): PcbPin1Location | null => {
+  const dx = pin2.x - pin1.x
+  const dy = pin2.y - pin1.y
+  if (Math.abs(dy) <= tolerance && Math.abs(dx) > tolerance) {
+    return dx > 0 ? "topside_left" : "bottomside_right"
+  }
+  if (Math.abs(dx) <= tolerance && Math.abs(dy) > tolerance) {
+    return dy > 0 ? "leftside_bottom" : "rightside_top"
+  }
+  return null
+}
+
 const pinMatchesLocation = (
   padCenters: Point[],
   pin1Center: Point,
@@ -95,9 +111,9 @@ const pinMatchesLocation = (
 
 /**
  * Infers the semantic pin 1 location from PCB pad positions and numeric port
- * hints. Two-pad footprints use a canonical frame based on the pin 1 -> pin 2
- * direction. Otherwise returns null when pin 1 is missing or the geometry
- * cannot distinguish a rotation from a reflection.
+ * hints. Numbered straight rows use a canonical frame based on the pin 1 ->
+ * pin 2 direction. Otherwise returns null when pin 1 is missing or the
+ * geometry cannot distinguish a rotation from a reflection.
  */
 export const analyzePcbPin1Location = (
   elements: readonly PcbPin1LocationElement[],
@@ -140,21 +156,55 @@ export const analyzePcbPin1Location = (
   )
   const tolerance = span * 1e-6
 
-  // Two-pad LEDs/diodes have no winding order: both sides of their single row
-  // match, so the topology filter below cannot choose a frame. Use one fixed
-  // rotation family for axis-aligned pins 1 and 2. Starting with pin 1 on the
-  // left, rotate topside_left by 90/180/270 degrees for bottom/right/top.
+  // A straight row has no winding order: both sides match, so the topology
+  // filter below cannot choose a frame. Use one fixed rotation family for
+  // axis-aligned pins 1 and 2. Starting with pin 1 on the left, rotate
+  // topside_left by 90/180/270 degrees for bottom/right/top.
   // The side is a convention for this degenerate row, not extra geometry.
   // Applying the same convention to local and supplier pads preserves their
   // relative rotation, including the 180-degree polarity reversal.
   if (numberedPads.length === 2 && nextNumberedPad.pinNumber === 2) {
-    const dx = nextNumberedPad.center.x - pin1Center.x
-    const dy = nextNumberedPad.center.y - pin1Center.y
-    if (Math.abs(dy) <= tolerance && Math.abs(dx) > tolerance) {
-      return dx > 0 ? "topside_left" : "bottomside_right"
-    }
-    if (Math.abs(dx) <= tolerance && Math.abs(dy) > tolerance) {
-      return dy > 0 ? "leftside_bottom" : "rightside_top"
+    return getCanonicalRowLocation(
+      pin1Center,
+      nextNumberedPad.center,
+      tolerance,
+    )
+  }
+
+  if (numberedPads.length > 2) {
+    const row = [...numberedPads].sort(
+      (a, b) =>
+        (a.pinNumber ?? Number.POSITIVE_INFINITY) -
+        (b.pinNumber ?? Number.POSITIVE_INFINITY),
+    )
+    if (
+      row.every(
+        ({ center, pinNumber }, index) =>
+          pinNumber === index + 1 &&
+          center !== null &&
+          Number.isFinite(center.x) &&
+          Number.isFinite(center.y),
+      )
+    ) {
+      const first = row[0]!.center!
+      const last = row[row.length - 1]!.center!
+      const dx = last.x - first.x
+      const dy = last.y - first.y
+      const horizontal = Math.abs(dy) <= tolerance && Math.abs(dx) > tolerance
+      const vertical = Math.abs(dx) <= tolerance && Math.abs(dy) > tolerance
+      if (
+        (horizontal || vertical) &&
+        row.slice(1).every(({ center }, index) => {
+          const previous = row[index]!.center!
+          return horizontal
+            ? Math.abs(center!.y - first.y) <= tolerance &&
+                (center!.x - previous.x) * Math.sign(dx) > tolerance
+            : Math.abs(center!.x - first.x) <= tolerance &&
+                (center!.y - previous.y) * Math.sign(dy) > tolerance
+        })
+      ) {
+        return getCanonicalRowLocation(first, row[1]!.center!, tolerance)
+      }
     }
   }
 
