@@ -1,5 +1,15 @@
-import type { AnyCircuitElement, InsertionDirection } from "circuit-json"
-import { type Matrix, applyToPoint, decomposeTSR } from "transformation-matrix"
+import type {
+  AnyCircuitElement,
+  InsertionDirection,
+  PcbSoldermaskOpening,
+} from "circuit-json"
+import {
+  type Matrix,
+  applyToPoint,
+  compose,
+  decomposeTSR,
+  rotateDEG,
+} from "transformation-matrix"
 import {
   directionToVec,
   rotateDirection,
@@ -136,7 +146,52 @@ export const transformSchematicElements = (
   return elms.map((elm) => transformSchematicElement(elm, matrix))
 }
 
+/**
+ * Applies a rigid planar placement to flat PCB opening geometry in mm, in the
+ * right-handed frame (+X right, +Y top, +Z above). Centers and polygon vertices
+ * are points and receive translation. Rectangle orientation is composed as a
+ * direction; its local dimensions and attachment layer remain unchanged.
+ * A centered rectangle is invariant under the local reflection in a TSR
+ * decomposition, so its rotation also represents reflected corner geometry.
+ */
+const transformPcbSoldermaskOpening = (
+  opening: PcbSoldermaskOpening,
+  matrix: Matrix,
+) => {
+  if (opening.shape === "polygon") {
+    opening.points = opening.points.map((point) => applyToPoint(matrix, point))
+    return opening
+  }
+
+  const center = applyToPoint(matrix, { x: opening.x, y: opening.y })
+  opening.x = center.x
+  opening.y = center.y
+  if (opening.shape === "circle") return opening
+
+  const rectRotation =
+    opening.shape === "rotated_rect" ? opening.ccw_rotation : 0
+  const isReflected = matrix.a * matrix.d - matrix.b * matrix.c < 0
+  const transformedRotation =
+    (decomposeTSR(compose(matrix, rotateDEG(rectRotation)), false, isReflected)
+      .rotation.angle *
+      180) /
+    Math.PI
+  if (Math.abs(transformedRotation) < 1e-8) {
+    Object.assign(opening, { shape: "rect" })
+    Reflect.deleteProperty(opening, "ccw_rotation")
+  } else {
+    Object.assign(opening, {
+      shape: "rotated_rect",
+      ccw_rotation: transformedRotation,
+    })
+  }
+  return opening
+}
+
 export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
+  if (elm.type === "pcb_soldermask_opening") {
+    return transformPcbSoldermaskOpening(elm, matrix)
+  }
   const tsr = decomposeTSR(matrix)
   const flipPadWidthHeight =
     Math.abs(getQuarterTurns(tsr.rotation.angle)) % 2 === 1
@@ -171,6 +226,8 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
         }
       })
     }
+  } else if (elm.type === "pcb_keepout" && elm.shape === "outline") {
+    elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
     // TODO adjust size/rotation
     elm.center = applyToPoint(matrix, elm.center)
