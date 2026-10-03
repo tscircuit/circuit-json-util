@@ -12,7 +12,11 @@ import {
   scale,
   translate,
 } from "transformation-matrix"
-import { transformPCBElements } from "../index"
+import {
+  findBoundsAndCenter,
+  getPcbElementBounds,
+  transformPCBElements,
+} from "../index"
 
 test("polygon copper and paste contours follow placement without center fields", () => {
   const points = [
@@ -77,6 +81,8 @@ test("polygon copper and paste contours follow placement without center fields",
       subcircuit_id: "subcircuit",
       layer,
     })
+    expect(getPcbElementBounds(paste)).toEqual(getPcbElementBounds(pad))
+    expect(findBoundsAndCenter([paste])).toEqual(findBoundsAndCenter([pad]))
     if (layer === "top") {
       expect(
         convertCircuitJsonToPcbSvg([pad, paste], { showSolderPaste: true }),
