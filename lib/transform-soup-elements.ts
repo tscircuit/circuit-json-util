@@ -192,6 +192,20 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   if (elm.type === "pcb_soldermask_opening") {
     return transformPcbSoldermaskOpening(elm, matrix)
   }
+  // Polygon vertices are board-world points in mm (+X right, +Y up). They
+  // receive the full placement transform; polygons have no separate center.
+  if (
+    (elm.type === "pcb_smtpad" || elm.type === "pcb_solder_paste") &&
+    elm.shape === "polygon"
+  ) {
+    elm.points = elm.points.map((point) => applyToPoint(matrix, point))
+    if (elm.type === "pcb_solder_paste" && elm.holes) {
+      elm.holes = elm.holes.map((contour) =>
+        contour.map((point) => applyToPoint(matrix, point)),
+      )
+    }
+    return elm
+  }
   const tsr = decomposeTSR(matrix)
   const flipPadWidthHeight =
     Math.abs(getQuarterTurns(tsr.rotation.angle)) % 2 === 1
@@ -206,26 +220,11 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_port"
   ) {
     const { x, y } = applyToPoint(matrix, {
-      x: Number((elm as any).x),
-      y: Number((elm as any).y),
+      x: elm.x,
+      y: elm.y,
     })
-    ;(elm as any).x = x
-    ;(elm as any).y = y
-
-    // Handle polygon-shaped SMT pads with points array
-    if (
-      elm.type === "pcb_smtpad" &&
-      elm.shape === "polygon" &&
-      Array.isArray(elm.points)
-    ) {
-      elm.points = elm.points.map((point: any) => {
-        const tp = applyToPoint(matrix, { x: point.x, y: point.y })
-        return {
-          x: tp.x,
-          y: tp.y,
-        }
-      })
-    }
+    elm.x = x
+    elm.y = y
   } else if (elm.type === "pcb_keepout" && elm.shape === "outline") {
     elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
