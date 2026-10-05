@@ -4,7 +4,7 @@ import { Circuit } from "tscircuit"
 import { translate } from "transformation-matrix"
 import { transformPCBElements } from "../lib/transform-soup-elements"
 
-test("repositioning a footprint leaves its rectangular cutout behind", async () => {
+test("repositioning a footprint moves its rectangular cutout", async () => {
   const circuit = new Circuit()
   circuit.add(
     <board width={16} height={10} routingDisabled schAutoLayoutEnabled>
@@ -62,8 +62,7 @@ test("repositioning a footprint leaves its rectangular cutout behind", async () 
   const cutout = circuitJson.find((element) => element.type === "pcb_cutout")!
   expect(cutout.shape).toBe("rect")
   if (cutout.shape !== "rect") throw new Error("Expected rectangular cutout")
-  // Captures the bug: the expected cutout center is (3, 1).
-  expect(cutout.center).toEqual({ x: 0, y: 0 })
+  expect(cutout.center).toEqual({ x: 3, y: 1 })
   expect(
     convertCircuitJsonToPcbSvg(circuitJson, { showPcbNotes: true }),
   ).toMatchSvgSnapshot(import.meta.path)

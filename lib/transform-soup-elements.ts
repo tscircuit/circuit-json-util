@@ -224,6 +224,11 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     })
     elm.x = x
     elm.y = y
+  } else if (
+    elm.type === "pcb_cutout" &&
+    (elm.shape === "rect" || elm.shape === "circle")
+  ) {
+    elm.center = applyToPoint(matrix, elm.center)
   } else if (elm.type === "pcb_keepout" && elm.shape === "outline") {
     elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
