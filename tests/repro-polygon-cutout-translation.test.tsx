@@ -4,7 +4,7 @@ import { Circuit } from "tscircuit"
 import { translate } from "transformation-matrix"
 import { transformPCBElement } from "../lib/transform-soup-elements"
 
-test("polygon cutout vertices stay behind during translation", async () => {
+test("polygon cutout vertices move during translation", async () => {
   const circuit = new Circuit()
   circuit.add(
     <board width={12} height={10} routingDisabled schAutoLayoutEnabled>
@@ -30,11 +30,10 @@ test("polygon cutout vertices stay behind during translation", async () => {
 
   transformPCBElement(cutout, translate(3, 1))
 
-  // Records the bug; each vertex should receive the translation.
   expect(cutout.points).toEqual([
-    { x: 0, y: 0 },
-    { x: 2, y: 0 },
-    { x: 0, y: 2 },
+    { x: 3, y: 1 },
+    { x: 5, y: 1 },
+    { x: 3, y: 3 },
   ])
   expect(
     convertCircuitJsonToPcbSvg(circuitJson, { showPcbNotes: true }),

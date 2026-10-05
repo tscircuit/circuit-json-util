@@ -224,11 +224,19 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     })
     elm.x = x
     elm.y = y
-  } else if (
-    elm.type === "pcb_cutout" &&
-    (elm.shape === "rect" || elm.shape === "circle")
-  ) {
-    elm.center = applyToPoint(matrix, elm.center)
+  } else if (elm.type === "pcb_cutout") {
+    if (elm.shape === "polygon") {
+      elm.points = elm.points.map((point) => applyToPoint(matrix, point))
+    } else if (elm.shape === "path") {
+      elm.route = elm.route.map((point) => applyToPoint(matrix, point))
+    } else {
+      elm.center = applyToPoint(matrix, elm.center)
+      if (elm.shape === "rect") {
+        let ccwRotationDegrees = elm.rotation ?? 0
+        if (isFlipped) ccwRotationDegrees = -ccwRotationDegrees
+        elm.rotation = ccwRotationDegrees + rotationDegrees
+      }
+    }
   } else if (elm.type === "pcb_keepout" && elm.shape === "outline") {
     elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
