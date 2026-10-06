@@ -3,7 +3,7 @@ import { convertCircuitJsonToPcbSvg } from "circuit-to-svg"
 import { Circuit } from "tscircuit"
 import { categorizeErrorOrWarning } from "../lib/categorize-error-or-warning"
 
-test("repro: a chip that fails to build is excluded from the netlist category", async () => {
+test("a chip that fails to build is included in the netlist category", async () => {
   const circuit = new Circuit()
   circuit.add(
     <board width={56} height={32} routingDisabled>
@@ -47,13 +47,9 @@ test("repro: a chip that fails to build is excluded from the netlist category", 
         pcbY={-7}
         fontSize={0.9}
       />
+      <pcbnotetext text="Category: netlist" pcbY={-10} fontSize={1} />
       <pcbnotetext
-        text="Category: unknown (expected: netlist)"
-        pcbY={-10}
-        fontSize={1}
-      />
-      <pcbnotetext
-        text="Netlist filter reports 0 errors"
+        text="Netlist filter reports 1 error"
         pcbY={-13}
         fontSize={1}
       />
@@ -72,9 +68,8 @@ test("repro: a chip that fails to build is excluded from the netlist category", 
     ),
   ).toBe(false)
 
-  // Capture the current bug; the fix should categorize this as "netlist".
   expect(failedComponentErrors.map(categorizeErrorOrWarning)).toEqual([
-    "unknown",
+    "netlist",
   ])
 
   expect(

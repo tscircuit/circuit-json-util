@@ -5,6 +5,9 @@ test("categorizeErrorOrWarning categorizes known DRC error/warning types", () =>
   expect(categorizeErrorOrWarning("source_trace_not_connected_error")).toBe(
     "netlist",
   )
+  expect(
+    categorizeErrorOrWarning("source_failed_to_create_component_error"),
+  ).toBe("netlist")
   expect(categorizeErrorOrWarning("source_pin_must_be_connected_error")).toBe(
     "netlist",
   )
