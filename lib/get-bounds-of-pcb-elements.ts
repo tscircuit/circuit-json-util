@@ -168,8 +168,34 @@ export const getPcbElementBounds = (
     return getBoundsFromPoints(elm.points)
   }
 
-  if (elm.type === "pcb_hole" && elm.hole_shape === "circle") {
-    return getCircleBounds(elm.x, elm.y, elm.hole_diameter)
+  if (elm.type === "pcb_hole") {
+    if (elm.hole_shape === "circle" || elm.hole_shape === "square") {
+      return getCircleBounds(elm.x, elm.y, elm.hole_diameter)
+    }
+
+    if (elm.hole_shape === "rotated_pill") {
+      return getRotatedPillBounds(
+        elm.x,
+        elm.y,
+        elm.hole_width,
+        elm.hole_height,
+        elm.ccw_rotation,
+      )
+    }
+
+    if (
+      elm.hole_shape === "rect" ||
+      elm.hole_shape === "oval" ||
+      elm.hole_shape === "pill"
+    ) {
+      return getRotatedRectBounds(
+        elm.x,
+        elm.y,
+        elm.hole_width,
+        elm.hole_height,
+        0,
+      )
+    }
   }
 
   if (elm.type === "pcb_plated_hole") {
