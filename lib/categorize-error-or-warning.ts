@@ -15,6 +15,8 @@ type DrcLike = {
 const NETLIST_TYPES = new Set([
   "source_pin_must_be_connected_error",
   "source_trace_not_connected_error",
+  // The component is left out of the netlist entirely
+  "source_failed_to_create_component_error",
 ])
 
 const PIN_SPECIFICATION_TYPES = new Set([
