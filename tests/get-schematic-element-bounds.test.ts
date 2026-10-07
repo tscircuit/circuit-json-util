@@ -159,3 +159,48 @@ test("returns null for an empty trace", () => {
 
   expect(getSchematicElementBounds(trace)).toBeNull()
 })
+
+test("computes bounds for a trace larger than V8's function argument limit", () => {
+  const edgeCount = 100_000
+  const trace: SchematicTrace = {
+    type: "schematic_trace",
+    schematic_trace_id: "long_trace",
+    edges: Array.from({ length: edgeCount }, (_, index) => ({
+      from: { x: index, y: -index },
+      to: { x: index + 1, y: -index - 1 },
+    })),
+    junctions: [{ x: -5, y: 8 }],
+  }
+
+  expectBoundsToBeCloseTo(getSchematicElementBounds(trace), {
+    minX: -5.05,
+    minY: -100_000.05,
+    maxX: 100_000.05,
+    maxY: 8.05,
+    width: 100_005.1,
+    height: 100_008.1,
+    center: { x: 49_997.5, y: -49_996 },
+  })
+})
+
+test("computes bounds for a trace containing only junctions", () => {
+  const trace: SchematicTrace = {
+    type: "schematic_trace",
+    schematic_trace_id: "junction_only_trace",
+    edges: [],
+    junctions: [
+      { x: 3, y: -2 },
+      { x: -1, y: 4 },
+    ],
+  }
+
+  expectBoundsToBeCloseTo(getSchematicElementBounds(trace), {
+    minX: -1.05,
+    minY: -2.05,
+    maxX: 3.05,
+    maxY: 4.05,
+    width: 4.1,
+    height: 6.1,
+    center: { x: 1, y: 1 },
+  })
+})
