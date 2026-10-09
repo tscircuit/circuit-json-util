@@ -63,35 +63,35 @@ test.each([
     {
       minX: 1,
       minY: 1.9,
-      maxX: 1.48,
+      maxX: 1.52773333,
       maxY: 2.1,
-      width: 0.48,
+      width: 0.52773333,
       height: 0.2,
-      center: { x: 1.24, y: 2 },
+      center: { x: 1.26386667, y: 2 },
     },
   ],
   [
     "right",
     {
-      minX: 0.52,
+      minX: 0.47226667,
       minY: 1.9,
       maxX: 1,
       maxY: 2.1,
-      width: 0.48,
+      width: 0.52773333,
       height: 0.2,
-      center: { x: 0.76, y: 2 },
+      center: { x: 0.73613333, y: 2 },
     },
   ],
   [
     "top",
     {
       minX: 0.9,
-      minY: 1.52,
+      minY: 1.47226667,
       maxX: 1.1,
       maxY: 2,
       width: 0.2,
-      height: 0.48,
-      center: { x: 1, y: 1.76 },
+      height: 0.52773333,
+      center: { x: 1, y: 1.73613333 },
     },
   ],
   [
@@ -100,10 +100,10 @@ test.each([
       minX: 0.9,
       minY: 2,
       maxX: 1.1,
-      maxY: 2.48,
+      maxY: 2.52773333,
       width: 0.2,
-      height: 0.48,
-      center: { x: 1, y: 2.24 },
+      height: 0.52773333,
+      center: { x: 1, y: 2.26386667 },
     },
   ],
 ] as const)("computes %s-anchored net label bounds", (side, expected) => {
@@ -116,11 +116,11 @@ test.each([
 test("uses a net label's center when anchor_position is absent", () => {
   expectBoundsToBeCloseTo(getSchematicElementBounds(makeNetLabel("top")), {
     minX: 3.9,
-    minY: 4.76,
+    minY: 4.73613333,
     maxX: 4.1,
-    maxY: 5.24,
+    maxY: 5.26386667,
     width: 0.2,
-    height: 0.48,
+    height: 0.52773333,
     center: { x: 4, y: 5 },
   })
 })
