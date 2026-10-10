@@ -1,0 +1,44 @@
+<svg width="640" height="640" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="white"/><g><rect data-type="rect" data-label="emitted keepout bounds" data-x="10.707106781186548" data-y="-4.878679656440358" x="85.92976123629609" y="131.85952247259206" width="468.1404775274078" height="468.14047752740794" fill="#fee2e2" stroke="#dc2626" stroke-width="0.012083668302664965"/></g><g><rect data-type="rect" data-label="rotated original keepout" data-x="10.707106781186548" data-y="-4.878679656440357" data-ccw-rotation-degrees="45" x="237.2436734481153" y="117.66078158064198" width="165.51265310376942" height="496.537959311308" fill="#93c5fd" stroke="#1d4ed8" stroke-width="0.012083668302664965" transform="rotate(-45 320 365.929761236296)"/></g><text data-type="text" data-label="Emitted bounds: 5.657 x 5.657 mm" data-x="10.707106781186548" data-y="-1.0502525316941669" x="320" y="49.10319592070729" fill="#dc2626" font-size="18.206391841414632" font-family="sans-serif" text-anchor="middle" dominant-baseline="central">Emitted bounds: 5.657 x 5.657 mm</text><text data-type="text" data-label="Original keepout rotated 45 degrees" data-x="10.707106781186548" data-y="-1.5502525316941669" x="320" y="90.48135919664963" fill="#1d4ed8" font-size="18.206391841414632" font-family="sans-serif" text-anchor="middle" dominant-baseline="central">Original keepout rotated 45 degrees</text><g id="crosshair" style="display: none"><line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5"/><line id="crosshair-v" x1="0" x2="640" stroke="#666" stroke-width="0.5"/><text id="coordinates" font-family="monospace" font-size="12" fill="#666"></text></g><script><![CDATA[
+              document.currentScript.parentElement.addEventListener('mousemove', (e) => {
+                const svg = e.currentTarget;
+                const rect = svg.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const crosshair = svg.getElementById('crosshair');
+                const h = svg.getElementById('crosshair-h');
+                const v = svg.getElementById('crosshair-v');
+                const coords = svg.getElementById('coordinates');
+
+                crosshair.style.display = 'block';
+                h.setAttribute('x1', '0');
+                h.setAttribute('x2', '640');
+                h.setAttribute('y1', y);
+                h.setAttribute('y2', y);
+                v.setAttribute('x1', x);
+                v.setAttribute('x2', x);
+                v.setAttribute('y1', '0');
+                v.setAttribute('y2', '640');
+
+                // Calculate real coordinates using inverse transformation
+                const matrix = {"a":82.75632655188468,"c":0,"e":-566.0808252097729,"b":0,"d":-82.75632655188468,"f":-37.811845554118804};
+                // Manually invert and apply the affine transform
+                // Since we only use translate and scale, we can directly compute:
+                // x' = (x - tx) / sx
+                // y' = (y - ty) / sy
+                const sx = matrix.a;
+                const sy = matrix.d;
+                const tx = matrix.e;
+                const ty = matrix.f;
+                const realPoint = {
+                  x: (x - tx) / sx,
+                  y: (y - ty) / sy // Flip y back since we used negative scale
+                }
+
+                coords.textContent = `(${realPoint.x.toFixed(2)}, ${realPoint.y.toFixed(2)})`;
+                coords.setAttribute('x', (x + 5).toString());
+                coords.setAttribute('y', (y - 5).toString());
+              });
+              document.currentScript.parentElement.addEventListener('mouseleave', () => {
+                document.currentScript.parentElement.getElementById('crosshair').style.display = 'none';
+              });
+            ]]></script></svg>
