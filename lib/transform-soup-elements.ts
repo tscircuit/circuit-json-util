@@ -1,6 +1,7 @@
 import type {
   AnyCircuitElement,
   InsertionDirection,
+  PCBKeepoutRect,
   PcbSoldermaskOpening,
 } from "circuit-json"
 import {
@@ -188,9 +189,39 @@ const transformPcbSoldermaskOpening = (
   return opening
 }
 
+/**
+ * Rectangular keepouts are axis-aligned in board-world mm (+X right, +Y top).
+ * Transform their original corner points, including translation, and preserve
+ * the rect representation using the enclosing world bounds. Quarter-turns are
+ * exact; other rotations conservatively reserve the entire rotated rectangle.
+ * Successive non-quarter-turn rotations can enlarge these enclosing bounds.
+ */
+const transformPcbKeepoutRect = (keepout: PCBKeepoutRect, matrix: Matrix) => {
+  const { x, y } = keepout.center
+  const halfWidth = keepout.width / 2
+  const halfHeight = keepout.height / 2
+  const corners = [
+    { x: x - halfWidth, y: y - halfHeight },
+    { x: x + halfWidth, y: y - halfHeight },
+    { x: x + halfWidth, y: y + halfHeight },
+    { x: x - halfWidth, y: y + halfHeight },
+  ].map((corner) => applyToPoint(matrix, corner))
+  const minX = Math.min(...corners.map((corner) => corner.x))
+  const maxX = Math.max(...corners.map((corner) => corner.x))
+  const minY = Math.min(...corners.map((corner) => corner.y))
+  const maxY = Math.max(...corners.map((corner) => corner.y))
+  keepout.center = { x: (minX + maxX) / 2, y: (minY + maxY) / 2 }
+  keepout.width = maxX - minX
+  keepout.height = maxY - minY
+  return keepout
+}
+
 export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   if (elm.type === "pcb_soldermask_opening") {
     return transformPcbSoldermaskOpening(elm, matrix)
+  }
+  if (elm.type === "pcb_keepout" && elm.shape === "rect") {
+    return transformPcbKeepoutRect(elm, matrix)
   }
   // Polygon vertices are board-world points in mm (+X right, +Y up), not centers.
   if (
