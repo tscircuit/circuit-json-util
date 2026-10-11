@@ -31,7 +31,7 @@ export const decomposeCopperIntoShapes = (
     }
 
     if (
-      elm.shape === "rect" &&
+      (elm.shape === "rect" || elm.shape === "rotated_rect") &&
       isFiniteNumber(elm.width) &&
       isFiniteNumber(elm.height)
     ) {
