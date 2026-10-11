@@ -66,7 +66,7 @@ test("near-coincident trace endpoints during copper containment", async () => {
         fontSize={0.65}
       />
       <pcbnotetext
-        text="Actual: Zero division; copper cleanup aborts"
+        text="Actual: center contained; degenerate segment is a disk"
         pcbY={-10}
         fontSize={0.65}
       />
@@ -88,9 +88,7 @@ test("near-coincident trace endpoints during copper containment", async () => {
     cleanupGeometryScale,
   )
   const queryPoint = applyToPoint(scale(cleanupGeometryScale), start)
-  expect(() => polygon.contains(new Point(queryPoint.x, queryPoint.y))).toThrow(
-    "Zero division",
-  )
+  expect(polygon.contains(new Point(queryPoint.x, queryPoint.y))).toBe(true)
   expect(
     convertCircuitJsonToPcbSvg(circuitJson, {
       showPcbNotes: true,
