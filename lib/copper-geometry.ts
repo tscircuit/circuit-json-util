@@ -7,6 +7,7 @@ import {
   Point,
   Polygon,
   Segment,
+  Utils,
 } from "@flatten-js/core"
 import type {
   PcbCopperPour,
@@ -241,7 +242,7 @@ export const getTraceSegmentPolygon = (
   const length = Math.hypot(end.x - start.x, end.y - start.y)
   const r1 = startWidth / 2
   const r2 = endWidth / 2
-  if (length <= Math.abs(r2 - r1))
+  if (Utils.EQ_0(length) || length <= Math.abs(r2 - r1))
     return circlePolygon(r1 >= r2 ? start : end, Math.max(r1, r2))
   const angle = Math.atan2(end.y - start.y, end.x - start.x)
   const tangent = Math.acos((r1 - r2) / length)
