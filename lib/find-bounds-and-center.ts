@@ -1,4 +1,5 @@
 import type { AnyCircuitElement } from "circuit-json"
+import { getPcbElementBounds } from "./get-bounds-of-pcb-elements"
 import { getDebugLayoutObject } from "./utils/get-layout-debug-object"
 import { isTruthy } from "./utils/is-truthy"
 
@@ -17,7 +18,21 @@ export const findBoundsAndCenter = (
         // @ts-ignore
         .flatMap((elm: any) => elm.route),
     )
-    .map((elm) => getDebugLayoutObject(elm))
+    .map((elm) => {
+      const debugObject = getDebugLayoutObject(elm)
+      if (!debugObject || elm.type !== "pcb_component") return debugObject
+
+      // Group placement must use the same rotated envelope as PCB selection.
+      const bounds = getPcbElementBounds(elm)
+      if (!bounds) return debugObject
+      return {
+        ...debugObject,
+        x: (bounds.minX + bounds.maxX) / 2,
+        y: (bounds.minY + bounds.maxY) / 2,
+        width: bounds.maxX - bounds.minX,
+        height: bounds.maxY - bounds.minY,
+      }
+    })
     .filter(isTruthy)
 
   if (debugObjects.length === 0)
