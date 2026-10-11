@@ -21,6 +21,19 @@ const createPad = (pinNumber: number, x: number, y: number) =>
     port_hints: [`pin${pinNumber}`],
   }) as AnyCircuitElement
 
+const createPolygonPad = (
+  pinNumber: number,
+  points: Array<{ x: number; y: number }>,
+) =>
+  ({
+    type: "pcb_smtpad",
+    shape: "polygon",
+    pcb_smtpad_id: `pcb_smtpad_${pinNumber}`,
+    points,
+    layer: "top",
+    port_hints: [`pin${pinNumber}`],
+  }) as AnyCircuitElement
+
 const rotatePads = (pads: AnyCircuitElement[], rotation: RightAngleRotation) =>
   pads.map((pad) => {
     if (!("x" in pad) || !("y" in pad)) return pad
@@ -211,6 +224,37 @@ test("two-pad frames do not depend on pad order, origin or small rounding errors
       createPad(1, -9.749, -2),
     ]),
   ).toBe("topside_left")
+})
+
+test("infers two-pad frames from imported footprints with small centerline skew", () => {
+  const customLedPads = [
+    createPad(1, -0.799465, -0.003429),
+    createPad(2, 0.799465, 0.003429),
+  ]
+  const polygonDiodePads = [
+    createPolygonPad(1, [
+      { x: -1.016, y: 0.2463038 },
+      { x: -0.4064, y: 0.2463038 },
+      { x: -0.4064, y: -0.2362962 },
+      { x: -1.016, y: -0.2362962 },
+    ]),
+    createPolygonPad(2, [
+      { x: 0.4064, y: 0.2362962 },
+      { x: 1.016, y: 0.2362962 },
+      { x: 1.016, y: -0.2463038 },
+      { x: 0.4064, y: -0.2463038 },
+    ]),
+  ]
+
+  expect({
+    customLed: analyzePcbPin1Location(customLedPads),
+    polygonDiode: analyzePcbPin1Location(polygonDiodePads),
+  }).toMatchInlineSnapshot(`
+    {
+      "customLed": "topside_left",
+      "polygonDiode": "topside_left",
+    }
+  `)
 })
 
 test("does not guess a two-pad frame without distinct axis-aligned pins 1 and 2", () => {
