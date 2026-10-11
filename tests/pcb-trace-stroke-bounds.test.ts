@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test"
-import { pcb_trace } from "circuit-json"
+import { type AnyCircuitElement, pcb_trace } from "circuit-json"
 import { convertCircuitJsonToPcbSvg } from "circuit-to-svg"
 import {
   getPcbElementBounds,
@@ -129,4 +129,47 @@ test("round end caps remain within selectable bounds", () => {
   expect(convertCircuitJsonToPcbSvg(selected)).toContain(
     'stroke-linecap="round"',
   )
+})
+
+test("incomplete routes retain the existing fallback instead of throwing", () => {
+  for (const route of [undefined, null, {}, [null]]) {
+    const trace = { type: "pcb_trace", route } as unknown as AnyCircuitElement
+    expect(getPcbElementBounds(trace)).toBeNull()
+  }
+})
+
+test("wire coordinates without widths retain centerline bounds", () => {
+  const trace = {
+    type: "pcb_trace",
+    route: [
+      { route_type: "wire", x: 0, y: 0 },
+      { route_type: "wire", x: 10, y: 0 },
+    ],
+  } as unknown as AnyCircuitElement
+  expect(getPcbElementBounds(trace)).toEqual({
+    minX: 0,
+    minY: 0,
+    maxX: 10,
+    maxY: 0,
+  })
+})
+
+test("duplicate points do not expand bounds with an undrawn segment's width", () => {
+  const trace = pcb_trace.parse({
+    type: "pcb_trace",
+    pcb_trace_id: "trace",
+    route: [
+      { route_type: "wire", x: 0, y: 0, width: 8, layer: "top" },
+      { route_type: "wire", x: 0, y: 0, width: 1, layer: "top" },
+      { route_type: "wire", x: 10, y: 0, width: 1, layer: "top" },
+    ],
+  })
+  expect(getPcbElementBounds(trace)).toEqual({
+    minX: -0.5,
+    minY: -0.5,
+    maxX: 10.5,
+    maxY: 0.5,
+  })
+  const svg = convertCircuitJsonToPcbSvg([trace])
+  expect([...svg.matchAll(/<path class="pcb-trace"[^>]*>/g)]).toHaveLength(1)
 })

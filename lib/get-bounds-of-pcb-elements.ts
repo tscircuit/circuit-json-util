@@ -234,9 +234,23 @@ export const getPcbElementBounds = (
     if (platedHoleBounds) return platedHoleBounds
   }
 
-  if (elm.type === "pcb_trace" && elm.route_thickness_mode !== "interpolated") {
-    const wireRoute = elm.route.filter((point) => point.route_type === "wire")
-    if (wireRoute.length === elm.route.length && wireRoute.length >= 2) {
+  if (
+    elm.type === "pcb_trace" &&
+    elm.route_thickness_mode !== "interpolated" &&
+    Array.isArray(elm.route)
+  ) {
+    const wireRoute = elm.route.filter((point) => point?.route_type === "wire")
+    if (
+      wireRoute.length === elm.route.length &&
+      wireRoute.length >= 2 &&
+      wireRoute.every(
+        (point) =>
+          Number.isFinite(point.x) &&
+          Number.isFinite(point.y) &&
+          Number.isFinite(point.width) &&
+          point.width >= 0,
+      )
+    ) {
       let bounds = getBoundsFromPoints(wireRoute)
       if (!bounds) return null
       for (let index = 0; index < wireRoute.length - 1; index++) {
