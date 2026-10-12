@@ -42,16 +42,7 @@ const createText = (overrides: Partial<PcbSilkscreenText> = {}) =>
 const getReferenceLayout = (element: PcbSilkscreenText) => {
   const fontSize = element.font_size
   const alignment = element.anchor_alignment
-  const width = Array.from(element.text).reduce(
-    (sum, char) => sum + getGlyph(char).advance * fontSize,
-    0,
-  )
-  const startX = alignment.endsWith("_left")
-    ? 0
-    : alignment.endsWith("_right")
-      ? -width
-      : -width / 2
-  const baseline = alignment.startsWith("top_")
+  const firstBaseline = alignment.startsWith("top_")
     ? fontReference.ascender * fontSize
     : alignment.startsWith("bottom_")
       ? fontReference.descender * fontSize
@@ -61,22 +52,36 @@ const getReferenceLayout = (element: PcbSilkscreenText) => {
     rotate(((element.ccw_rotation ?? 0) * Math.PI) / 180),
     scale(element.layer === "bottom" || element.is_mirrored ? -1 : 1, -1),
   )
-  let penX = startX
   const paths: string[] = []
   const points: Array<[number, number]> = []
-  for (const char of element.text) {
-    const glyph = getGlyph(char)
-    const b = glyph.bounds
-    for (const x of [b.minX, b.maxX]) {
-      for (const y of [b.minY, b.maxY])
-        points.push(
-          applyToPoint(matrix, [penX + x * fontSize, baseline + y * fontSize]),
-        )
-    }
-    paths.push(
-      `<path d="${glyph.path}" transform="translate(${penX},${baseline}) scale(${fontSize})"/>`,
+  for (const [index, line] of element.text.split("\n").entries()) {
+    const width = Array.from(line).reduce(
+      (sum, char) => sum + getGlyph(char).advance * fontSize,
+      0,
     )
-    penX += glyph.advance * fontSize
+    let penX = alignment.endsWith("_left")
+      ? 0
+      : alignment.endsWith("_right")
+        ? -width
+        : -width / 2
+    const baseline = firstBaseline + index * fontSize
+    for (const char of line) {
+      const glyph = getGlyph(char)
+      const b = glyph.bounds
+      for (const x of [b.minX, b.maxX]) {
+        for (const y of [b.minY, b.maxY])
+          points.push(
+            applyToPoint(matrix, [
+              penX + x * fontSize,
+              baseline + y * fontSize,
+            ]),
+          )
+      }
+      paths.push(
+        `<path d="${glyph.path}" transform="translate(${penX},${baseline}) scale(${fontSize})"/>`,
+      )
+      penX += glyph.advance * fontSize
+    }
   }
   return { points, paths, matrix }
 }
@@ -198,7 +203,18 @@ for (const ccw_rotation of [Number.NaN, Number.POSITIVE_INFINITY])
     })
   })
 
-for (const text of ["", " A ", "A B", "HELLO\nR1", "Ω", "HΩL"])
+for (const text of [
+  "",
+  " A ",
+  "A B",
+  "HELLO\n\nR1",
+  "\nR1",
+  "R1\n",
+  "R1\nA B",
+  "R1\r\nili",
+  "Ω",
+  "HΩL",
+])
   test(`unmeasured text keeps the anchor fallback: ${JSON.stringify(text)}`, () => {
     expect(getPcbElementBounds(createText({ text }))).toEqual({
       minX: 2,
@@ -217,6 +233,82 @@ test("knockout text keeps its existing fallback", () => {
   })
 })
 
+for (const text of [123, {}, false])
+  test(`unsupported fonts keep the fallback for malformed text: ${JSON.stringify(text)}`, () => {
+    const element = {
+      ...createText(),
+      font: "legacy",
+      text,
+    } as unknown as PcbSilkscreenText
+    expect(getPcbElementBounds(element)).toEqual({
+      minX: 2,
+      maxX: 2,
+      minY: -3,
+      maxY: -3,
+    })
+  })
+
+test("selection at the second line's ink includes the text", () => {
+  const text = createText({
+    text: "HELLO\nili",
+    anchor_position: { x: 0, y: 0 },
+  })
+  expect(
+    getPcbElementsWithinBounds([text], {
+      minX: -0.5,
+      maxX: -0.4,
+      minY: -1.1,
+      maxY: -1,
+    }),
+  ).toEqual([text])
+  expect(
+    getPcbElementsWithinBounds([text], {
+      minX: -0.5,
+      maxX: -0.4,
+      minY: -3.1,
+      maxY: -3,
+    }),
+  ).toEqual([])
+})
+
+test("each line aligns independently and uses one-em spacing", () => {
+  const element = createText({
+    text: "ili\nHHH\nR1",
+    anchor_alignment: "top_right",
+  })
+  const bounds = getPcbElementBounds(element)
+  if (!bounds) throw new Error("Missing text bounds")
+  expect(bounds.minX).toBeCloseTo(2 - 2.076, 12)
+  expect(bounds.maxX).toBe(2)
+  expect(bounds.minY).toBeCloseTo(-3 - 3.152, 12)
+  expect(bounds.maxY).toBe(-3)
+})
+
+for (const anchor_alignment of alignments)
+  for (const layer of ["top", "bottom"] as const)
+    for (const ccw_rotation of [0, 45])
+      test(`multiline ink fits ${anchor_alignment} ${layer} at ${ccw_rotation}`, () =>
+        expectInkInside(
+          createText({
+            text: "R1gil\nili\nHHH",
+            anchor_alignment,
+            layer,
+            ccw_rotation,
+            font_size: 2,
+          }),
+        ))
+
+test("explicitly mirrored multiline ink fits a non-central frame", () => {
+  expectInkInside(
+    createText({
+      text: "ili\nR1gil",
+      anchor_alignment: "bottom_left",
+      is_mirrored: true,
+      ccw_rotation: -30,
+    }),
+  )
+})
+
 test("shows text outlines inside computed bounds", () => {
   const cards = [
     createText({ text: "HELLO", anchor_position: { x: 0, y: 0 } }),
@@ -224,6 +316,14 @@ test("shows text outlines inside computed bounds", () => {
     createText({
       text: "R1gil",
       anchor_position: { x: 0, y: 0 },
+      ccw_rotation: 45,
+    }),
+    createText({ text: "HELLO\nili", anchor_position: { x: 0, y: 0 } }),
+    createText({
+      text: "ili\nR1gil",
+      anchor_position: { x: 0, y: 0 },
+      anchor_alignment: "top_right",
+      layer: "bottom",
       ccw_rotation: 45,
     }),
     createText({
@@ -241,6 +341,6 @@ test("shows text outlines inside computed bounds", () => {
       return `<g transform="translate(${160 + (index % 2) * 320},${140 + Math.floor(index / 2) * 250}) scale(60,-60)"><rect x="${bounds.minX}" y="${bounds.minY}" width="${bounds.maxX - bounds.minX}" height="${bounds.maxY - bounds.minY}" fill="#fee2e2" stroke="#dc2626" stroke-width="0.025"/><g transform="matrix(${m.a},${m.b},${m.c},${m.d},${m.e},${m.f})" fill="#1d4ed8">${layout.paths.join("")}</g></g>`
     })
     .join("")
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="640" height="500"><rect width="640" height="500" fill="white"/>${cards}</svg>`
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="640" height="750"><rect width="640" height="750" fill="white"/>${cards}</svg>`
   expect(svg).toMatchSvgSnapshot(import.meta.path, "silkscreen-text-bounds")
 })
