@@ -224,8 +224,10 @@ for (const text of [
     })
   })
 
-test("knockout text keeps its existing fallback", () => {
-  expect(getPcbElementBounds(createText({ is_knockout: true }))).toEqual({
+test("narrow knockout text keeps its existing fallback", () => {
+  expect(
+    getPcbElementBounds(createText({ is_knockout: true, text: "ili" })),
+  ).toEqual({
     minX: 2,
     maxX: 2,
     minY: -3,

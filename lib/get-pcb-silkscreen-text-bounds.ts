@@ -9,7 +9,7 @@ import type { PcbBounds } from "./get-bounds-of-pcb-elements"
 const FONT_UNITS_PER_EM = 1000
 const glyphAdvances: Record<string, number> = glyphAdvanceRatio
 
-/** 認識できる通常文字について、物理単位の保守的なfont frameを返します。 */
+/** 対応する通常文字と白抜き背景の物理範囲を返します。 */
 export const getPcbSilkscreenTextBounds = (
   element: PcbSilkscreenText,
 ): PcbBounds | null => {
@@ -18,7 +18,6 @@ export const getPcbSilkscreenTextBounds = (
   const lines = typeof text === "string" ? text.split("\n") : undefined
   if (
     element.font !== "tscircuit2024" ||
-    element.is_knockout ||
     !lines?.length ||
     lines.some((line) => !line || /\s/u.test(line)) ||
     !anchor_position ||
@@ -29,6 +28,11 @@ export const getPcbSilkscreenTextBounds = (
     font_size <= 0
   )
     return null
+
+  if (element.is_knockout) {
+    const bounds = getKnockoutLocalBounds(element, lines, font_size)
+    return bounds ? transformTextBounds(element, bounds) : null
+  }
 
   const alignment = element.anchor_alignment ?? "center"
   let minX = Number.POSITIVE_INFINITY
@@ -75,17 +79,105 @@ export const getPcbSilkscreenTextBounds = (
     : alignment.startsWith("bottom_")
       ? -height
       : -height / 2
-  const rotation = (ccwRotation * Math.PI) / 180
+  // 通常SVG文字の行間は1emで、上下揃えは最初の行に適用されます。
+  const maxY = minY + height + (lines.length - 1) * font_size
+  return transformTextBounds(element, {
+    minX: minX * font_size,
+    maxX: maxX * font_size,
+    minY,
+    maxY,
+  })
+}
+
+const getKnockoutLocalBounds = (
+  element: PcbSilkscreenText,
+  lines: string[],
+  fontSize: number,
+): PcbBounds | null => {
+  const advance =
+    Math.round(textMetrics.glyphWidthRatio * FONT_UNITS_PER_EM) /
+    FONT_UNITS_PER_EM
+  const radius = textMetrics.strokeWidthRatio / 2
+  let minX = Number.POSITIVE_INFINITY
+  let maxX = Number.NEGATIVE_INFINITY
+  let minY = Number.POSITIVE_INFINITY
+  let maxY = Number.NEGATIVE_INFINITY
+  for (const [index, line] of lines.entries()) {
+    const chars = Array.from(line)
+    const startX = -(chars.length * advance * fontSize) / 2
+    for (const [charIndex, char] of chars.entries()) {
+      const segments = lineAlphabet[char]
+      // 描画側で固定advanceと文字別advanceが異なる文字はfallbackを保ちます。
+      const charAdvance =
+        Math.round(
+          (glyphAdvances[char] ?? textMetrics.glyphWidthRatio) *
+            FONT_UNITS_PER_EM,
+        ) / FONT_UNITS_PER_EM
+      if (!segments?.length || charAdvance !== advance) return null
+      const offsetX = startX + charIndex * advance * fontSize
+      const offsetY = index * fontSize * 1.1
+      for (const segment of segments) {
+        minX = Math.min(
+          minX,
+          offsetX + (Math.min(segment.x1, segment.x2) - radius) * fontSize,
+        )
+        maxX = Math.max(
+          maxX,
+          offsetX + (Math.max(segment.x1, segment.x2) + radius) * fontSize,
+        )
+        // 現行knockout rendererのfont変換は縦座標をascenderの0.94倍にします。
+        minY = Math.min(
+          minY,
+          offsetY -
+            (Math.max(segment.y1, segment.y2) + radius) * 0.94 * fontSize,
+        )
+        maxY = Math.max(
+          maxY,
+          offsetY -
+            (Math.min(segment.y1, segment.y2) - radius) * 0.94 * fontSize,
+        )
+      }
+    }
+  }
+  const padding = element.knockout_padding
+  const pads = {
+    left: padding?.left ?? fontSize * 0.5,
+    right: padding?.right ?? fontSize * 0.5,
+    top: padding?.top ?? fontSize * 0.3,
+    bottom: padding?.bottom ?? fontSize * 0.3,
+  }
+  if (Object.values(pads).some((value) => !Number.isFinite(value) || value < 0))
+    return null
+  const width = maxX - minX + pads.left + pads.right
+  const height = maxY - minY + pads.top + pads.bottom
+  const alignment = element.anchor_alignment ?? "center"
+  const left = alignment.endsWith("_left")
+    ? 0
+    : alignment.endsWith("_right")
+      ? -width
+      : -width / 2
+  const top = alignment.startsWith("top_")
+    ? 0
+    : alignment.startsWith("bottom_")
+      ? -height
+      : -height / 2
+  return { minX: left, maxX: left + width, minY: top, maxY: top + height }
+}
+
+const transformTextBounds = (
+  element: PcbSilkscreenText,
+  bounds: PcbBounds,
+): PcbBounds => {
+  const { anchor_position } = element
+  const rotation = ((element.ccw_rotation ?? 0) * Math.PI) / 180
   const cos = Math.cos(rotation)
   const sin = Math.sin(rotation)
   const mirror = element.layer === "bottom" || element.is_mirrored === true
-  // 通常SVG文字の行間は1emで、上下揃えは最初の行に適用されます。
-  const maxY = minY + height + (lines.length - 1) * font_size
   const points = [
-    { x: minX * font_size, y: minY },
-    { x: maxX * font_size, y: minY },
-    { x: maxX * font_size, y: maxY },
-    { x: minX * font_size, y: maxY },
+    { x: bounds.minX, y: bounds.minY },
+    { x: bounds.maxX, y: bounds.minY },
+    { x: bounds.maxX, y: bounds.maxY },
+    { x: bounds.minX, y: bounds.maxY },
   ].map(({ x, y }) => {
     const localX = mirror ? -x : x
     const localY = -y
