@@ -35,7 +35,7 @@ test("visible note edge participates in selection", () => {
     }),
   ).toEqual([note])
 })
-for (const text of ["", " ", "A B", "HELLO\nR1", "\n", "Ω"])
+for (const text of ["", " ", "A B", "HELLO\nΩ", "\n", "Ω"])
   test(`unsupported note keeps fallback: ${JSON.stringify(text)}`, () => {
     expect(
       getPcbElementBounds({ ...selection.element, text } as PcbNoteText),
