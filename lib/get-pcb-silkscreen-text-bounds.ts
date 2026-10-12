@@ -19,7 +19,7 @@ export const getPcbSilkscreenTextBounds = (
   if (
     element.font !== "tscircuit2024" ||
     !lines?.length ||
-    lines.some((line) => !line || /\s/u.test(line)) ||
+    (!element.is_knockout && lines.some((line) => !line || /\s/u.test(line))) ||
     !anchor_position ||
     !Number.isFinite(anchor_position.x) ||
     !Number.isFinite(anchor_position.y) ||
@@ -106,6 +106,8 @@ const getKnockoutLocalBounds = (
     const chars = Array.from(line)
     const startX = -(chars.length * advance * fontSize) / 2
     for (const [charIndex, char] of chars.entries()) {
+      // 空白はinkを追加せず、現行rendererと同じ固定送りを保ちます。
+      if (char === " ") continue
       const segments = lineAlphabet[char]
       // 描画側で固定advanceと文字別advanceが異なる文字はfallbackを保ちます。
       const charAdvance =
@@ -139,6 +141,8 @@ const getKnockoutLocalBounds = (
       }
     }
   }
+  // 空行や空白だけの場合は、描画側も背景を生成しません。
+  if (!Number.isFinite(minX)) return null
   const padding = element.knockout_padding
   const pads = {
     left: padding?.left ?? fontSize * 0.5,

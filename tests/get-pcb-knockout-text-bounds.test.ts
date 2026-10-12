@@ -35,7 +35,7 @@ test("selection inside knockout padding includes the text", () => {
   ).toEqual([])
 })
 
-for (const text of ["ili", "HELLO\nR1gil", "Ω", "HELLO\n", "A B"])
+for (const text of ["ili", "HELLO\nR1gil", "Ω"])
   test(`unmeasured knockout text keeps its fallback: ${JSON.stringify(text)}`, () => {
     const element = {
       ...reference.records[0]!.element,
