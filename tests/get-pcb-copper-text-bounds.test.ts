@@ -47,11 +47,12 @@ for (const text of ["", "   ", "\n", "Ω", "HΩL", "A\tB"])
     })
   })
 
-test("knockout copper text retains existing fallback", () => {
+test("unknown knockout copper text retains existing fallback", () => {
   expect(
     getPcbElementBounds({
       ...reference.records[0]!.element,
       is_knockout: true,
+      text: "Ω",
     } as PcbCopperText),
   ).toEqual({ minX: 2, maxX: 2, minY: -3, maxY: -3 })
 })

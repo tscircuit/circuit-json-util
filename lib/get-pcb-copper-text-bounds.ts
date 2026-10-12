@@ -9,7 +9,7 @@ const TRAILING_SPACING = 0.2
 const LINE_HEIGHT = 1.4
 const STROKE_WIDTH = 0.15
 
-/** 現行rendererの銅箔文字の中心線を揃え、丸いstrokeの外端まで含めます。 */
+/** 現行rendererの銅箔文字について、strokeまたは白抜き背景の外端まで含めます。 */
 export const getPcbCopperTextBounds = (
   element: PcbCopperText,
 ): PcbBounds | null => {
@@ -24,7 +24,6 @@ export const getPcbCopperTextBounds = (
   const rotationDegrees = element.ccw_rotation ?? 0
   if (
     element.font !== "tscircuit2024" ||
-    element.is_knockout ||
     typeof text !== "string" ||
     !text ||
     !anchor_position ||
@@ -83,6 +82,30 @@ export const getPcbCopperTextBounds = (
     }
   }
   if (!points.length) return null
+  if (element.is_knockout) {
+    const padding = element.knockout_padding
+    const pads = {
+      left: padding?.left ?? fontSize * 0.5,
+      right: padding?.right ?? fontSize * 0.5,
+      top: padding?.top ?? fontSize * 0.3,
+      bottom: padding?.bottom ?? fontSize * 0.3,
+    }
+    if (Object.values(pads).some((value) => !Number.isFinite(value)))
+      return null
+    localMinX -= pads.left
+    localMaxX += pads.right
+    localMinY -= pads.top
+    localMaxY += pads.bottom
+    if (localMaxX <= localMinX || localMaxY <= localMinY) return null
+    // 白抜き背景は矩形全体を揃え、外側へstrokeを加えません。
+    points.length = 0
+    points.push(
+      { x: localMinX, y: localMinY },
+      { x: localMaxX, y: localMinY },
+      { x: localMaxX, y: localMaxY },
+      { x: localMinX, y: localMaxY },
+    )
+  }
   const alignment = element.anchor_alignment ?? "center"
   const anchorX = alignment.endsWith("_left")
     ? localMinX
@@ -113,7 +136,7 @@ export const getPcbCopperTextBounds = (
     maxY = Math.max(maxY, worldY)
   }
   // round cap/joinの半径は回転後も同じ物理単位で加えます。
-  const radius = (fontSize * STROKE_WIDTH) / 2
+  const radius = element.is_knockout ? 0 : (fontSize * STROKE_WIDTH) / 2
   return {
     minX: minX - radius,
     maxX: maxX + radius,
