@@ -9,9 +9,23 @@ import type { PcbBounds } from "./get-bounds-of-pcb-elements"
 const FONT_UNITS_PER_EM = 1000
 const glyphAdvances: Record<string, number> = glyphAdvanceRatio
 
-/** 対応する通常文字と白抜き背景の物理範囲を返します。 */
-export const getPcbSilkscreenTextBounds = (
-  element: PcbSilkscreenText,
+type PcbAlphabetTextGeometry = Pick<
+  PcbSilkscreenText,
+  | "font"
+  | "text"
+  | "font_size"
+  | "anchor_position"
+  | "anchor_alignment"
+  | "layer"
+  | "ccw_rotation"
+  | "is_mirrored"
+  | "is_knockout"
+  | "knockout_padding"
+>
+
+/** 対応するAlphabet文字と白抜き背景の物理範囲を返します。 */
+export const getPcbAlphabetTextBounds = (
+  element: PcbAlphabetTextGeometry,
 ): PcbBounds | null => {
   const { text, anchor_position, font_size = 1 } = element
   const ccwRotation = element.ccw_rotation ?? 0
@@ -90,7 +104,7 @@ export const getPcbSilkscreenTextBounds = (
 }
 
 const getKnockoutLocalBounds = (
-  element: PcbSilkscreenText,
+  element: PcbAlphabetTextGeometry,
   lines: string[],
   fontSize: number,
 ): PcbBounds | null => {
@@ -175,7 +189,7 @@ const getKnockoutLocalBounds = (
 }
 
 const transformTextBounds = (
-  element: PcbSilkscreenText,
+  element: PcbAlphabetTextGeometry,
   bounds: PcbBounds,
 ): PcbBounds => {
   const { anchor_position } = element
