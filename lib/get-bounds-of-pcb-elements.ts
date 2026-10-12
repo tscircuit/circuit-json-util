@@ -1,4 +1,5 @@
 import type { AnyCircuitElement } from "circuit-json"
+import { getPcbNotePathBounds } from "./get-pcb-note-path-bounds"
 
 export interface PcbBounds {
   minX: number
@@ -232,6 +233,11 @@ export const getPcbElementBounds = (
     }
 
     if (platedHoleBounds) return platedHoleBounds
+  }
+
+  if (elm.type === "pcb_note_path") {
+    const pathBounds = getPcbNotePathBounds(elm)
+    if (pathBounds) return pathBounds
   }
 
   const elementRecord = elm as unknown as Record<string, unknown>
