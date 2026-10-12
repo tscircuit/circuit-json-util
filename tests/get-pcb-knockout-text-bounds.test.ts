@@ -49,7 +49,7 @@ for (const text of ["ili", "HELLO\nR1gil", "Ω"])
     })
   })
 
-for (const left of [-1, Number.NaN, Number.POSITIVE_INFINITY])
+for (const left of [-100, Number.NaN, Number.POSITIVE_INFINITY])
   test(`invalid knockout padding keeps its fallback: ${left}`, () => {
     const element = {
       ...reference.records[0]!.element,

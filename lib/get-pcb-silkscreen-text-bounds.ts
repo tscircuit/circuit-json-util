@@ -150,10 +150,16 @@ const getKnockoutLocalBounds = (
     top: padding?.top ?? fontSize * 0.3,
     bottom: padding?.bottom ?? fontSize * 0.3,
   }
-  if (Object.values(pads).some((value) => !Number.isFinite(value) || value < 0))
-    return null
+  if (Object.values(pads).some((value) => !Number.isFinite(value))) return null
   const width = maxX - minX + pads.left + pads.right
   const height = maxY - minY + pads.top + pads.bottom
+  if (
+    !Number.isFinite(width) ||
+    !Number.isFinite(height) ||
+    width <= 0 ||
+    height <= 0
+  )
+    return null
   const alignment = element.anchor_alignment ?? "center"
   const left = alignment.endsWith("_left")
     ? 0
