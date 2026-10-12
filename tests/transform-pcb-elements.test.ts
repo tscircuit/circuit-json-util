@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test"
-import { compose, rotateDEG, scale, translate } from "transformation-matrix"
 import type { AnyCircuitElement, PcbComponent } from "circuit-json"
+import { compose, rotateDEG, scale, translate } from "transformation-matrix"
 import { transformPCBElements } from "../lib/transform-soup-elements"
 
 const createPcbComponent = (
