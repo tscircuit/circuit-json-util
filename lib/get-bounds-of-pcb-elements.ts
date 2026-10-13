@@ -1,4 +1,5 @@
 import type { AnyCircuitElement } from "circuit-json"
+import { getPcbNoteLineBounds } from "./get-pcb-note-line-bounds"
 import { getPcbNotePathBounds } from "./get-pcb-note-path-bounds"
 
 export interface PcbBounds {
@@ -233,6 +234,11 @@ export const getPcbElementBounds = (
     }
 
     if (platedHoleBounds) return platedHoleBounds
+  }
+
+  if (elm.type === "pcb_note_line") {
+    const lineBounds = getPcbNoteLineBounds(elm)
+    if (lineBounds) return lineBounds
   }
 
   if (elm.type === "pcb_note_path") {
