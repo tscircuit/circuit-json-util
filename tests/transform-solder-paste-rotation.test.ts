@@ -1,10 +1,20 @@
 import { expect, test } from "bun:test"
+import type { PcbSolderPasteRect } from "circuit-json"
 import { rotateDEG } from "transformation-matrix"
 import { transformPCBElement } from "../index"
-import { createPaste } from "./fixtures/solder-paste"
 
 test("transformPCBElement rotates a paste rectangle by 37 degrees", () => {
-  const paste = createPaste()
+  const paste: PcbSolderPasteRect = {
+    type: "pcb_solder_paste",
+    pcb_solder_paste_id: "paste",
+    pcb_smtpad_id: "pad",
+    shape: "rect",
+    layer: "top",
+    x: 0,
+    y: 0,
+    width: 4,
+    height: 2,
+  }
   const result = transformPCBElement(paste, rotateDEG(37))
 
   expect(result).toBe(paste)

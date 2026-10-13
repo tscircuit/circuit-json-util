@@ -38,6 +38,9 @@ test("solder-paste rotation: input, expected and actual", () => {
   const actual = extractLocalAperture()
   const actualRotation =
     actual.shape === "rotated_rect" ? actual.ccw_rotation : 0
+  expect(actual).toMatchObject({ x: 0, y: 0, width: 4, height: 2 })
+  expect(actualRotation).toBeCloseTo(0, 7)
+
   const note = (text: string, x: number, y: number, fontSize = 0.7) =>
     pcb_note_text.parse({
       type: "pcb_note_text",

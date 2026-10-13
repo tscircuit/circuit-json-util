@@ -2,12 +2,17 @@ import { expect, test } from "bun:test"
 import type { PcbSolderPasteRotatedRect } from "circuit-json"
 import { rotateDEG } from "transformation-matrix"
 import { transformPCBElements } from "../index"
-import { createPaste } from "./fixtures/solder-paste"
 
 test("37 + 53 degrees produces an axis-aligned rectangle with swapped dimensions", () => {
   const paste: PcbSolderPasteRotatedRect = {
-    ...createPaste(),
+    type: "pcb_solder_paste",
+    pcb_solder_paste_id: "paste",
     shape: "rotated_rect",
+    layer: "top",
+    x: 0,
+    y: 0,
+    width: 4,
+    height: 2,
     ccw_rotation: 37,
   }
 
