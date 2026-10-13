@@ -1,9 +1,9 @@
-import type { PcbNoteRect } from "circuit-json"
+import type { PcbFabricationNoteRect, PcbNoteRect } from "circuit-json"
 import type { PcbBounds } from "./get-bounds-of-pcb-elements"
 
-/** 表示される枠線を含む注記長方形の外枠を返し、破線には保守的な枠を使います。 */
+/** 表示される枠線を含む通常・加工注記長方形の外枠を返し、破線には保守的な枠を使います。 */
 export const getPcbNoteRectBounds = (
-  element: PcbNoteRect,
+  element: PcbNoteRect | PcbFabricationNoteRect,
 ): PcbBounds | null => {
   const { center, width, height, stroke_width, has_stroke } = element
   if (

@@ -243,7 +243,10 @@ export const getPcbElementBounds = (
     if (dimensionBounds) return dimensionBounds
   }
 
-  if (elm.type === "pcb_note_rect") {
+  if (
+    elm.type === "pcb_note_rect" ||
+    elm.type === "pcb_fabrication_note_rect"
+  ) {
     const rectBounds = getPcbNoteRectBounds(elm)
     if (rectBounds) return rectBounds
   }
