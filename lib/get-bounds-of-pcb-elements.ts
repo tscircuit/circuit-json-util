@@ -1,6 +1,7 @@
 import type { AnyCircuitElement } from "circuit-json"
 import { getPcbNoteLineBounds } from "./get-pcb-note-line-bounds"
 import { getPcbNotePathBounds } from "./get-pcb-note-path-bounds"
+import { getPcbNoteRectBounds } from "./get-pcb-note-rect-bounds"
 
 export interface PcbBounds {
   minX: number
@@ -234,6 +235,11 @@ export const getPcbElementBounds = (
     }
 
     if (platedHoleBounds) return platedHoleBounds
+  }
+
+  if (elm.type === "pcb_note_rect") {
+    const rectBounds = getPcbNoteRectBounds(elm)
+    if (rectBounds) return rectBounds
   }
 
   if (elm.type === "pcb_note_line") {
