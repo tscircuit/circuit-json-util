@@ -1,6 +1,8 @@
 import type {
   AnyCircuitElement,
   InsertionDirection,
+  PcbSolderPasteRect,
+  PcbSolderPasteRotatedRect,
   PcbSoldermaskOpening,
 } from "circuit-json"
 import {
@@ -146,6 +148,43 @@ export const transformSchematicElements = (
   return elms.map((elm) => transformSchematicElement(elm, matrix))
 }
 
+const getTransformedRectRotation = (rotation: number, matrix: Matrix) => {
+  const isReflected = matrix.a * matrix.d - matrix.b * matrix.c < 0
+  return (
+    (decomposeTSR(compose(matrix, rotateDEG(rotation)), false, isReflected)
+      .rotation.angle *
+      180) /
+    Math.PI
+  )
+}
+
+const transformPcbSolderPasteRectangle = (
+  paste: PcbSolderPasteRect | PcbSolderPasteRotatedRect,
+  matrix: Matrix,
+) => {
+  const center = applyToPoint(matrix, { x: paste.x, y: paste.y })
+  paste.x = center.x
+  paste.y = center.y
+  const rotation = getTransformedRectRotation(
+    paste.shape === "rotated_rect" ? paste.ccw_rotation : 0,
+    matrix,
+  )
+  const quarterTurns = Math.round(rotation / 90)
+
+  // Preserve the axis-aligned rect representation for exact quarter turns.
+  // Arbitrary angles need rotated_rect, with dimensions in its local frame.
+  if (Math.abs(rotation - quarterTurns * 90) < 1e-8) {
+    if (Math.abs(quarterTurns) % 2 === 1) {
+      ;[paste.width, paste.height] = [paste.height, paste.width]
+    }
+    Object.assign(paste, { shape: "rect" })
+    Reflect.deleteProperty(paste, "ccw_rotation")
+  } else {
+    Object.assign(paste, { shape: "rotated_rect", ccw_rotation: rotation })
+  }
+  return paste
+}
+
 /**
  * Applies a rigid planar placement to flat PCB opening geometry in mm, in the
  * right-handed frame (+X right, +Y top, +Z above). Centers and polygon vertices
@@ -170,12 +209,7 @@ const transformPcbSoldermaskOpening = (
 
   const rectRotation =
     opening.shape === "rotated_rect" ? opening.ccw_rotation : 0
-  const isReflected = matrix.a * matrix.d - matrix.b * matrix.c < 0
-  const transformedRotation =
-    (decomposeTSR(compose(matrix, rotateDEG(rectRotation)), false, isReflected)
-      .rotation.angle *
-      180) /
-    Math.PI
+  const transformedRotation = getTransformedRectRotation(rectRotation, matrix)
   if (Math.abs(transformedRotation) < 1e-8) {
     Object.assign(opening, { shape: "rect" })
     Reflect.deleteProperty(opening, "ccw_rotation")
@@ -191,6 +225,12 @@ const transformPcbSoldermaskOpening = (
 export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   if (elm.type === "pcb_soldermask_opening") {
     return transformPcbSoldermaskOpening(elm, matrix)
+  }
+  if (
+    elm.type === "pcb_solder_paste" &&
+    (elm.shape === "rect" || elm.shape === "rotated_rect")
+  ) {
+    return transformPcbSolderPasteRectangle(elm, matrix)
   }
   // Polygon vertices are board-world points in mm (+X right, +Y up), not centers.
   if (
@@ -345,8 +385,9 @@ export const transformPCBElements = (
   if (flipPadWidthHeight) {
     transformedElms = transformedElms.map((elm) => {
       if (
-        (elm.type === "pcb_smtpad" || elm.type === "pcb_solder_paste") &&
-        (elm.shape === "rect" || elm.shape === "pill")
+        (elm.type === "pcb_smtpad" &&
+          (elm.shape === "rect" || elm.shape === "pill")) ||
+        (elm.type === "pcb_solder_paste" && elm.shape === "pill")
       ) {
         ;[elm.width, elm.height] = [elm.height, elm.width]
       }
