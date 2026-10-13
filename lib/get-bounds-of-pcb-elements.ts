@@ -286,6 +286,28 @@ export const getPcbElementBounds = (
     }
   }
 
+  if (
+    elm.type === "pcb_silkscreen_path" &&
+    Array.isArray(elm.route) &&
+    elm.route.length > 0 &&
+    Number.isFinite(elm.stroke_width) &&
+    elm.stroke_width > 0 &&
+    elm.route.every(
+      (point) => Number.isFinite(point?.x) && Number.isFinite(point?.y),
+    )
+  ) {
+    // 公式描画のround端・round角は、経路の各方向へ線幅の半分を含みます。
+    const routeBounds = getBoundsFromPoints(elm.route)!
+    const halfStroke = elm.stroke_width / 2
+    const bounds = {
+      minX: routeBounds.minX - halfStroke,
+      minY: routeBounds.minY - halfStroke,
+      maxX: routeBounds.maxX + halfStroke,
+      maxY: routeBounds.maxY + halfStroke,
+    }
+    if (Object.values(bounds).every(Number.isFinite)) return bounds
+  }
+
   const elementRecord = elm as unknown as Record<string, unknown>
   const routeBounds = getBoundsFromPoints(getRoutePoints(elementRecord.route))
   if (routeBounds) return routeBounds
