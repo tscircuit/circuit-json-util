@@ -234,6 +234,28 @@ export const getPcbElementBounds = (
     if (platedHoleBounds) return platedHoleBounds
   }
 
+  if (elm.type === "pcb_silkscreen_circle") {
+    const strokeWidth = elm.stroke_width === undefined ? 1 : elm.stroke_width
+    // 円の中心線より外側の枠線も選択します。非描画・不正値は従来のfallbackへ戻します。
+    if (
+      elm.center &&
+      [elm.center.x, elm.center.y, elm.radius, strokeWidth].every(
+        Number.isFinite,
+      ) &&
+      elm.radius > 0 &&
+      strokeWidth > 0
+    ) {
+      const outerRadius = elm.radius + strokeWidth / 2
+      const bounds = {
+        minX: elm.center.x - outerRadius,
+        maxX: elm.center.x + outerRadius,
+        minY: elm.center.y - outerRadius,
+        maxY: elm.center.y + outerRadius,
+      }
+      if (Object.values(bounds).every(Number.isFinite)) return bounds
+    }
+  }
+
   const elementRecord = elm as unknown as Record<string, unknown>
   const routeBounds = getBoundsFromPoints(getRoutePoints(elementRecord.route))
   if (routeBounds) return routeBounds
