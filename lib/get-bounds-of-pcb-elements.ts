@@ -1,4 +1,6 @@
 import type { AnyCircuitElement } from "circuit-json"
+import { getPcbAlphabetTextBounds } from "./get-pcb-alphabet-text-bounds"
+import { getPcbNoteTextBounds } from "./get-pcb-note-text-bounds"
 
 export interface PcbBounds {
   minX: number
@@ -159,6 +161,16 @@ export const getPcbElementBounds = (
   elm: AnyCircuitElement,
 ): PcbBounds | null => {
   if (!elm.type.startsWith("pcb_")) return null
+
+  if (elm.type === "pcb_silkscreen_text") {
+    const textBounds = getPcbAlphabetTextBounds(elm)
+    if (textBounds) return textBounds
+  }
+
+  if (elm.type === "pcb_note_text") {
+    const textBounds = getPcbNoteTextBounds(elm)
+    if (textBounds) return textBounds
+  }
 
   if (
     elm.type === "pcb_smtpad" &&

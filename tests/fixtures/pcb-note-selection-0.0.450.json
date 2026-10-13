@@ -1,0 +1,33 @@
+{
+  "sourceCommit": "57ad91ee54401af4962cdeb23d461fb042a04314",
+  "element": {
+    "type": "pcb_note_text",
+    "pcb_note_text_id": "note-0",
+    "font": "tscircuit2024",
+    "font_size": 1,
+    "text": "HELLO",
+    "anchor_position": {
+      "x": 2,
+      "y": -3
+    },
+    "anchor_alignment": "center",
+    "layer": "top"
+  },
+  "query": {
+    "minX": 3.3175,
+    "maxX": 3.3575,
+    "minY": -2.6575,
+    "maxY": -2.6175
+  },
+  "selected": {
+    "x": 3.3375,
+    "y": -2.6375
+  },
+  "getBounds": {
+    "minX": 2,
+    "minY": -3,
+    "maxX": 2,
+    "maxY": -3
+  },
+  "selection": []
+}
