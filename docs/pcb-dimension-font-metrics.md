@@ -1,0 +1,17 @@
+# 加工寸法ラベルのフォント範囲
+
+加工寸法ラベルの範囲は、公式描画が埋め込むTscircuitAlphabetの文字定義を使います。
+通常注記のArialや空白などの代替文字は端末依存なので、従来のfallbackを維持します。
+
+対象は@tscircuit/alphabet 0.0.27のbase64fontです。1emは1000単位です。
+hheaのascent940とdescent-212の中央364を、SVGのcentral基準線へ合わせます。
+公開APIをブラウザやフォント解析の実行時依存なしで使うため、83文字の送り幅と輪郭範囲だけを同梱します。
+
+フォント更新時は、配布base64fontを復号してSHA256を照合します。
+FontToolsのTTFontでgetBestCmapとhmtxを読み、getGlyphSetとBoundsPenでCFFの輪郭を計測します。
+advance・minX・minY・maxX・maxYの順に、pcb-dimension-label-font-metrics.tsを更新します。
+輪郭のない文字は対象に追加しません。文字供給や基準線が変わる場合は描画との検証を更新します。
+
+公式circuit-to-svgの基点はf25a42897b87d2e9691b25a25f9456e85921200aです。
+寸法線を避けるラベルの移動量は描画側の0.6em近似を再現しますが、文字の範囲には実際の輪郭を使います。
+回転時は文字の輪郭枠を回転した外枠になるため、描画を含む保守的な範囲です。

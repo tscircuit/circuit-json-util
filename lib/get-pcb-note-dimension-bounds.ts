@@ -3,6 +3,7 @@ import type {
   PcbNoteDimension,
 } from "circuit-json"
 import type { PcbBounds } from "./get-bounds-of-pcb-elements"
+import { getPcbDimensionLabelBounds } from "./get-pcb-dimension-label-bounds"
 
 type Point = { x: number; y: number }
 const normalize = (point: Point): Point | null => {
@@ -11,13 +12,14 @@ const normalize = (point: Point): Point | null => {
   return { x: point.x / length, y: point.y / length }
 }
 
-/** ラベルのない通常・加工寸法注記の線・補助線・矢印を囲む物理枠を返します。 */
+/** 寸法線・補助線・矢印と、対応する加工ラベルの物理枠を返します。 */
 export const getPcbNoteDimensionBounds = (
   element: PcbNoteDimension | PcbFabricationNoteDimension,
 ): PcbBounds | null => {
   const { from, to, arrow_size, offset_direction } = element
-  // ラベルの描画領域を含められないため、文字付きは従来のfallbackを維持します。
-  if (element.text) return null
+  // 通常注記は端末のArialに依存するため、文字付きのfallbackを維持します。
+  if (element.text && element.type !== "pcb_fabrication_note_dimension")
+    return null
   const offsetDistance = element.offset_distance ?? 0
   if (
     !from ||
@@ -95,6 +97,40 @@ export const getPcbNoteDimensionBounds = (
       },
       radius,
     )
+  }
+  if (element.text) {
+    const fontSize = element.font_size ?? 1
+    const extraRotation = element.text_ccw_rotation
+    const hasExtraRotation =
+      typeof extraRotation === "number" && Number.isFinite(extraRotation)
+    // 描画側の文字避け用offsetも再現します。これは輪郭の計測値とは別です。
+    const rotationRadians =
+      ((hasExtraRotation ? extraRotation : 0) * Math.PI) / 180
+    const additionalOffset = hasExtraRotation
+      ? (element.text.length *
+          fontSize *
+          0.6 *
+          Math.abs(Math.sin(rotationRadians))) /
+          2 +
+        (fontSize * Math.abs(Math.cos(rotationRadians))) / 2 +
+        fontSize * 0.3
+      : 0
+    const textOffset = arrow_size * 1.5 + additionalOffset
+    const anchor = {
+      x: (from.x + to.x) / 2 + offset.x + perpendicular.x * textOffset,
+      y: (from.y + to.y) / 2 + offset.y + perpendicular.y * textOffset,
+    }
+    let screenAngle = (Math.atan2(-direction.y, direction.x) * 180) / Math.PI
+    if (screenAngle > 90 || screenAngle < -90) screenAngle += 180
+    const labelBounds = getPcbDimensionLabelBounds(
+      element.text,
+      fontSize,
+      anchor,
+      -screenAngle + (hasExtraRotation ? extraRotation : 0),
+    )
+    if (!labelBounds) return null
+    include({ x: labelBounds.minX, y: labelBounds.minY })
+    include({ x: labelBounds.maxX, y: labelBounds.maxY })
   }
   return Object.values(bounds).every(Number.isFinite) ? bounds : null
 }
