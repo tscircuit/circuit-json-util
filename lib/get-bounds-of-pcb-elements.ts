@@ -253,7 +253,10 @@ export const getPcbElementBounds = (
     if (lineBounds) return lineBounds
   }
 
-  if (elm.type === "pcb_note_path") {
+  if (
+    elm.type === "pcb_note_path" ||
+    elm.type === "pcb_fabrication_note_path"
+  ) {
     const pathBounds = getPcbNotePathBounds(elm)
     if (pathBounds) return pathBounds
   }
