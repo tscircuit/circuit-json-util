@@ -256,6 +256,36 @@ export const getPcbElementBounds = (
     }
   }
 
+  if (elm.type === "pcb_silkscreen_rect") {
+    const rotation = elm.ccw_rotation ?? 0
+    const hasStroke = (elm as typeof elm & { has_stroke?: boolean }).has_stroke
+    // 回転前の枠線外周を囲みます。角丸と破線は描画を含む保守的な枠です。
+    if (
+      hasStroke !== false &&
+      elm.center &&
+      [
+        elm.center.x,
+        elm.center.y,
+        elm.width,
+        elm.height,
+        elm.stroke_width,
+        rotation,
+      ].every(Number.isFinite) &&
+      elm.width > 0 &&
+      elm.height > 0 &&
+      elm.stroke_width > 0
+    ) {
+      const bounds = getRotatedRectBounds(
+        elm.center.x,
+        elm.center.y,
+        elm.width + elm.stroke_width,
+        elm.height + elm.stroke_width,
+        rotation,
+      )
+      if (Object.values(bounds).every(Number.isFinite)) return bounds
+    }
+  }
+
   const elementRecord = elm as unknown as Record<string, unknown>
   const routeBounds = getBoundsFromPoints(getRoutePoints(elementRecord.route))
   if (routeBounds) return routeBounds
