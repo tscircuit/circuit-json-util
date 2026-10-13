@@ -281,7 +281,18 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     }
   } else if (elm.type === "pcb_courtyard_rect") {
     elm.center = applyToPoint(matrix, elm.center)
-    elm.ccw_rotation = ((elm.ccw_rotation ?? 0) + rotationDegrees) % 360
+    const isReflected = matrix.a * matrix.d - matrix.b * matrix.c < 0
+    const rectRotation = elm.ccw_rotation ?? 0
+    let transformedRotation =
+      (decomposeTSR(
+        compose(matrix, rotateDEG(rectRotation)),
+        false,
+        isReflected,
+      ).rotation.angle *
+        180) /
+      Math.PI
+    transformedRotation = ((transformedRotation % 360) + 360) % 360
+    elm.ccw_rotation = transformedRotation
   } else if (
     elm.type === "pcb_silkscreen_circle" ||
     elm.type === "pcb_silkscreen_rect" ||
