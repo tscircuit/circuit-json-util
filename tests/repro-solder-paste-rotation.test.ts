@@ -34,16 +34,13 @@ const extractLocalAperture = () => {
   return localAperture
 }
 
-test.failing(
-  "extracting a 37-degree paste aperture into component-local coordinates removes its rotation",
-  () => {
-    const localAperture = extractLocalAperture()
-    expect(localAperture).toMatchObject({ x: 0, y: 0, width: 4, height: 2 })
-    const rotation =
-      localAperture.shape === "rotated_rect" ? localAperture.ccw_rotation : 0
-    expect(rotation).toBeCloseTo(0, 7)
-  },
-)
+test("extracting a 37-degree paste aperture into component-local coordinates removes its rotation", () => {
+  const localAperture = extractLocalAperture()
+  expect(localAperture).toMatchObject({ x: 0, y: 0, width: 4, height: 2 })
+  const rotation =
+    localAperture.shape === "rotated_rect" ? localAperture.ccw_rotation : 0
+  expect(rotation).toBeCloseTo(0, 7)
+})
 
 test("solder-paste rotation: input, expected and actual", () => {
   const actual = extractLocalAperture()
