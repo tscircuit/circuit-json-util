@@ -238,7 +238,10 @@ export const getPcbElementBounds = (
     if (platedHoleBounds) return platedHoleBounds
   }
 
-  if (elm.type === "pcb_note_dimension") {
+  if (
+    elm.type === "pcb_note_dimension" ||
+    elm.type === "pcb_fabrication_note_dimension"
+  ) {
     const dimensionBounds = getPcbNoteDimensionBounds(elm)
     if (dimensionBounds) return dimensionBounds
   }

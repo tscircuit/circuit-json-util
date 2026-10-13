@@ -1,4 +1,7 @@
-import type { PcbNoteDimension } from "circuit-json"
+import type {
+  PcbFabricationNoteDimension,
+  PcbNoteDimension,
+} from "circuit-json"
 import type { PcbBounds } from "./get-bounds-of-pcb-elements"
 
 type Point = { x: number; y: number }
@@ -8,12 +11,12 @@ const normalize = (point: Point): Point | null => {
   return { x: point.x / length, y: point.y / length }
 }
 
-/** ラベルのない寸法注記の線・補助線・矢印を囲む物理枠を返します。 */
+/** ラベルのない通常・加工寸法注記の線・補助線・矢印を囲む物理枠を返します。 */
 export const getPcbNoteDimensionBounds = (
-  element: PcbNoteDimension,
+  element: PcbNoteDimension | PcbFabricationNoteDimension,
 ): PcbBounds | null => {
   const { from, to, arrow_size, offset_direction } = element
-  // ラベルはArial描画のため、同梱Alphabetの文字枠を流用しません。
+  // ラベルの描画領域を含められないため、文字付きは従来のfallbackを維持します。
   if (element.text) return null
   const offsetDistance = element.offset_distance ?? 0
   if (
