@@ -75,11 +75,14 @@ test("circle bounds do not mutate frozen input", () => {
   })
   expect(element).toEqual(before)
 })
-test("other circle types retain their radius bounds", () =>
+test("physical hole circles retain their diameter bounds", () =>
   expect(
     getPcbElementBounds({
-      ...circle,
-      type: "pcb_courtyard_circle",
-      pcb_courtyard_circle_id: "courtyard",
-    } as any),
+      type: "pcb_hole",
+      pcb_hole_id: "hole",
+      hole_shape: "circle",
+      x: circle.center.x,
+      y: circle.center.y,
+      hole_diameter: circle.radius * 2,
+    }),
   ).toEqual(record.boundsBefore))

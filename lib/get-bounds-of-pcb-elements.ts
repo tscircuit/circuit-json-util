@@ -234,6 +234,21 @@ export const getPcbElementBounds = (
     if (platedHoleBounds) return platedHoleBounds
   }
 
+  if (
+    elm.type === "pcb_courtyard_circle" &&
+    elm.center &&
+    [elm.center.x, elm.center.y, elm.radius].every(Number.isFinite) &&
+    elm.radius > 0
+  ) {
+    // 公式rendererの固定0.05mm輪郭を、半径の外側にも含めます。
+    const bounds = getCircleBounds(
+      elm.center.x,
+      elm.center.y,
+      (elm.radius + 0.025) * 2,
+    )
+    if (Object.values(bounds).every(Number.isFinite)) return bounds
+  }
+
   if (elm.type === "pcb_silkscreen_circle") {
     const strokeWidth = elm.stroke_width === undefined ? 1 : elm.stroke_width
     // 円の中心線より外側の枠線も選択します。非描画・不正値は従来のfallbackへ戻します。
