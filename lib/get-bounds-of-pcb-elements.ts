@@ -4,6 +4,7 @@ import { getPcbNoteDimensionBounds } from "./get-pcb-note-dimension-bounds"
 import { getPcbNoteLineBounds } from "./get-pcb-note-line-bounds"
 import { getPcbNotePathBounds } from "./get-pcb-note-path-bounds"
 import { getPcbNoteRectBounds } from "./get-pcb-note-rect-bounds"
+import { getPcbNoteTextBounds } from "./get-pcb-note-text-bounds"
 
 export interface PcbBounds {
   minX: number
@@ -164,6 +165,11 @@ export const getPcbElementBounds = (
   elm: AnyCircuitElement,
 ): PcbBounds | null => {
   if (!elm.type.startsWith("pcb_")) return null
+
+  if (elm.type === "pcb_note_text") {
+    const textBounds = getPcbNoteTextBounds(elm)
+    if (textBounds) return textBounds
+  }
 
   if (elm.type === "pcb_fabrication_note_text") {
     const textBounds = getPcbFabricationNoteTextBounds(elm)
