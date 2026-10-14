@@ -252,24 +252,31 @@ export const getPcbElementBounds = (
   }
 
   if (
-    elm.type === "pcb_courtyard_polygon" &&
-    Array.isArray(elm.points) &&
-    elm.points.length >= 3 &&
-    elm.points.every(
-      (point) => Number.isFinite(point?.x) && Number.isFinite(point?.y),
-    ) &&
-    elm.points.some(
-      (point) => point.x !== elm.points[0]?.x || point.y !== elm.points[0]?.y,
-    )
+    elm.type === "pcb_courtyard_polygon" ||
+    elm.type === "pcb_courtyard_outline"
   ) {
-    const pointBounds = getBoundsFromPoints(elm.points)!
-    const bounds = {
-      minX: pointBounds.minX - COURTYARD_HALF_STROKE_WIDTH,
-      minY: pointBounds.minY - COURTYARD_HALF_STROKE_WIDTH,
-      maxX: pointBounds.maxX + COURTYARD_HALF_STROKE_WIDTH,
-      maxY: pointBounds.maxY + COURTYARD_HALF_STROKE_WIDTH,
+    const points =
+      elm.type === "pcb_courtyard_polygon" ? elm.points : elm.outline
+    const minimumPoints = elm.type === "pcb_courtyard_polygon" ? 3 : 2
+    if (
+      Array.isArray(points) &&
+      points.length >= minimumPoints &&
+      points.every(
+        (point) => Number.isFinite(point?.x) && Number.isFinite(point?.y),
+      ) &&
+      points.some(
+        (point) => point.x !== points[0]?.x || point.y !== points[0]?.y,
+      )
+    ) {
+      const pointBounds = getBoundsFromPoints(points)!
+      const bounds = {
+        minX: pointBounds.minX - COURTYARD_HALF_STROKE_WIDTH,
+        minY: pointBounds.minY - COURTYARD_HALF_STROKE_WIDTH,
+        maxX: pointBounds.maxX + COURTYARD_HALF_STROKE_WIDTH,
+        maxY: pointBounds.maxY + COURTYARD_HALF_STROKE_WIDTH,
+      }
+      if (Object.values(bounds).every(Number.isFinite)) return bounds
     }
-    if (Object.values(bounds).every(Number.isFinite)) return bounds
   }
 
   if (elm.type === "pcb_silkscreen_circle") {

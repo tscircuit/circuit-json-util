@@ -155,7 +155,12 @@ test("getBoundsOfPcbElements with pcb_courtyard_outline", () => {
 
   const bounds = getBoundsOfPcbElements(elements)
 
-  expect(bounds).toEqual({ minX: -3, minY: -2, maxX: 7, maxY: 4 })
+  expect(bounds).toEqual({
+    minX: -3.025,
+    minY: -2.025,
+    maxX: 7.025,
+    maxY: 4.025,
+  })
 })
 
 test("getBoundsOfPcbElements with pcb_courtyard_polygon", () => {
