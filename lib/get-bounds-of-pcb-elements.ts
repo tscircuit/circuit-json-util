@@ -1,4 +1,5 @@
 import type { AnyCircuitElement } from "circuit-json"
+import { getPcbFabricationNoteTextBounds } from "./get-pcb-fabrication-note-text-bounds"
 import { getPcbNoteDimensionBounds } from "./get-pcb-note-dimension-bounds"
 import { getPcbNoteLineBounds } from "./get-pcb-note-line-bounds"
 import { getPcbNotePathBounds } from "./get-pcb-note-path-bounds"
@@ -163,6 +164,11 @@ export const getPcbElementBounds = (
   elm: AnyCircuitElement,
 ): PcbBounds | null => {
   if (!elm.type.startsWith("pcb_")) return null
+
+  if (elm.type === "pcb_fabrication_note_text") {
+    const textBounds = getPcbFabricationNoteTextBounds(elm)
+    if (textBounds) return textBounds
+  }
 
   if (
     elm.type === "pcb_smtpad" &&

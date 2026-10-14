@@ -1,20 +1,33 @@
+import type { PcbFabricationNoteText } from "circuit-json"
 import type { PcbBounds } from "./get-bounds-of-pcb-elements"
 import { pcbDimensionLabelFontMetrics } from "./pcb-dimension-label-font-metrics"
 
 type Point = { x: number; y: number }
 
-/** 対応文字だけを同梱フォントの中央基準線・中央揃えで囲みます。 */
-export const getPcbDimensionLabelBounds = (
+/** 対応文字だけを同梱フォントのアンカー配置で囲みます。 */
+export const getPcbAlphabetTextBounds = (
   text: string,
   fontSize: number,
   anchor: Point,
   rotationDegrees: number,
+  alignment: PcbFabricationNoteText["anchor_alignment"] = "center",
 ): PcbBounds | null => {
   if (
     typeof text !== "string" ||
     !text ||
     fontSize <= 0 ||
-    ![fontSize, anchor.x, anchor.y, rotationDegrees].every(Number.isFinite)
+    ![fontSize, anchor?.x, anchor?.y, rotationDegrees].every(Number.isFinite)
+  )
+    return null
+  if (
+    !anchor ||
+    ![
+      "center",
+      "top_left",
+      "top_right",
+      "bottom_left",
+      "bottom_right",
+    ].includes(alignment)
   )
     return null
   let advance = 0
@@ -32,11 +45,21 @@ export const getPcbDimensionLabelBounds = (
     advance += glyph[0]
   }
   const scale = fontSize / 1000
-  const left = (minX - advance / 2) * scale
-  const right = (maxX - advance / 2) * scale
-  // hheaのascent940/descent-212の中央364をSVGのcentral基準線へ合わせます。
-  const bottom = (minY - 364) * scale
-  const top = (maxY - 364) * scale
+  const horizontalOffset = alignment.endsWith("left")
+    ? 0
+    : alignment.endsWith("right")
+      ? advance
+      : advance / 2
+  // hheaの上下端と中央を、SVGのbefore/after/central基準線へ合わせます。
+  const baselineOffset = alignment.startsWith("top")
+    ? 940
+    : alignment.startsWith("bottom")
+      ? -212
+      : 364
+  const left = (minX - horizontalOffset) * scale
+  const right = (maxX - horizontalOffset) * scale
+  const bottom = (minY - baselineOffset) * scale
+  const top = (maxY - baselineOffset) * scale
   const radians = (rotationDegrees * Math.PI) / 180
   const cosine = Math.cos(radians)
   const sine = Math.sin(radians)

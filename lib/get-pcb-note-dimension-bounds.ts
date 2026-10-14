@@ -3,7 +3,7 @@ import type {
   PcbNoteDimension,
 } from "circuit-json"
 import type { PcbBounds } from "./get-bounds-of-pcb-elements"
-import { getPcbDimensionLabelBounds } from "./get-pcb-dimension-label-bounds"
+import { getPcbAlphabetTextBounds } from "./get-pcb-alphabet-text-bounds"
 
 type Point = { x: number; y: number }
 const normalize = (point: Point): Point | null => {
@@ -122,7 +122,7 @@ export const getPcbNoteDimensionBounds = (
     }
     let screenAngle = (Math.atan2(-direction.y, direction.x) * 180) / Math.PI
     if (screenAngle > 90 || screenAngle < -90) screenAngle += 180
-    const labelBounds = getPcbDimensionLabelBounds(
+    const labelBounds = getPcbAlphabetTextBounds(
       element.text,
       fontSize,
       anchor,
