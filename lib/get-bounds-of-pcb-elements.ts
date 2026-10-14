@@ -7,6 +7,9 @@ export interface PcbBounds {
   maxY: number
 }
 
+// 公式courtyard描画の固定0.05mm輪郭の半幅です。
+const COURTYARD_HALF_STROKE_WIDTH = 0.025
+
 const mergeBounds = (
   currentBounds: PcbBounds,
   nextBounds: PcbBounds,
@@ -232,6 +235,160 @@ export const getPcbElementBounds = (
     }
 
     if (platedHoleBounds) return platedHoleBounds
+  }
+
+  if (elm.type === "pcb_courtyard_rect") {
+    const rotation = elm.ccw_rotation ?? 0
+    if (
+      elm.center &&
+      [elm.center.x, elm.center.y, elm.width, elm.height, rotation].every(
+        Number.isFinite,
+      ) &&
+      elm.width > 0 &&
+      elm.height > 0
+    ) {
+      const centerlineBounds = getRotatedRectBounds(
+        elm.center.x,
+        elm.center.y,
+        elm.width,
+        elm.height,
+        rotation,
+      )
+      // round角の外周は、回転後の各方向へ輪郭の半幅を含みます。
+      const bounds = {
+        minX: centerlineBounds.minX - COURTYARD_HALF_STROKE_WIDTH,
+        minY: centerlineBounds.minY - COURTYARD_HALF_STROKE_WIDTH,
+        maxX: centerlineBounds.maxX + COURTYARD_HALF_STROKE_WIDTH,
+        maxY: centerlineBounds.maxY + COURTYARD_HALF_STROKE_WIDTH,
+      }
+      if (Object.values(bounds).every(Number.isFinite)) return bounds
+    }
+  }
+
+  if (
+    elm.type === "pcb_courtyard_circle" &&
+    elm.center &&
+    [elm.center.x, elm.center.y, elm.radius].every(Number.isFinite) &&
+    elm.radius > 0
+  ) {
+    const bounds = getCircleBounds(
+      elm.center.x,
+      elm.center.y,
+      (elm.radius + COURTYARD_HALF_STROKE_WIDTH) * 2,
+    )
+    if (Object.values(bounds).every(Number.isFinite)) return bounds
+  }
+
+  if (
+    elm.type === "pcb_courtyard_polygon" ||
+    elm.type === "pcb_courtyard_outline"
+  ) {
+    const points =
+      elm.type === "pcb_courtyard_polygon" ? elm.points : elm.outline
+    const minimumPoints = elm.type === "pcb_courtyard_polygon" ? 3 : 2
+    if (
+      Array.isArray(points) &&
+      points.length >= minimumPoints &&
+      points.every(
+        (point) => Number.isFinite(point?.x) && Number.isFinite(point?.y),
+      ) &&
+      points.some(
+        (point) => point.x !== points[0]?.x || point.y !== points[0]?.y,
+      )
+    ) {
+      const pointBounds = getBoundsFromPoints(points)!
+      const bounds = {
+        minX: pointBounds.minX - COURTYARD_HALF_STROKE_WIDTH,
+        minY: pointBounds.minY - COURTYARD_HALF_STROKE_WIDTH,
+        maxX: pointBounds.maxX + COURTYARD_HALF_STROKE_WIDTH,
+        maxY: pointBounds.maxY + COURTYARD_HALF_STROKE_WIDTH,
+      }
+      if (Object.values(bounds).every(Number.isFinite)) return bounds
+    }
+  }
+
+  if (elm.type === "pcb_silkscreen_circle") {
+    const strokeWidth = elm.stroke_width === undefined ? 1 : elm.stroke_width
+    // 円の中心線より外側の枠線も選択します。非描画・不正値は従来のfallbackへ戻します。
+    if (
+      elm.center &&
+      [elm.center.x, elm.center.y, elm.radius, strokeWidth].every(
+        Number.isFinite,
+      ) &&
+      elm.radius > 0 &&
+      strokeWidth > 0
+    ) {
+      const outerRadius = elm.radius + strokeWidth / 2
+      const bounds = {
+        minX: elm.center.x - outerRadius,
+        maxX: elm.center.x + outerRadius,
+        minY: elm.center.y - outerRadius,
+        maxY: elm.center.y + outerRadius,
+      }
+      if (Object.values(bounds).every(Number.isFinite)) return bounds
+    }
+  }
+
+  if (elm.type === "pcb_silkscreen_rect") {
+    const rotation = elm.ccw_rotation ?? 0
+    const hasStroke = (elm as typeof elm & { has_stroke?: boolean }).has_stroke
+    // 回転前の枠線外周を囲みます。角丸と破線は描画を含む保守的な枠です。
+    if (
+      hasStroke !== false &&
+      elm.center &&
+      [
+        elm.center.x,
+        elm.center.y,
+        elm.width,
+        elm.height,
+        elm.stroke_width,
+        rotation,
+      ].every(Number.isFinite) &&
+      elm.width > 0 &&
+      elm.height > 0 &&
+      elm.stroke_width > 0
+    ) {
+      const bounds = getRotatedRectBounds(
+        elm.center.x,
+        elm.center.y,
+        elm.width + elm.stroke_width,
+        elm.height + elm.stroke_width,
+        rotation,
+      )
+      if (Object.values(bounds).every(Number.isFinite)) return bounds
+    }
+  }
+
+  if (
+    elm.type === "pcb_silkscreen_path" ||
+    (elm.type === "pcb_keepout" && elm.shape === "outline")
+  ) {
+    const points = elm.type === "pcb_silkscreen_path" ? elm.route : elm.outline
+    const minimumPoints = elm.type === "pcb_silkscreen_path" ? 1 : 2
+    const hasVisibleLayer =
+      elm.type !== "pcb_keepout" ||
+      (Array.isArray(elm.layers) && elm.layers.length > 0)
+    if (
+      hasVisibleLayer &&
+      Array.isArray(points) &&
+      points.length >= minimumPoints &&
+      Number.isFinite(elm.stroke_width) &&
+      elm.stroke_width > 0 &&
+      points.every(
+        (point) => Number.isFinite(point?.x) && Number.isFinite(point?.y),
+      )
+    ) {
+      // 公式描画のround端・round角は、経路の各方向へ線幅の半分を含みます。
+      const routeBounds = getBoundsFromPoints(points)!
+      const halfStroke = elm.stroke_width / 2
+      const bounds = {
+        minX: routeBounds.minX - halfStroke,
+        minY: routeBounds.minY - halfStroke,
+        maxX: routeBounds.maxX + halfStroke,
+        maxY: routeBounds.maxY + halfStroke,
+      }
+      if (Object.values(bounds).every(Number.isFinite)) return bounds
+    }
   }
 
   const elementRecord = elm as unknown as Record<string, unknown>

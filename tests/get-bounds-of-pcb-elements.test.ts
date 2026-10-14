@@ -112,7 +112,12 @@ test("getBoundsOfPcbElements with pcb_courtyard_rect", () => {
 
   const bounds = getBoundsOfPcbElements(elements)
 
-  expect(bounds).toEqual({ minX: 0, minY: 0, maxX: 4, maxY: 6 })
+  expect(bounds).toEqual({
+    minX: -0.025,
+    minY: -0.025,
+    maxX: 4.025,
+    maxY: 6.025,
+  })
 })
 
 test("getBoundsOfPcbElements with pcb_courtyard_circle", () => {
@@ -129,7 +134,12 @@ test("getBoundsOfPcbElements with pcb_courtyard_circle", () => {
 
   const bounds = getBoundsOfPcbElements(elements)
 
-  expect(bounds).toEqual({ minX: 2, minY: 2, maxX: 8, maxY: 8 })
+  expect(bounds).toEqual({
+    minX: 1.975,
+    minY: 1.975,
+    maxX: 8.025,
+    maxY: 8.025,
+  })
 })
 
 test("getBoundsOfPcbElements with pcb_courtyard_outline", () => {
@@ -150,7 +160,12 @@ test("getBoundsOfPcbElements with pcb_courtyard_outline", () => {
 
   const bounds = getBoundsOfPcbElements(elements)
 
-  expect(bounds).toEqual({ minX: -3, minY: -2, maxX: 7, maxY: 4 })
+  expect(bounds).toEqual({
+    minX: -3.025,
+    minY: -2.025,
+    maxX: 7.025,
+    maxY: 4.025,
+  })
 })
 
 test("getBoundsOfPcbElements with pcb_courtyard_polygon", () => {
@@ -171,7 +186,12 @@ test("getBoundsOfPcbElements with pcb_courtyard_polygon", () => {
 
   const bounds = getBoundsOfPcbElements(elements)
 
-  expect(bounds).toEqual({ minX: 1, minY: 1, maxX: 6, maxY: 8 })
+  expect(bounds).toEqual({
+    minX: 0.975,
+    minY: 0.975,
+    maxX: 6.025,
+    maxY: 8.025,
+  })
 })
 
 test("getBoundsOfPcbElements with rectangular plated hole pad includes pad extents", () => {
