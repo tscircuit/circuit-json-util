@@ -1,4 +1,10 @@
 import type { AnyCircuitElement } from "circuit-json"
+import { getPcbFabricationNoteTextBounds } from "./get-pcb-fabrication-note-text-bounds"
+import { getPcbNoteDimensionBounds } from "./get-pcb-note-dimension-bounds"
+import { getPcbNoteLineBounds } from "./get-pcb-note-line-bounds"
+import { getPcbNotePathBounds } from "./get-pcb-note-path-bounds"
+import { getPcbNoteRectBounds } from "./get-pcb-note-rect-bounds"
+import { getPcbNoteTextBounds } from "./get-pcb-note-text-bounds"
 
 export interface PcbBounds {
   minX: number
@@ -160,6 +166,16 @@ export const getPcbElementBounds = (
 ): PcbBounds | null => {
   if (!elm.type.startsWith("pcb_")) return null
 
+  if (elm.type === "pcb_note_text") {
+    const textBounds = getPcbNoteTextBounds(elm)
+    if (textBounds) return textBounds
+  }
+
+  if (elm.type === "pcb_fabrication_note_text") {
+    const textBounds = getPcbFabricationNoteTextBounds(elm)
+    if (textBounds) return textBounds
+  }
+
   if (
     elm.type === "pcb_smtpad" &&
     elm.shape === "polygon" &&
@@ -232,6 +248,35 @@ export const getPcbElementBounds = (
     }
 
     if (platedHoleBounds) return platedHoleBounds
+  }
+
+  if (
+    elm.type === "pcb_note_dimension" ||
+    elm.type === "pcb_fabrication_note_dimension"
+  ) {
+    const dimensionBounds = getPcbNoteDimensionBounds(elm)
+    if (dimensionBounds) return dimensionBounds
+  }
+
+  if (
+    elm.type === "pcb_note_rect" ||
+    elm.type === "pcb_fabrication_note_rect"
+  ) {
+    const rectBounds = getPcbNoteRectBounds(elm)
+    if (rectBounds) return rectBounds
+  }
+
+  if (elm.type === "pcb_note_line") {
+    const lineBounds = getPcbNoteLineBounds(elm)
+    if (lineBounds) return lineBounds
+  }
+
+  if (
+    elm.type === "pcb_note_path" ||
+    elm.type === "pcb_fabrication_note_path"
+  ) {
+    const pathBounds = getPcbNotePathBounds(elm)
+    if (pathBounds) return pathBounds
   }
 
   const elementRecord = elm as unknown as Record<string, unknown>
