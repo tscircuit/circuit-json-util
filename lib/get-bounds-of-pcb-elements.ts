@@ -332,25 +332,35 @@ export const getPcbElementBounds = (
   }
 
   if (
-    elm.type === "pcb_silkscreen_path" &&
-    Array.isArray(elm.route) &&
-    elm.route.length > 0 &&
-    Number.isFinite(elm.stroke_width) &&
-    elm.stroke_width > 0 &&
-    elm.route.every(
-      (point) => Number.isFinite(point?.x) && Number.isFinite(point?.y),
-    )
+    elm.type === "pcb_silkscreen_path" ||
+    (elm.type === "pcb_keepout" && elm.shape === "outline")
   ) {
-    // 公式描画のround端・round角は、経路の各方向へ線幅の半分を含みます。
-    const routeBounds = getBoundsFromPoints(elm.route)!
-    const halfStroke = elm.stroke_width / 2
-    const bounds = {
-      minX: routeBounds.minX - halfStroke,
-      minY: routeBounds.minY - halfStroke,
-      maxX: routeBounds.maxX + halfStroke,
-      maxY: routeBounds.maxY + halfStroke,
+    const points = elm.type === "pcb_silkscreen_path" ? elm.route : elm.outline
+    const minimumPoints = elm.type === "pcb_silkscreen_path" ? 1 : 2
+    const hasVisibleLayer =
+      elm.type !== "pcb_keepout" ||
+      (Array.isArray(elm.layers) && elm.layers.length > 0)
+    if (
+      hasVisibleLayer &&
+      Array.isArray(points) &&
+      points.length >= minimumPoints &&
+      Number.isFinite(elm.stroke_width) &&
+      elm.stroke_width > 0 &&
+      points.every(
+        (point) => Number.isFinite(point?.x) && Number.isFinite(point?.y),
+      )
+    ) {
+      // 公式描画のround端・round角は、経路の各方向へ線幅の半分を含みます。
+      const routeBounds = getBoundsFromPoints(points)!
+      const halfStroke = elm.stroke_width / 2
+      const bounds = {
+        minX: routeBounds.minX - halfStroke,
+        minY: routeBounds.minY - halfStroke,
+        maxX: routeBounds.maxX + halfStroke,
+        maxY: routeBounds.maxY + halfStroke,
+      }
+      if (Object.values(bounds).every(Number.isFinite)) return bounds
     }
-    if (Object.values(bounds).every(Number.isFinite)) return bounds
   }
 
   const elementRecord = elm as unknown as Record<string, unknown>
