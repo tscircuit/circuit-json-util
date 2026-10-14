@@ -1,0 +1,6174 @@
+{
+  "sourceCommit": "f25a42897b87d2e9691b25a25f9456e85921200a",
+  "libraryBaseline": "7810c8e3ae5fc840fb7d9693b120d68ccd61f941",
+  "controls": [
+    {
+      "options": {
+        "showCourtyards": false,
+        "layer": "top"
+      },
+      "renderedRectCount": 0
+    },
+    {
+      "options": {
+        "showCourtyards": true,
+        "layer": "bottom"
+      },
+      "renderedRectCount": 0
+    }
+  ],
+  "records": [
+    {
+      "index": 0,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "843.2941176470588",
+        "y": "903.5294117647059",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 1,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "963.7647058823529",
+        "y": "1084.235294117647",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 16,
+      "selectionBefore": 0
+    },
+    {
+      "index": 2,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "843.2941176470588",
+        "y": "903.5294117647059",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 3,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "963.7647058823529",
+        "y": "1084.235294117647",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 16,
+      "selectionBefore": 0
+    },
+    {
+      "index": 4,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.62109375,
+        "minY": -3.25390625,
+        "maxX": 3.62109375,
+        "maxY": 3.25390625
+      },
+      "count": 18995,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-30)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.598076211353316,
+        "minY": -3.232050807568877,
+        "maxX": 3.598076211353316,
+        "maxY": 3.232050807568877
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 5,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.62109375,
+        "minY": -6.25390625,
+        "maxX": 5.62109375,
+        "maxY": 0.25390625
+      },
+      "count": 18995,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-30)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.598076211353316,
+        "minY": -6.232050807568878,
+        "maxX": 5.598076211353316,
+        "maxY": 0.2320508075688772
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 6,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.62109375,
+        "minY": -3.25390625,
+        "maxX": 3.62109375,
+        "maxY": 3.25390625
+      },
+      "count": 18995,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-30)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.598076211353316,
+        "minY": -3.232050807568877,
+        "maxX": 3.598076211353316,
+        "maxY": 3.232050807568877
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 7,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.62109375,
+        "minY": -6.25390625,
+        "maxX": 5.62109375,
+        "maxY": 0.25390625
+      },
+      "count": 18995,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-30)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.598076211353316,
+        "minY": -6.232050807568878,
+        "maxX": 5.598076211353316,
+        "maxY": 0.2320508075688772
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 8,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.55859375,
+        "minY": -3.55859375,
+        "maxX": 3.55859375,
+        "maxY": 3.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-45)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.5355339059327378,
+        "minY": -3.5355339059327378,
+        "maxX": 3.5355339059327378,
+        "maxY": 3.5355339059327378
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 9,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.55859375,
+        "minY": -6.55859375,
+        "maxX": 5.55859375,
+        "maxY": 0.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.5355339059327378,
+        "minY": -6.535533905932737,
+        "maxX": 5.535533905932738,
+        "maxY": 0.5355339059327375
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 10,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.55859375,
+        "minY": -3.55859375,
+        "maxX": 3.55859375,
+        "maxY": 3.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-45)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.5355339059327378,
+        "minY": -3.5355339059327378,
+        "maxX": 3.5355339059327378,
+        "maxY": 3.5355339059327378
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 11,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.55859375,
+        "minY": -6.55859375,
+        "maxX": 5.55859375,
+        "maxY": 0.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.5355339059327378,
+        "minY": -6.535533905932737,
+        "maxX": 5.535533905932738,
+        "maxY": 0.5355339059327375
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 12,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -2.02734375,
+        "minY": -3.02734375,
+        "maxX": 2.02734375,
+        "maxY": 3.02734375
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-90)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": 3
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 13,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.02734375,
+        "minY": -6.02734375,
+        "maxX": 4.02734375,
+        "maxY": 0.02734375
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-90)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -2.220446049250313e-16,
+        "minY": -6,
+        "maxX": 4,
+        "maxY": 1.2246467991473532e-16
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 14,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -2.02734375,
+        "minY": -3.02734375,
+        "maxX": 2.02734375,
+        "maxY": 3.02734375
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-90)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": 3
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 15,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.02734375,
+        "minY": -6.02734375,
+        "maxX": 4.02734375,
+        "maxY": 0.02734375
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-90)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -2.220446049250313e-16,
+        "minY": -6,
+        "maxX": 4,
+        "maxY": 1.2246467991473532e-16
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 16,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.55859375,
+        "minY": -3.55859375,
+        "maxX": 3.55859375,
+        "maxY": 3.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-135)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.5355339059327378,
+        "minY": -3.5355339059327378,
+        "maxX": 3.5355339059327378,
+        "maxY": 3.5355339059327378
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 17,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.55859375,
+        "minY": -6.55859375,
+        "maxX": 5.55859375,
+        "maxY": 0.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-135)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.5355339059327375,
+        "minY": -6.535533905932738,
+        "maxX": 5.535533905932737,
+        "maxY": 0.5355339059327378
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 18,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.55859375,
+        "minY": -3.55859375,
+        "maxX": 3.55859375,
+        "maxY": 3.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-135)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.5355339059327378,
+        "minY": -3.5355339059327378,
+        "maxX": 3.5355339059327378,
+        "maxY": 3.5355339059327378
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 19,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.55859375,
+        "minY": -6.55859375,
+        "maxX": 5.55859375,
+        "maxY": 0.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-135)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.5355339059327375,
+        "minY": -6.535533905932738,
+        "maxX": 5.535533905932737,
+        "maxY": 0.5355339059327378
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 20,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.62109375,
+        "minY": -3.42578125,
+        "maxX": 3.62109375,
+        "maxY": 3.42578125
+      },
+      "count": 19056,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(37)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.599536576445975,
+        "minY": -3.4027160895507302,
+        "maxX": 3.599536576445975,
+        "maxY": 3.4027160895507302
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 21,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.62109375,
+        "minY": -6.42578125,
+        "maxX": 5.62109375,
+        "maxY": 0.42578125
+      },
+      "count": 19056,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(37)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.599536576445975,
+        "minY": -6.40271608955073,
+        "maxX": 5.599536576445976,
+        "maxY": 0.40271608955073046
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 22,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.62109375,
+        "minY": -3.42578125,
+        "maxX": 3.62109375,
+        "maxY": 3.42578125
+      },
+      "count": 19056,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(37)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.599536576445975,
+        "minY": -3.4027160895507302,
+        "maxX": 3.599536576445975,
+        "maxY": 3.4027160895507302
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 23,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.62109375,
+        "minY": -6.42578125,
+        "maxX": 5.62109375,
+        "maxY": 0.42578125
+      },
+      "count": 19056,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(37)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.599536576445975,
+        "minY": -6.40271608955073,
+        "maxX": 5.599536576445976,
+        "maxY": 0.40271608955073046
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 24,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-360)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.0000000000000004,
+        "minY": -2.000000000000001,
+        "maxX": 3.0000000000000004,
+        "maxY": 2.000000000000001
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 25,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-360)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.0000000000000004,
+        "minY": -5.000000000000001,
+        "maxX": 5.000000000000001,
+        "maxY": -0.9999999999999991
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 16,
+      "selectionBefore": 0
+    },
+    {
+      "index": 26,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-360)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.0000000000000004,
+        "minY": -2.000000000000001,
+        "maxX": 3.0000000000000004,
+        "maxY": 2.000000000000001
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 27,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-360)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.0000000000000004,
+        "minY": -5.000000000000001,
+        "maxX": 5.000000000000001,
+        "maxY": -0.9999999999999991
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 16,
+      "selectionBefore": 0
+    },
+    {
+      "index": 28,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.55859375,
+        "minY": -3.55859375,
+        "maxX": 3.55859375,
+        "maxY": 3.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-405)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.5355339059327386,
+        "minY": -3.535533905932737,
+        "maxX": 3.5355339059327386,
+        "maxY": 3.535533905932737
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 29,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.55859375,
+        "minY": -6.55859375,
+        "maxX": 5.55859375,
+        "maxY": 0.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-405)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.5355339059327384,
+        "minY": -6.535533905932737,
+        "maxX": 5.535533905932739,
+        "maxY": 0.5355339059327369
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 30,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.55859375,
+        "minY": -3.55859375,
+        "maxX": 3.55859375,
+        "maxY": 3.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-405)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -3.5355339059327386,
+        "minY": -3.535533905932737,
+        "maxX": 3.5355339059327386,
+        "maxY": 3.535533905932737
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 31,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.55859375,
+        "minY": -6.55859375,
+        "maxX": 5.55859375,
+        "maxY": 0.55859375
+      },
+      "count": 19894,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-405)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.5355339059327384,
+        "minY": -6.535533905932737,
+        "maxX": 5.535533905932739,
+        "maxY": 0.5355339059327369
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 32,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.07421875,
+        "minY": -0.12109375,
+        "maxX": 0.07421875,
+        "maxY": 0.12109375
+      },
+      "count": 528,
+      "attributes": {
+        "x": "1020.9882352941177",
+        "y": "1017.9764705882353",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.05,
+        "minY": -0.1,
+        "maxX": 0.05,
+        "maxY": 0.1
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 33,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.92578125,
+        "minY": -3.12109375,
+        "maxX": 2.07421875,
+        "maxY": -2.87890625
+      },
+      "count": 528,
+      "attributes": {
+        "x": "1141.4588235294118",
+        "y": "1198.6823529411765",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.95,
+        "minY": -3.1,
+        "maxX": 2.05,
+        "maxY": -2.9
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 34,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.07421875,
+        "minY": -0.12109375,
+        "maxX": 0.07421875,
+        "maxY": 0.12109375
+      },
+      "count": 528,
+      "attributes": {
+        "x": "1020.9882352941177",
+        "y": "1017.9764705882353",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.05,
+        "minY": -0.1,
+        "maxX": 0.05,
+        "maxY": 0.1
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 35,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.92578125,
+        "minY": -3.12109375,
+        "maxX": 2.07421875,
+        "maxY": -2.87890625
+      },
+      "count": 528,
+      "attributes": {
+        "x": "1141.4588235294118",
+        "y": "1198.6823529411765",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.95,
+        "minY": -3.1,
+        "maxX": 2.05,
+        "maxY": -2.9
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 36,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.11328125,
+        "minY": -0.13671875,
+        "maxX": 0.11328125,
+        "maxY": 0.13671875
+      },
+      "count": 555,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-30)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.09330127018922194,
+        "minY": -0.11160254037844387,
+        "maxX": 0.09330127018922194,
+        "maxY": 0.11160254037844387
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 37,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.88671875,
+        "minY": -3.13671875,
+        "maxX": 2.11328125,
+        "maxY": -2.86328125
+      },
+      "count": 555,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-30)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.906698729810778,
+        "minY": -3.1116025403784437,
+        "maxX": 2.093301270189222,
+        "maxY": -2.8883974596215563
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 38,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.11328125,
+        "minY": -0.13671875,
+        "maxX": 0.11328125,
+        "maxY": 0.13671875
+      },
+      "count": 555,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-30)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.09330127018922194,
+        "minY": -0.11160254037844387,
+        "maxX": 0.09330127018922194,
+        "maxY": 0.11160254037844387
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 39,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.88671875,
+        "minY": -3.13671875,
+        "maxX": 2.11328125,
+        "maxY": -2.86328125
+      },
+      "count": 555,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-30)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.906698729810778,
+        "minY": -3.1116025403784437,
+        "maxX": 2.093301270189222,
+        "maxY": -2.8883974596215563
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 40,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.12890625,
+        "minY": -0.12890625,
+        "maxX": 0.12890625,
+        "maxY": 0.12890625
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-45)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.10606601717798214,
+        "minY": -0.10606601717798214,
+        "maxX": 0.10606601717798214,
+        "maxY": 0.10606601717798214
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 41,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.87109375,
+        "minY": -3.12890625,
+        "maxX": 2.12890625,
+        "maxY": -2.87109375
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.8939339828220179,
+        "minY": -3.106066017177982,
+        "maxX": 2.106066017177982,
+        "maxY": -2.893933982822018
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 42,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.12890625,
+        "minY": -0.12890625,
+        "maxX": 0.12890625,
+        "maxY": 0.12890625
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-45)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.10606601717798214,
+        "minY": -0.10606601717798214,
+        "maxX": 0.10606601717798214,
+        "maxY": 0.10606601717798214
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 43,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.87109375,
+        "minY": -3.12890625,
+        "maxX": 2.12890625,
+        "maxY": -2.87109375
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.8939339828220179,
+        "minY": -3.106066017177982,
+        "maxX": 2.106066017177982,
+        "maxY": -2.893933982822018
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 44,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.12109375,
+        "minY": -0.07421875,
+        "maxX": 0.12109375,
+        "maxY": 0.07421875
+      },
+      "count": 528,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-90)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.1,
+        "minY": -0.05000000000000001,
+        "maxX": 0.1,
+        "maxY": 0.05000000000000001
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 45,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.87890625,
+        "minY": -3.07421875,
+        "maxX": 2.12109375,
+        "maxY": -2.92578125
+      },
+      "count": 528,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-90)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.9,
+        "minY": -3.05,
+        "maxX": 2.1,
+        "maxY": -2.95
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 46,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.12109375,
+        "minY": -0.07421875,
+        "maxX": 0.12109375,
+        "maxY": 0.07421875
+      },
+      "count": 528,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-90)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.1,
+        "minY": -0.05000000000000001,
+        "maxX": 0.1,
+        "maxY": 0.05000000000000001
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 47,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.87890625,
+        "minY": -3.07421875,
+        "maxX": 2.12109375,
+        "maxY": -2.92578125
+      },
+      "count": 528,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-90)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.9,
+        "minY": -3.05,
+        "maxX": 2.1,
+        "maxY": -2.95
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 48,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.12890625,
+        "minY": -0.12890625,
+        "maxX": 0.12890625,
+        "maxY": 0.12890625
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-135)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.10606601717798214,
+        "minY": -0.10606601717798214,
+        "maxX": 0.10606601717798214,
+        "maxY": 0.10606601717798214
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 49,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.87109375,
+        "minY": -3.12890625,
+        "maxX": 2.12890625,
+        "maxY": -2.87109375
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-135)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.8939339828220179,
+        "minY": -3.106066017177982,
+        "maxX": 2.106066017177982,
+        "maxY": -2.893933982822018
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 50,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.12890625,
+        "minY": -0.12890625,
+        "maxX": 0.12890625,
+        "maxY": 0.12890625
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-135)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.10606601717798214,
+        "minY": -0.10606601717798214,
+        "maxX": 0.10606601717798214,
+        "maxY": 0.10606601717798214
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 51,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.87109375,
+        "minY": -3.12890625,
+        "maxX": 2.12890625,
+        "maxY": -2.87109375
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-135)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.8939339828220179,
+        "minY": -3.106066017177982,
+        "maxX": 2.106066017177982,
+        "maxY": -2.893933982822018
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 52,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.12109375,
+        "minY": -0.13671875,
+        "maxX": 0.12109375,
+        "maxY": 0.13671875
+      },
+      "count": 567,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(37)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.10011327781756948,
+        "minY": -0.10995430216233171,
+        "maxX": 0.10011327781756948,
+        "maxY": 0.10995430216233171
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 53,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.87890625,
+        "minY": -3.13671875,
+        "maxX": 2.12109375,
+        "maxY": -2.86328125
+      },
+      "count": 567,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(37)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.8998867221824305,
+        "minY": -3.1099543021623317,
+        "maxX": 2.1001132778175697,
+        "maxY": -2.8900456978376683
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 54,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.12109375,
+        "minY": -0.13671875,
+        "maxX": 0.12109375,
+        "maxY": 0.13671875
+      },
+      "count": 567,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(37)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.10011327781756948,
+        "minY": -0.10995430216233171,
+        "maxX": 0.10011327781756948,
+        "maxY": 0.10995430216233171
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 55,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.87890625,
+        "minY": -3.13671875,
+        "maxX": 2.12109375,
+        "maxY": -2.86328125
+      },
+      "count": 567,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(37)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.8998867221824305,
+        "minY": -3.1099543021623317,
+        "maxX": 2.1001132778175697,
+        "maxY": -2.8900456978376683
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 56,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.07421875,
+        "minY": -0.12109375,
+        "maxX": 0.07421875,
+        "maxY": 0.12109375
+      },
+      "count": 528,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-360)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.05000000000000003,
+        "minY": -0.10000000000000002,
+        "maxX": 0.05000000000000003,
+        "maxY": 0.10000000000000002
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 57,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.92578125,
+        "minY": -3.12109375,
+        "maxX": 2.07421875,
+        "maxY": -2.87890625
+      },
+      "count": 528,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-360)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.95,
+        "minY": -3.1,
+        "maxX": 2.05,
+        "maxY": -2.9
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 58,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.07421875,
+        "minY": -0.12109375,
+        "maxX": 0.07421875,
+        "maxY": 0.12109375
+      },
+      "count": 528,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-360)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.05000000000000003,
+        "minY": -0.10000000000000002,
+        "maxX": 0.05000000000000003,
+        "maxY": 0.10000000000000002
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 59,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.92578125,
+        "minY": -3.12109375,
+        "maxX": 2.07421875,
+        "maxY": -2.87890625
+      },
+      "count": 528,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-360)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.95,
+        "minY": -3.1,
+        "maxX": 2.05,
+        "maxY": -2.9
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 60,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.12890625,
+        "minY": -0.12890625,
+        "maxX": 0.12890625,
+        "maxY": 0.12890625
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-405)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.10606601717798209,
+        "minY": -0.10606601717798217,
+        "maxX": 0.10606601717798209,
+        "maxY": 0.10606601717798217
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 61,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "top",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.87109375,
+        "minY": -3.12890625,
+        "maxX": 2.12890625,
+        "maxY": -2.87109375
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-405)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.893933982822018,
+        "minY": -3.106066017177982,
+        "maxX": 2.106066017177982,
+        "maxY": -2.893933982822018
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 62,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.12890625,
+        "minY": -0.12890625,
+        "maxX": 0.12890625,
+        "maxY": 0.12890625
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-405)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.10606601717798209,
+        "minY": -0.10606601717798217,
+        "maxX": 0.10606601717798209,
+        "maxY": 0.10606601717798217
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 63,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0.1,
+        "height": 0.2,
+        "layer": "bottom",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.87109375,
+        "minY": -3.12890625,
+        "maxX": 2.12890625,
+        "maxY": -2.87109375
+      },
+      "count": 578,
+      "attributes": {
+        "x": "-3.011764705882353",
+        "y": "-6.023529411764706",
+        "width": "6.023529411764706",
+        "height": "12.047058823529412",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-405)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.893933982822018,
+        "minY": -3.106066017177982,
+        "maxX": 2.106066017177982,
+        "maxY": -2.893933982822018
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 64,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -2.02734375,
+        "minY": -0.52734375,
+        "maxX": 2.02734375,
+        "maxY": 0.52734375
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "903.5294117647059",
+        "y": "993.8823529411765",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -2,
+        "minY": -0.5,
+        "maxX": 2,
+        "maxY": 0.5
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 65,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.02734375,
+        "minY": -3.52734375,
+        "maxX": 4.02734375,
+        "maxY": -2.47265625
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "1024",
+        "y": "1174.5882352941178",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0,
+        "minY": -3.5,
+        "maxX": 4,
+        "maxY": -2.5
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 66,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -2.02734375,
+        "minY": -0.52734375,
+        "maxX": 2.02734375,
+        "maxY": 0.52734375
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "903.5294117647059",
+        "y": "993.8823529411765",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -2,
+        "minY": -0.5,
+        "maxX": 2,
+        "maxY": 0.5
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 67,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 0
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.02734375,
+        "minY": -3.52734375,
+        "maxX": 4.02734375,
+        "maxY": -2.47265625
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "1024",
+        "y": "1174.5882352941178",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0,
+        "minY": -3.5,
+        "maxX": 4,
+        "maxY": -2.5
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 68,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -2.00390625,
+        "minY": -1.45703125,
+        "maxX": 2.00390625,
+        "maxY": 1.45703125
+      },
+      "count": 9490,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-30)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.9820508075688774,
+        "minY": -1.4330127018922192,
+        "maxX": 1.9820508075688774,
+        "maxY": 1.4330127018922192
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 69,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.00390625,
+        "minY": -4.45703125,
+        "maxX": 4.00390625,
+        "maxY": -1.54296875
+      },
+      "count": 9490,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-30)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.017949192431122613,
+        "minY": -4.43301270189222,
+        "maxX": 3.9820508075688776,
+        "maxY": -1.5669872981077806
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 70,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -2.00390625,
+        "minY": -1.45703125,
+        "maxX": 2.00390625,
+        "maxY": 1.45703125
+      },
+      "count": 9490,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-30)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.9820508075688774,
+        "minY": -1.4330127018922192,
+        "maxX": 1.9820508075688774,
+        "maxY": 1.4330127018922192
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 71,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.00390625,
+        "minY": -4.45703125,
+        "maxX": 4.00390625,
+        "maxY": -1.54296875
+      },
+      "count": 9490,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-30)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.017949192431122613,
+        "minY": -4.43301270189222,
+        "maxX": 3.9820508075688776,
+        "maxY": -1.5669872981077806
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 72,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.79296875,
+        "minY": -1.79296875,
+        "maxX": 1.79296875,
+        "maxY": 1.79296875
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-45)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.7677669529663689,
+        "minY": -1.7677669529663687,
+        "maxX": 1.7677669529663689,
+        "maxY": 1.7677669529663687
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 73,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 0.20703125,
+        "minY": -4.79296875,
+        "maxX": 3.79296875,
+        "maxY": -1.20703125
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.23223304703363112,
+        "minY": -4.767766952966369,
+        "maxX": 3.767766952966369,
+        "maxY": -1.2322330470336313
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 74,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.79296875,
+        "minY": -1.79296875,
+        "maxX": 1.79296875,
+        "maxY": 1.79296875
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-45)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.7677669529663689,
+        "minY": -1.7677669529663687,
+        "maxX": 1.7677669529663689,
+        "maxY": 1.7677669529663687
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 75,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 0.20703125,
+        "minY": -4.79296875,
+        "maxX": 3.79296875,
+        "maxY": -1.20703125
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.23223304703363112,
+        "minY": -4.767766952966369,
+        "maxX": 3.767766952966369,
+        "maxY": -1.2322330470336313
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 76,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.52734375,
+        "minY": -2.02734375,
+        "maxX": 0.52734375,
+        "maxY": 2.02734375
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-90)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.5000000000000001,
+        "minY": -2,
+        "maxX": 0.5000000000000001,
+        "maxY": 2
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 77,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.47265625,
+        "minY": -5.02734375,
+        "maxX": 2.52734375,
+        "maxY": -0.97265625
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-90)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.4999999999999998,
+        "minY": -5,
+        "maxX": 2.5,
+        "maxY": -1
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 78,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.52734375,
+        "minY": -2.02734375,
+        "maxX": 0.52734375,
+        "maxY": 2.02734375
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-90)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.5000000000000001,
+        "minY": -2,
+        "maxX": 0.5000000000000001,
+        "maxY": 2
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 79,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 90
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.47265625,
+        "minY": -5.02734375,
+        "maxX": 2.52734375,
+        "maxY": -0.97265625
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-90)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 1.4999999999999998,
+        "minY": -5,
+        "maxX": 2.5,
+        "maxY": -1
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 80,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.79296875,
+        "minY": -1.79296875,
+        "maxX": 1.79296875,
+        "maxY": 1.79296875
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-135)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.7677669529663687,
+        "minY": -1.7677669529663689,
+        "maxX": 1.7677669529663687,
+        "maxY": 1.7677669529663689
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 81,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 0.20703125,
+        "minY": -4.79296875,
+        "maxX": 3.79296875,
+        "maxY": -1.20703125
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-135)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.2322330470336313,
+        "minY": -4.767766952966369,
+        "maxX": 3.767766952966369,
+        "maxY": -1.2322330470336311
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 82,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.79296875,
+        "minY": -1.79296875,
+        "maxX": 1.79296875,
+        "maxY": 1.79296875
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-135)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.7677669529663687,
+        "minY": -1.7677669529663689,
+        "maxX": 1.7677669529663687,
+        "maxY": 1.7677669529663689
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 83,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 135
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 0.20703125,
+        "minY": -4.79296875,
+        "maxX": 3.79296875,
+        "maxY": -1.20703125
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-135)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.2322330470336313,
+        "minY": -4.767766952966369,
+        "maxX": 3.767766952966369,
+        "maxY": -1.2322330470336311
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 84,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.92578125,
+        "minY": -1.62890625,
+        "maxX": 1.92578125,
+        "maxY": 1.62890625
+      },
+      "count": 9514,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(37)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.89817853167061,
+        "minY": -1.602947801327743,
+        "maxX": 1.89817853167061,
+        "maxY": 1.602947801327743
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 85,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 0.07421875,
+        "minY": -4.62890625,
+        "maxX": 3.92578125,
+        "maxY": -1.37109375
+      },
+      "count": 9514,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(37)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.10182146832939021,
+        "minY": -4.602947801327743,
+        "maxX": 3.89817853167061,
+        "maxY": -1.397052198672257
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 86,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.92578125,
+        "minY": -1.62890625,
+        "maxX": 1.92578125,
+        "maxY": 1.62890625
+      },
+      "count": 9514,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(37)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.89817853167061,
+        "minY": -1.602947801327743,
+        "maxX": 1.89817853167061,
+        "maxY": 1.602947801327743
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 87,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": -37
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 0.07421875,
+        "minY": -4.62890625,
+        "maxX": 3.92578125,
+        "maxY": -1.37109375
+      },
+      "count": 9514,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(37)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.10182146832939021,
+        "minY": -4.602947801327743,
+        "maxX": 3.89817853167061,
+        "maxY": -1.397052198672257
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 88,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -2.02734375,
+        "minY": -0.52734375,
+        "maxX": 2.02734375,
+        "maxY": 0.52734375
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-360)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -2,
+        "minY": -0.5000000000000004,
+        "maxX": 2,
+        "maxY": 0.5000000000000004
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 89,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.02734375,
+        "minY": -3.52734375,
+        "maxX": 4.02734375,
+        "maxY": -2.47265625
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-360)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.2246467991473532e-16,
+        "minY": -3.5000000000000004,
+        "maxX": 4,
+        "maxY": -2.4999999999999996
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 90,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -2.02734375,
+        "minY": -0.52734375,
+        "maxX": 2.02734375,
+        "maxY": 0.52734375
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-360)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -2,
+        "minY": -0.5000000000000004,
+        "maxX": 2,
+        "maxY": 0.5000000000000004
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 91,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 360
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.02734375,
+        "minY": -3.52734375,
+        "maxX": 4.02734375,
+        "maxY": -2.47265625
+      },
+      "count": 10220,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-360)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.2246467991473532e-16,
+        "minY": -3.5000000000000004,
+        "maxX": 4,
+        "maxY": -2.4999999999999996
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 92,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.79296875,
+        "minY": -1.79296875,
+        "maxX": 1.79296875,
+        "maxY": 1.79296875
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-405)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.76776695296637,
+        "minY": -1.7677669529663675,
+        "maxX": 1.76776695296637,
+        "maxY": 1.7677669529663675
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 93,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "top",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 0.20703125,
+        "minY": -4.79296875,
+        "maxX": 3.79296875,
+        "maxY": -1.20703125
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-405)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.23223304703362996,
+        "minY": -4.767766952966367,
+        "maxX": 3.76776695296637,
+        "maxY": -1.2322330470336325
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 94,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.79296875,
+        "minY": -1.79296875,
+        "maxX": 1.79296875,
+        "maxY": 1.79296875
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1024 1024) rotate(-405)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.76776695296637,
+        "minY": -1.7677669529663675,
+        "maxX": 1.76776695296637,
+        "maxY": 1.7677669529663675
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 95,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 4,
+        "height": 1,
+        "layer": "bottom",
+        "ccw_rotation": 405
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 0.20703125,
+        "minY": -4.79296875,
+        "maxX": 3.79296875,
+        "maxY": -1.20703125
+      },
+      "count": 9222,
+      "attributes": {
+        "x": "-120.47058823529412",
+        "y": "-30.11764705882353",
+        "width": "240.94117647058823",
+        "height": "60.23529411764706",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-405)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.23223304703362996,
+        "minY": -4.767766952966367,
+        "maxX": 3.76776695296637,
+        "maxY": -1.2322330470336325
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 96,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top"
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 20460,
+      "attributes": {
+        "x": "963.7647058823529",
+        "y": "1084.235294117647",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 16,
+      "selectionBefore": 0
+    },
+    {
+      "index": 97,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "attributes": {
+        "x": "0",
+        "y": "-120.47058823529412",
+        "width": "0",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.5857864376269051,
+        "minY": -4.414213562373095,
+        "maxX": 3.414213562373095,
+        "maxY": -1.5857864376269049
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 98,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 0,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "attributes": {
+        "x": "0",
+        "y": "-120.47058823529412",
+        "width": "0",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": 0.5857864376269051,
+        "minY": -4.414213562373095,
+        "maxX": 3.414213562373095,
+        "maxY": -1.5857864376269049
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 99,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 0,
+        "layer": "top",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "0",
+        "width": "361.4117647058823",
+        "height": "0",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.12132034355964283,
+        "minY": -5.121320343559642,
+        "maxX": 4.121320343559643,
+        "maxY": -0.8786796564403576
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 100,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 0,
+        "layer": "bottom",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "0",
+        "width": "361.4117647058823",
+        "height": "0",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -0.12132034355964283,
+        "minY": -5.121320343559642,
+        "maxX": 4.121320343559643,
+        "maxY": -0.8786796564403576
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0
+    },
+    {
+      "index": 101,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": -6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "attributes": {
+        "x": "180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "-361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.5355339059327378,
+        "minY": -6.535533905932737,
+        "maxX": 5.535533905932738,
+        "maxY": 0.5355339059327375
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 102,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": -6,
+        "height": 4,
+        "layer": "bottom",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "attributes": {
+        "x": "180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "-361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.5355339059327378,
+        "minY": -6.535533905932737,
+        "maxX": 5.535533905932738,
+        "maxY": 0.5355339059327375
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 103,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": -4,
+        "layer": "top",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "-240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "#FF00FF",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.5355339059327378,
+        "minY": -6.535533905932737,
+        "maxX": 5.535533905932738,
+        "maxY": 0.5355339059327375
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 104,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": -4,
+        "layer": "bottom",
+        "ccw_rotation": 45
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "-240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-bottom",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "bottom",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-45)",
+        "fill": "none",
+        "stroke": "rgb(38, 233, 255)",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.5355339059327378,
+        "minY": -6.535533905932737,
+        "maxX": 5.535533905932738,
+        "maxY": 0.5355339059327375
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 105,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.62109375,
+        "minY": -6.25390625,
+        "maxX": 5.62109375,
+        "maxY": 0.25390625
+      },
+      "count": 18995,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-30)",
+        "fill": "none",
+        "stroke": "#ff0000",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.598076211353316,
+        "minY": -6.232050807568878,
+        "maxX": 5.598076211353316,
+        "maxY": 0.2320508075688772
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    },
+    {
+      "index": 106,
+      "element": {
+        "type": "pcb_courtyard_rect",
+        "pcb_courtyard_rect_id": "rect",
+        "pcb_component_id": "component",
+        "center": {
+          "x": 2,
+          "y": -3
+        },
+        "width": 6,
+        "height": 4,
+        "layer": "top",
+        "ccw_rotation": 30
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.62109375,
+        "minY": -6.25390625,
+        "maxX": 5.62109375,
+        "maxY": 0.25390625
+      },
+      "count": 18995,
+      "attributes": {
+        "x": "-180.70588235294116",
+        "y": "-120.47058823529412",
+        "width": "361.4117647058823",
+        "height": "240.94117647058823",
+        "class": "pcb-courtyard-rect pcb-courtyard-top",
+        "data-pcb-courtyard-rect-id": "rect",
+        "data-type": "pcb_courtyard_rect",
+        "data-pcb-layer": "top",
+        "stroke-linejoin": "round",
+        "transform": "translate(1144.4705882352941 1204.7058823529412) rotate(-30)",
+        "fill": "none",
+        "stroke": "#00aa00",
+        "stroke-width": "3.011764705882353"
+      },
+      "transform": {
+        "scale": 60.23529411764706,
+        "tx": 1024,
+        "ty": 1024
+      },
+      "boundsBefore": {
+        "minX": -1.598076211353316,
+        "minY": -6.232050807568878,
+        "maxX": 5.598076211353316,
+        "maxY": 0.2320508075688772
+      },
+      "query": {
+        "minX": 5.007,
+        "maxX": 5.02,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 1
+    }
+  ]
+}

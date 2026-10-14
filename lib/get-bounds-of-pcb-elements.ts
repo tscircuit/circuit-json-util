@@ -237,6 +237,34 @@ export const getPcbElementBounds = (
     if (platedHoleBounds) return platedHoleBounds
   }
 
+  if (elm.type === "pcb_courtyard_rect") {
+    const rotation = elm.ccw_rotation ?? 0
+    if (
+      elm.center &&
+      [elm.center.x, elm.center.y, elm.width, elm.height, rotation].every(
+        Number.isFinite,
+      ) &&
+      elm.width > 0 &&
+      elm.height > 0
+    ) {
+      const centerlineBounds = getRotatedRectBounds(
+        elm.center.x,
+        elm.center.y,
+        elm.width,
+        elm.height,
+        rotation,
+      )
+      // round角の外周は、回転後の各方向へ輪郭の半幅を含みます。
+      const bounds = {
+        minX: centerlineBounds.minX - COURTYARD_HALF_STROKE_WIDTH,
+        minY: centerlineBounds.minY - COURTYARD_HALF_STROKE_WIDTH,
+        maxX: centerlineBounds.maxX + COURTYARD_HALF_STROKE_WIDTH,
+        maxY: centerlineBounds.maxY + COURTYARD_HALF_STROKE_WIDTH,
+      }
+      if (Object.values(bounds).every(Number.isFinite)) return bounds
+    }
+  }
+
   if (
     elm.type === "pcb_courtyard_circle" &&
     elm.center &&

@@ -62,7 +62,7 @@ test("courtyard circle bounds do not mutate frozen input", () => {
   expect(getPcbElementBounds(frozen)!.maxX).toBe(5.025)
   expect(frozen).toEqual(before)
 })
-test("other courtyard geometry retains nominal bounds", () => {
+test("courtyard rectangle includes its displayed outline", () => {
   expect(
     getPcbElementBounds({
       ...circle,
@@ -70,5 +70,5 @@ test("other courtyard geometry retains nominal bounds", () => {
       width: 6,
       height: 4,
     } as any),
-  ).toEqual({ minX: -1, maxX: 5, minY: -5, maxY: -1 })
+  ).toEqual({ minX: -1.025, maxX: 5.025, minY: -5.025, maxY: -0.975 })
 })

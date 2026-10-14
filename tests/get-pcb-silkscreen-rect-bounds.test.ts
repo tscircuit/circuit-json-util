@@ -82,7 +82,9 @@ test("other rectangular types retain nominal bounds", () =>
   expect(
     getPcbElementBounds({
       ...rect,
-      type: "pcb_courtyard_rect",
-      pcb_courtyard_rect_id: "courtyard",
+      type: "pcb_keepout",
+      shape: "rect",
+      pcb_keepout_id: "keepout",
+      layers: ["top"],
     } as any),
   ).toEqual(record.boundsBefore))
