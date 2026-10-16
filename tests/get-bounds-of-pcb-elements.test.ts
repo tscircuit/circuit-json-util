@@ -413,3 +413,199 @@ test("getPcbElementsWithinBounds selects intersecting PCB geometry", () => {
     ),
   ).toBe(false)
 })
+
+test("getPcbElementsWithinBounds includes PCB note path, line, rect, dimension, and fabrication note strokes (#235)", () => {
+  const notePath: AnyCircuitElement = {
+    type: "pcb_note_path",
+    pcb_note_path_id: "note_path_1",
+    layer: "top",
+    route: [
+      { x: -4, y: 0 },
+      { x: 4, y: 0 },
+    ],
+    stroke_width: 1,
+  }
+  expect(
+    getPcbElementsWithinBounds([notePath], {
+      minX: -0.1,
+      maxX: 0.1,
+      minY: 0.3,
+      maxY: 0.45,
+    }),
+  ).toEqual([notePath])
+
+  const noteLine: AnyCircuitElement = {
+    type: "pcb_note_line",
+    pcb_note_line_id: "note_line_1",
+    layer: "top",
+    x1: -4,
+    y1: 0,
+    x2: 4,
+    y2: 0,
+    stroke_width: 1,
+  }
+  expect(
+    getPcbElementsWithinBounds([noteLine], {
+      minX: 4.2,
+      maxX: 4.35,
+      minY: -0.05,
+      maxY: 0.05,
+    }),
+  ).toEqual([noteLine])
+
+  const noteRect: AnyCircuitElement = {
+    type: "pcb_note_rect",
+    pcb_note_rect_id: "note_rect_1",
+    layer: "top",
+    center: { x: 2, y: -3 },
+    width: 6,
+    height: 4,
+    stroke_width: 1,
+    is_filled: false,
+  }
+  expect(
+    getPcbElementsWithinBounds([noteRect], {
+      minX: 5.2,
+      maxX: 5.35,
+      minY: -3.05,
+      maxY: -2.95,
+    }),
+  ).toEqual([noteRect])
+
+  const noteDimension: AnyCircuitElement = {
+    type: "pcb_note_dimension",
+    pcb_note_dimension_id: "note_dim_1",
+    layer: "top",
+    from: { x: -4, y: 0 },
+    to: { x: 4, y: 0 },
+    arrow_size: 1,
+    font: "tscircuit2024",
+    font_size: 1,
+  }
+  expect(
+    getPcbElementsWithinBounds([noteDimension], {
+      minX: -0.05,
+      maxX: 0.05,
+      minY: -0.05,
+      maxY: 0.05,
+    }),
+  ).toEqual([noteDimension])
+
+  const closedFabPath: AnyCircuitElement = {
+    type: "pcb_fabrication_note_path",
+    pcb_fabrication_note_path_id: "fab_path_1",
+    pcb_component_id: "component",
+    layer: "top",
+    route: [
+      { x: 0, y: 0 },
+      { x: 4, y: -1.1 },
+      { x: 4, y: 1.1 },
+      { x: 0, y: 0 },
+    ],
+    stroke_width: 1,
+  }
+  expect(
+    getPcbElementsWithinBounds([closedFabPath], {
+      minX: -1.7,
+      maxX: -1.5,
+      minY: -0.025,
+      maxY: 0.025,
+    }),
+  ).toEqual([closedFabPath])
+
+  const filledFabPath: AnyCircuitElement = {
+    type: "pcb_fabrication_note_path",
+    pcb_fabrication_note_path_id: "fab_path_2",
+    pcb_component_id: "component",
+    layer: "top",
+    route: [
+      { x: 0, y: 0 },
+      { x: 4, y: -1.1 },
+      { x: 4, y: 1.1 },
+    ],
+    stroke_width: 1,
+    is_filled: true,
+  } as AnyCircuitElement
+  expect(
+    getPcbElementsWithinBounds([filledFabPath], {
+      minX: -1.7,
+      maxX: -1.5,
+      minY: -0.025,
+      maxY: 0.025,
+    }),
+  ).toEqual([filledFabPath])
+
+  const fabRect: AnyCircuitElement = {
+    type: "pcb_fabrication_note_rect",
+    pcb_fabrication_note_rect_id: "fab_rect_1",
+    pcb_component_id: "component",
+    layer: "top",
+    center: { x: 2, y: -3 },
+    width: 6,
+    height: 4,
+    stroke_width: 1,
+    is_filled: false,
+  }
+  expect(
+    getPcbElementsWithinBounds([fabRect], {
+      minX: 5.2,
+      maxX: 5.35,
+      minY: -3.05,
+      maxY: -2.95,
+    }),
+  ).toEqual([fabRect])
+
+  const fabDimensionLabel: AnyCircuitElement = {
+    type: "pcb_fabrication_note_dimension",
+    pcb_fabrication_note_dimension_id: "fab_dim_1",
+    pcb_component_id: "component",
+    layer: "top",
+    from: { x: -4, y: 0 },
+    to: { x: 4, y: 0 },
+    arrow_size: 0.3,
+    font: "tscircuit2024",
+    font_size: 1,
+    text: "5mm",
+    text_ccw_rotation: 0,
+  }
+  expect(
+    getPcbElementsWithinBounds([fabDimensionLabel], {
+      minX: -0.025,
+      maxX: 0.025,
+      minY: 1.15,
+      maxY: 1.35,
+    }),
+  ).toEqual([fabDimensionLabel])
+
+  const noteText: AnyCircuitElement = {
+    type: "pcb_note_text",
+    pcb_note_text_id: "note_text_1",
+    layer: "top",
+    text: "REV1\nTOP",
+    font: "tscircuit2024",
+    font_size: 1,
+    anchor_position: { x: 0, y: 0 },
+    anchor_alignment: "center",
+  }
+  const noteTextBounds = getPcbElementBounds(noteText)
+  expect(noteTextBounds).not.toBeNull()
+  expect(noteTextBounds!.minX).toBeLessThan(-1)
+  expect(noteTextBounds!.maxX).toBeGreaterThan(1)
+  expect(noteTextBounds!.minY).toBeLessThan(-1)
+
+  const fabNoteText: AnyCircuitElement = {
+    type: "pcb_fabrication_note_text",
+    pcb_fabrication_note_text_id: "fab_text_1",
+    pcb_component_id: "component",
+    layer: "top",
+    text: "U1",
+    font: "tscircuit2024",
+    font_size: 1,
+    anchor_position: { x: 2, y: 3 },
+    anchor_alignment: "center",
+  }
+  const fabNoteTextBounds = getPcbElementBounds(fabNoteText)
+  expect(fabNoteTextBounds).not.toBeNull()
+  expect(fabNoteTextBounds!.minX).toBeLessThan(2)
+  expect(fabNoteTextBounds!.maxX).toBeGreaterThan(2)
+})
