@@ -118,6 +118,7 @@ const nice_color_palettes = [
 ]
 
 export const getDebugLayoutObject = (lo: any): LayoutDebugObject | null => {
+  if (!lo) return null
   let {
     x,
     y,
