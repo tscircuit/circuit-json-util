@@ -175,6 +175,39 @@ export const getPcbElementBounds = (
   if (elm.type === "pcb_plated_hole") {
     let platedHoleBounds: PcbBounds | undefined
 
+    if (elm.shape === "hole_with_polygon_pad") {
+      // pad_outline and the drill offset are relative to the hole position in
+      // the pad's local frame; ccw_rotation rotates that frame about the hole
+      const rotation = elm.ccw_rotation ?? 0
+      const theta = (rotation * Math.PI) / 180
+      const cosTheta = Math.cos(theta)
+      const sinTheta = Math.sin(theta)
+      const rotatedOffset = {
+        x:
+          (elm.hole_offset_x ?? 0) * cosTheta -
+          (elm.hole_offset_y ?? 0) * sinTheta,
+        y:
+          (elm.hole_offset_x ?? 0) * sinTheta +
+          (elm.hole_offset_y ?? 0) * cosTheta,
+      }
+      const polygonBounds = getBoundsFromPoints(
+        elm.pad_outline.map((point) => ({
+          x: elm.x + point.x * cosTheta - point.y * sinTheta,
+          y: elm.y + point.x * sinTheta + point.y * cosTheta,
+        })),
+      )
+      if ("hole_diameter" in elm && typeof elm.hole_diameter === "number") {
+        const drillBounds = getCircleBounds(
+          elm.x + rotatedOffset.x,
+          elm.y + rotatedOffset.y,
+          elm.hole_diameter,
+        )
+        if (polygonBounds) return mergeBounds(polygonBounds, drillBounds)
+        return drillBounds
+      }
+      if (polygonBounds) return polygonBounds
+    }
+
     if ("outer_diameter" in elm && typeof elm.outer_diameter === "number") {
       platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.outer_diameter)
     } else if (
