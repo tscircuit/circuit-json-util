@@ -23,11 +23,9 @@ export const distanceBetweenPolygonAndPolygon = (a: Polygon, b: Polygon) => {
     }
   }
 
-  const aPoint = a.points[0]
-  const bPoint = b.points[0]
   if (
-    (aPoint && isPointInPolygon(aPoint, b)) ||
-    (bPoint && isPointInPolygon(bPoint, a))
+    a.points.some((point) => isPointInPolygon(point, b)) ||
+    b.points.some((point) => isPointInPolygon(point, a))
   ) {
     return 0
   }
