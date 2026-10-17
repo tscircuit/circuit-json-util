@@ -1,6 +1,26 @@
 import { expect, test } from "bun:test"
 import { getElementRenderLayers } from "../lib/get-element-render-layers"
-import type { AnyCircuitElement } from "circuit-json"
+import {
+  type AnyCircuitElement,
+  pcb_fabrication_note_dimension,
+} from "circuit-json"
+
+test.each(["top", "bottom"] as const)(
+  "fabrication dimensions belong to the %s fabrication-note layer",
+  (layer) => {
+    const dimension = pcb_fabrication_note_dimension.parse({
+      type: "pcb_fabrication_note_dimension",
+      pcb_component_id: "pcb_component_1",
+      layer,
+      from: { x: 0, y: 0 },
+      to: { x: 5, y: 0 },
+    })
+
+    expect(getElementRenderLayers(dimension)).toEqual([
+      `${layer}_fabrication_note`,
+    ])
+  },
+)
 
 test("getElementRenderLayers returns correct layers for different element types", () => {
   expect(
