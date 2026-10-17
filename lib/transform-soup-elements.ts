@@ -264,6 +264,12 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     })
     elm.x = x
     elm.y = y
+    if (
+      elm.type === "pcb_smtpad" &&
+      (elm.shape === "rotated_rect" || elm.shape === "rotated_pill")
+    ) {
+      elm.ccw_rotation = ((elm.ccw_rotation ?? 0) + rotationDegrees) % 360
+    }
   } else if (elm.type === "pcb_keepout" && elm.shape === "outline") {
     elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
