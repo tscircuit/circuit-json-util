@@ -31,13 +31,17 @@ export function buildSubtree(
   soup: AnyCircuitElement[],
   opts: SubtreeOptions,
 ): AnyCircuitElement[] {
-  if (!opts.subcircuit_id && !opts.source_group_id) return [...soup]
+  if (!opts.subcircuit_id && !opts.subcircuit_ids && !opts.source_group_id)
+    return [...soup]
 
   // For subcircuit_id, also include nested subcircuits
   let effectiveOpts = opts
   if (opts.subcircuit_id) {
     // Find all subcircuit_ids that are children of the target subcircuit
-    const subcircuitIds = new Set<string>([opts.subcircuit_id])
+    const subcircuitIds = new Set<string>([
+      ...(opts.subcircuit_ids ?? []),
+      opts.subcircuit_id,
+    ])
 
     // Build group hierarchy
     const groupChildren = new Map<string, string[]>()
