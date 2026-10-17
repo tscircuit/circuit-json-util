@@ -201,6 +201,28 @@ export const getPcbElementBounds = (
     }
 
     if (
+      elm.shape === "hole_with_polygon_pad" &&
+      Array.isArray(elm.pad_outline) &&
+      elm.pad_outline.length > 0
+    ) {
+      // pad_outline is relative to the hole position and rotated by ccw_rotation
+      const rotation = ((elm.ccw_rotation ?? 0) * Math.PI) / 180
+      const cos = Math.cos(rotation)
+      const sin = Math.sin(rotation)
+      const outlineBounds = getBoundsFromPoints(
+        elm.pad_outline.map((point) => ({
+          x: elm.x + point.x * cos - point.y * sin,
+          y: elm.y + point.x * sin + point.y * cos,
+        })),
+      )
+      if (outlineBounds) {
+        platedHoleBounds = platedHoleBounds
+          ? mergeBounds(platedHoleBounds, outlineBounds)
+          : outlineBounds
+      }
+    }
+
+    if (
       "rect_pad_width" in elm &&
       typeof elm.rect_pad_width === "number" &&
       "rect_pad_height" in elm &&
