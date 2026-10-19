@@ -223,6 +223,21 @@ const transformPcbSoldermaskOpening = (
 }
 
 export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
+  // Cutout centers and vertices are board-world points in mm (+X right, +Y up).
+  // Rectangle dimensions stay local while orientation follows the placement.
+  if (elm.type === "pcb_cutout") {
+    if (elm.shape === "polygon") {
+      elm.points = elm.points.map((point) => applyToPoint(matrix, point))
+    } else if (elm.shape === "path") {
+      elm.route = elm.route.map((point) => applyToPoint(matrix, point))
+    } else {
+      elm.center = applyToPoint(matrix, elm.center)
+      if (elm.shape === "rect") {
+        elm.rotation = getTransformedRectRotation(elm.rotation ?? 0, matrix)
+      }
+    }
+    return elm
+  }
   if (elm.type === "pcb_soldermask_opening") {
     return transformPcbSoldermaskOpening(elm, matrix)
   }
