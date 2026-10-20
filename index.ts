@@ -36,3 +36,5 @@ export { default as cjuIndexed } from "./lib/cju-indexed"
 export * from "./lib/categorize-error-or-warning"
 
 export * from "./lib/copper-geometry"
+
+export * from "./lib/normalize-pcb-trace-vias"
