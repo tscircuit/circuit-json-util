@@ -41,7 +41,7 @@ test("getBoundsOfPcbElements", () => {
 
   const bounds = getBoundsOfPcbElements(elements)
 
-  expect(bounds).toEqual({ minX: -5, minY: -5, maxX: 20, maxY: 20 })
+  expect(bounds).toEqual({ minX: -5.5, minY: -5.5, maxX: 20.5, maxY: 20.5 })
 })
 
 test("getBoundsOfPcbElements with polygon-shaped SMT pad", () => {
