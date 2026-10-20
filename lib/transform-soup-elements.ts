@@ -308,6 +308,9 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.center = applyToPoint(matrix, elm.center)
   } else if (elm.type === "pcb_component") {
     elm.center = applyToPoint(matrix, elm.center)
+    if (elm.footprint_origin) {
+      elm.footprint_origin = applyToPoint(matrix, elm.footprint_origin)
+    }
     elm.rotation = elm.rotation + rotationDegrees
     elm.rotation = elm.rotation % 360
     if (elm.cable_insertion_center) {

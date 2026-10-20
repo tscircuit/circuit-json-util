@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test"
-import { pcb_component, pcb_smtpad } from "circuit-json"
+import { pcb_component, type PcbSmtPadCircle } from "circuit-json"
 import {
   compose,
   flipY,
@@ -25,7 +25,7 @@ test("footprint origins follow their physical reference pad through transforms a
         }),
         { footprint_origin: { x: 0, y: 0 } },
       )
-      const referencePad = pcb_smtpad.parse({
+      const referencePad: PcbSmtPadCircle = {
         type: "pcb_smtpad",
         pcb_smtpad_id: "pcb_smtpad_1",
         pcb_component_id: component.pcb_component_id,
@@ -34,7 +34,7 @@ test("footprint origins follow their physical reference pad through transforms a
         y: 0,
         radius: 0.65,
         layer: "top",
-      })
+      }
       // Points enter footprint-local mm and leave board-world mm (+X right,
       // +Y top, +Z above, right-handed). Bottom placement reflects X.
       const footprintToBoard = compose(
