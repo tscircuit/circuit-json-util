@@ -111,7 +111,7 @@ test("mirroring a tilted 0603 resistor", async () => {
   ).toMatchSvgSnapshot(import.meta.path)
 })
 
-test.failing("courtyard follows rotated and mirrored placements", async () => {
+test("courtyard follows rotated and mirrored placements", async () => {
   const circuitJson = await getResistorCircuitJson()
   const courtyard = circuitJson.find(
     (element) => element.type === "pcb_courtyard_rect",
