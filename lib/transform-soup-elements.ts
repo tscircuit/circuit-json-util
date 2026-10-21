@@ -279,6 +279,12 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     })
     elm.x = x
     elm.y = y
+    if (
+      elm.type === "pcb_smtpad" &&
+      (elm.shape === "rotated_rect" || elm.shape === "rotated_pill")
+    ) {
+      elm.ccw_rotation = getTransformedRectRotation(elm.ccw_rotation, matrix)
+    }
   } else if (elm.type === "pcb_keepout" && elm.shape === "outline") {
     elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
   } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
@@ -290,13 +296,18 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_note_text"
   ) {
     elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
+    if (elm.type === "pcb_silkscreen_text") {
+      const textTransform = compose(matrix, rotateDEG(elm.ccw_rotation ?? 0))
+      elm.ccw_rotation =
+        (Math.atan2(textTransform.b, textTransform.a) * 180) / Math.PI
+    }
   } else if (elm.type === "pcb_copper_text") {
     if (elm.anchor_position) {
       elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
     }
   } else if (elm.type === "pcb_courtyard_rect") {
     elm.center = applyToPoint(matrix, elm.center)
-    elm.ccw_rotation = ((elm.ccw_rotation ?? 0) + rotationDegrees) % 360
+    elm.ccw_rotation = getTransformedRectRotation(elm.ccw_rotation ?? 0, matrix)
   } else if (
     elm.type === "pcb_silkscreen_circle" ||
     elm.type === "pcb_silkscreen_rect" ||
