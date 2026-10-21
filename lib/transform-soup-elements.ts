@@ -296,6 +296,15 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_note_text"
   ) {
     elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
+    if (elm.type === "pcb_silkscreen_text") {
+      const angle = ((elm.ccw_rotation ?? 0) * Math.PI) / 180
+      // Transform the baseline direction while preserving the glyphs' handedness.
+      const direction = applyToPoint(
+        { ...matrix, e: 0, f: 0 },
+        { x: Math.cos(angle), y: Math.sin(angle) },
+      )
+      elm.ccw_rotation = (Math.atan2(direction.y, direction.x) * 180) / Math.PI
+    }
   } else if (elm.type === "pcb_copper_text") {
     if (elm.anchor_position) {
       elm.anchor_position = applyToPoint(matrix, elm.anchor_position)

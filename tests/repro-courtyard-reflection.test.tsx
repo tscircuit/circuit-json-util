@@ -136,7 +136,7 @@ test("SMT pads follow rotations and reflections", async () => {
   ])
 })
 
-test.failing("R1 follows placement without reversing text", async () => {
+test("R1 follows placement without reversing text", async () => {
   const circuitJson = await getResistorCircuitJson()
   const label = circuitJson.find(
     (element): element is PcbSilkscreenText =>
