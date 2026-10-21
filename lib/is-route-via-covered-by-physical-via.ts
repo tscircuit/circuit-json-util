@@ -16,7 +16,7 @@ const getLayerDepth = (layer: string | undefined): number => {
  * separately. Missing route dimensions use the physical via's dimensions;
  * missing or unknown layers cannot establish coverage.
  */
-export function physicalViaCoversRouteVia(
+export function isRouteViaCoveredByPhysicalVia(
   physicalVia: ViaGeometry & { layers?: readonly string[] },
   routeVia: ViaGeometry & { from_layer?: string; to_layer?: string },
 ): boolean {
