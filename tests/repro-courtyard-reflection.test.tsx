@@ -119,7 +119,7 @@ test("courtyard follows rotated and mirrored placements", async () => {
   expectRectanglesToFollowPlacements([courtyard])
 })
 
-test.failing("SMT pads follow rotations and reflections", async () => {
+test("SMT pads follow rotations and reflections", async () => {
   const circuitJson = await getResistorCircuitJson()
   const pads = circuitJson.filter(
     (element) =>
