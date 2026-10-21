@@ -1,0 +1,135 @@
+{
+  "sourceCommit": "f25a42897b87d2e9691b25a25f9456e85921200a",
+  "records": [
+    {
+      "name": "zero width",
+      "element": {
+        "type": "pcb_silkscreen_text",
+        "pcb_silkscreen_text_id": "non-drawable",
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "pcb_component_id": "component",
+        "text": "HH",
+        "is_knockout": true,
+        "knockout_padding": {
+          "left": -1.250262,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "layer": "top",
+        "anchor_position": {
+          "x": 2,
+          "y": -3
+        },
+        "anchor_alignment": "center"
+      },
+      "width": "0",
+      "height": "0.72189556"
+    },
+    {
+      "name": "zero height",
+      "element": {
+        "type": "pcb_silkscreen_text",
+        "pcb_silkscreen_text_id": "non-drawable",
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "pcb_component_id": "component",
+        "text": "HH",
+        "is_knockout": true,
+        "knockout_padding": {
+          "left": 0,
+          "top": -0.72189556,
+          "bottom": 0,
+          "right": 0
+        },
+        "layer": "top",
+        "anchor_position": {
+          "x": 2,
+          "y": -3
+        },
+        "anchor_alignment": "center"
+      },
+      "width": "1.250262",
+      "height": "0"
+    },
+    {
+      "name": "negative width",
+      "element": {
+        "type": "pcb_silkscreen_text",
+        "pcb_silkscreen_text_id": "non-drawable",
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "pcb_component_id": "component",
+        "text": "HH",
+        "is_knockout": true,
+        "knockout_padding": {
+          "left": -100,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "layer": "top",
+        "anchor_position": {
+          "x": 2,
+          "y": -3
+        },
+        "anchor_alignment": "center"
+      },
+      "width": "-98.749738",
+      "height": "0.72189556"
+    },
+    {
+      "name": "negative height",
+      "element": {
+        "type": "pcb_silkscreen_text",
+        "pcb_silkscreen_text_id": "non-drawable",
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "pcb_component_id": "component",
+        "text": "HH",
+        "is_knockout": true,
+        "knockout_padding": {
+          "left": 0,
+          "top": -100,
+          "bottom": 0,
+          "right": 0
+        },
+        "layer": "top",
+        "anchor_position": {
+          "x": 2,
+          "y": -3
+        },
+        "anchor_alignment": "center"
+      },
+      "width": "1.250262",
+      "height": "-99.27810444"
+    },
+    {
+      "name": "overflow width",
+      "element": {
+        "type": "pcb_silkscreen_text",
+        "pcb_silkscreen_text_id": "non-drawable",
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "pcb_component_id": "component",
+        "text": "HH",
+        "is_knockout": true,
+        "knockout_padding": {
+          "left": 1.7976931348623157e308,
+          "top": 0,
+          "bottom": 0,
+          "right": 1.7976931348623157e308
+        },
+        "layer": "top",
+        "anchor_position": {
+          "x": 2,
+          "y": -3
+        },
+        "anchor_alignment": "center"
+      },
+      "width": "Infinity",
+      "height": "0.72189556"
+    }
+  ]
+}
