@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="tscircuit-schematic" width="1200" height="600" style="background-color: rgb(245, 241, 237)" data-real-to-screen-transform="matrix(428.5714285714,0,0,-428.5714285714,600,300)"><style>
+              .boundary { fill: rgb(245, 241, 237); }
+              .schematic-boundary { fill: none; stroke: #fff; }
+              .component { fill: none; stroke: rgb(132, 0, 0); }
+              .chip { fill: rgb(255, 255, 194); stroke: rgb(132, 0, 0); }
+              .component-pin { fill: none; stroke: rgb(132, 0, 0); }
+              .text { font-family: sans-serif; fill: rgb(0, 150, 0); }
+              .pin-number { fill: rgb(169, 0, 0); }
+              .port-label { fill: rgb(0, 100, 100); }
+              .component-name { fill: rgb(0, 100, 100); }
+              
+            </style><rect class="boundary" x="0" y="0" width="1200" height="600"/><line class="sch-line" x1="300.00000000002" y1="300" x2="385.7142857143" y2="300" stroke="#000000" stroke-width="8.571428571428001" data-schematic-line-id="left_stem"/><line class="sch-line" x1="899.99999999998" y1="300" x2="814.2857142857" y2="300" stroke="#000000" stroke-width="8.571428571428001" data-schematic-line-id="right_stem"/><circle class="sch-circle" cx="685.71428571428" cy="300" r="51.428571428568" fill="none" stroke="#000000" stroke-width="8.571428571428001" data-schematic-circle-id="circle"/><rect class="sch-rect" x="450.00000000001" y="257.14285714286" width="128.57142857142" height="85.71428571428001" fill="none" stroke="#000000" stroke-width="8.571428571428001" data-schematic-rect-id="rect"/><path class="sch-arc" d="M 771.42857142856 300 A 85.71428571428001 85.71428571428001 0 0 0 685.71428571428 385.71428571428" fill="none" stroke="#000000" stroke-width="8.571428571428001" data-schematic-arc-id="arc"/><path class="sch-path" d="M 385.7142857143 300 L 814.2857142857 300" stroke="rgb(132, 0, 0)" stroke-width="8.571428571428001" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
