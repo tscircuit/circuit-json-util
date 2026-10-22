@@ -86,11 +86,6 @@ test("reproduce detached TVS artwork after transforming a real TSX circuit", asy
     </board>,
   )
   await circuit.renderUntilSettled()
-  const circuitJson = circuit.getCircuitJson()
-  transformSchematicElements(
-    circuitJson,
-    compose(translate(3, -2), rotateDEG(270)),
-  )
   const source = circuit.db.source_component.getWhere({ name: "D2" })!
   const component = circuit.db.schematic_component.getWhere({
     source_component_id: source.source_component_id,
@@ -98,9 +93,25 @@ test("reproduce detached TVS artwork after transforming a real TSX circuit", asy
   const owner = { schematic_component_id: component.schematic_component_id }
   const stems = circuit.db.schematic_line.list(owner)
   const paths = circuit.db.schematic_path.list(owner)
+  const symbolJson = [
+    source,
+    component,
+    ...circuit.db.schematic_port.list(owner),
+    ...circuit.db.schematic_text.list(owner),
+    ...stems,
+    ...paths,
+  ]
+  transformSchematicElements(
+    symbolJson,
+    compose(
+      translate(component.center.x, component.center.y),
+      rotateDEG(270),
+      translate(-component.center.x, -component.center.y),
+    ),
+  )
   expect(stems).toHaveLength(2)
   expect(paths).toHaveLength(5)
-  expect(convertCircuitJsonToSchematicSvg(circuitJson)).toMatchSvgSnapshot(
+  expect(convertCircuitJsonToSchematicSvg(symbolJson)).toMatchSvgSnapshot(
     import.meta.path,
   )
   expect(() => {
