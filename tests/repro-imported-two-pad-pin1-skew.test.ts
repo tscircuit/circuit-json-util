@@ -185,16 +185,10 @@ test("shows the imported two-pad footprint skew", () => {
   ).toMatchSvgSnapshot(import.meta.path, "diode")
 })
 
-test.failing(
-  "infers the LED pin 1 side despite imported coordinate skew",
-  () => {
-    expect(analyzePcbPin1Location(customLedPads)).toBe("topside_left")
-  },
-)
+test("infers the LED pin 1 side despite imported coordinate skew", () => {
+  expect(analyzePcbPin1Location(customLedPads)).toBe("topside_left")
+})
 
-test.failing(
-  "infers the diode pin 1 side despite imported coordinate skew",
-  () => {
-    expect(analyzePcbPin1Location(polygonDiodePads)).toBe("topside_left")
-  },
-)
+test("infers the diode pin 1 side despite imported coordinate skew", () => {
+  expect(analyzePcbPin1Location(polygonDiodePads)).toBe("topside_left")
+})

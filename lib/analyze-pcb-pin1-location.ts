@@ -13,6 +13,11 @@ export interface PcbPin1LocationElement {
 type Pin1Side = "leftside" | "rightside" | "topside" | "bottomside"
 type Pin1Alignment = "left" | "right" | "top" | "bottom"
 
+// Imported pad outlines can place the two calculated centers a few micrometres
+// off-axis. A 1% pitch-relative allowance keeps those pads in the same row
+// without treating diagonal two-pad footprints as horizontal or vertical.
+const MAX_TWO_PAD_ROW_SKEW_RATIO = 0.01
+
 const PIN1_LOCATION_PARTS = {
   leftside_top: { side: "leftside", alignment: "top" },
   leftside_bottom: { side: "leftside", alignment: "bottom" },
@@ -56,17 +61,28 @@ const getPinNumber = (pad: PcbPin1LocationElement): number | null => {
   return null
 }
 
-const getCanonicalRowLocation = (
-  pin1: Point,
-  pin2: Point,
-  tolerance: number,
-): PcbPin1Location | null => {
+const getCanonicalRowLocation = ({
+  pin1,
+  pin2,
+  tolerance,
+  maxSkewRatio = 0,
+}: {
+  pin1: Point
+  pin2: Point
+  tolerance: number
+  maxSkewRatio?: number
+}): PcbPin1Location | null => {
   const dx = pin2.x - pin1.x
   const dy = pin2.y - pin1.y
-  if (Math.abs(dy) <= tolerance && Math.abs(dx) > tolerance) {
+  const horizontalSkewTolerance = Math.max(
+    tolerance,
+    Math.abs(dx) * maxSkewRatio,
+  )
+  const verticalSkewTolerance = Math.max(tolerance, Math.abs(dy) * maxSkewRatio)
+  if (Math.abs(dy) <= horizontalSkewTolerance && Math.abs(dx) > tolerance) {
     return dx > 0 ? "topside_left" : "bottomside_right"
   }
-  if (Math.abs(dx) <= tolerance && Math.abs(dy) > tolerance) {
+  if (Math.abs(dx) <= verticalSkewTolerance && Math.abs(dy) > tolerance) {
     return dy > 0 ? "leftside_bottom" : "rightside_top"
   }
   return null
@@ -164,11 +180,12 @@ export const analyzePcbPin1Location = (
   // Applying the same convention to local and supplier pads preserves their
   // relative rotation, including the 180-degree polarity reversal.
   if (numberedPads.length === 2 && nextNumberedPad.pinNumber === 2) {
-    return getCanonicalRowLocation(
-      pin1Center,
-      nextNumberedPad.center,
+    return getCanonicalRowLocation({
+      pin1: pin1Center,
+      pin2: nextNumberedPad.center,
       tolerance,
-    )
+      maxSkewRatio: MAX_TWO_PAD_ROW_SKEW_RATIO,
+    })
   }
 
   if (numberedPads.length > 2) {
@@ -203,7 +220,11 @@ export const analyzePcbPin1Location = (
                 (center!.y - previous.y) * Math.sign(dy) > tolerance
         })
       ) {
-        return getCanonicalRowLocation(first, row[1]!.center!, tolerance)
+        return getCanonicalRowLocation({
+          pin1: first,
+          pin2: row[1]!.center!,
+          tolerance,
+        })
       }
     }
   }
