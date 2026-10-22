@@ -137,6 +137,38 @@ export const transformSchematicElement = (
     elm.y1 = y1
     elm.x2 = x2
     elm.y2 = y2
+  } else if (elm.type === "schematic_path") {
+    elm.points = elm.points.map((point) => applyToPoint(matrix, point))
+  } else if (elm.type === "schematic_rect") {
+    const { scale } = decomposeTSR(compose(matrix, rotateDEG(-elm.rotation)))
+    elm.center = applyToPoint(matrix, elm.center)
+    // Schematic rectangle/arc angles follow the SVG-clockwise convention used
+    // by circuit-to-svg; placement matrices use schematic world (+Y up).
+    elm.rotation = -getTransformedRectRotation(-elm.rotation, matrix)
+    elm.width *= Math.abs(scale.sx)
+    elm.height *= Math.abs(scale.sy)
+  } else if (elm.type === "schematic_circle" || elm.type === "schematic_arc") {
+    elm.center = applyToPoint(matrix, elm.center)
+    elm.radius *= Math.abs(decomposeTSR(matrix).scale.sx)
+    if (elm.type === "schematic_arc") {
+      const sweepDegrees = elm.end_angle_degrees - elm.start_angle_degrees
+      const startDirection = compose(
+        matrix,
+        rotateDEG(-elm.start_angle_degrees),
+      )
+      elm.start_angle_degrees =
+        (-Math.atan2(startDirection.b, startDirection.a) * 180) / Math.PI
+      if (matrix.a * matrix.d - matrix.b * matrix.c < 0) {
+        elm.end_angle_degrees = elm.start_angle_degrees - sweepDegrees
+        if (elm.direction === "clockwise") {
+          elm.direction = "counterclockwise"
+        } else {
+          elm.direction = "clockwise"
+        }
+      } else {
+        elm.end_angle_degrees = elm.start_angle_degrees + sweepDegrees
+      }
+    }
   }
   return elm
 }

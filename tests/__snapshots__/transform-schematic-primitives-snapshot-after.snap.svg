@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="tscircuit-schematic" width="1200" height="600" style="background-color: rgb(245, 241, 237)" data-real-to-screen-transform="matrix(247.9338842975,0,0,-247.9338842975,-143.8016528926,-195.867768595)"><style>
+              .boundary { fill: rgb(245, 241, 237); }
+              .schematic-boundary { fill: none; stroke: #fff; }
+              .component { fill: none; stroke: rgb(132, 0, 0); }
+              .chip { fill: rgb(255, 255, 194); stroke: rgb(132, 0, 0); }
+              .component-pin { fill: none; stroke: rgb(132, 0, 0); }
+              .text { font-family: sans-serif; fill: rgb(0, 150, 0); }
+              .pin-number { fill: rgb(169, 0, 0); }
+              .port-label { fill: rgb(0, 100, 100); }
+              .component-name { fill: rgb(0, 100, 100); }
+              
+            </style><rect class="boundary" x="0" y="0" width="1200" height="600"/><line class="sch-line" x1="599.9999999999" y1="126.44628099175" x2="599.9999999999" y2="176.03305785125" stroke="#000000" stroke-width="4.95867768595" data-schematic-line-id="left_stem"/><line class="sch-line" x1="599.9999999999" y1="473.55371900825" x2="599.9999999999" y2="423.9669421487499" stroke="#000000" stroke-width="4.95867768595" data-schematic-line-id="right_stem"/><circle class="sch-circle" cx="599.9999999999" cy="349.5867768595" r="29.752066115699996" fill="none" stroke="#000000" stroke-width="4.95867768595" data-schematic-circle-id="circle"/><rect class="sch-rect" x="562.8099173552749" y="225.61983471074998" width="74.38016528924999" height="49.5867768595" fill="none" stroke="#000000" stroke-width="4.95867768595" transform="rotate(90.00000000000001 599.9999999999 250.41322314049998)" data-schematic-rect-id="rect"/><path class="sch-arc" d="M 599.9999999999 399.173553719 A 49.5867768595 49.5867768595 0 0 0 550.4132231404 349.5867768595" fill="none" stroke="#000000" stroke-width="4.95867768595" data-schematic-arc-id="arc"/><path class="sch-path" d="M 599.9999999999 176.03305785125 L 599.9999999999 423.9669421487499" stroke="rgb(132, 0, 0)" stroke-width="4.95867768595" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
