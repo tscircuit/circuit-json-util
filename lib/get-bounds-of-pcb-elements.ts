@@ -234,6 +234,49 @@ export const getPcbElementBounds = (
     if (platedHoleBounds) return platedHoleBounds
   }
 
+  if (elm.type === "pcb_trace" && Array.isArray(elm.route)) {
+    let traceBounds = getBoundsFromPoints(getRoutePoints(elm.route))
+    if (!traceBounds) return null
+
+    const isInterpolated = elm.route_thickness_mode === "interpolated"
+    for (let index = 0; index < elm.route.length - 1; index++) {
+      const start = elm.route[index]
+      const end = elm.route[index + 1]
+      if (
+        !start ||
+        !end ||
+        typeof start !== "object" ||
+        typeof end !== "object" ||
+        start.route_type !== "wire" ||
+        end.route_type !== "wire" ||
+        !Number.isFinite(start.x) ||
+        !Number.isFinite(start.y) ||
+        !Number.isFinite(end.x) ||
+        !Number.isFinite(end.y) ||
+        (start.x === end.x && start.y === end.y) ||
+        !Number.isFinite(start.width) ||
+        start.width < 0
+      ) {
+        continue
+      }
+
+      const startRadius = start.width / 2
+      const endRadius =
+        isInterpolated && Number.isFinite(end.width) && end.width >= 0
+          ? end.width / 2
+          : startRadius
+
+      traceBounds = mergeBounds(traceBounds, {
+        minX: Math.min(start.x - startRadius, end.x - endRadius),
+        minY: Math.min(start.y - startRadius, end.y - endRadius),
+        maxX: Math.max(start.x + startRadius, end.x + endRadius),
+        maxY: Math.max(start.y + startRadius, end.y + endRadius),
+      })
+    }
+
+    return traceBounds
+  }
+
   const elementRecord = elm as unknown as Record<string, unknown>
   const routeBounds = getBoundsFromPoints(getRoutePoints(elementRecord.route))
   if (routeBounds) return routeBounds
