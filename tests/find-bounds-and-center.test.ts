@@ -176,3 +176,56 @@ test("should calculate bounds for silkscreen circles using their radius", () => 
     height: 4,
   })
 })
+
+test("should not throw on an unrouted pcb_trace", () => {
+  const elements = [
+    {
+      type: "pcb_trace",
+      pcb_trace_id: "pcb_trace_0",
+      source_trace_id: "source_trace_0",
+    } as unknown as AnyCircuitElement,
+  ]
+
+  const result = findBoundsAndCenter(elements)
+
+  expect(result).toEqual({ center: { x: 0, y: 0 }, width: 0, height: 0 })
+})
+
+test("should not throw on an unrouted schematic_trace", () => {
+  const elements = [
+    {
+      type: "schematic_trace",
+      schematic_trace_id: "schematic_trace_0",
+      source_trace_id: "source_trace_0",
+    } as unknown as AnyCircuitElement,
+  ]
+
+  const result = findBoundsAndCenter(elements)
+
+  expect(result).toEqual({ center: { x: 0, y: 0 }, width: 0, height: 0 })
+})
+
+test("should ignore an unrouted trace mixed with routed elements", () => {
+  const elements = [
+    {
+      type: "pcb_trace",
+      pcb_trace_id: "pcb_trace_0",
+      source_trace_id: "source_trace_0",
+    } as unknown as AnyCircuitElement,
+    {
+      type: "pcb_component",
+      x: 20,
+      y: 20,
+      width: 10,
+      height: 10,
+    } as unknown as AnyCircuitElement,
+  ]
+
+  const result = findBoundsAndCenter(elements)
+
+  expect(result).toEqual({
+    center: { x: 20, y: 20 },
+    width: 10,
+    height: 10,
+  })
+})
