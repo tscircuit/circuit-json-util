@@ -123,5 +123,5 @@ test("reproduce detached TVS artwork after transforming a real TSX circuit", asy
       )
       expect(gap).toBeLessThan(1e-8)
     }
-  }).toThrow()
+  }).not.toThrow()
 })
