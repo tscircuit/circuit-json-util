@@ -1,10 +1,64 @@
 import { expect, test } from "bun:test"
-import type { AnyCircuitElement } from "circuit-json"
+import { type AnyCircuitElement, pcb_plated_hole } from "circuit-json"
 import {
   getBoundsOfPcbElements,
   getPcbElementBounds,
   getPcbElementsWithinBounds,
 } from "../lib/get-bounds-of-pcb-elements"
+
+test("polygon plated pad bounds include copper beyond a circular drill", () => {
+  const hole = pcb_plated_hole.parse({
+    type: "pcb_plated_hole",
+    shape: "hole_with_polygon_pad",
+    x: 5,
+    y: 3,
+    layers: ["top", "bottom"],
+    hole_shape: "circle",
+    hole_diameter: 0.6,
+    hole_offset_x: 0.5,
+    hole_offset_y: 0.2,
+    pad_outline: [
+      { x: -2, y: -1 },
+      { x: 2, y: -1 },
+      { x: 2, y: 1 },
+      { x: -2, y: 1 },
+    ],
+  })
+
+  expect(getPcbElementBounds(hole)).toEqual({
+    minX: 3,
+    minY: 2,
+    maxX: 7,
+    maxY: 4,
+  })
+})
+
+test("polygon plated pad bounds rotate clockwise-wound local vertices before translation", () => {
+  const hole = pcb_plated_hole.parse({
+    type: "pcb_plated_hole",
+    shape: "hole_with_polygon_pad",
+    x: 5,
+    y: 3,
+    layers: ["top", "bottom"],
+    ccw_rotation: 45,
+    hole_shape: "pill",
+    hole_width: 0.4,
+    hole_height: 0.2,
+    hole_offset_x: -0.5,
+    hole_offset_y: -0.5,
+    pad_outline: [
+      { x: -2, y: -1 },
+      { x: -2, y: 1 },
+      { x: 2, y: -1 },
+    ],
+  })
+
+  const bounds = getPcbElementBounds(hole)!
+  expect(bounds.minX).toBeCloseTo(5 - 3 * Math.SQRT1_2)
+  expect(bounds.minY).toBeCloseTo(3 - 3 * Math.SQRT1_2)
+  expect(bounds.maxX).toBeCloseTo(5 + 3 * Math.SQRT1_2)
+  expect(bounds.maxY).toBeCloseTo(3 + Math.SQRT1_2)
+})
 
 test("getBoundsOfPcbElements", () => {
   const elements: AnyCircuitElement[] = [

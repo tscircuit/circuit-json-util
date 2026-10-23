@@ -6,7 +6,7 @@ import {
   getPcbElementsWithinBounds,
 } from "../lib/get-bounds-of-pcb-elements"
 
-test("repro: polygon plated pad bounds collapse and skip a nearby test pad", async () => {
+test("polygon plated pad bounds include copper and retain a nearby test pad candidate", async () => {
   const circuit = new Circuit()
   circuit.add(
     <board width={8} height={6} routingDisabled>
@@ -39,8 +39,8 @@ test("repro: polygon plated pad bounds collapse and skip a nearby test pad", asy
     [hole],
     getBoundsOfPcbElements([pad]),
   )
-  expect(bounds).toEqual({ minX: 1, minY: 0.5, maxX: 1, maxY: 0.5 })
-  expect(candidates).toHaveLength(0)
+  expect(bounds).toEqual({ minX: -1, minY: -0.5, maxX: 3, maxY: 1.5 })
+  expect(candidates).toHaveLength(1)
 
   circuit.db.pcb_note_rect.insert({
     center: {
