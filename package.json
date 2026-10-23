@@ -11,7 +11,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "bun test",
-    "prepare": "npm run build",
+    "prepublish": "npm run build",
     "build": "tsup-node ./index.ts --format esm --dts --sourcemap",
     "benchmark": "bun run lib/benchmarks/su-benchmark.ts",
     "format": "biome format . --write",
