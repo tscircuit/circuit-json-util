@@ -1,9 +1,9 @@
 import { expect, test } from "bun:test"
 import type { AnyCircuitElement } from "circuit-json"
 import {
-  getPcbElementsWithinBounds,
-  getPcbElementCopperBounds,
   getPcbElementBounds,
+  getPcbElementCopperBounds,
+  getPcbElementsWithinBounds,
 } from "../lib/get-bounds-of-pcb-elements"
 
 const mkTrace = (
@@ -11,7 +11,7 @@ const mkTrace = (
 ): AnyCircuitElement =>
   ({
     type: "pcb_trace",
-    pcb_trace_id:("trace"),
+    pcb_trace_id: "trace",
     route: route.map((p) => ({
       route_type: "wire",
       layer: "top",
@@ -59,9 +59,7 @@ test("trace within query bounds through copper stroke", () => {
 })
 
 test("trace reported when only its round end cap reaches the region", () => {
-  const trace = mkTrace([
-    { x: 0, y: 0, width: 0.8 },
-  ])
+  const trace = mkTrace([{ x: 0, y: 0, width: 0.8 }])
 
   // Round cap copper extends to x in [-0.4, 0.4], y in [-0.4, 0.4].
   const hits = getPcbElementsWithinBounds([trace], {

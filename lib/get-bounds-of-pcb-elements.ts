@@ -175,7 +175,8 @@ export const getPcbElementBounds = (
     return getCircleBounds(elm.x, elm.y, elm.hole_diameter)
   }
 
-  if (elm.type === "pcb_plated_hole") {    let platedHoleBounds: PcbBounds | undefined
+  if (elm.type === "pcb_plated_hole") {
+    let platedHoleBounds: PcbBounds | undefined
 
     if ("outer_diameter" in elm && typeof elm.outer_diameter === "number") {
       platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.outer_diameter)
