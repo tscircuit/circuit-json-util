@@ -1,4 +1,10 @@
 import type { AnyCircuitElement } from "circuit-json"
+import {
+  applyToPoint,
+  compose,
+  rotateDEG,
+  translate,
+} from "transformation-matrix"
 
 export interface PcbBounds {
   minX: number
@@ -229,6 +235,23 @@ export const getPcbElementBounds = (
       platedHoleBounds = platedHoleBounds
         ? mergeBounds(platedHoleBounds, drillBounds)
         : drillBounds
+    }
+
+    if (elm.shape === "hole_with_polygon_pad") {
+      const matrix = compose(
+        translate(elm.x, elm.y),
+        rotateDEG(elm.ccw_rotation ?? 0),
+      )
+      const outlineBounds = getBoundsFromPoints(
+        elm.pad_outline.map((point) => applyToPoint(matrix, point)),
+      )
+      if (outlineBounds) {
+        if (platedHoleBounds) {
+          platedHoleBounds = mergeBounds(platedHoleBounds, outlineBounds)
+        } else {
+          platedHoleBounds = outlineBounds
+        }
+      }
     }
 
     if (platedHoleBounds) return platedHoleBounds
