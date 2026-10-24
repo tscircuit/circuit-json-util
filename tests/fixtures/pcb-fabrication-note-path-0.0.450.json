@@ -1,0 +1,5988 @@
+{
+  "sourceCommit": "f25a42897b87d2e9691b25a25f9456e85921200a",
+  "rendererVersion": "0.0.450",
+  "oracle": "Resvg pixels of isolated public SVG path; 80 pixels/mm",
+  "records": [
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-0",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 784.6153846153846 600",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-0",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 0
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-1",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 784.6153846153846 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-1",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 0
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-2",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 784.6153846153846 600",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-2",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 0
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-3",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 784.6153846153846 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-3",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 0
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-4",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 784.6153846153846 600",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-4",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 0
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-5",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 784.6153846153846 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-5",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 0
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-6",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 784.6153846153846 600",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-6",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 0
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-7",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 784.6153846153846 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-7",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 0
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-8",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": -4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 784.6153846153846 L 600 415.38461538461536",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-8",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.09375,
+        "minY": -3.9937500000000004,
+        "maxX": 0.09375,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 1
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-9",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": -4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 784.6153846153846 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-9",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.09375,
+        "minY": -3.9937500000000004,
+        "maxX": 0.09375,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 1
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-10",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": -4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 784.6153846153846 L 600 415.38461538461536",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-10",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.09375,
+        "minY": -3.9937500000000004,
+        "maxX": 0.09375,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 1
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-11",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": -4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 784.6153846153846 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-11",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.09375,
+        "minY": -3.9937500000000004,
+        "maxX": 0.09375,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 1
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-12",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": -4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 784.6153846153846 L 600 415.38461538461536",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-12",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.49375000000000036,
+        "minY": -3.9937500000000004,
+        "maxX": 0.49375000000000036,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 1
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-13",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": -4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 784.6153846153846 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-13",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.49375000000000036,
+        "minY": -3.9937500000000004,
+        "maxX": 0.49375000000000036,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 1
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-14",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": -4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 784.6153846153846 L 600 415.38461538461536",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-14",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.49375000000000036,
+        "minY": -3.9937500000000004,
+        "maxX": 0.49375000000000036,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 1
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-15",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": -4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 784.6153846153846 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-15",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.49375000000000036,
+        "minY": -3.9937500000000004,
+        "maxX": 0.49375000000000036,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 1
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-16",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": -3
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 738.4615384615385 L 784.6153846153846 461.53846153846155",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-16",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.05625,
+        "minY": -3.0812500000000007,
+        "maxX": 4.05625,
+        "maxY": 3.08125
+      },
+      "worldPixel": 0.0125,
+      "count": 13780,
+      "routeIndex": 2
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-17",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": -3
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 738.4615384615385 L 784.6153846153846 461.53846153846155 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-17",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.05625,
+        "minY": -3.0812500000000007,
+        "maxX": 4.05625,
+        "maxY": 3.08125
+      },
+      "worldPixel": 0.0125,
+      "count": 13780,
+      "routeIndex": 2
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-18",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": -3
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 738.4615384615385 L 784.6153846153846 461.53846153846155",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-18",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.05625,
+        "minY": -3.0812500000000007,
+        "maxX": 4.05625,
+        "maxY": 3.08125
+      },
+      "worldPixel": 0.0125,
+      "count": 13780,
+      "routeIndex": 2
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-19",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": -3
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 738.4615384615385 L 784.6153846153846 461.53846153846155 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-19",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.05625,
+        "minY": -3.0812500000000007,
+        "maxX": 4.05625,
+        "maxY": 3.08125
+      },
+      "worldPixel": 0.0125,
+      "count": 13780,
+      "routeIndex": 2
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-20",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": -3
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 738.4615384615385 L 784.6153846153846 461.53846153846155",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-20",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.29375,
+        "minY": -3.3937500000000007,
+        "maxX": 4.293749999999999,
+        "maxY": 3.39375
+      },
+      "worldPixel": 0.0125,
+      "count": 65056,
+      "routeIndex": 2
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-21",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": -3
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 738.4615384615385 L 784.6153846153846 461.53846153846155 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-21",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.29375,
+        "minY": -3.3937500000000007,
+        "maxX": 4.293749999999999,
+        "maxY": 3.39375
+      },
+      "worldPixel": 0.0125,
+      "count": 65056,
+      "routeIndex": 2
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-22",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": -3
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 738.4615384615385 L 784.6153846153846 461.53846153846155",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-22",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.29375,
+        "minY": -3.3937500000000007,
+        "maxX": 4.293749999999999,
+        "maxY": 3.39375
+      },
+      "worldPixel": 0.0125,
+      "count": 65056,
+      "routeIndex": 2
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-23",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": -3
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 738.4615384615385 L 784.6153846153846 461.53846153846155 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-23",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.29375,
+        "minY": -3.3937500000000007,
+        "maxX": 4.293749999999999,
+        "maxY": 3.39375
+      },
+      "worldPixel": 0.0125,
+      "count": 65056,
+      "routeIndex": 2
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-24",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 415.38461538461536",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-24",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.09375,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 3
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-25",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-25",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.24375,
+        "minY": -0.09375,
+        "maxX": 0.09375,
+        "maxY": 4.24375
+      },
+      "worldPixel": 0.0125,
+      "count": 60726,
+      "routeIndex": 3
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-26",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 415.38461538461536",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-26",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.09375,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 3
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-27",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-27",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.24375,
+        "minY": -0.09375,
+        "maxX": 0.09375,
+        "maxY": 4.24375
+      },
+      "worldPixel": 0.0125,
+      "count": 60726,
+      "routeIndex": 3
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-28",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 415.38461538461536",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-28",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 0.49375000000000036,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 3
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-29",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-29",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -5.20625,
+        "minY": -0.49375000000000036,
+        "maxX": 0.49375000000000036,
+        "maxY": 5.20625
+      },
+      "worldPixel": 0.0125,
+      "count": 104653,
+      "routeIndex": 3
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-30",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 415.38461538461536",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-30",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 0.49375000000000036,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 3
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-31",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-31",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -5.20625,
+        "minY": -0.49375000000000036,
+        "maxX": 0.49375000000000036,
+        "maxY": 5.20625
+      },
+      "worldPixel": 0.0125,
+      "count": 104653,
+      "routeIndex": 3
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-32",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": -4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 784.6153846153846",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-32",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -3.9937500000000004,
+        "maxX": 0.09375,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 4
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-33",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": -4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 784.6153846153846 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-33",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.24375,
+        "minY": -4.24375,
+        "maxX": 0.09375,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 60726,
+      "routeIndex": 4
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-34",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": -4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 784.6153846153846",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-34",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -3.9937500000000004,
+        "maxX": 0.09375,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 4
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-35",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": -4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 784.6153846153846 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-35",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.24375,
+        "minY": -4.24375,
+        "maxX": 0.09375,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 60726,
+      "routeIndex": 4
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-36",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": -4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 784.6153846153846",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-36",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -3.9937500000000004,
+        "maxX": 0.49375000000000036,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 4
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-37",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": -4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 784.6153846153846 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-37",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -5.20625,
+        "minY": -5.206250000000001,
+        "maxX": 0.49375000000000036,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 104653,
+      "routeIndex": 4
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-38",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": -4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 784.6153846153846",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-38",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -3.9937500000000004,
+        "maxX": 0.49375000000000036,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 4
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-39",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": -4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 600 784.6153846153846 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-39",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -5.20625,
+        "minY": -5.206250000000001,
+        "maxX": 0.49375000000000036,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 104653,
+      "routeIndex": 4
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-40",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 461.53846153846155 507.6923076923077",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-40",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.3312500000000007,
+        "maxY": 2.08125
+      },
+      "worldPixel": 0.0125,
+      "count": 10089,
+      "routeIndex": 5
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-41",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 461.53846153846155 507.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-41",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.15625,
+        "minY": -0.09375,
+        "maxX": 0.3312500000000007,
+        "maxY": 2.14375
+      },
+      "worldPixel": 0.0125,
+      "count": 32580,
+      "routeIndex": 5
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-42",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 461.53846153846155 507.6923076923077",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-42",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.3312500000000007,
+        "maxY": 2.08125
+      },
+      "worldPixel": 0.0125,
+      "count": 10089,
+      "routeIndex": 5
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-43",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 461.53846153846155 507.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-43",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.15625,
+        "minY": -0.09375,
+        "maxX": 0.3312500000000007,
+        "maxY": 2.14375
+      },
+      "worldPixel": 0.0125,
+      "count": 32580,
+      "routeIndex": 5
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-44",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 461.53846153846155 507.6923076923077",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-44",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 1.6437500000000007,
+        "maxY": 2.41875
+      },
+      "worldPixel": 0.0125,
+      "count": 49004,
+      "routeIndex": 5
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-45",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 461.53846153846155 507.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-45",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.80625,
+        "minY": -0.49375000000000036,
+        "maxX": 1.6437500000000007,
+        "maxY": 2.73125
+      },
+      "worldPixel": 0.0125,
+      "count": 67210,
+      "routeIndex": 5
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-46",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 461.53846153846155 507.6923076923077",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-46",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 1.6437500000000007,
+        "maxY": 2.41875
+      },
+      "worldPixel": 0.0125,
+      "count": 49004,
+      "routeIndex": 5
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-47",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 461.53846153846155 507.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-47",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.80625,
+        "minY": -0.49375000000000036,
+        "maxX": 1.6437500000000007,
+        "maxY": 2.73125
+      },
+      "worldPixel": 0.0125,
+      "count": 67210,
+      "routeIndex": 5
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-48",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 1
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 415.38461538461536 553.8461538461538",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-48",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.01875,
+        "minY": -0.09375,
+        "maxX": 0.01875000000000071,
+        "maxY": 1.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10190,
+      "routeIndex": 6
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-49",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 1
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 415.38461538461536 553.8461538461538 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-49",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.09375,
+        "minY": -0.09375,
+        "maxX": 0.01875000000000071,
+        "maxY": 1.1312499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 18965,
+      "routeIndex": 6
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-50",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 1
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 415.38461538461536 553.8461538461538",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-50",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.01875,
+        "minY": -0.09375,
+        "maxX": 0.01875000000000071,
+        "maxY": 1.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10190,
+      "routeIndex": 6
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-51",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 1
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 415.38461538461536 553.8461538461538 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-51",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.09375,
+        "minY": -0.09375,
+        "maxX": 0.01875000000000071,
+        "maxY": 1.1312499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 18965,
+      "routeIndex": 6
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-52",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 1
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 415.38461538461536 553.8461538461538",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-52",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.11875,
+        "minY": -0.49375000000000036,
+        "maxX": 0.11875000000000036,
+        "maxY": 1.4812499999999993
+      },
+      "worldPixel": 0.0125,
+      "count": 39431,
+      "routeIndex": 6
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-53",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 1
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 415.38461538461536 553.8461538461538 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-53",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.49375,
+        "minY": -0.49375000000000036,
+        "maxX": 0.11875000000000036,
+        "maxY": 1.6437500000000007
+      },
+      "worldPixel": 0.0125,
+      "count": 46062,
+      "routeIndex": 6
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-54",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 1
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 415.38461538461536 553.8461538461538",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-54",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.11875,
+        "minY": -0.49375000000000036,
+        "maxX": 0.11875000000000036,
+        "maxY": 1.4812499999999993
+      },
+      "worldPixel": 0.0125,
+      "count": 39431,
+      "routeIndex": 6
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-55",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 1
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 415.38461538461536 553.8461538461538 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-55",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.49375,
+        "minY": -0.49375000000000036,
+        "maxX": 0.11875000000000036,
+        "maxY": 1.6437500000000007
+      },
+      "worldPixel": 0.0125,
+      "count": 46062,
+      "routeIndex": 6
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-56",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 784.6153846153846 600",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-56",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 7
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-57",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 784.6153846153846 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-57",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 7
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-58",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 784.6153846153846 600",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-58",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 7
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-59",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 784.6153846153846 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-59",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 7
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-60",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 784.6153846153846 600",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-60",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 7
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-61",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 784.6153846153846 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-61",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 7
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-62",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 784.6153846153846 600",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-62",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 7
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-63",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 784.6153846153846 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-63",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 3.9937500000000004,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 7
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-64",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 Z",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-64",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": -0.006249999999999645,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 5120,
+      "routeIndex": 8
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-65",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-65",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": -0.006249999999999645,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 5120,
+      "routeIndex": 8
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-66",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 Z",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-66",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": -0.006249999999999645,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 5120,
+      "routeIndex": 8
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-67",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-67",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": -0.006249999999999645,
+        "maxY": 0.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 5120,
+      "routeIndex": 8
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-68",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 Z",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-68",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": -0.006249999999999645,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 25600,
+      "routeIndex": 8
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-69",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-69",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": -0.006249999999999645,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 25600,
+      "routeIndex": 8
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-70",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 Z",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-70",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": -0.006249999999999645,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 25600,
+      "routeIndex": 8
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-71",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-71",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": -0.006249999999999645,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 25600,
+      "routeIndex": 8
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-72",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 415.38461538461536 600 L 600 600 L 600 600 L 600 415.38461538461536 L 600 415.38461538461536",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-72",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.09375,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 9
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-73",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 415.38461538461536 600 L 600 600 L 600 600 L 600 415.38461538461536 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-73",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.24375,
+        "minY": -0.09375,
+        "maxX": 0.09375,
+        "maxY": 4.24375
+      },
+      "worldPixel": 0.0125,
+      "count": 60726,
+      "routeIndex": 9
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-74",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 415.38461538461536 600 L 600 600 L 600 600 L 600 415.38461538461536 L 600 415.38461538461536",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-74",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.09375,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 10240,
+      "routeIndex": 9
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-75",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 415.38461538461536 600 L 600 600 L 600 600 L 600 415.38461538461536 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-75",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.24375,
+        "minY": -0.09375,
+        "maxX": 0.09375,
+        "maxY": 4.24375
+      },
+      "worldPixel": 0.0125,
+      "count": 60726,
+      "routeIndex": 9
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-76",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 415.38461538461536 600 L 600 600 L 600 600 L 600 415.38461538461536 L 600 415.38461538461536",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-76",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 0.49375000000000036,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 9
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-77",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 415.38461538461536 600 L 600 600 L 600 600 L 600 415.38461538461536 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-77",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -5.20625,
+        "minY": -0.49375000000000036,
+        "maxX": 0.49375000000000036,
+        "maxY": 5.20625
+      },
+      "worldPixel": 0.0125,
+      "count": 104653,
+      "routeIndex": 9
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-78",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 415.38461538461536 600 L 600 600 L 600 600 L 600 415.38461538461536 L 600 415.38461538461536",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-78",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 0.49375000000000036,
+        "maxY": 3.9937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 51200,
+      "routeIndex": 9
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-79",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 4
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 415.38461538461536 600 L 600 600 L 600 600 L 600 415.38461538461536 L 600 415.38461538461536 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-79",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -5.20625,
+        "minY": -0.49375000000000036,
+        "maxX": 0.49375000000000036,
+        "maxY": 5.20625
+      },
+      "worldPixel": 0.0125,
+      "count": 104653,
+      "routeIndex": 9
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-80",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 461.53846153846155 692.3076923076923 L 738.4615384615385 692.3076923076923 L 738.4615384615385 507.6923076923077 L 461.53846153846155 507.6923076923077 Z",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-80",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.09375,
+        "minY": -2.09375,
+        "maxX": 3.09375,
+        "maxY": 2.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 25600,
+      "routeIndex": 10
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-81",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 461.53846153846155 692.3076923076923 L 738.4615384615385 692.3076923076923 L 738.4615384615385 507.6923076923077 L 461.53846153846155 507.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-81",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.09375,
+        "minY": -2.09375,
+        "maxX": 3.09375,
+        "maxY": 2.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 166656,
+      "routeIndex": 10
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-82",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 461.53846153846155 692.3076923076923 L 738.4615384615385 692.3076923076923 L 738.4615384615385 507.6923076923077 L 461.53846153846155 507.6923076923077 Z",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-82",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.09375,
+        "minY": -2.09375,
+        "maxX": 3.09375,
+        "maxY": 2.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 25600,
+      "routeIndex": 10
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-83",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 461.53846153846155 692.3076923076923 L 738.4615384615385 692.3076923076923 L 738.4615384615385 507.6923076923077 L 461.53846153846155 507.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-83",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.09375,
+        "minY": -2.09375,
+        "maxX": 3.09375,
+        "maxY": 2.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 166656,
+      "routeIndex": 10
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-84",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 461.53846153846155 692.3076923076923 L 738.4615384615385 692.3076923076923 L 738.4615384615385 507.6923076923077 L 461.53846153846155 507.6923076923077 Z",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-84",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.4937500000000004,
+        "minY": -2.4937500000000004,
+        "maxX": 3.4937500000000004,
+        "maxY": 2.4937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 128000,
+      "routeIndex": 10
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-85",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 461.53846153846155 692.3076923076923 L 738.4615384615385 692.3076923076923 L 738.4615384615385 507.6923076923077 L 461.53846153846155 507.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-85",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.4937500000000004,
+        "minY": -2.4937500000000004,
+        "maxX": 3.4937500000000004,
+        "maxY": 2.4937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 224000,
+      "routeIndex": 10
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-86",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 461.53846153846155 692.3076923076923 L 738.4615384615385 692.3076923076923 L 738.4615384615385 507.6923076923077 L 461.53846153846155 507.6923076923077 Z",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-86",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.4937500000000004,
+        "minY": -2.4937500000000004,
+        "maxX": 3.4937500000000004,
+        "maxY": 2.4937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 128000,
+      "routeIndex": 10
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-87",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 461.53846153846155 692.3076923076923 L 738.4615384615385 692.3076923076923 L 738.4615384615385 507.6923076923077 L 461.53846153846155 507.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-87",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.4937500000000004,
+        "minY": -2.4937500000000004,
+        "maxX": 3.4937500000000004,
+        "maxY": 2.4937500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 224000,
+      "routeIndex": 10
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-88",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -0.1,
+            "y": 0.05
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 595.3846153846154 597.6923076923077",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-88",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.04374999999999929,
+        "maxY": 0.1437500000000007
+      },
+      "worldPixel": 0.0125,
+      "count": 5176,
+      "routeIndex": 11
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-89",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -0.1,
+            "y": 0.05
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 595.3846153846154 597.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-89",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.04374999999999929,
+        "maxY": 0.1437500000000007
+      },
+      "worldPixel": 0.0125,
+      "count": 5930,
+      "routeIndex": 11
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-90",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -0.1,
+            "y": 0.05
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 595.3846153846154 597.6923076923077",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-90",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.04374999999999929,
+        "maxY": 0.1437500000000007
+      },
+      "worldPixel": 0.0125,
+      "count": 5176,
+      "routeIndex": 11
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-91",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -0.1,
+            "y": 0.05
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 595.3846153846154 597.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-91",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.04374999999999929,
+        "maxY": 0.1437500000000007
+      },
+      "worldPixel": 0.0125,
+      "count": 5930,
+      "routeIndex": 11
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-92",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -0.1,
+            "y": 0.05
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 595.3846153846154 597.6923076923077",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-92",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 0.21875,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 26287,
+      "routeIndex": 11
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-93",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -0.1,
+            "y": 0.05
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 595.3846153846154 597.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-93",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.00625,
+        "minY": -0.49375000000000036,
+        "maxX": 0.21875,
+        "maxY": 0.5437499999999993
+      },
+      "worldPixel": 0.0125,
+      "count": 27212,
+      "routeIndex": 11
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-94",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -0.1,
+            "y": 0.05
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 595.3846153846154 597.6923076923077",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-94",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 0.21875,
+        "maxY": 0.49375000000000036
+      },
+      "worldPixel": 0.0125,
+      "count": 26287,
+      "routeIndex": 11
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-95",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -0.1,
+            "y": 0.05
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 595.3846153846154 597.6923076923077 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-95",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.00625,
+        "minY": -0.49375000000000036,
+        "maxX": 0.21875,
+        "maxY": 0.5437499999999993
+      },
+      "worldPixel": 0.0125,
+      "count": 27212,
+      "routeIndex": 11
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-96",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.464101615137755,
+            "y": 1.9999999999999998
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 440.11838699364205 507.69230769230774",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-96",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.36875000000000036,
+        "maxY": 2.08125
+      },
+      "worldPixel": 0.0125,
+      "count": 10575,
+      "routeIndex": 12
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-97",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.464101615137755,
+            "y": 1.9999999999999998
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 440.11838699364205 507.69230769230774 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-97",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.13125,
+        "minY": -0.09375,
+        "maxX": 0.36875000000000036,
+        "maxY": 2.14375
+      },
+      "worldPixel": 0.0125,
+      "count": 32720,
+      "routeIndex": 12
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-98",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.464101615137755,
+            "y": 1.9999999999999998
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 440.11838699364205 507.69230769230774",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-98",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.36875000000000036,
+        "maxY": 2.08125
+      },
+      "worldPixel": 0.0125,
+      "count": 10575,
+      "routeIndex": 12
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-99",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.464101615137755,
+            "y": 1.9999999999999998
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 440.11838699364205 507.69230769230774 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-99",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.13125,
+        "minY": -0.09375,
+        "maxX": 0.36875000000000036,
+        "maxY": 2.14375
+      },
+      "worldPixel": 0.0125,
+      "count": 32720,
+      "routeIndex": 12
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-100",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.464101615137755,
+            "y": 1.9999999999999998
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 440.11838699364205 507.69230769230774",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-100",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 1.8562499999999993,
+        "maxY": 2.4312500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 51569,
+      "routeIndex": 12
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-101",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.464101615137755,
+            "y": 1.9999999999999998
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 440.11838699364205 507.69230769230774 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-101",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.64375,
+        "minY": -0.49375000000000036,
+        "maxX": 1.8562499999999993,
+        "maxY": 2.7562499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 68360,
+      "routeIndex": 12
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-102",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.464101615137755,
+            "y": 1.9999999999999998
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 440.11838699364205 507.69230769230774",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-102",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 1.8562499999999993,
+        "maxY": 2.4312500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 51569,
+      "routeIndex": 12
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-103",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.464101615137755,
+            "y": 1.9999999999999998
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 440.11838699364205 507.69230769230774 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-103",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.64375,
+        "minY": -0.49375000000000036,
+        "maxX": 1.8562499999999993,
+        "maxY": 2.7562499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 68360,
+      "routeIndex": 12
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-104",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.531790371435707,
+            "y": 1.8778862511435643
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 436.9942905491212 513.328326870297",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-104",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.04374999999999929,
+        "maxY": 1.96875
+      },
+      "worldPixel": 0.0125,
+      "count": 10324,
+      "routeIndex": 13
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-105",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.531790371435707,
+            "y": 1.8778862511435643
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 436.9942905491212 513.328326870297 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-105",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.13125,
+        "minY": -0.09375,
+        "maxX": 0.04374999999999929,
+        "maxY": 2.01875
+      },
+      "worldPixel": 0.0125,
+      "count": 30826,
+      "routeIndex": 13
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-106",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.531790371435707,
+            "y": 1.8778862511435643
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 436.9942905491212 513.328326870297",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-106",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.09375,
+        "maxX": 0.04374999999999929,
+        "maxY": 1.96875
+      },
+      "worldPixel": 0.0125,
+      "count": 10324,
+      "routeIndex": 13
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-107",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.531790371435707,
+            "y": 1.8778862511435643
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 436.9942905491212 513.328326870297 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-107",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.13125,
+        "minY": -0.09375,
+        "maxX": 0.04374999999999929,
+        "maxY": 2.01875
+      },
+      "worldPixel": 0.0125,
+      "count": 30826,
+      "routeIndex": 13
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-108",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.531790371435707,
+            "y": 1.8778862511435643
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 436.9942905491212 513.328326870297",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-108",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 0.2312499999999993,
+        "maxY": 2.3187499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 45481,
+      "routeIndex": 13
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-109",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.531790371435707,
+            "y": 1.8778862511435643
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 436.9942905491212 513.328326870297 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-109",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.64375,
+        "minY": -0.49375000000000036,
+        "maxX": 0.2312499999999993,
+        "maxY": 2.6187500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 60646,
+      "routeIndex": 13
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-110",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.531790371435707,
+            "y": 1.8778862511435643
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 415.38461538461536 600 L 600 600 L 436.9942905491212 513.328326870297",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-110",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -3.9937500000000004,
+        "minY": -0.49375000000000036,
+        "maxX": 0.2312499999999993,
+        "maxY": 2.3187499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 45481,
+      "routeIndex": 13
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-111",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": -4,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -3.531790371435707,
+            "y": 1.8778862511435643
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 415.38461538461536 600 L 600 600 L 436.9942905491212 513.328326870297 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-111",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -4.64375,
+        "minY": -0.49375000000000036,
+        "maxX": 0.2312499999999993,
+        "maxY": 2.6187500000000004
+      },
+      "worldPixel": 0.0125,
+      "count": 60646,
+      "routeIndex": 13
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-112",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          },
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-112",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.36875000000000036,
+        "minY": -1.2312499999999993,
+        "maxX": 4.09375,
+        "maxY": 1.2312499999999993
+      },
+      "worldPixel": 0.0125,
+      "count": 14048,
+      "routeIndex": 14
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-113",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          },
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-113",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.36875000000000036,
+        "minY": -1.2312499999999993,
+        "maxX": 4.09375,
+        "maxY": 1.2312499999999993
+      },
+      "worldPixel": 0.0125,
+      "count": 35622,
+      "routeIndex": 14
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-114",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          },
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-114",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.36875000000000036,
+        "minY": -1.2312499999999993,
+        "maxX": 4.09375,
+        "maxY": 1.2312499999999993
+      },
+      "worldPixel": 0.0125,
+      "count": 14048,
+      "routeIndex": 14
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-115",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          },
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-115",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.36875000000000036,
+        "minY": -1.2312499999999993,
+        "maxX": 4.09375,
+        "maxY": 1.2312499999999993
+      },
+      "worldPixel": 0.0125,
+      "count": 35622,
+      "routeIndex": 14
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-116",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          },
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-116",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -1.8812499999999996,
+        "minY": -1.7562499999999996,
+        "maxX": 4.49375,
+        "maxY": 1.7562499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 67805,
+      "routeIndex": 14
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-117",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          },
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-117",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -1.8812499999999996,
+        "minY": -1.7562499999999996,
+        "maxX": 4.49375,
+        "maxY": 1.7562499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 72270,
+      "routeIndex": 14
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-118",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          },
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-118",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -1.8812499999999996,
+        "minY": -1.7562499999999996,
+        "maxX": 4.49375,
+        "maxY": 1.7562499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 67805,
+      "routeIndex": 14
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-119",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          },
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-119",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -1.8812499999999996,
+        "minY": -1.7562499999999996,
+        "maxX": 4.49375,
+        "maxY": 1.7562499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 72270,
+      "routeIndex": 14
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-120",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-120",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.01875000000000071,
+        "minY": -1.2312499999999993,
+        "maxX": 4.09375,
+        "maxY": 1.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 8439,
+      "routeIndex": 15
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-121",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-121",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.36875000000000036,
+        "minY": -1.2312499999999993,
+        "maxX": 4.09375,
+        "maxY": 1.2312499999999993
+      },
+      "worldPixel": 0.0125,
+      "count": 35622,
+      "routeIndex": 15
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-122",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-122",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.01875000000000071,
+        "minY": -1.2312499999999993,
+        "maxX": 4.09375,
+        "maxY": 1.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 8439,
+      "routeIndex": 15
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-123",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          }
+        ],
+        "stroke_width": 0.2,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "opacity": "0.5",
+        "stroke-width": "9.230769230769232",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-123",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.36875000000000036,
+        "minY": -1.2312499999999993,
+        "maxX": 4.09375,
+        "maxY": 1.2312499999999993
+      },
+      "worldPixel": 0.0125,
+      "count": 35622,
+      "routeIndex": 15
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-124",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-124",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.13124999999999964,
+        "minY": -1.7562499999999996,
+        "maxX": 4.49375,
+        "maxY": 1.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 40981,
+      "routeIndex": 15
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-125",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-125",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -1.8812499999999996,
+        "minY": -1.7562499999999996,
+        "maxX": 4.49375,
+        "maxY": 1.7562499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 72270,
+      "routeIndex": 15
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-126",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgba(255,255,255,0.5)",
+        "fill": "none",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-126",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -0.13124999999999964,
+        "minY": -1.7562499999999996,
+        "maxX": 4.49375,
+        "maxY": 1.09375
+      },
+      "worldPixel": 0.0125,
+      "count": 40981,
+      "routeIndex": 15
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "note-127",
+        "pcb_component_id": "component",
+        "layer": "bottom",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": -1.1
+          },
+          {
+            "x": 4,
+            "y": 1.1
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "svgPath": {
+        "class": "pcb-fabrication-note-path",
+        "stroke": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "d": "M 600 600 L 784.6153846153846 650.7692307692307 L 784.6153846153846 549.2307692307693 Z",
+        "opacity": "0.5",
+        "stroke-width": "46.15384615384615",
+        "data-pcb-component-id": "component",
+        "data-pcb-fabrication-note-path-id": "note-127",
+        "data-type": "pcb_fabrication_note_path",
+        "data-pcb-layer": "overlay"
+      },
+      "inkBounds": {
+        "minX": -1.8812499999999996,
+        "minY": -1.7562499999999996,
+        "maxX": 4.49375,
+        "maxY": 1.7562499999999996
+      },
+      "worldPixel": 0.0125,
+      "count": 72270,
+      "routeIndex": 15
+    }
+  ],
+  "controls": [
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "pcb_fabrication_note_path_maueODBkdr",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          },
+          {
+            "x": 2,
+            "y": 2
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": false,
+        "has_stroke": false
+      },
+      "count": 0,
+      "priorBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 4,
+        "maxY": 2
+      }
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "pcb_fabrication_note_path_zomWfcu5KP",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          },
+          {
+            "x": 2,
+            "y": 2
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true,
+        "has_stroke": false
+      },
+      "count": 8649,
+      "priorBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 4,
+        "maxY": 2
+      }
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "pcb_fabrication_note_path_zWnq9THQ1S",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          },
+          {
+            "x": 2,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0,
+        "is_filled": false
+      },
+      "count": 0,
+      "priorBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 4,
+        "maxY": 2
+      }
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "pcb_fabrication_note_path_9azRSn257p",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "y": 0
+          },
+          {
+            "x": 2,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0,
+        "is_filled": true
+      },
+      "count": 8649,
+      "priorBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 4,
+        "maxY": 2
+      }
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "pcb_fabrication_note_path_19o80eC1va",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 2,
+            "y": 3
+          },
+          {
+            "x": 2,
+            "y": 3
+          }
+        ],
+        "stroke_width": 1,
+        "is_filled": true
+      },
+      "count": 0,
+      "priorBounds": {
+        "minX": 2,
+        "minY": 3,
+        "maxX": 2,
+        "maxY": 3
+      }
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "pcb_fabrication_note_path_Af2ZzyFNG1",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [],
+        "stroke_width": 1
+      },
+      "count": 0,
+      "priorBounds": null
+    },
+    {
+      "element": {
+        "type": "pcb_fabrication_note_path",
+        "pcb_fabrication_note_path_id": "pcb_fabrication_note_path_GtLYVsD9dj",
+        "pcb_component_id": "component",
+        "layer": "top",
+        "route": [
+          {
+            "x": 2,
+            "y": 3
+          }
+        ],
+        "stroke_width": 1
+      },
+      "count": 0,
+      "priorBounds": {
+        "minX": 2,
+        "minY": 3,
+        "maxX": 2,
+        "maxY": 3
+      }
+    }
+  ]
+}

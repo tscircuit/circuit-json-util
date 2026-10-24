@@ -1,0 +1,5351 @@
+{
+  "sourceCommit": "f25a42897b87d2e9691b25a25f9456e85921200a",
+  "rendererVersion": "0.0.450",
+  "oracle": "Resvg pixels of public dimension SVG, independent camera from actual path coordinates",
+  "records": [
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-0",
+        "from": {
+          "x": -4,
+          "y": 0
+        },
+        "to": {
+          "x": 4,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 586.1538461538462",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 586.1538461538462",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 429.2307692307692 600 L 770.7692307692307 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 429.2307692307692 593.0769230769231 L 429.2307692307692 606.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 770.7692307692307 593.0769230769231 L 770.7692307692307 606.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.026125000000001,
+        "minY": -0.14587500000000053,
+        "maxX": 4.0261249999999995,
+        "maxY": 0.3268749999999998
+      },
+      "worldPixel": 0.007750000000000002,
+      "count": 10926,
+      "inputIndex": 0
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-1",
+        "from": {
+          "x": -4,
+          "y": 0
+        },
+        "to": {
+          "x": 4,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 553.8461538461538",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 553.8461538461538",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 600 L 738.4615384615385 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 461.53846153846155 576.9230769230769 L 461.53846153846155 623.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 738.4615384615385 576.9230769230769 L 738.4615384615385 623.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.095833333333335,
+        "minY": -0.4958333333333315,
+        "maxX": 4.095833333333333,
+        "maxY": 1.0958333333333343
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 38482,
+      "inputIndex": 1
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-2",
+        "from": {
+          "x": -4,
+          "y": 0
+        },
+        "to": {
+          "x": 4,
+          "y": 0
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 493.84615384615387",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 493.84615384615387",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 429.2307692307692 507.6923076923077 L 770.7692307692307 507.6923076923077",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 507.6923076923077 L 429.2307692307692 500.7692307692308 L 429.2307692307692 514.6153846153846 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 507.6923076923077 L 770.7692307692307 500.7692307692308 L 770.7692307692307 514.6153846153846 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.026125000000001,
+        "minY": -0.031874999999999244,
+        "maxX": 4.0261249999999995,
+        "maxY": 2.3318750000000006
+      },
+      "worldPixel": 0.007750000000000002,
+      "count": 15058,
+      "inputIndex": 2
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-3",
+        "from": {
+          "x": -4,
+          "y": 0
+        },
+        "to": {
+          "x": 4,
+          "y": 0
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 461.53846153846155",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 461.53846153846155",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 507.6923076923077 L 738.4615384615385 507.6923076923077",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 507.6923076923077 L 461.53846153846155 484.61538461538464 L 461.53846153846155 530.7692307692307 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 507.6923076923077 L 738.4615384615385 484.61538461538464 L 738.4615384615385 530.7692307692307 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.095833333333335,
+        "minY": -0.09583333333333173,
+        "maxX": 4.095833333333333,
+        "maxY": 3.0958333333333354
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 50000,
+      "inputIndex": 3
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-4",
+        "from": {
+          "x": -4,
+          "y": 0
+        },
+        "to": {
+          "x": 4,
+          "y": 0
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 386.48773690615656 614.4484392392294",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 755.7185061369258 614.4484392392294",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 387.94951426154233 620.6406274846134 L 729.4879758000039 620.6406274846134",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 374.10336041538847 620.6406274846134 L 387.94951426154233 613.7175505615365 L 387.94951426154233 627.5637044076904 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 743.3341296461577 620.6406274846134 L 729.4879758000039 613.7175505615365 L 729.4879758000039 627.5637044076904 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.894532457573672,
+        "minY": -0.5916965794912258,
+        "maxX": 4.025591334551258,
+        "maxY": 0.028464407961270175
+      },
+      "worldPixel": 0.00849535599249993,
+      "count": 8859,
+      "inputIndex": 4
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-5",
+        "from": {
+          "x": -4,
+          "y": 0
+        },
+        "to": {
+          "x": 4,
+          "y": 0
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 420.25720656923465 620.6406274846134 L 697.1802834923116 620.6406274846134",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 374.10336041538847 620.6406274846134 L 420.25720656923465 597.5637044076904 L 420.25720656923465 643.7175505615365 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 743.3341296461577 620.6406274846134 L 697.1802834923116 597.5637044076904 L 697.1802834923116 643.7175505615365 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.891232020495341,
+        "minY": -0.9420021637578704,
+        "maxX": 4.096670412079591,
+        "maxY": 0.1020471087129548
+      },
+      "worldPixel": 0.009078689325833266,
+      "count": 27560,
+      "inputIndex": 5
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-6",
+        "from": {
+          "x": -4,
+          "y": 0
+        },
+        "to": {
+          "x": 4,
+          "y": 0
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 493.84615384615387",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 493.84615384615387",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 429.2307692307692 600 L 770.7692307692307 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 429.2307692307692 593.0769230769231 L 429.2307692307692 606.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 770.7692307692307 593.0769230769231 L 770.7692307692307 606.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.026125000000001,
+        "minY": -0.14562499999999926,
+        "maxX": 4.0261249999999995,
+        "maxY": 2.326625000000001
+      },
+      "worldPixel": 0.007750000000000002,
+      "count": 15056,
+      "inputIndex": 6
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-7",
+        "from": {
+          "x": -4,
+          "y": 0
+        },
+        "to": {
+          "x": 4,
+          "y": 0
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 461.53846153846155",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 461.53846153846155",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 600 L 738.4615384615385 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 461.53846153846155 576.9230769230769 L 461.53846153846155 623.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 738.4615384615385 576.9230769230769 L 738.4615384615385 623.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.095833333333335,
+        "minY": -0.49583333333333524,
+        "maxX": 4.095833333333333,
+        "maxY": 3.0958333333333328
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 50002,
+      "inputIndex": 7
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-8",
+        "from": {
+          "x": -4,
+          "y": 0
+        },
+        "to": {
+          "x": 4,
+          "y": 0
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 540",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 540",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 429.2307692307692 600 L 770.7692307692307 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 429.2307692307692 593.0769230769231 L 429.2307692307692 606.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 770.7692307692307 593.0769230769231 L 770.7692307692307 606.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.026125000000001,
+        "minY": -0.14962500000000015,
+        "maxX": 4.0261249999999995,
+        "maxY": 1.3306250000000002
+      },
+      "worldPixel": 0.007750000000000002,
+      "count": 12040,
+      "inputIndex": 8
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-9",
+        "from": {
+          "x": -4,
+          "y": 0
+        },
+        "to": {
+          "x": 4,
+          "y": 0
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 507.6923076923077",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 507.6923076923077",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 600 L 738.4615384615385 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 461.53846153846155 576.9230769230769 L 461.53846153846155 623.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 738.4615384615385 576.9230769230769 L 738.4615384615385 623.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.095833333333335,
+        "minY": -0.4958333333333328,
+        "maxX": 4.095833333333333,
+        "maxY": 2.095833333333335
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 44242,
+      "inputIndex": 9
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-10",
+        "from": {
+          "x": 0,
+          "y": -4
+        },
+        "to": {
+          "x": 0,
+          "y": 4
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 586.1538461538462 784.6153846153846",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 586.1538461538462 415.38461538461536",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 770.7692307692307 L 600 429.2307692307692",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 593.0769230769231 770.7692307692307 L 606.9230769230769 770.7692307692307 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 593.0769230769231 429.2307692307692 L 606.9230769230769 429.2307692307692 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -0.3268749999999998,
+        "minY": -4.0261249999999995,
+        "maxX": 0.14587500000000053,
+        "maxY": 4.026125
+      },
+      "worldPixel": 0.007750000000000002,
+      "count": 10926,
+      "inputIndex": 10
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-11",
+        "from": {
+          "x": 0,
+          "y": -4
+        },
+        "to": {
+          "x": 0,
+          "y": 4
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 553.8461538461538 784.6153846153846",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 553.8461538461538 415.38461538461536",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 738.4615384615385 L 600 461.53846153846155",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 576.9230769230769 738.4615384615385 L 623.0769230769231 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 576.9230769230769 461.53846153846155 L 623.0769230769231 461.53846153846155 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -1.0958333333333337,
+        "minY": -4.095833333333333,
+        "maxX": 0.4958333333333303,
+        "maxY": 4.095833333333335
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 38482,
+      "inputIndex": 11
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-12",
+        "from": {
+          "x": 0,
+          "y": -4
+        },
+        "to": {
+          "x": 0,
+          "y": 4
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 600 678.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 600 309.2307692307692",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 678.4615384615385 L 600 336.9230769230769",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 692.3076923076923 L 593.0769230769231 678.4615384615385 L 606.9230769230769 678.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 323.0769230769231 L 593.0769230769231 336.9230769230769 L 606.9230769230769 336.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -0.14983333333333293,
+        "minY": -4.0265,
+        "maxX": 0.14983333333333293,
+        "maxY": 6.326500000000001
+      },
+      "worldPixel": 0.009666666666666669,
+      "count": 7156,
+      "inputIndex": 12
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-13",
+        "from": {
+          "x": 0,
+          "y": -4
+        },
+        "to": {
+          "x": 0,
+          "y": 4
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 600 646.1538461538462",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 600 276.9230769230769",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 646.1538461538462 L 600 369.2307692307692",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 692.3076923076923 L 576.9230769230769 646.1538461538462 L 623.0769230769231 646.1538461538462 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 323.0769230769231 L 576.9230769230769 369.2307692307692 L 623.0769230769231 369.2307692307692 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -0.50375,
+        "minY": -4.095416666666665,
+        "maxX": 0.50375,
+        "maxY": 7.095416666666668
+      },
+      "worldPixel": 0.010833333333333334,
+      "count": 26074,
+      "inputIndex": 13
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-14",
+        "from": {
+          "x": 0,
+          "y": -4
+        },
+        "to": {
+          "x": 0,
+          "y": 4
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 571.1031215215412 799.063823854614",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 571.1031215215412 429.83305462384476",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 558.7187450307731 791.4098582538443 L 558.7187450307731 449.8713967153827",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 558.7187450307731 805.2560120999981 L 551.7956681076962 791.4098582538443 L 565.64182195385 791.4098582538443 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 558.7187450307731 436.0252428692288 L 551.7956681076962 449.8713967153827 L 565.64182195385 449.8713967153827 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -1.0461263262580804,
+        "minY": -4.443338016801838,
+        "maxX": 0.026067169246915114,
+        "maxY": 4.028615133286877
+      },
+      "worldPixel": 0.008122677996249966,
+      "count": 10305,
+      "inputIndex": 14
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-15",
+        "from": {
+          "x": 0,
+          "y": -4
+        },
+        "to": {
+          "x": 0,
+          "y": 4
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 600 784.6153846153846",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 600 415.38461538461536",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 558.7187450307731 759.1021659461519 L 558.7187450307731 482.179089023075",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 558.7187450307731 805.2560120999981 L 535.64182195385 759.1021659461519 L 581.7956681076962 759.1021659461519 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 558.7187450307731 436.0252428692288 L 535.64182195385 482.179089023075 L 581.7956681076962 482.179089023075 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -1.3893414962018298,
+        "minY": -4.44166928693309,
+        "maxX": 0.09938644115691583,
+        "maxY": 4.0989278273881276
+      },
+      "worldPixel": 0.0087060113295833,
+      "count": 30950,
+      "inputIndex": 15
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-16",
+        "from": {
+          "x": 0,
+          "y": -4
+        },
+        "to": {
+          "x": 0,
+          "y": 4
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 493.84615384615387 784.6153846153846",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 493.84615384615387 415.38461538461536",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 770.7692307692307 L 600 429.2307692307692",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 593.0769230769231 770.7692307692307 L 606.9230769230769 770.7692307692307 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 593.0769230769231 429.2307692307692 L 606.9230769230769 429.2307692307692 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -2.326625,
+        "minY": -4.0261249999999995,
+        "maxX": 0.14562499999999926,
+        "maxY": 4.026125
+      },
+      "worldPixel": 0.007750000000000002,
+      "count": 15056,
+      "inputIndex": 16
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-17",
+        "from": {
+          "x": 0,
+          "y": -4
+        },
+        "to": {
+          "x": 0,
+          "y": 4
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 461.53846153846155 784.6153846153846",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 461.53846153846155 415.38461538461536",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 738.4615384615385 L 600 461.53846153846155",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 576.9230769230769 738.4615384615385 L 623.0769230769231 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 576.9230769230769 461.53846153846155 L 623.0769230769231 461.53846153846155 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -3.0958333333333328,
+        "minY": -4.095833333333333,
+        "maxX": 0.49583333333333524,
+        "maxY": 4.095833333333335
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 50002,
+      "inputIndex": 17
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-18",
+        "from": {
+          "x": 0,
+          "y": -4
+        },
+        "to": {
+          "x": 0,
+          "y": 4
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 540 784.6153846153846",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 540 415.38461538461536",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 770.7692307692307 L 600 429.2307692307692",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 593.0769230769231 770.7692307692307 L 606.9230769230769 770.7692307692307 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 593.0769230769231 429.2307692307692 L 606.9230769230769 429.2307692307692 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -1.3306250000000002,
+        "minY": -4.0261249999999995,
+        "maxX": 0.14962500000000015,
+        "maxY": 4.026125
+      },
+      "worldPixel": 0.007750000000000002,
+      "count": 12040,
+      "inputIndex": 18
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-19",
+        "from": {
+          "x": 0,
+          "y": -4
+        },
+        "to": {
+          "x": 0,
+          "y": 4
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 507.6923076923077 784.6153846153846",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 507.6923076923077 415.38461538461536",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 738.4615384615385 L 600 461.53846153846155",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 784.6153846153846 L 576.9230769230769 738.4615384615385 L 623.0769230769231 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 415.38461538461536 L 576.9230769230769 461.53846153846155 L 623.0769230769231 461.53846153846155 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -2.0958333333333345,
+        "minY": -4.095833333333333,
+        "maxX": 0.4958333333333328,
+        "maxY": 4.095833333333335
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 44242,
+      "inputIndex": 19
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-20",
+        "from": {
+          "x": -3,
+          "y": -2
+        },
+        "to": {
+          "x": 3,
+          "y": 2
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 453.8579972830353 680.7869959245529",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 730.7810742061122 496.1716113091683",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 473.0591579216009 684.6272280522661 L 726.9408420783991 515.3727719477339",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 469.2189257938878 678.8668798606964 L 476.89939004931404 690.3875762438357 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 723.100609950686 509.6124237561643 L 730.7810742061122 521.1331201393036 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -3.1973202248197987,
+        "minY": -2.0311183603473326,
+        "maxX": 3.0309101659522333,
+        "maxY": 2.2807334486486877
+      },
+      "worldPixel": 0.006222008382389641,
+      "count": 14839,
+      "inputIndex": 20
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-21",
+        "from": {
+          "x": -3,
+          "y": -2
+        },
+        "to": {
+          "x": 3,
+          "y": 2
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 435.93691402037405 653.905371030561",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 712.859990943451 469.2899864151765",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 499.9407828155928 666.7061447896048 L 700.0592171844072 533.2938552103952",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 487.14000905654905 647.5049841510391 L 512.7415565746365 685.9073054281704 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 687.2584434253635 514.0926945718296 L 712.859990943451 552.4950158489609 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -3.652892217206486,
+        "minY": -2.096918035472239,
+        "maxX": 3.098192020981256,
+        "maxY": 2.9289683298100835
+      },
+      "worldPixel": 0.007128916830187691,
+      "count": 50614,
+      "inputIndex": 21
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-22",
+        "from": {
+          "x": -3,
+          "y": -2
+        },
+        "to": {
+          "x": 3,
+          "y": 2
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 461.53846153846155 586.1538461538462",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 738.4615384615385 401.53846153846155",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 473.0591579216009 592.3195357445737 L 726.9408420783991 423.06507964004163",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 600 L 469.2189257938878 586.5591875530041 L 476.89939004931404 598.0798839361435 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 415.38461538461536 L 723.100609950686 417.3047314484719 L 730.7810742061122 428.8254278316113 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -3.0304999999999995,
+        "minY": -2.0261666666666653,
+        "maxX": 3.0304999999999995,
+        "maxY": 4.3261666666666665
+      },
+      "worldPixel": 0.006333333333333332,
+      "count": 20763,
+      "inputIndex": 22
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-23",
+        "from": {
+          "x": -3,
+          "y": -2
+        },
+        "to": {
+          "x": 3,
+          "y": 2
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 461.53846153846155 553.8461538461538",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 738.4615384615385 369.2307692307692",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 499.9407828155928 574.3984524819125 L 700.0592171844072 440.98616290270286",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 600 L 487.14000905654905 555.1972918433469 L 512.7415565746365 593.5996131204781 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 415.38461538461536 L 687.2584434253635 421.78500226413723 L 712.859990943451 460.1873235412685 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -3.1012499999999994,
+        "minY": -2.0962499999999986,
+        "maxX": 3.101250000000002,
+        "maxY": 5.096250000000001
+      },
+      "worldPixel": 0.0075,
+      "count": 60679,
+      "inputIndex": 23
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-24",
+        "from": {
+          "x": -3,
+          "y": -2
+        },
+        "to": {
+          "x": 3,
+          "y": 2
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 432.64158306000274 706.7561315469217",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 709.5646599830797 522.1407469315371",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 431.777902952374 705.2678555368796 L 685.6595871091722 536.0133994323473",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 420.25720656923465 712.9483197923057 L 427.9376708246609 699.5075073453098 L 435.6181350800872 711.0282037284492 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 697.1802834923116 528.3329351769212 L 681.8193549814591 530.2530512407777 L 689.4998192368853 541.7737476239171 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -3.89228736038284,
+        "minY": -2.4463451733087047,
+        "maxX": 3.032003616012089,
+        "maxY": 2.0264463351120825
+      },
+      "worldPixel": 0.006828689325833264,
+      "count": 13499,
+      "inputIndex": 24
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-25",
+        "from": {
+          "x": -3,
+          "y": -2
+        },
+        "to": {
+          "x": 3,
+          "y": 2
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 461.53846153846155 692.3076923076923",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 738.4615384615385 507.6923076923077",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 458.6595278463659 687.3467722742182 L 658.7779622151803 553.9344826950087",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 420.25720656923465 712.9483197923057 L 445.85875408732215 668.1456116356526 L 471.46030160540965 706.5479329127838 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 697.1802834923116 528.3329351769212 L 645.9771884561366 534.7333220564431 L 671.5787359742241 573.1356433335743 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -3.890098120682843,
+        "minY": -2.4435075841703737,
+        "maxX": 3.0994392469112575,
+        "maxY": 2.100062305898751
+      },
+      "worldPixel": 0.007412022659166597,
+      "count": 39060,
+      "inputIndex": 25
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-26",
+        "from": {
+          "x": -3,
+          "y": -2
+        },
+        "to": {
+          "x": 3,
+          "y": 2
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 402.65490224686033 603.9823533702904",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 679.5779791699372 419.3669687549058",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 473.0591579216009 684.6272280522661 L 726.9408420783991 515.3727719477339",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 469.2189257938878 678.8668798606964 L 476.89939004931404 690.3875762438357 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 723.100609950686 509.6124237561643 L 730.7810742061122 521.1331201393036 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.3076374479521835,
+        "minY": -2.026809547699209,
+        "maxX": 3.0318269966341584,
+        "maxY": 3.9405252246762505
+      },
+      "worldPixel": 0.007146508709431688,
+      "count": 16781,
+      "inputIndex": 26
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-27",
+        "from": {
+          "x": -3,
+          "y": -2
+        },
+        "to": {
+          "x": 3,
+          "y": 2
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 384.73381898419905 577.1007284762985",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 661.656895907276 392.485343860914",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 499.9407828155928 666.7061447896048 L 700.0592171844072 533.2938552103952",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 487.14000905654905 647.5049841510391 L 512.7415565746365 685.9073054281704 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 687.2584434253635 514.0926945718296 L 712.859990943451 552.4950158489609 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.766144575644573,
+        "minY": -2.0981193873221904,
+        "maxX": 3.102043986968884,
+        "maxY": 4.5942702703357226
+      },
+      "worldPixel": 0.00805341715722974,
+      "count": 52511,
+      "inputIndex": 27
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-28",
+        "from": {
+          "x": -3,
+          "y": -2
+        },
+        "to": {
+          "x": 3,
+          "y": 2
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 428.2564497649478 642.3846746474217",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 705.1795266880247 457.7692900320371",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 473.0591579216009 684.6272280522661 L 726.9408420783991 515.3727719477339",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 469.2189257938878 678.8668798606964 L 476.89939004931404 690.3875762438357 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 723.100609950686 509.6124237561643 L 730.7810742061122 521.1331201393036 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -3.752816339596061,
+        "minY": -2.0292647195830504,
+        "maxX": 3.0317060845032637,
+        "maxY": 3.11093010222225
+      },
+      "worldPixel": 0.006684258545910666,
+      "count": 16025,
+      "inputIndex": 28
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-29",
+        "from": {
+          "x": -3,
+          "y": -2
+        },
+        "to": {
+          "x": 3,
+          "y": 2
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 410.33536650228655 615.5030497534298",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 687.2584434253635 430.88766513804524",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 499.9407828155928 666.7061447896048 L 700.0592171844072 533.2938552103952",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 692.3076923076923 L 487.14000905654905 647.5049841510391 L 512.7415565746365 685.9073054281704 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 687.2584434253635 514.0926945718296 L 712.859990943451 552.4950158489609 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.209847103695976,
+        "minY": -2.1019357487305736,
+        "maxX": 3.100446711245516,
+        "maxY": 3.7660363374062626
+      },
+      "worldPixel": 0.007591166993708716,
+      "count": 51818,
+      "inputIndex": 29
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-30",
+        "from": {
+          "x": 4,
+          "y": 0
+        },
+        "to": {
+          "x": -4,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 613.8461538461538",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 613.8461538461538",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 770.7692307692307 600 L 429.2307692307692 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 770.7692307692307 606.9230769230769 L 770.7692307692307 593.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 429.2307692307692 606.9230769230769 L 429.2307692307692 593.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.026125000000001,
+        "minY": -0.3268749999999998,
+        "maxX": 4.0261249999999995,
+        "maxY": 0.14587499999999992
+      },
+      "worldPixel": 0.007750000000000002,
+      "count": 10926,
+      "inputIndex": 30
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-31",
+        "from": {
+          "x": 4,
+          "y": 0
+        },
+        "to": {
+          "x": -4,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 646.1538461538462",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 646.1538461538462",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 600 L 461.53846153846155 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 738.4615384615385 623.0769230769231 L 738.4615384615385 576.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 461.53846153846155 623.0769230769231 L 461.53846153846155 576.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.095833333333335,
+        "minY": -1.0958333333333325,
+        "maxX": 4.095833333333333,
+        "maxY": 0.495833333333334
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 38482,
+      "inputIndex": 31
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-32",
+        "from": {
+          "x": 4,
+          "y": 0
+        },
+        "to": {
+          "x": -4,
+          "y": 0
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 493.84615384615387",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 493.84615384615387",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 770.7692307692307 507.6923076923077 L 429.2307692307692 507.6923076923077",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 507.6923076923077 L 770.7692307692307 514.6153846153846 L 770.7692307692307 500.7692307692308 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 507.6923076923077 L 429.2307692307692 514.6153846153846 L 429.2307692307692 500.7692307692308 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.026125000000001,
+        "minY": -0.031874999999999244,
+        "maxX": 4.0261249999999995,
+        "maxY": 2.3318750000000006
+      },
+      "worldPixel": 0.007750000000000002,
+      "count": 15058,
+      "inputIndex": 32
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-33",
+        "from": {
+          "x": 4,
+          "y": 0
+        },
+        "to": {
+          "x": -4,
+          "y": 0
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 461.53846153846155",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 461.53846153846155",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 507.6923076923077 L 461.53846153846155 507.6923076923077",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 507.6923076923077 L 738.4615384615385 530.7692307692307 L 738.4615384615385 484.61538461538464 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 507.6923076923077 L 461.53846153846155 530.7692307692307 L 461.53846153846155 484.61538461538464 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.095833333333335,
+        "minY": -0.09583333333333173,
+        "maxX": 4.095833333333333,
+        "maxY": 3.0958333333333354
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 50000,
+      "inputIndex": 33
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-34",
+        "from": {
+          "x": 4,
+          "y": 0
+        },
+        "to": {
+          "x": -4,
+          "y": 0
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 755.7185061369258 614.4484392392294",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 386.48773690615656 614.4484392392294",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 729.4879758000039 620.6406274846134 L 387.94951426154233 620.6406274846134",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 743.3341296461577 620.6406274846134 L 729.4879758000039 627.5637044076904 L 729.4879758000039 613.7175505615365 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 374.10336041538847 620.6406274846134 L 387.94951426154233 627.5637044076904 L 387.94951426154233 613.7175505615365 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.894532457573672,
+        "minY": -0.5916965794912258,
+        "maxX": 4.025591334551258,
+        "maxY": 0.028464407961270175
+      },
+      "worldPixel": 0.00849535599249993,
+      "count": 8859,
+      "inputIndex": 34
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-35",
+        "from": {
+          "x": 4,
+          "y": 0
+        },
+        "to": {
+          "x": -4,
+          "y": 0
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 697.1802834923116 620.6406274846134 L 420.25720656923465 620.6406274846134",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 743.3341296461577 620.6406274846134 L 697.1802834923116 643.7175505615365 L 697.1802834923116 597.5637044076904 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 374.10336041538847 620.6406274846134 L 420.25720656923465 643.7175505615365 L 420.25720656923465 597.5637044076904 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.891232020495341,
+        "minY": -0.9420021637578704,
+        "maxX": 4.096670412079591,
+        "maxY": 0.1020471087129548
+      },
+      "worldPixel": 0.009078689325833266,
+      "count": 27560,
+      "inputIndex": 35
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-36",
+        "from": {
+          "x": 4,
+          "y": 0
+        },
+        "to": {
+          "x": -4,
+          "y": 0
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 706.1538461538462",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 706.1538461538462",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 770.7692307692307 600 L 429.2307692307692 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 770.7692307692307 606.9230769230769 L 770.7692307692307 593.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 429.2307692307692 606.9230769230769 L 429.2307692307692 593.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.026125000000001,
+        "minY": -2.3266250000000013,
+        "maxX": 4.0261249999999995,
+        "maxY": 0.14562499999999987
+      },
+      "worldPixel": 0.007750000000000002,
+      "count": 15055,
+      "inputIndex": 36
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-37",
+        "from": {
+          "x": 4,
+          "y": 0
+        },
+        "to": {
+          "x": -4,
+          "y": 0
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 600 L 461.53846153846155 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 738.4615384615385 623.0769230769231 L 738.4615384615385 576.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 461.53846153846155 623.0769230769231 L 461.53846153846155 576.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.095833333333335,
+        "minY": -3.0958333333333314,
+        "maxX": 4.095833333333333,
+        "maxY": 0.49583333333333585
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 50002,
+      "inputIndex": 37
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-38",
+        "from": {
+          "x": 4,
+          "y": 0
+        },
+        "to": {
+          "x": -4,
+          "y": 0
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 660",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 660",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 770.7692307692307 600 L 429.2307692307692 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 770.7692307692307 606.9230769230769 L 770.7692307692307 593.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 429.2307692307692 606.9230769230769 L 429.2307692307692 593.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.026125000000001,
+        "minY": -1.3306250000000002,
+        "maxX": 4.0261249999999995,
+        "maxY": 0.14962499999999954
+      },
+      "worldPixel": 0.007750000000000002,
+      "count": 12040,
+      "inputIndex": 38
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-39",
+        "from": {
+          "x": 4,
+          "y": 0
+        },
+        "to": {
+          "x": -4,
+          "y": 0
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 692.3076923076923",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 692.3076923076923",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 738.4615384615385 600 L 461.53846153846155 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 738.4615384615385 623.0769230769231 L 738.4615384615385 576.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 461.53846153846155 623.0769230769231 L 461.53846153846155 576.9230769230769 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.095833333333335,
+        "minY": -2.095833333333331,
+        "maxX": 4.095833333333333,
+        "maxY": 0.49583333333333585
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 44242,
+      "inputIndex": 39
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-40",
+        "from": {
+          "x": 2,
+          "y": -3
+        },
+        "to": {
+          "x": 2,
+          "y": -3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": 1.9702083333333325,
+        "minY": -3.0297916666666667,
+        "maxX": 2.0297916666666658,
+        "maxY": -2.9702083333333333
+      },
+      "worldPixel": 0.0010833333333333333,
+      "count": 2488,
+      "inputIndex": 40
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-41",
+        "from": {
+          "x": 2,
+          "y": -3
+        },
+        "to": {
+          "x": 2,
+          "y": -3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": 1.900833333333332,
+        "minY": -3.0991666666666657,
+        "maxX": 2.099166666666666,
+        "maxY": -2.900833333333333
+      },
+      "worldPixel": 0.0016666666666666668,
+      "count": 11514,
+      "inputIndex": 41
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-42",
+        "from": {
+          "x": 2,
+          "y": -3
+        },
+        "to": {
+          "x": 2,
+          "y": -3
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 632.3076923076923",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 632.3076923076923",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 646.1538461538462 L 692.3076923076923 646.1538461538462",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 646.1538461538462 L 692.3076923076923 646.1538461538462 L 692.3076923076923 646.1538461538462 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 646.1538461538462 L 692.3076923076923 646.1538461538462 L 692.3076923076923 646.1538461538462 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": 1.9715,
+        "minY": -3.0304999999999995,
+        "maxX": 2.028499999999998,
+        "maxY": -0.6694999999999993
+      },
+      "worldPixel": 0.0030000000000000005,
+      "count": 15668,
+      "inputIndex": 42
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-43",
+        "from": {
+          "x": 2,
+          "y": -3
+        },
+        "to": {
+          "x": 2,
+          "y": -3
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 646.1538461538462 L 692.3076923076923 646.1538461538462",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 646.1538461538462 L 692.3076923076923 646.1538461538462 L 692.3076923076923 646.1538461538462 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 646.1538461538462 L 692.3076923076923 646.1538461538462 L 692.3076923076923 646.1538461538462 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": 1.9020833333333336,
+        "minY": -3.0979166666666687,
+        "maxX": 2.097916666666667,
+        "maxY": 0.09791666666666492
+      },
+      "worldPixel": 0.004166666666666667,
+      "count": 36442,
+      "inputIndex": 43
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-44",
+        "from": {
+          "x": 2,
+          "y": -3
+        },
+        "to": {
+          "x": 2,
+          "y": -3
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 663.4108138292335 752.9099777007679",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 663.4108138292335 752.9099777007679",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 651.0264373384655 759.1021659461519 L 651.0264373384655 759.1021659461519",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 651.0264373384655 759.1021659461519 L 651.0264373384655 759.1021659461519 L 651.0264373384655 759.1021659461519 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 651.0264373384655 759.1021659461519 L 651.0264373384655 759.1021659461519 L 651.0264373384655 759.1021659461519 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": 1.0764128351204776,
+        "minY": -3.4768802693778853,
+        "maxX": 2.029159973879607,
+        "maxY": -2.970333326122072
+      },
+      "worldPixel": 0.0018286893258332613,
+      "count": 14795,
+      "inputIndex": 44
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-45",
+        "from": {
+          "x": 2,
+          "y": -3
+        },
+        "to": {
+          "x": 2,
+          "y": -3
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 651.0264373384655 759.1021659461519 L 651.0264373384655 759.1021659461519",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 651.0264373384655 759.1021659461519 L 651.0264373384655 759.1021659461519 L 651.0264373384655 759.1021659461519 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 651.0264373384655 759.1021659461519 L 651.0264373384655 759.1021659461519 L 651.0264373384655 759.1021659461519 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": 1.006463272198809,
+        "minY": -3.548023845407885,
+        "maxX": 2.0991095368012758,
+        "maxY": -2.8991897500920714
+      },
+      "worldPixel": 0.002412022659166595,
+      "count": 11022,
+      "inputIndex": 45
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-46",
+        "from": {
+          "x": 2,
+          "y": -3
+        },
+        "to": {
+          "x": 2,
+          "y": -3
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": 1.9702083333333325,
+        "minY": -3.0297916666666667,
+        "maxX": 2.0297916666666658,
+        "maxY": -2.9702083333333333
+      },
+      "worldPixel": 0.0010833333333333333,
+      "count": 2488,
+      "inputIndex": 46
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-47",
+        "from": {
+          "x": 2,
+          "y": -3
+        },
+        "to": {
+          "x": 2,
+          "y": -3
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": 1.900833333333332,
+        "minY": -3.0991666666666657,
+        "maxX": 2.099166666666666,
+        "maxY": -2.900833333333333
+      },
+      "worldPixel": 0.0016666666666666668,
+      "count": 11514,
+      "inputIndex": 47
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-48",
+        "from": {
+          "x": 2,
+          "y": -3
+        },
+        "to": {
+          "x": 2,
+          "y": -3
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": 1.9702083333333325,
+        "minY": -3.0297916666666667,
+        "maxX": 2.0297916666666658,
+        "maxY": -2.9702083333333333
+      },
+      "worldPixel": 0.0010833333333333333,
+      "count": 2488,
+      "inputIndex": 48
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-49",
+        "from": {
+          "x": 2,
+          "y": -3
+        },
+        "to": {
+          "x": 2,
+          "y": -3
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 L 692.3076923076923 738.4615384615385 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": 1.900833333333332,
+        "minY": -3.0991666666666657,
+        "maxX": 2.099166666666666,
+        "maxY": -2.900833333333333
+      },
+      "worldPixel": 0.0016666666666666668,
+      "count": 11514,
+      "inputIndex": 49
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-50",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0.2,
+          "y": 0.1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 593.807811754616 587.6156235092319",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 603.0385809853852 583.0002388938473",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 612.3843764907681 593.807811754616 L 596.8463927400012 601.5768036299994",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 609.288282368076 587.6156235092319 L 615.48047061346 600 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 593.7502986173091 595.3846153846154 L 599.9424868626932 607.7689918753834 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -0.16401934522374462,
+        "minY": -0.16861098601024224,
+        "maxX": 0.3349389535759089,
+        "maxY": 0.397691377658076
+      },
+      "worldPixel": 0.001530546928833292,
+      "count": 45867,
+      "inputIndex": 50
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-51",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0.2,
+          "y": 0.1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 579.3593725153866 558.7187450307731",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 588.5901417461558 554.1033604153885",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 641.2812549692269 579.3593725153866 L 567.9495142615424 616.0252428692288",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 630.9609412269201 558.7187450307731 L 651.6015687115336 600 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 557.6292005192356 595.3846153846154 L 578.269828003849 636.6658703538423 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -0.917425469328072,
+        "minY": -0.7929800400218284,
+        "maxX": 1.1174254693280707,
+        "maxY": 1.093881739459323
+      },
+      "worldPixel": 0.0033633899812498245,
+      "count": 125874,
+      "inputIndex": 51
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-52",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0.2,
+          "y": 0.1
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 600 493.84615384615387",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 609.2307692307693 489.2307692307692",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 612.3843764907681 501.5001194469237 L 596.8463927400012 509.26911132230714",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 507.6923076923077 L 609.288282368076 495.30793120153965 L 615.48047061346 507.69230769230774 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 503.0769230769231 L 593.7502986173091 503.0769230769231 L 599.9424868626932 515.4612995676912 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -0.13587500000000072,
+        "minY": -0.028708333333334935,
+        "maxX": 0.3358749999999994,
+        "maxY": 2.4287083333333324
+      },
+      "worldPixel": 0.0030833333333333333,
+      "count": 37290,
+      "inputIndex": 52
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-53",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0.2,
+          "y": 0.1
+        },
+        "offset_distance": 2,
+        "offset_direction": {
+          "x": 0,
+          "y": 3
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 600 461.53846153846155",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 609.2307692307693 456.9230769230769",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 641.2812549692269 487.05168020769423 L 567.9495142615424 523.7175505615365",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 507.6923076923077 L 630.9609412269201 466.41105272308084 L 651.6015687115336 507.6923076923077 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 503.0769230769231 L 557.6292005192356 503.0769230769231 L 578.269828003849 544.35817804615 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -0.9178750000000037,
+        "minY": -0.10112499999999959,
+        "maxX": 1.1178749999999973,
+        "maxY": 3.2011250000000007
+      },
+      "worldPixel": 0.00425,
+      "count": 120913,
+      "inputIndex": 53
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-54",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0.2,
+          "y": 0.1
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 571.1031215215412 614.4484392392294",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 580.3338907523104 609.8330546238448",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 571.1031215215412 614.4484392392294 L 555.5651377707743 622.2174311146129",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 558.7187450307731 620.6406274846134 L 568.0070273988491 608.2562509938454 L 574.1992156442332 620.6406274846134 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 567.9495142615424 616.0252428692288 L 552.4690436480822 616.0252428692288 L 558.6612318934663 628.4096193599969 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -1.0294583592229902,
+        "minY": -0.6151104074019813,
+        "maxX": 0.22913574112039214,
+        "maxY": 0.12908342412433949
+      },
+      "worldPixel": 0.002108197823020739,
+      "count": 31358,
+      "inputIndex": 54
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-55",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0.2,
+          "y": 0.1
+        },
+        "offset_distance": -1,
+        "offset_direction": {
+          "x": 2,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 600 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 609.2307692307693 595.3846153846154",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 526.6682592923155 636.6658703538423",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 558.7187450307731 620.6406274846134 L 589.6796862576933 579.3593725153866 L 610.3203137423067 620.6406274846134 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 567.9495142615424 616.0252428692288 L 516.3479455500087 616.0252428692288 L 536.9885730346222 657.3064978384557 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -1.811852660327988,
+        "minY": -1.239742785803041,
+        "maxX": 0.30035624789690074,
+        "maxY": 0.44531559480312144
+      },
+      "worldPixel": 0.0033633899812498245,
+      "count": 94440,
+      "inputIndex": 55
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-56",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0.2,
+          "y": 0.1
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 552.5265567853891 505.0531135707782",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 561.7573260161583 500.43772895539354",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 612.3843764907681 593.807811754616 L 596.8463927400012 601.5768036299994",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 609.288282368076 587.6156235092319 L 615.48047061346 600 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 593.7502986173091 595.3846153846154 L 599.9424868626932 607.7689918753834 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -1.0580970107201764,
+        "minY": -0.16724686136892947,
+        "maxX": 0.3347033485569053,
+        "maxY": 2.1863138325070954
+      },
+      "worldPixel": 0.0030212589138331513,
+      "count": 39775,
+      "inputIndex": 56
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-57",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0.2,
+          "y": 0.1
+        },
+        "offset_distance": 2,
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 538.0781175461597 476.1562350923193",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 547.308886776929 471.5408504769347",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 641.2812549692269 579.3593725153866 L 567.9495142615424 616.0252428692288",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 630.9609412269201 558.7187450307731 L 651.6015687115336 600 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 557.6292005192356 595.3846153846154 L 578.269828003849 636.6658703538423 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -1.4388332756432431,
+        "minY": -0.7927636587983088,
+        "maxX": 1.1176165745232693,
+        "maxY": 2.883876034804804
+      },
+      "worldPixel": 0.004648090636666387,
+      "count": 104088,
+      "inputIndex": 57
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-58",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0.2,
+          "y": 0.1
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.3
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 573.1671842700025 546.334368540005",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 582.3979535007718 541.7189839246204",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 612.3843764907681 593.807811754616 L 596.8463927400012 601.5768036299994",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.769230769230769",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 609.288282368076 587.6156235092319 L 615.48047061346 600 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 593.7502986173091 595.3846153846154 L 599.9424868626932 607.7689918753834 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -0.6111649153884641,
+        "minY": -0.16855787325933977,
+        "maxX": 0.3356106998861549,
+        "maxY": 1.2925718022365886
+      },
+      "worldPixel": 0.002275902921333222,
+      "count": 44932,
+      "inputIndex": 58
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-59",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0.2,
+          "y": 0.1
+        },
+        "offset_distance": 1,
+        "offset_direction": {
+          "x": 0,
+          "y": 0
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 558.7187450307731 517.4374900615462",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 567.9495142615424 512.8221054461616",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 641.2812549692269 579.3593725153866 L 567.9495142615424 616.0252428692288",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 600 600 L 630.9609412269201 558.7187450307731 L 651.6015687115336 600 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 609.2307692307693 595.3846153846154 L 557.6292005192356 595.3846153846154 L 578.269828003849 636.6658703538423 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -0.9947170676886942,
+        "minY": -0.7933757547712186,
+        "maxX": 1.1166623748053592,
+        "maxY": 1.9892740465194652
+      },
+      "worldPixel": 0.003902734644166457,
+      "count": 120770,
+      "inputIndex": 59
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-60",
+        "from": {
+          "x": -4,
+          "y": 0
+        },
+        "to": {
+          "x": 4,
+          "y": 0
+        },
+        "text": "",
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "bottom",
+        "arrow_size": 1
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 415.38461538461536 553.8461538461538",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 784.6153846153846 553.8461538461538",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 461.53846153846155 600 L 738.4615384615385 600",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "9.230769230769232",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 415.38461538461536 600 L 461.53846153846155 576.9230769230769 L 461.53846153846155 623.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 784.6153846153846 600 L 738.4615384615385 576.9230769230769 L 738.4615384615385 623.0769230769231 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -4.095833333333335,
+        "minY": -0.4958333333333315,
+        "maxX": 4.095833333333333,
+        "maxY": 1.0958333333333343
+      },
+      "worldPixel": 0.008333333333333335,
+      "count": 38482,
+      "inputIndex": 60
+    },
+    {
+      "element": {
+        "type": "pcb_note_dimension",
+        "pcb_note_dimension_id": "note-61",
+        "from": {
+          "x": -2.54,
+          "y": 0
+        },
+        "to": {
+          "x": 2.54,
+          "y": 0
+        },
+        "offset_distance": 0.762,
+        "offset_direction": {
+          "x": 0,
+          "y": 1
+        },
+        "font": "tscircuit2024",
+        "font_size": 1,
+        "layer": "top",
+        "arrow_size": 0.254
+      },
+      "svgChildren": [
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 482.7692307692308 600 L 482.7692307692308 553.1076923076923",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.3446153846153845",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 717.2307692307693 600 L 717.2307692307693 553.1076923076923",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.3446153846153845",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-extension"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 494.4923076923077 564.8307692307692 L 705.5076923076923 564.8307692307692",
+            "stroke": "rgb(89, 148, 220)",
+            "fill": "none",
+            "stroke-width": "2.3446153846153845",
+            "stroke-linecap": "round",
+            "class": "pcb-note-dimension-line"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 482.7692307692308 564.8307692307692 L 494.4923076923077 558.9692307692308 L 494.4923076923077 570.6923076923077 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        },
+        {
+          "name": "path",
+          "attributes": {
+            "d": "M 717.2307692307693 564.8307692307692 L 705.5076923076923 558.9692307692308 L 705.5076923076923 570.6923076923077 Z",
+            "fill": "rgb(89, 148, 220)",
+            "class": "pcb-note-dimension-arrow"
+          }
+        }
+      ],
+      "transform": {
+        "scale": 46.15384615384615,
+        "tx": 600,
+        "ty": 600
+      },
+      "inkBounds": {
+        "minX": -2.562630833333334,
+        "minY": -0.02247250000000032,
+        "maxX": 2.562630833333334,
+        "maxY": 1.0384725000000001
+      },
+      "worldPixel": 0.0052783333333333345,
+      "count": 15084,
+      "inputIndex": 61
+    }
+  ]
+}
