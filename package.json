@@ -7,9 +7,7 @@
     "url": "https://github.com/tscircuit/circuit-json-util.git"
   },
   "description": "Utility library for working with tscircuit circuit json",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist", "THIRD_PARTY_NOTICES.md"],
   "main": "dist/index.js",
   "scripts": {
     "test": "bun test",
@@ -25,7 +23,8 @@
   "peerDependencies": {
     "circuit-json": "*",
     "transformation-matrix": "*",
-    "zod": "3"
+    "zod": "3",
+    "schematic-symbols": "*"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.2",
@@ -34,6 +33,7 @@
     "bun-match-svg": "^0.0.15",
     "circuit-json": "^0.0.531",
     "circuit-to-svg": "^0.0.413",
+    "schematic-symbols": "^0.0.230",
     "esbuild": "^0.20.2",
     "esbuild-register": "^3.5.0",
     "graphics-debug": "^0.0.95",
