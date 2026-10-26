@@ -15,7 +15,7 @@ export const findBoundsAndCenter = (
           (elm) => elm.type === "pcb_trace" || elm.type === "schematic_trace",
         )
         // @ts-ignore
-        .flatMap((elm: any) => elm.route),
+        .flatMap((elm: any) => elm.route ?? []),
     )
     .map((elm) => getDebugLayoutObject(elm))
     .filter(isTruthy)
