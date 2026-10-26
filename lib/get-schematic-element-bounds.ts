@@ -3,6 +3,7 @@ import type {
   SchematicNetLabel,
   SchematicTrace,
 } from "circuit-json"
+import { getSchematicNetLabelSymbolBounds } from "./get-schematic-net-label-symbol-bounds"
 
 export type SchematicElementWithBounds =
   | SchematicComponent
@@ -61,7 +62,7 @@ const getSchematicNetLabelTextWidth = (text: string): number => {
   return text.length * characterWidth + horizontalPadding
 }
 
-const getSchematicNetLabelBounds = (
+const getLegacySchematicNetLabelBounds = (
   netLabel: SchematicNetLabel,
 ): SchematicElementBounds => {
   const labelLength = getSchematicNetLabelTextWidth(netLabel.text)
@@ -111,6 +112,20 @@ const getSchematicNetLabelBounds = (
         maxY: anchor.y + labelLength,
       })
   }
+}
+
+const getSchematicNetLabelBounds = (
+  label: SchematicNetLabel,
+): SchematicElementBounds => {
+  const legacy = getLegacySchematicNetLabelBounds(label)
+  const symbol = getSchematicNetLabelSymbolBounds(label)
+  if (!symbol) return legacy
+  return createBounds({
+    minX: Math.min(legacy.minX, symbol.minX),
+    minY: Math.min(legacy.minY, symbol.minY),
+    maxX: Math.max(legacy.maxX, symbol.maxX),
+    maxY: Math.max(legacy.maxY, symbol.maxY),
+  })
 }
 
 /**
