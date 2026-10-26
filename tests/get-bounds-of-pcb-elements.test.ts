@@ -279,6 +279,39 @@ test("getBoundsOfPcbElements with rotated pill plated hole", () => {
   expect(bounds.maxY).toBeCloseTo(-6.475)
 })
 
+test("getBoundsOfPcbElements with hole_with_polygon_pad includes pad_outline and rotated drill offset", () => {
+  const element: AnyCircuitElement = {
+    type: "pcb_plated_hole",
+    pcb_plated_hole_id: "hole_poly_1",
+    shape: "hole_with_polygon_pad",
+    x: 0,
+    y: 0,
+    hole_diameter: 1,
+    hole_offset_x: 4,
+    hole_offset_y: 0,
+    pad_outline: [
+      { x: -3, y: -0.5 },
+      { x: 3, y: -0.5 },
+      { x: 3, y: 0.5 },
+      { x: -3, y: 0.5 },
+    ],
+    layers: ["top", "bottom"],
+  } as any
+
+  const bounds = getBoundsOfPcbElements([element])
+  expect(bounds.minX).toBeCloseTo(-3)
+  expect(bounds.maxX).toBeCloseTo(4.5)
+  expect(bounds.minY).toBeCloseTo(-0.5)
+  expect(bounds.maxY).toBeCloseTo(0.5)
+
+  const rotatedElement = { ...element, ccw_rotation: 90 } as any
+  const rotatedBounds = getBoundsOfPcbElements([rotatedElement])
+  expect(rotatedBounds.minX).toBeCloseTo(-0.5)
+  expect(rotatedBounds.maxX).toBeCloseTo(0.5)
+  expect(rotatedBounds.minY).toBeCloseTo(-3)
+  expect(rotatedBounds.maxY).toBeCloseTo(4.5)
+})
+
 test("getBoundsOfPcbElements uses tight bounds for a pill rotated 45 degrees", () => {
   const elements: AnyCircuitElement[] = [
     {
