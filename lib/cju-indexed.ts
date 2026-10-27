@@ -347,13 +347,20 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
               const field = keys[0]
               const fieldMap = internalStore.indexes.byCustomField.get(field!)
 
-              if (fieldMap) {
+              // Only strings and numbers are stored in custom-field indexes.
+              // Other values must use the regular strict-equality lookup.
+              if (
+                fieldMap &&
+                (typeof where[field!] === "string" ||
+                  typeof where[field!] === "number")
+              ) {
                 const fieldValue = String(where[field!])
                 const elementsWithFieldValue = fieldMap.get(fieldValue) || []
 
                 return (
                   (elementsWithFieldValue.find(
-                    (e: any) => e.type === component_type,
+                    (e: any) =>
+                      e.type === component_type && e[field!] === where[field!],
                   ) as Extract<
                     AnyCircuitElement,
                     { type: typeof component_type }
