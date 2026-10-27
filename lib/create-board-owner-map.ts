@@ -8,6 +8,11 @@ export function createBoardOwnerMap(
   const boardOwnerMap = new Map<AnyCircuitJsonId, PcbBoard | undefined>()
   const parentById = new Map<AnyCircuitJsonId, AnyCircuitJsonId | undefined>()
   const boardsById = new Map<AnyCircuitJsonId, PcbBoard>()
+  const sourceTraceIds = new Set<AnyCircuitJsonId>(
+    circuitJson
+      .filter((element) => element.type === "source_trace")
+      .map((element) => element.source_trace_id),
+  )
 
   for (const element of circuitJson) {
     switch (element.type) {
@@ -38,18 +43,29 @@ export function createBoardOwnerMap(
           element.subcircuit_id ?? element.pcb_group_id,
         )
         break
+      case "source_trace":
+        parentById.set(element.source_trace_id, element.subcircuit_id)
+        break
       case "pcb_trace":
         parentById.set(
           element.pcb_trace_id,
           element.subcircuit_id ??
             element.pcb_group_id ??
-            element.pcb_component_id,
+            element.pcb_component_id ??
+            (sourceTraceIds.has(element.source_trace_id ?? "")
+              ? element.source_trace_id
+              : undefined),
         )
         break
       case "pcb_via":
         parentById.set(
           element.pcb_via_id,
-          element.subcircuit_id ?? element.pcb_group_id ?? element.pcb_trace_id,
+          element.subcircuit_id ??
+            element.pcb_group_id ??
+            element.pcb_trace_id ??
+            (sourceTraceIds.has(element.source_trace_id ?? "")
+              ? element.source_trace_id
+              : undefined),
         )
         break
     }
