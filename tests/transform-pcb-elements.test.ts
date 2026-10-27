@@ -1,7 +1,10 @@
 import { expect, test } from "bun:test"
 import { compose, rotateDEG, scale, translate } from "transformation-matrix"
 import type { AnyCircuitElement, PcbComponent } from "circuit-json"
-import { transformPCBElements } from "../lib/transform-soup-elements"
+import {
+  transformPCBElement,
+  transformPCBElements,
+} from "../lib/transform-soup-elements"
 
 const createPcbComponent = (
   overrides: Partial<Record<string, unknown>> = {},
@@ -473,3 +476,40 @@ test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval cen
   expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
   expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
 })
+
+test("transformPCBElement preserves points-only polygon SMT pads without injecting NaN center coordinates", () => {
+  const pad = {
+    type: "pcb_smtpad" as const,
+    pcb_smtpad_id: "pad_0",
+    pcb_component_id: "component_0",
+    layer: "top" as const,
+    shape: "polygon" as const,
+    points: [
+      { x: 4, y: 2 },
+      { x: 6, y: 2 },
+      { x: 6, y: 4 },
+      { x: 4, y: 4 },
+    ],
+  }
+
+  // Identity transform
+  const identityTransformed = transformPCBElement(
+    { ...pad, points: pad.points.map((p) => ({ ...p })) } as any,
+    { a: 1, b: 0, c: 0, d: 1, e: 0, f: 0 },
+  ) as any
+
+  expect(identityTransformed.x).toBeUndefined()
+  expect(identityTransformed.y).toBeUndefined()
+  expect(identityTransformed.points[0]).toEqual({ x: 4, y: 2 })
+
+  // Translated transform
+  const translated = transformPCBElement(
+    { ...pad, points: pad.points.map((p) => ({ ...p })) } as any,
+    translate(2, 3),
+  ) as any
+
+  expect(translated.x).toBeUndefined()
+  expect(translated.y).toBeUndefined()
+  expect(translated.points[0]).toEqual({ x: 6, y: 5 })
+})
+
