@@ -284,6 +284,22 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
       (elm.shape === "rotated_rect" || elm.shape === "rotated_pill")
     ) {
       elm.ccw_rotation = getTransformedRectRotation(elm.ccw_rotation, matrix)
+    } else if (elm.type === "pcb_plated_hole") {
+      if ("ccw_rotation" in elm && typeof elm.ccw_rotation === "number") {
+        elm.ccw_rotation = (elm.ccw_rotation + rotationDegrees) % 360
+      }
+      if (
+        "rect_ccw_rotation" in elm &&
+        typeof elm.rect_ccw_rotation === "number"
+      ) {
+        elm.rect_ccw_rotation = (elm.rect_ccw_rotation + rotationDegrees) % 360
+      }
+      if (
+        "hole_ccw_rotation" in elm &&
+        typeof elm.hole_ccw_rotation === "number"
+      ) {
+        elm.hole_ccw_rotation = (elm.hole_ccw_rotation + rotationDegrees) % 360
+      }
     }
   } else if (elm.type === "pcb_keepout" && elm.shape === "outline") {
     elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
@@ -419,6 +435,27 @@ export const transformPCBElements = (
         (elm.type === "pcb_solder_paste" && elm.shape === "pill")
       ) {
         ;[elm.width, elm.height] = [elm.height, elm.width]
+      } else if (elm.type === "pcb_plated_hole") {
+        if ("rect_pad_width" in elm && "rect_pad_height" in elm) {
+          ;[elm.rect_pad_width, elm.rect_pad_height] = [
+            elm.rect_pad_height,
+            elm.rect_pad_width,
+          ]
+        }
+        if ("outer_width" in elm && "outer_height" in elm) {
+          ;[elm.outer_width, elm.outer_height] = [
+            elm.outer_height,
+            elm.outer_width,
+          ]
+        }
+        if (
+          "hole_width" in elm &&
+          "hole_height" in elm &&
+          typeof elm.hole_width === "number" &&
+          typeof elm.hole_height === "number"
+        ) {
+          ;[elm.hole_width, elm.hole_height] = [elm.hole_height, elm.hole_width]
+        }
       }
       return elm
     })

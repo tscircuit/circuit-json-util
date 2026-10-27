@@ -473,3 +473,77 @@ test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval cen
   expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
   expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
 })
+
+test("transformPCBElements swaps dimensions and updates rotations on pcb_plated_hole for 90 degree transforms", () => {
+  const rectPadHole = {
+    type: "pcb_plated_hole",
+    pcb_plated_hole_id: "ph1",
+    shape: "circular_hole_with_rect_pad",
+    x: 1,
+    y: 0,
+    hole_diameter: 0.8,
+    rect_pad_width: 1.0,
+    rect_pad_height: 2.5,
+    rect_ccw_rotation: 30,
+    layers: ["top", "bottom"],
+  } as any
+
+  const pillHole = {
+    type: "pcb_plated_hole",
+    pcb_plated_hole_id: "ph2",
+    shape: "pill",
+    x: 0,
+    y: 2,
+    outer_width: 1.2,
+    outer_height: 3.0,
+    hole_width: 0.6,
+    hole_height: 2.0,
+    ccw_rotation: 15,
+    layers: ["top", "bottom"],
+  } as any
+
+  const rotatedPillWithRectPad = {
+    type: "pcb_plated_hole",
+    pcb_plated_hole_id: "ph3",
+    shape: "rotated_pill_hole_with_rect_pad",
+    x: 0,
+    y: 0,
+    hole_shape: "rotated_pill",
+    pad_shape: "rect",
+    hole_width: 0.7,
+    hole_height: 1.8,
+    hole_ccw_rotation: 45,
+    rect_pad_width: 1.4,
+    rect_pad_height: 2.8,
+    rect_ccw_rotation: 45,
+    hole_offset_x: 0,
+    hole_offset_y: 0,
+    layers: ["top", "bottom"],
+  } as any
+
+  transformPCBElements(
+    [rectPadHole, pillHole, rotatedPillWithRectPad],
+    compose(translate(10, 20), rotateDEG(90)),
+  )
+
+  expect(rectPadHole.x).toBeCloseTo(10)
+  expect(rectPadHole.y).toBeCloseTo(21)
+  expect(rectPadHole.rect_pad_width).toBe(2.5)
+  expect(rectPadHole.rect_pad_height).toBe(1.0)
+  expect(rectPadHole.rect_ccw_rotation).toBe(120)
+
+  expect(pillHole.x).toBeCloseTo(8)
+  expect(pillHole.y).toBeCloseTo(20)
+  expect(pillHole.outer_width).toBe(3.0)
+  expect(pillHole.outer_height).toBe(1.2)
+  expect(pillHole.hole_width).toBe(2.0)
+  expect(pillHole.hole_height).toBe(0.6)
+  expect(pillHole.ccw_rotation).toBe(105)
+
+  expect(rotatedPillWithRectPad.rect_pad_width).toBe(2.8)
+  expect(rotatedPillWithRectPad.rect_pad_height).toBe(1.4)
+  expect(rotatedPillWithRectPad.hole_width).toBe(1.8)
+  expect(rotatedPillWithRectPad.hole_height).toBe(0.7)
+  expect(rotatedPillWithRectPad.hole_ccw_rotation).toBe(135)
+  expect(rotatedPillWithRectPad.rect_ccw_rotation).toBe(135)
+})
