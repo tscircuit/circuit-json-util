@@ -309,6 +309,7 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.center = applyToPoint(matrix, elm.center)
     elm.ccw_rotation = getTransformedRectRotation(elm.ccw_rotation ?? 0, matrix)
   } else if (
+    elm.type === "pcb_fabrication_note_rect" ||
     elm.type === "pcb_silkscreen_circle" ||
     elm.type === "pcb_silkscreen_rect" ||
     elm.type === "pcb_silkscreen_pill" ||

@@ -35,6 +35,8 @@ export function getElementRenderLayers(
   if (
     element.type === "pcb_silkscreen_text" ||
     element.type === "pcb_silkscreen_rect" ||
+    element.type === "pcb_silkscreen_pill" ||
+    element.type === "pcb_silkscreen_oval" ||
     element.type === "pcb_silkscreen_circle" ||
     element.type === "pcb_silkscreen_line" ||
     element.type === "pcb_silkscreen_path"
