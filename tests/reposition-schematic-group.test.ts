@@ -1,5 +1,8 @@
 import type { AnyCircuitElement } from "circuit-json"
-import { repositionSchematicGroupTo } from "../lib/reposition-schematic-group"
+import {
+  getSchematicGroupSize,
+  repositionSchematicGroupTo,
+} from "../lib/reposition-schematic-group"
 import { test, expect } from "bun:test"
 
 const makeCircuitJsonWithGroup = (): AnyCircuitElement[] => [
@@ -158,4 +161,49 @@ test("repositionSchematicGroupTo handles nonexistent group", () => {
 
   const comp = circuitJson.find((e) => e.type === "schematic_component") as any
   expect(comp.center).toEqual({ x: 0, y: 0 })
+})
+
+test("getSchematicGroupSize returns width, height, and center for nested groups", () => {
+  const circuitJson = makeCircuitJsonWithGroup()
+
+  const g1Size = getSchematicGroupSize(circuitJson, "g1")
+  expect(g1Size).toEqual({
+    width: 7,
+    height: 2,
+    center: { x: 2.5, y: 0 },
+  })
+
+  const g2Size = getSchematicGroupSize(circuitJson, "g2")
+  expect(g2Size).toEqual({
+    width: 6.05,
+    height: 2,
+    center: { x: 2.975, y: 0 },
+  })
+})
+
+test("getSchematicGroupSize returns zero dimensions for empty or nonexistent group", () => {
+  const circuitJson: AnyCircuitElement[] = [
+    {
+      type: "source_group",
+      source_group_id: "empty_group",
+    } as any,
+    {
+      type: "schematic_component",
+      schematic_component_id: "sc1",
+      center: { x: 0, y: 0 },
+      width: 2,
+      height: 2,
+    } as any,
+  ]
+
+  expect(getSchematicGroupSize(circuitJson, "empty_group")).toEqual({
+    width: 0,
+    height: 0,
+    center: { x: 0, y: 0 },
+  })
+  expect(getSchematicGroupSize(circuitJson, "nonexistent")).toEqual({
+    width: 0,
+    height: 0,
+    center: { x: 0, y: 0 },
+  })
 })
