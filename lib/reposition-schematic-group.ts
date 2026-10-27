@@ -26,11 +26,10 @@ const findAllDescendantGroupIds = (
   return childGroupIds
 }
 
-export const repositionSchematicGroupTo = (
+const getSchematicGroupElements = (
   circuitJson: AnyCircuitElement[],
   source_group_id: string,
-  newCenter: { x: number; y: number },
-) => {
+): AnyCircuitElement[] => {
   const allGroupIds = [
     source_group_id,
     ...findAllDescendantGroupIds(circuitJson, source_group_id),
@@ -76,14 +75,47 @@ export const repositionSchematicGroupTo = (
       )
     )
       return true
+    if (
+      Array.isArray(anyElm.edges) &&
+      anyElm.edges.some(
+        (edge: any) =>
+          (edge.from?.schematic_port_id &&
+            portIds.includes(edge.from.schematic_port_id)) ||
+          (edge.to?.schematic_port_id &&
+            portIds.includes(edge.to.schematic_port_id)),
+      )
+    )
+      return true
 
     return false
   })
 
   additionalTraces.forEach((trace) => allGroupElements.add(trace))
 
-  const schematicElements = Array.from(allGroupElements).filter((elm) =>
+  return Array.from(allGroupElements).filter((elm) =>
     elm.type.startsWith("schematic_"),
+  )
+}
+
+export const getSchematicGroupSize = (
+  circuitJson: AnyCircuitElement[],
+  source_group_id: string,
+): { width: number; height: number; center: { x: number; y: number } } => {
+  const schematicElements = getSchematicGroupElements(
+    circuitJson,
+    source_group_id,
+  )
+  return findBoundsAndCenter(schematicElements)
+}
+
+export const repositionSchematicGroupTo = (
+  circuitJson: AnyCircuitElement[],
+  source_group_id: string,
+  newCenter: { x: number; y: number },
+) => {
+  const schematicElements = getSchematicGroupElements(
+    circuitJson,
+    source_group_id,
   )
   if (schematicElements.length === 0) return
 
