@@ -7,6 +7,7 @@ export function createBoardOwnerMap(
 ): Map<AnyCircuitJsonId, PcbBoard | undefined> {
   const boardOwnerMap = new Map<AnyCircuitJsonId, PcbBoard | undefined>()
   const parentById = new Map<AnyCircuitJsonId, AnyCircuitJsonId | undefined>()
+  const sourceTraceParentById = new Map<AnyCircuitJsonId, AnyCircuitJsonId>()
   const boardsById = new Map<AnyCircuitJsonId, PcbBoard>()
   const sourceTraceIds = new Set<AnyCircuitJsonId>(
     circuitJson
@@ -51,22 +52,29 @@ export function createBoardOwnerMap(
           element.pcb_trace_id,
           element.subcircuit_id ??
             element.pcb_group_id ??
-            element.pcb_component_id ??
-            (sourceTraceIds.has(element.source_trace_id ?? "")
-              ? element.source_trace_id
-              : undefined),
+            element.pcb_component_id,
         )
+        if (
+          element.source_trace_id &&
+          sourceTraceIds.has(element.source_trace_id)
+        ) {
+          sourceTraceParentById.set(
+            element.pcb_trace_id,
+            element.source_trace_id,
+          )
+        }
         break
       case "pcb_via":
         parentById.set(
           element.pcb_via_id,
-          element.subcircuit_id ??
-            element.pcb_group_id ??
-            element.pcb_trace_id ??
-            (sourceTraceIds.has(element.source_trace_id ?? "")
-              ? element.source_trace_id
-              : undefined),
+          element.subcircuit_id ?? element.pcb_group_id ?? element.pcb_trace_id,
         )
+        if (
+          element.source_trace_id &&
+          sourceTraceIds.has(element.source_trace_id)
+        ) {
+          sourceTraceParentById.set(element.pcb_via_id, element.source_trace_id)
+        }
         break
     }
   }
@@ -95,9 +103,13 @@ export function createBoardOwnerMap(
 
     resolvingIds.add(id)
     const parentId = parentById.get(id)
+    const sourceTraceParentId = sourceTraceParentById.get(id)
     let board = singleBoard
     if (parentId) {
       board = resolveBoard(parentId)
+    } else if (sourceTraceParentId) {
+      // Source ancestry supplements the existing single-board inference.
+      board = resolveBoard(sourceTraceParentId) ?? singleBoard
     }
     resolvingIds.delete(id)
 
