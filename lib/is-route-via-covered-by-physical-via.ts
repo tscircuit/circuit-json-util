@@ -15,12 +15,17 @@ const getLayerDepth = (layer: string | undefined): number => {
  * with compatible dimensions. Callers must check electrical connectivity
  * separately. Missing route dimensions use the physical via's dimensions;
  * missing or unknown layers cannot establish coverage.
+ * Position tolerance is measured per axis in mm and defaults to exact matching.
  */
 export function isRouteViaCoveredByPhysicalVia(
   physicalVia: ViaGeometry & { layers?: readonly string[] },
   routeVia: ViaGeometry & { from_layer?: string; to_layer?: string },
+  { positionTolerance = 0 }: { positionTolerance?: number } = {},
 ): boolean {
-  if (physicalVia.x !== routeVia.x || physicalVia.y !== routeVia.y) return false
+  const samePosition =
+    Math.abs(physicalVia.x - routeVia.x) <= positionTolerance &&
+    Math.abs(physicalVia.y - routeVia.y) <= positionTolerance
+  if (!samePosition) return false
 
   if (
     (routeVia.outer_diameter !== undefined &&
