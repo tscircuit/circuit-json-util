@@ -18,6 +18,18 @@ const getCenter = (elm: any): { x: number; y: number } | null => {
 }
 
 const addCenterBasedShapes = (elm: any, shapes: CopperShape[]) => {
+  if (elm.shape === "polygon" && Array.isArray(elm.points)) {
+    const points = elm.points.filter(
+      (point: any): point is Point =>
+        isFiniteNumber(point?.x) && isFiniteNumber(point?.y),
+    )
+
+    if (points.length >= 3) {
+      shapes.push({ kind: "polygon", points })
+    }
+    return
+  }
+
   const center = getCenter(elm)
   if (!center) return
 
@@ -57,17 +69,6 @@ const addCenterBasedShapes = (elm: any, shapes: CopperShape[]) => {
       rotationDegrees: isFiniteNumber(elm.ccw_rotation) ? elm.ccw_rotation : 0,
     })
     return
-  }
-
-  if (elm.shape === "polygon" && Array.isArray(elm.points)) {
-    const points = elm.points.filter(
-      (point: any): point is Point =>
-        isFiniteNumber(point?.x) && isFiniteNumber(point?.y),
-    )
-
-    if (points.length >= 3) {
-      shapes.push({ kind: "polygon", points })
-    }
   }
 }
 
