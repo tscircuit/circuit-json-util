@@ -38,18 +38,13 @@ export const applySelectorAST = (
         case " ": // TODO technically should do a deep search
         case ">": {
           const { left, right } = selectorAST
-          if (left.type === "class" || left.type === "type") {
+          if (
+            left.type === "class" ||
+            left.type === "type" ||
+            left.type === "compound"
+          ) {
             // TODO should also check if content matches any element tags
-            let matchElms: AnyCircuitElement[]
-            if (left.type === "class") {
-              matchElms = elements.filter((elm) =>
-                doesElmMatchClassName(elm, left.name),
-              )
-            } else if (left.type === "type") {
-              matchElms = filterByType(elements, left.name)
-            } else {
-              matchElms = []
-            }
+            const matchElms = applySelectorAST(elements, left)
 
             const childrenOfMatchingElms = matchElms.flatMap((matchElm) =>
               elements.filter(
