@@ -264,69 +264,59 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
             const join_key = keys[0] as string
             const join_type = join_key.replace("_id", "")
 
-            // Use relation index if available
-            if (indexConfig.byRelation && internalStore.indexes.byRelation) {
-              const relationMap = internalStore.indexes.byRelation.get(join_key)
-              if (relationMap) {
-                const relatedElements = relationMap.get(using[join_key]) || []
-                const joiner = relatedElements.find((e) => e.type === join_type)
-
-                if (!joiner) return null
-
-                // Now find the element of component_type with matching ID
-                const joinerId =
-                  joiner[`${component_type}_id` as keyof typeof joiner]
-
-                if (indexConfig.byId && internalStore.indexes.byId) {
-                  return (
-                    (internalStore.indexes.byId.get(
-                      `${component_type}:${joinerId}`,
-                    ) as Extract<
-                      AnyCircuitElement,
-                      { type: typeof component_type }
-                    >) || null
-                  )
-                }
-
-                if (indexConfig.byType && internalStore.indexes.byType) {
-                  const elementsOfType =
-                    internalStore.indexes.byType.get(component_type) || []
-                  return (
-                    (elementsOfType.find(
-                      (e: any) => e[`${component_type}_id`] === joinerId,
-                    ) as Extract<
-                      AnyCircuitElement,
-                      { type: typeof component_type }
-                    >) || null
-                  )
-                }
-
-                return (
-                  (soup.find(
-                    (e: any) =>
-                      e.type === component_type &&
-                      e[`${component_type}_id`] === joinerId,
-                  ) as Extract<
-                    AnyCircuitElement,
-                    { type: typeof component_type }
-                  >) || null
-                )
-              }
+            // Find the joiner element of join_type using available indexes
+            let joiner: any = null
+            if (indexConfig.byId && internalStore.indexes.byId) {
+              joiner = internalStore.indexes.byId.get(
+                `${join_type}:${using[join_key]}`,
+              )
+            } else if (indexConfig.byType && internalStore.indexes.byType) {
+              const joinElements =
+                internalStore.indexes.byType.get(join_type) || []
+              joiner = joinElements.find(
+                (e: any) => e[join_key] === using[join_key],
+              )
+            } else {
+              joiner = soup.find(
+                (e: any) =>
+                  e.type === join_type && e[join_key] === using[join_key],
+              )
             }
 
-            // Fallback to regular approach
-            const joiner: any = soup.find(
-              (e: any) =>
-                e.type === join_type && e[join_key] === using[join_key],
-            )
-
             if (!joiner) return null
+
+            const joinerId = joiner[`${component_type}_id`]
+            if (!joinerId) return null
+
+            if (indexConfig.byId && internalStore.indexes.byId) {
+              return (
+                (internalStore.indexes.byId.get(
+                  `${component_type}:${joinerId}`,
+                ) as Extract<
+                  AnyCircuitElement,
+                  { type: typeof component_type }
+                >) || null
+              )
+            }
+
+            if (indexConfig.byType && internalStore.indexes.byType) {
+              const elementsOfType =
+                internalStore.indexes.byType.get(component_type) || []
+              return (
+                (elementsOfType.find(
+                  (e: any) => e[`${component_type}_id`] === joinerId,
+                ) as Extract<
+                  AnyCircuitElement,
+                  { type: typeof component_type }
+                >) || null
+              )
+            }
 
             return (
               (soup.find(
                 (e: any) =>
                   e.type === component_type &&
-                  e[`${component_type}_id`] === joiner[`${component_type}_id`],
+                  e[`${component_type}_id`] === joinerId,
               ) as Extract<
                 AnyCircuitElement,
                 { type: typeof component_type }
@@ -585,7 +575,11 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
                 (e: any) => e[`${component_type}_id`] === id,
               )
             } else {
-              elm = soup.find((e) => (e as any)[`${component_type}_id`] === id)
+              elm = soup.find(
+                (e) =>
+                  e.type === component_type &&
+                  (e as any)[`${component_type}_id`] === id,
+              )
             }
 
             if (!elm) return

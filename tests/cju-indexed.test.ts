@@ -113,3 +113,53 @@ test("suIndexed produces same output as su", () => {
   // Test toArray returns the same soup
   expect(indexedSu.toArray()).toEqual(regularSu.toArray())
 })
+
+test("cjuIndexed getUsing works when other elements reference join_key in byRelation", () => {
+  const soup: AnyCircuitElement[] = [
+    {
+      type: "source_component",
+      source_component_id: "simple_resistor_0",
+      name: "R1",
+      supplier_part_numbers: {},
+      ftype: "simple_resistor",
+      resistance: 10_000,
+    } as unknown as AnyCircuitElement,
+    {
+      type: "pcb_component",
+      pcb_component_id: "pcb_component_0",
+      source_component_id: "simple_resistor_0",
+      x: 10,
+      y: 20,
+      width: 5,
+      height: 2,
+    } as unknown as AnyCircuitElement,
+    {
+      type: "pcb_port",
+      pcb_port_id: "pcb_port_0",
+      pcb_component_id: "pcb_component_0",
+      source_port_id: "source_port_0",
+      x: 10,
+      y: 20,
+      layers: ["top"],
+    } as unknown as AnyCircuitElement,
+  ]
+
+  const regularSu = cju(soup)
+  const indexedSu = cjuIndexed(soup, {
+    indexConfig: {
+      byId: true,
+      byType: true,
+      byRelation: true,
+    },
+  })
+
+  expect(
+    indexedSu.source_component.getUsing({
+      pcb_component_id: "pcb_component_0",
+    }),
+  ).toEqual(
+    regularSu.source_component.getUsing({
+      pcb_component_id: "pcb_component_0",
+    }),
+  )
+})
