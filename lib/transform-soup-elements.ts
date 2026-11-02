@@ -17,6 +17,7 @@ import {
   rotateDirection,
   vecToDirection,
 } from "./direction-to-vec"
+import { transformBrepShape } from "./transform-brep-shape"
 
 const getQuarterTurns = (angleRadians: number) =>
   Math.round(angleRadians / (Math.PI / 2))
@@ -223,6 +224,10 @@ const transformPcbSoldermaskOpening = (
 }
 
 export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
+  if (elm.type === "pcb_copper_pour" && elm.shape === "brep") {
+    elm.brep_shape = transformBrepShape(elm.brep_shape, matrix)
+    return elm
+  }
   // Cutout centers and vertices are board-world points in mm (+X right, +Y up).
   // Rectangle dimensions stay local while orientation follows the placement.
   if (elm.type === "pcb_cutout") {
