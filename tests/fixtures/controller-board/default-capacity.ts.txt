@@ -1,0 +1,175 @@
+import { AutoroutingPipelineSolver, type SimpleRouteJson } from "@tscircuit/capacity-autorouter"
+import { validateRoutedCopperDrc } from "@tscircuit/fanout-solver"
+
+// Each attempt gives the entire phase to the default capacity solver.
+// Configuration and validation never author or move any returned copper vertices.
+export function defaultCapacity(options: {name:string;side:"above"|"below";layer?:"top"|"bottom";viaPlanningMargin?:number;guardPhysicalEdges?:boolean;preserveHighDensityPaths?:boolean}) {
+  return async (input:SimpleRouteJson) => {
+    const srj=structuredClone(input)
+    // Prior phases are obstacles, never rerouting seeds for a later width class.
+    for(const trace of input.traces??[]) for(let i=0;i<trace.route.length;i++) {
+      const a=trace.route[i],b=trace.route[i+1]
+      if(a.route_type==="via") {
+        const d=a.via_diameter??input.minViaPadDiameter??0.6
+        srj.obstacles.push({type:"rect",center:{x:a.x,y:a.y},width:d,height:d,layers:["top","bottom"],connectedTo:[trace.connection_name]})
+      }
+      if(!b||a.route_type!=="wire"||b.route_type!=="wire"||a.layer!==b.layer)continue
+      const count=Math.max(1,Math.ceil(Math.hypot(b.x-a.x,b.y-a.y)/0.2))
+      for(let k=0;k<count;k++){
+        const x0=a.x+(b.x-a.x)*k/count,y0=a.y+(b.y-a.y)*k/count
+        const x1=a.x+(b.x-a.x)*(k+1)/count,y1=a.y+(b.y-a.y)*(k+1)/count
+        const width=Math.max(a.width,b.width)
+        srj.obstacles.push({type:"rect",center:{x:(x0+x1)/2,y:(y0+y1)/2},width:Math.abs(x1-x0)+width,height:Math.abs(y1-y0)+width,layers:[a.layer],connectedTo:[trace.connection_name]})
+      }
+    }
+    srj.traces=[]
+    const barrier=input.obstacles.find(o=>!o.connectedTo.length&&o.width>=input.bounds.maxX-input.bounds.minX-1e-6&&o.height>=6)
+    if(!barrier) throw new Error("Missing full-width isolation barrier")
+    if(options.side==="below") srj.bounds.maxY=barrier.center.y-barrier.height/2
+    else srj.bounds.minY=barrier.center.y+barrier.height/2
+    if(options.guardPhysicalEdges){
+      // Keep compensated exterior wall geometry inside the solver's domain.
+      srj.bounds.minX-=2;srj.bounds.maxX+=2
+      if(options.side==="below")srj.bounds.minY-=2
+      else srj.bounds.maxY+=2
+    }
+    srj.outline=[{x:srj.bounds.minX,y:srj.bounds.minY},{x:srj.bounds.maxX,y:srj.bounds.minY},
+      {x:srj.bounds.maxX,y:srj.bounds.maxY},{x:srj.bounds.minX,y:srj.bounds.maxY}]
+    // Obstacles outside the phase domain cannot be reached; the isolation band
+    // is enforced by the domain boundary and checked against the original SRJ.
+    srj.obstacles=srj.obstacles.filter(o=>o.center.x+o.width/2>srj.bounds.minX&&o.center.x-o.width/2<srj.bounds.maxX&&
+      o.center.y+o.height/2>srj.bounds.minY&&o.center.y-o.height/2<srj.bounds.maxY)
+    const requested=input.minTraceToPadEdgeClearance??0.2
+    // Core carries the board's smaller nominal width into wider power phases.
+    srj.nominalTraceWidth=Math.max(input.nominalTraceWidth??0,input.minTraceWidth,...input.connections.map(c=>c.nominalTraceWidth??c.width??0))
+    srj.defaultObstacleMargin=requested>=1?requested:requested+0.05
+    // Physical edges and the artificial isolation boundary have separate margins.
+    const inset=(input.minBoardEdgeClearance??0.5)+0.01-srj.defaultObstacleMargin
+    const b=input.bounds,cx=(b.minX+b.maxX)/2,cy=(b.minY+b.maxY)/2
+    srj.obstacles.push(
+      {type:"rect",center:{x:b.minX-10+inset,y:cy},width:20,height:b.maxY-b.minY+40,layers:["top","bottom"],connectedTo:[]},
+      {type:"rect",center:{x:b.maxX+10-inset,y:cy},width:20,height:b.maxY-b.minY+40,layers:["top","bottom"],connectedTo:[]},
+      {type:"rect",center:{x:cx,y:b.minY-10+inset},width:b.maxX-b.minX+40,height:20,layers:["top","bottom"],connectedTo:[]},
+      {type:"rect",center:{x:cx,y:b.maxY+10-inset},width:b.maxX-b.minX+40,height:20,layers:["top","bottom"],connectedTo:[]},
+    )
+    srj.minBoardEdgeClearance=0.205
+    if(!input.allowViaInPad&&!options.layer) {
+      const names=new Set(input.connections.filter(c=>(c.nominalTraceWidth??c.width??0)>=0.35).map(c=>c.name))
+      // Default capacity may otherwise drop a via directly in its own SMD pad.
+      // An opposite-layer guard requires a top-side escape before changing layers.
+      for(const pad of input.obstacles) {
+        if(!pad.circuitJsonMetadata?.pcb_smtpad_id||pad.layers.length!==1||!pad.connectedTo.some(id=>names.has(id)))continue
+        srj.obstacles.push({type:"rect",obstacleId:`via_guard_${pad.circuitJsonMetadata.pcb_smtpad_id}`,
+          center:{...pad.center},width:pad.width,height:pad.height,layers:[pad.layers[0]==="top"?"bottom":"top"],connectedTo:[]})
+      }
+    }
+    srj.minViaPadDiameter=srj.min_via_pad_diameter=srj.minViaDiameter=0.6+2*(options.viaPlanningMargin??0)
+    srj.minViaHoleDiameter=srj.min_via_hole_diameter=0.3
+    if(options.layer) {
+      const layer=options.layer
+      srj.layerCount=1
+      srj.obstacles=srj.obstacles.filter(o=>o.layers.includes(layer)).map(o=>({...o,layers:["top"]}))
+      srj.connections=srj.connections.map(c=>({...c,pointsToConnect:c.pointsToConnect.map(({layer:_,layers:__,...p})=>({...p,layer:"top"}))}))
+      srj.traces=[]
+    }
+    const configurations=[{}, {maxNodeDimension:8}, {maxNodeDimension:5}]
+    let attempt=0
+    const createSolver=()=>new AutoroutingPipelineSolver(structuredClone(srj),{effort:1,...configurations[attempt]})
+    let solver=createSolver()
+    const step=()=>{
+      // The current simplifier loses wide-trace pad clearance. Keep the default
+      // high-density paths for opted-in phases, with all later checks retained.
+      if(options.preserveHighDensityPaths){
+        if(solver.traceSimplificationSolver)solver.traceSimplificationSolver.MAX_SIMPLIFICATION_PIPELINE_LOOPS=0
+        if(solver.mutatedPreloadedTraceSimplificationSolver)solver.mutatedPreloadedTraceSimplificationSolver.MAX_SIMPLIFICATION_PIPELINE_LOOPS=0
+      }
+      solver.step()
+    }
+    const listeners=new Map<string,Array<(event:any)=>void>>()
+    let routing=false,stopped=false,result:SimpleRouteJson|undefined
+    const emit=(type:string,event:object)=>{for(const listener of listeners.get(type)??[]) listener({type,...event})}
+    const finish=()=>{
+      if(!solver.solved) throw new Error(`${solver.getCurrentPhase()}: ${solver.error??"Default capacity autorouter failed"}`)
+      const output=solver.getOutputSimpleRouteJson()
+      // Reserve extra via space during routing, then use the board's physical
+      // 0.6/0.3 mm via. Solver-generated centerlines are never edited.
+      if(options.viaPlanningMargin)for(const trace of output.traces??[])for(const point of trace.route)
+        if(point.route_type==="via"){point.via_diameter=0.6;point.via_hole_diameter=0.3}
+      if(options.layer) for(const trace of output.traces??[]) for(const point of trace.route) {
+        if(point.route_type!=="wire")throw new Error("Unexpected via in single-layer mains phase")
+        point.layer=options.layer
+      }
+      const problems=validateCandidate(input,output.traces??[])
+      if(problems.length)throw new Error(`Capacity candidate rejected: ${problems.slice(0,3).join("; ")}`)
+      result={...input,traces:output.traces}
+      emit("complete",{traces:output.traces})
+      return output.traces??[]
+    }
+    return {
+      input,get isRouting(){return routing},
+      on(type:string,listener:(event:any)=>void){listeners.set(type,[...(listeners.get(type)??[]),listener])},
+      stop(){stopped=true},getOutputSimpleRouteJson(){return result},
+      solveSync(){while(!solver.solved&&!solver.failed)step();return finish()},
+      start(){
+        console.log(`[${options.name}] ${solver.getSolverName()} FULL PHASE: ${srj.connections.length} connections; planning margin=${srj.defaultObstacleMargin}; preserve HD paths=${!!options.preserveHighDensityPaths}`)
+        routing=true
+        const started=Date.now()
+        const run=()=>{
+          try{
+            for(let i=0;i<256&&!solver.solved&&!solver.failed;i++)step()
+            if(stopped||Date.now()-started>240000)throw new Error("Default capacity phase stopped or timed out")
+            if(solver.solved||solver.failed){routing=false;finish();return}
+            emit("progress",{progress:solver.computeProgress(),steps:solver.iterations})
+            setTimeout(run,0)
+          }catch(error){
+            if(!stopped&&attempt+1<configurations.length&&Date.now()-started<220000){
+              console.warn(`[${options.name}] rejected configuration ${attempt}: ${error}`)
+              attempt++
+              solver=createSolver()
+              console.log(`[${options.name}] retrying FULL PHASE with default capacity, mesh configuration ${attempt}`)
+              setTimeout(run,0)
+            }else{routing=false;emit("error",{error})}
+          }
+        }
+        setTimeout(run,0)
+      },
+    }
+  }
+}
+
+function validateCandidate(input:SimpleRouteJson,newTraces:NonNullable<SimpleRouteJson["traces"]>):string[]{
+  const normalize=(traces:NonNullable<SimpleRouteJson["traces"]>)=>structuredClone(traces).map(t=>{
+    for(let i=1;i<t.route.length-1;i++){
+      const p=t.route[i],a=t.route[i-1],b=t.route[i+1]
+      if(p.route_type==="via"&&a.route_type==="wire"&&b.route_type==="wire"&&a.layer!==b.layer){p.from_layer=a.layer;p.to_layer=b.layer}
+    }
+    return t
+  })
+  const previous=normalize(input.traces??[]),current=normalize(newTraces)
+  const names=new Set(input.connections.map(c=>c.name))
+  const connections=[...input.connections,...[...new Set(previous.map(t=>t.connection_name))].filter(n=>!names.has(n)).map(name=>({name,pointsToConnect:[]}))]
+  const obstacles=input.obstacles.map(o=>((o as {type:string}).type==="oval"&&Math.abs(o.width-o.height)<1e-6?{...o,shape:"circle" as const}:o))
+  const scene={...input,connections,traces:[...previous,...current]}
+  const copper={...scene,obstacles:obstacles.filter(o=>o.connectedTo.length)}
+  const errors=validateRoutedCopperDrc({inputSrj:copper,routedSrj:copper,clearance:Math.min(input.minTraceToPadEdgeClearance??0.2,0.2),allowBlindAndBuriedVias:false}).issues.map(i=>i.message)
+  // Every net in a mains phase is checked against prior copper at the mains rule.
+  if((input.minTraceToPadEdgeClearance??0.2)>=1){
+    const hv=copper
+    errors.push(...validateRoutedCopperDrc({inputSrj:{...hv,obstacles:copper.obstacles},routedSrj:hv,clearance:input.minTraceToPadEdgeClearance!,allowBlindAndBuriedVias:false}).issues.map(i=>i.message))
+  }
+  const keepouts={...scene,traces:current,obstacles:obstacles.filter(o=>!o.connectedTo.length)}
+  errors.push(...validateRoutedCopperDrc({inputSrj:keepouts,routedSrj:keepouts,clearance:0.2,allowBlindAndBuriedVias:false}).issues.map(i=>i.message))
+  for(const trace of current)for(let index=0;index<trace.route.length;index++){
+    const p=trace.route[index],next=trace.route[index+1]
+    const minimum=input.minTraceWidth
+    if(p.route_type==="wire"&&next?.route_type==="wire"&&p.layer===next.layer&&Math.hypot(next.x-p.x,next.y-p.y)>1e-9&&p.width+1e-5<minimum)errors.push(`width ${p.width} below configured minimum ${minimum} on ${trace.connection_name}`)
+    if(p.route_type!=="via")continue
+    const radius=(p.via_hole_diameter??0.3)/2
+    for(const pad of obstacles.filter(o=>o.circuitJsonMetadata?.pcb_smtpad_id||o.circuitJsonMetadata?.pcb_plated_hole_id)){
+      const dx=Math.max(0,Math.abs(p.x-pad.center.x)-pad.width/2),dy=Math.max(0,Math.abs(p.y-pad.center.y)-pad.height/2)
+      const distance=pad.shape==="circle"?Math.max(0,Math.hypot(p.x-pad.center.x,p.y-pad.center.y)-pad.width/2):Math.hypot(dx,dy)
+      if(distance+1e-6<radius)errors.push(`via drill overlaps ${pad.circuitJsonMetadata?.pcb_smtpad_id??pad.circuitJsonMetadata?.pcb_plated_hole_id}`)
+    }
+  }
+  return errors
+}
