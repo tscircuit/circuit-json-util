@@ -134,17 +134,32 @@ export const getSchematicElementBounds = (
     return getSchematicNetLabelBounds(element)
   }
 
-  const points = [
-    ...element.edges.flatMap((edge) => [edge.from, edge.to]),
-    ...element.junctions,
-  ]
-  if (points.length === 0) return null
+  if (element.edges.length === 0 && element.junctions.length === 0) return null
+
+  let minX = Number.POSITIVE_INFINITY
+  let minY = Number.POSITIVE_INFINITY
+  let maxX = Number.NEGATIVE_INFINITY
+  let maxY = Number.NEGATIVE_INFINITY
+  const includePoint = (point: { x: number; y: number }) => {
+    minX = Math.min(minX, point.x)
+    minY = Math.min(minY, point.y)
+    maxX = Math.max(maxX, point.x)
+    maxY = Math.max(maxY, point.y)
+  }
+
+  // Passing all coordinates as function arguments exceeds some JavaScript
+  // engines' argument limits for long traces. Accumulate bounds instead.
+  for (const edge of element.edges) {
+    includePoint(edge.from)
+    includePoint(edge.to)
+  }
+  for (const junction of element.junctions) includePoint(junction)
 
   const halfTraceWidth = SCHEMATIC_TRACE_WIDTH / 2
   return createBounds({
-    minX: Math.min(...points.map((point) => point.x)) - halfTraceWidth,
-    minY: Math.min(...points.map((point) => point.y)) - halfTraceWidth,
-    maxX: Math.max(...points.map((point) => point.x)) + halfTraceWidth,
-    maxY: Math.max(...points.map((point) => point.y)) + halfTraceWidth,
+    minX: minX - halfTraceWidth,
+    minY: minY - halfTraceWidth,
+    maxX: maxX + halfTraceWidth,
+    maxY: maxY + halfTraceWidth,
   })
 }
