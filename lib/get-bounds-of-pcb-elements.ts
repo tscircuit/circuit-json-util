@@ -185,7 +185,9 @@ export const getPcbElementBounds = (
       platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.outer_diameter)
     } else if (
       "hole_diameter" in elm &&
-      typeof elm.hole_diameter === "number"
+      typeof elm.hole_diameter === "number" &&
+      elm.shape !== "hole_with_polygon_pad" &&
+      elm.shape !== "circular_hole_with_rect_pad"
     ) {
       platedHoleBounds = getCircleBounds(elm.x, elm.y, elm.hole_diameter)
     }
@@ -224,12 +226,39 @@ export const getPcbElementBounds = (
         : rectBounds
     }
 
+    if (
+      elm.shape === "hole_with_polygon_pad" &&
+      "pad_outline" in elm &&
+      Array.isArray(elm.pad_outline)
+    ) {
+      const rot = elm.ccw_rotation ?? 0
+      const theta = (rot * Math.PI) / 180
+      const cosTheta = Math.cos(theta)
+      const sinTheta = Math.sin(theta)
+      const rotatedPoints = elm.pad_outline.map((p: any) => ({
+        x: elm.x + p.x * cosTheta - p.y * sinTheta,
+        y: elm.y + p.x * sinTheta + p.y * cosTheta,
+      }))
+      const polyBounds = getBoundsFromPoints(rotatedPoints)
+      if (polyBounds) {
+        platedHoleBounds = platedHoleBounds
+          ? mergeBounds(platedHoleBounds, polyBounds)
+          : polyBounds
+      }
+    }
+
     if ("hole_diameter" in elm && typeof elm.hole_diameter === "number") {
+      const offsetX =
+        "hole_offset_x" in elm ? ((elm.hole_offset_x as number) ?? 0) : 0
+      const offsetY =
+        "hole_offset_y" in elm ? ((elm.hole_offset_y as number) ?? 0) : 0
+      const rot = elm.ccw_rotation ?? 0
+      const theta = (rot * Math.PI) / 180
+      const rotOffsetX = offsetX * Math.cos(theta) - offsetY * Math.sin(theta)
+      const rotOffsetY = offsetX * Math.sin(theta) + offsetY * Math.cos(theta)
       const drillBounds = getCircleBounds(
-        elm.x +
-          ("hole_offset_x" in elm ? ((elm.hole_offset_x as number) ?? 0) : 0),
-        elm.y +
-          ("hole_offset_y" in elm ? ((elm.hole_offset_y as number) ?? 0) : 0),
+        elm.x + rotOffsetX,
+        elm.y + rotOffsetY,
         elm.hole_diameter,
       )
       platedHoleBounds = platedHoleBounds
