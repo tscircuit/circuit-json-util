@@ -218,7 +218,9 @@ export const cju: GetCircuitJsonUtilFn = ((
           },
           delete: (id: string) => {
             const elm = circuitJson.find(
-              (e) => (e as any)[`${component_type}_id`] === id,
+              (e) =>
+                e.type === component_type &&
+                (e as any)[`${component_type}_id`] === id,
             )
             if (!elm) return
             circuitJson.splice(circuitJson.indexOf(elm), 1)
