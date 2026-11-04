@@ -132,13 +132,15 @@ const getRoutePoints = (route: unknown): Array<{ x: number; y: number }> => {
 
   return route.flatMap((point): Array<{ x: number; y: number }> => {
     if (!point || typeof point !== "object") return []
+    const width = (point as { width?: unknown }).width
+
     if (
       "x" in point &&
       "y" in point &&
       typeof point.x === "number" &&
       typeof point.y === "number"
     ) {
-      return [{ x: point.x, y: point.y }]
+      return [point as { x: number; y: number }]
     }
 
     if ("start" in point && "end" in point) {
@@ -165,6 +167,7 @@ export const getPcbElementBounds = (
   elm: AnyCircuitElement,
 ): PcbBounds | null => {
   if (!elm.type.startsWith("pcb_")) return null
+  const elementRecord = elm as unknown as Record<string, unknown>
 
   if (
     elm.type === "pcb_smtpad" &&
@@ -257,7 +260,6 @@ export const getPcbElementBounds = (
     if (platedHoleBounds) return platedHoleBounds
   }
 
-  const elementRecord = elm as unknown as Record<string, unknown>
   const routeBounds = getBoundsFromPoints(getRoutePoints(elementRecord.route))
   if (routeBounds) return routeBounds
 
@@ -354,6 +356,46 @@ export const getPcbElementBounds = (
     : null
 }
 
+/** Returns the widest stroke width found in a routed polyline (wire points). */
+const getMaxRouteStrokeWidth = (route: unknown): number => {
+  if (!Array.isArray(route)) return 0
+
+  let maxWidth = 0
+  for (const point of route) {
+    if (!point || typeof point !== "object") continue
+    const width = (point as { width?: unknown }).width
+    if (typeof width === "number" && width > maxWidth) maxWidth = width
+  }
+  return maxWidth
+}
+
+/**
+ * Copper-stroke-aware bounds: the same centerline bounds as
+ * getPcbElementBounds, grown by half the widest stroke width so that the
+ * rendered copper (which extends strokeWidth/2 from the centerline, plus
+ * round end caps at the endpoints) is considered when spatial queries run
+ * against it. Only routed elements produce this expansion.
+ */
+export const getPcbElementCopperBounds = (
+  elm: AnyCircuitElement,
+): PcbBounds | null => {
+  const centerlineBounds = getPcbElementBounds(elm)
+  if (!centerlineBounds) return null
+
+  const maxStrokeWidth = getMaxRouteStrokeWidth(
+    (elm as unknown as Record<string, unknown>).route,
+  )
+  const halfStroke = maxStrokeWidth / 2
+  if (halfStroke <= 0) return centerlineBounds
+
+  return {
+    minX: centerlineBounds.minX - halfStroke,
+    minY: centerlineBounds.minY - halfStroke,
+    maxX: centerlineBounds.maxX + halfStroke,
+    maxY: centerlineBounds.maxY + halfStroke,
+  }
+}
+
 export const getBoundsOfPcbElements = (
   elements: AnyCircuitElement[],
 ): PcbBounds => {
@@ -372,13 +414,21 @@ export const getBoundsOfPcbElements = (
   return bounds
 }
 
-/** Returns PCB elements whose axis-aligned bounds intersect the given bounds. */
+/** Returns PCB elements whose copper intersects the given bounds. */
 export const getPcbElementsWithinBounds = (
   elements: AnyCircuitElement[],
   bounds: PcbBounds,
 ): AnyCircuitElement[] =>
   elements.filter((element) => {
-    const elementBounds = getPcbElementBounds(element)
+    // Use copper-stroke-aware bounds: a pcb_trace renders its route as a
+    // stroke that extends strokeWidth/2 from the centerline (with round end
+    // caps), so centerline-only bounds would omit elements whose visible
+    // copper does intersect the region. Non-routed elements keep their bare
+    // bounds.
+    const elementBounds =
+      element.type === "pcb_trace"
+        ? getPcbElementCopperBounds(element)
+        : getPcbElementBounds(element)
     if (!elementBounds) return false
 
     return (
