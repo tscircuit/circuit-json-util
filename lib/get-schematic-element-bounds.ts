@@ -4,9 +4,15 @@ import type {
   SchematicTrace,
 } from "circuit-json"
 
+import { estimateSchematicTextWidth } from "./estimate-schematic-text-width"
+
+type SchematicNetLabelWithSuperscript = SchematicNetLabel & {
+  display_superscript?: string
+}
+
 export type SchematicElementWithBounds =
   | SchematicComponent
-  | SchematicNetLabel
+  | SchematicNetLabelWithSuperscript
   | SchematicTrace
 
 export interface SchematicElementBounds {
@@ -54,17 +60,33 @@ const createBounds = ({
   }
 }
 
-const getSchematicNetLabelTextWidth = (text: string): number => {
-  const characterWidth = 0.12 * (SCHEMATIC_NET_LABEL_FONT_SIZE / 0.18)
-  const horizontalPadding = 0.12 * (SCHEMATIC_NET_LABEL_FONT_SIZE / 0.18)
-
-  return text.length * characterWidth + horizontalPadding
+const getSchematicNetLabelTextWidth = (
+  text: string,
+  superscript?: string,
+): number => {
+  const arrowWidth = 0.3
+  const endPadding = 0.3
+  const perCharacterPadding = 0.06
+  const superscriptWidth = superscript
+    ? 0.08 + estimateSchematicTextWidth(superscript) * 0.65
+    : 0
+  return (
+    (estimateSchematicTextWidth(text) +
+      superscriptWidth +
+      arrowWidth * 2 +
+      endPadding +
+      perCharacterPadding * text.length) *
+    SCHEMATIC_NET_LABEL_FONT_SIZE
+  )
 }
 
 const getSchematicNetLabelBounds = (
-  netLabel: SchematicNetLabel,
+  netLabel: SchematicNetLabelWithSuperscript,
 ): SchematicElementBounds => {
-  const labelLength = getSchematicNetLabelTextWidth(netLabel.text)
+  // Preserve original character-count calculations for symbol labels to avoid breaking them
+  const labelLength = netLabel.symbol_name
+    ? netLabel.text.length * 0.12 + 0.12
+    : getSchematicNetLabelTextWidth(netLabel.text, netLabel.display_superscript)
   const anchor = netLabel.anchor_position
 
   if (!anchor) {
