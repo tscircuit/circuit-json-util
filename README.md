@@ -6,6 +6,35 @@ This is a small utility library for working with [circuit json](https://github.c
 
 It reduces the amount of code to retrieve or join elements from circuit json, it also neatly handles all the typing.
 
+## Schematic net-label symbol bounds
+
+`getSchematicElementBounds()` unions the previous label envelope with known
+named-symbol path, circle, and box geometry. Names already encode rotation;
+placement uses the first port, or the renderer's path-based portless fallback.
+Centered symbols follow the renderer's text advance widths, negation-prefix
+handling, and superscript spacing. This is not a glyph-ink or stroke-inflated
+bound, does not include symbol text, and does not fix ordinary-label outlines
+or all of issue #207. Unknown names and empty text retain the prior fallback.
+
+**New loading requirement:** `schematic-symbols` is a required peer. It must be
+resolvable when importing the package root, including PCB-only use, because
+the root eagerly exports the bounds helper. An existing dependency tree without
+this peer needs migration; this is not a no-runtime-change update. Hosts should
+provide one shared registry to this utility and their renderer. Duplicate or
+bundled renderer registries can disagree, including for custom registrations;
+the peer declaration alone does not prove shared runtime module identity.
+The wildcard peer expresses that host-owned policy, not verification of every
+registry release. The development baseline is `schematic-symbols` ^0.0.230.
+
+The intended renderer is the declared `circuit-to-svg` ^0.0.413. Exact .413
+source was reviewed for positioning and text metrics; its relevant source is
+identical to the inspected .450 source. Unlike .450, .413 does not declare a
+`schematic-symbols` peer in its manifest. The available local runtime comparison
+used .393 with registry .230, not a manifest-compliant .413 installation. The
+superscript SVG tests target .413 and expose .393's older centered placement.
+Declared-version CI, build/DTS, built-root import, and a normal consumer's actual
+registry resolution remain integration gates before this draft is ready.
+
 ## Exported API
 
 | Function | Defined in | Description |
