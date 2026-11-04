@@ -222,10 +222,28 @@ const transformPolygonPadOrientation = (
 }
 
 /**
+ * hole_offset_x/y run from the pad center to the drill as board-world vectors:
+ * circuit-to-svg and this package's geometry add them straight to x/y. They have
+ * to turn with the pad, or a rotated pad leaves its drill behind.
+ */
+const transformHoleOffset = (
+  hole: { hole_offset_x?: number; hole_offset_y?: number },
+  matrix: Matrix,
+) => {
+  const { hole_offset_x: x = 0, hole_offset_y: y = 0 } = hole
+  if (x === 0 && y === 0) return
+  const offset = applyToPoint({ ...matrix, e: 0, f: 0 }, { x, y })
+  hole.hole_offset_x = offset.x
+  hole.hole_offset_y = offset.y
+}
+
+/**
  * Applies the placement's rotation and reflection to the orientation of a hole
- * or rotated paste, leaving the same fields PlatedHole and Hole would emit for
- * an explicit pcbRotation. Pure translations change nothing here, including the
- * shape of an unrotated pill.
+ * or rotated paste. Rotation fields match what PlatedHole and Hole emit for an
+ * explicit pcbRotation. Hole offsets intentionally differ: PlatedHole emits them
+ * unrotated, which puts the drill in the wrong place on a rotated component.
+ * Pure translations change nothing here, including the shape of an unrotated
+ * pill.
  */
 const transformHoleOrientation = (
   elm: PcbPlatedHole | PcbHole | PcbSolderPaste,
@@ -237,6 +255,7 @@ const transformHoleOrientation = (
   }
 
   if (elm.type === "pcb_plated_hole") {
+    if ("hole_offset_x" in elm) transformHoleOffset(elm, matrix)
     switch (elm.shape) {
       case "pill":
       case "oval":
