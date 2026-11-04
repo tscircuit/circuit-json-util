@@ -7,14 +7,29 @@
     "url": "https://github.com/tscircuit/circuit-json-util.git"
   },
   "description": "Utility library for working with tscircuit circuit json",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "compute-gap-between-copper": ["dist/lib/compute-gap-between-copper.d.ts"]
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./compute-gap-between-copper": {
+      "types": "./dist/lib/compute-gap-between-copper.d.ts",
+      "import": "./dist/lib/compute-gap-between-copper.js"
+    }
+  },
   "scripts": {
     "test": "bun test",
     "prepublish": "npm run build",
-    "build": "tsup-node ./index.ts --format esm --dts --sourcemap",
+    "prepare": "tsup-node ./lib/compute-gap-between-copper.ts --format esm --dts --sourcemap --out-dir dist/lib",
+    "build": "tsup-node ./index.ts ./lib/compute-gap-between-copper.ts --format esm --dts --dts-resolve --sourcemap",
     "benchmark": "bun run lib/benchmarks/su-benchmark.ts",
     "format": "biome format . --write",
     "format:check": "biome format ."
