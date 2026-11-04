@@ -851,7 +851,20 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
                       fieldMap.get(fieldValueStr) || []
 
                     if (!elementsWithFieldValue.includes(elm)) {
-                      elementsWithFieldValue.push(elm)
+                      // Keep first-match queries in circuit order after updates.
+                      const precedingElements = new Set(
+                        soup.slice(0, soup.indexOf(elm)),
+                      )
+                      const insertAt = elementsWithFieldValue.findIndex(
+                        (element) => !precedingElements.has(element),
+                      )
+                      elementsWithFieldValue.splice(
+                        insertAt === -1
+                          ? elementsWithFieldValue.length
+                          : insertAt,
+                        0,
+                        elm,
+                      )
                       fieldMap.set(fieldValueStr, elementsWithFieldValue)
                     }
                   }
