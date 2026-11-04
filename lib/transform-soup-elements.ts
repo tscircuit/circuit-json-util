@@ -1,6 +1,10 @@
 import type {
   AnyCircuitElement,
   InsertionDirection,
+  PcbHole,
+  PcbHoleWithPolygonPad,
+  PcbPlatedHole,
+  PcbSolderPaste,
   PcbSolderPasteRect,
   PcbSolderPasteRotatedRect,
   PcbSoldermaskOpening,
@@ -11,6 +15,7 @@ import {
   compose,
   decomposeTSR,
   rotateDEG,
+  scale,
 } from "transformation-matrix"
 import {
   directionToVec,
@@ -149,14 +154,144 @@ export const transformSchematicElements = (
   return elms.map((elm) => transformSchematicElement(elm, matrix))
 }
 
+const isReflection = (matrix: Matrix) =>
+  matrix.a * matrix.d - matrix.b * matrix.c < 0
+
 const getTransformedRectRotation = (rotation: number, matrix: Matrix) => {
-  const isReflected = matrix.a * matrix.d - matrix.b * matrix.c < 0
   return (
-    (decomposeTSR(compose(matrix, rotateDEG(rotation)), false, isReflected)
-      .rotation.angle *
+    (decomposeTSR(
+      compose(matrix, rotateDEG(rotation)),
+      false,
+      isReflection(matrix),
+    ).rotation.angle *
       180) /
     Math.PI
   )
+}
+
+/**
+ * Normalizes to [0, 360), the range PlatedHole and Hole emit. Placement matrices
+ * carry float noise (a packer angle of -90.00000000000001 means 270), so angles
+ * this close to a whole degree are snapped to it.
+ */
+const normalizeHoleRotation = (degrees: number) => {
+  const normalized = ((degrees % 360) + 360) % 360
+  const rounded = Math.round(normalized)
+  const snapped = Math.abs(normalized - rounded) < 1e-6 ? rounded : normalized
+  return snapped === 360 ? 0 : snapped
+}
+
+/**
+ * The orientation of a hole shape after `matrix`, in CCW degrees. Pills, ovals
+ * and centered rects are symmetric about both local axes, so they survive the
+ * local reflection in a TSR decomposition and repeat every 180 degrees. Reducing
+ * mirrored results to [0, 180) keeps an axis-aligned shape axis-aligned: a Y flip
+ * of a 0 degree pill stays at 0 rather than becoming an equivalent 180.
+ */
+const getTransformedHoleRotation = (
+  rotation: number | undefined,
+  matrix: Matrix,
+) => {
+  const transformed = normalizeHoleRotation(
+    getTransformedRectRotation(rotation ?? 0, matrix),
+  )
+  return isReflection(matrix) ? transformed % 180 : transformed
+}
+
+const transformPolygonPadOrientation = (
+  hole: PcbHoleWithPolygonPad,
+  matrix: Matrix,
+) => {
+  const transformed = normalizeHoleRotation(
+    getTransformedRectRotation(hole.ccw_rotation ?? 0, matrix),
+  )
+  if (!isReflection(matrix)) {
+    hole.ccw_rotation = transformed
+    return
+  }
+  // pad_outline is relative to the hole and may be asymmetric, so a reflection
+  // has to flip the outline as well. getTransformedRectRotation factors the
+  // placement as R(transformed) * scale(-1, 1), which also equals
+  // R(transformed - 180) * scale(1, -1). Use the factoring in [0, 180) to match
+  // getTransformedHoleRotation.
+  const localMirror = transformed >= 180 ? scale(1, -1) : scale(-1, 1)
+  hole.pad_outline = hole.pad_outline.map((point) =>
+    applyToPoint(localMirror, point),
+  )
+  hole.ccw_rotation = transformed % 180
+}
+
+/**
+ * Applies the placement's rotation and reflection to the orientation of a hole
+ * or rotated paste, leaving the same fields PlatedHole and Hole would emit for
+ * an explicit pcbRotation. Pure translations change nothing here, including the
+ * shape of an unrotated pill.
+ */
+const transformHoleOrientation = (
+  elm: PcbPlatedHole | PcbHole | PcbSolderPaste,
+  matrix: Matrix,
+) => {
+  const appliedRotation = (Math.atan2(matrix.b, matrix.a) * 180) / Math.PI
+  if (!isReflection(matrix) && normalizeHoleRotation(appliedRotation) === 0) {
+    return
+  }
+
+  if (elm.type === "pcb_plated_hole") {
+    switch (elm.shape) {
+      case "pill":
+      case "oval":
+        elm.ccw_rotation = getTransformedHoleRotation(elm.ccw_rotation, matrix)
+        return
+      case "hole_with_polygon_pad":
+        transformPolygonPadOrientation(elm, matrix)
+        return
+      case "circular_hole_with_rect_pad":
+        elm.rect_ccw_rotation = getTransformedHoleRotation(
+          elm.rect_ccw_rotation,
+          matrix,
+        )
+        return
+      case "rotated_pill_hole_with_rect_pad":
+        elm.hole_ccw_rotation = getTransformedHoleRotation(
+          elm.hole_ccw_rotation,
+          matrix,
+        )
+        elm.rect_ccw_rotation = getTransformedHoleRotation(
+          elm.rect_ccw_rotation,
+          matrix,
+        )
+        return
+      case "pill_hole_with_rect_pad": {
+        // This shape has no rotation field, so PlatedHole uses the rotated
+        // variant for any non-zero rotation.
+        const rotation = getTransformedHoleRotation(0, matrix)
+        if (rotation === 0) return
+        Object.assign(elm, {
+          shape: "rotated_pill_hole_with_rect_pad",
+          hole_shape: "rotated_pill",
+          hole_ccw_rotation: rotation,
+          rect_ccw_rotation: rotation,
+        })
+        return
+      }
+    }
+    return
+  }
+
+  if (elm.type === "pcb_hole") {
+    if (elm.hole_shape === "rotated_pill") {
+      elm.ccw_rotation = getTransformedHoleRotation(elm.ccw_rotation, matrix)
+    } else if (elm.hole_shape === "pill") {
+      const rotation = getTransformedHoleRotation(0, matrix)
+      if (rotation === 0) return
+      Object.assign(elm, { hole_shape: "rotated_pill", ccw_rotation: rotation })
+    }
+    return
+  }
+
+  if (elm.shape === "rotated_pill") {
+    elm.ccw_rotation = getTransformedHoleRotation(elm.ccw_rotation, matrix)
+  }
 }
 
 const transformPcbSolderPasteRectangle = (
@@ -289,6 +424,13 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
       (elm.shape === "rotated_rect" || elm.shape === "rotated_pill")
     ) {
       elm.ccw_rotation = getTransformedRectRotation(elm.ccw_rotation, matrix)
+    }
+    if (
+      elm.type === "pcb_plated_hole" ||
+      elm.type === "pcb_hole" ||
+      elm.type === "pcb_solder_paste"
+    ) {
+      transformHoleOrientation(elm, matrix)
     }
   } else if (elm.type === "pcb_keepout" && elm.shape === "outline") {
     elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
