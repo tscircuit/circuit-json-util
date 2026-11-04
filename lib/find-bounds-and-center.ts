@@ -15,7 +15,8 @@ export const findBoundsAndCenter = (
           (elm) => elm.type === "pcb_trace" || elm.type === "schematic_trace",
         )
         // @ts-ignore
-        .flatMap((elm: any) => elm.route),
+        // An unrouted trace has no route, so it contributes no points
+        .flatMap((elm: any) => elm.route ?? []),
     )
     .map((elm) => getDebugLayoutObject(elm))
     .filter(isTruthy)
