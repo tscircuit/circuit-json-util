@@ -2,7 +2,7 @@ import type { AnyCircuitElement } from "circuit-json"
 import { buildSubtree } from "./subtree"
 import { findBoundsAndCenter } from "./find-bounds-and-center"
 import { transformSchematicElements } from "./transform-soup-elements"
-import { translate } from "transformation-matrix"
+import { applyToPoint, translate } from "transformation-matrix"
 
 const findAllDescendantGroupIds = (
   circuitJson: AnyCircuitElement[],
@@ -95,4 +95,11 @@ export const repositionSchematicGroupTo = (
   const matrix = translate(dx, dy)
 
   transformSchematicElements(schematicElements, matrix)
+
+  // Move group metadata here so component-only moves leave parent groups alone.
+  for (const element of schematicElements) {
+    if (element.type === "schematic_group") {
+      element.center = applyToPoint(matrix, element.center)
+    }
+  }
 }
