@@ -203,7 +203,7 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
             elms.map((elm) => suIndexed.insert(elm))
         }
         if (prop === "subtree") {
-          return (opts: SubtreeOptions) =>
+          return (opts: SubtreeOptions = {}) =>
             cjuIndexed(buildSubtree(soup, opts), options)
         }
 

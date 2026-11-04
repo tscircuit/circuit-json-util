@@ -113,7 +113,7 @@ export const cju: GetCircuitJsonUtilFn = ((
         }
 
         if (prop === "subtree") {
-          return (opts: SubtreeOptions) =>
+          return (opts: SubtreeOptions = {}) =>
             cju(buildSubtree(circuitJson, opts), options)
         }
 
