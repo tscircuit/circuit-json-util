@@ -40,15 +40,22 @@ export const rotateDirection = (
   direction: "up" | "down" | "left" | "right",
   num90DegreeClockwiseTurns: number,
 ) => {
-  while (num90DegreeClockwiseTurns > 0) {
-    direction = rotateClockwise(direction)
-    num90DegreeClockwiseTurns--
+  if (!Number.isFinite(num90DegreeClockwiseTurns)) {
+    throw new RangeError("Number of quarter turns must be finite")
   }
-  while (num90DegreeClockwiseTurns < 0) {
-    direction = rotateCounterClockwise(direction)
-    num90DegreeClockwiseTurns++
+  // Full revolutions do not change direction. Reducing first also avoids
+  // non-terminating loops when subtracting 1 cannot change a large number.
+  let remainingTurns = num90DegreeClockwiseTurns % 4
+  let rotatedDirection = direction
+  while (remainingTurns > 0) {
+    rotatedDirection = rotateClockwise(rotatedDirection)
+    remainingTurns--
   }
-  return direction
+  while (remainingTurns < 0) {
+    rotatedDirection = rotateCounterClockwise(rotatedDirection)
+    remainingTurns++
+  }
+  return rotatedDirection
 }
 
 export const oppositeDirection = (
