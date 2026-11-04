@@ -5,6 +5,14 @@ import type {
   SourcePort,
 } from "circuit-json"
 import * as Soup from "circuit-json"
+import {
+  assertPrimaryIdIsAvailable,
+  getNextAvailablePrimaryId,
+  invalidatePrimaryIdRegistries,
+  registerGeneratedPrimaryId,
+  registerInsertedElementPrimaryId,
+  unregisterDeletedElementPrimaryId,
+} from "./primary-id-insertion"
 import type { SubtreeOptions } from "./subtree"
 import { buildSubtree } from "./subtree"
 
@@ -13,10 +21,23 @@ type CircuitJsonElementInsertInput<
   CircuitElementType extends AnyCircuitElement["type"],
   CircuitElement extends { type: CircuitElementType },
 > =
-  | Omit<CircuitElement, "type" | `${CircuitElementType}_id`>
+  | (Omit<CircuitElement, "type" | `${CircuitElementType}_id`> & {
+      [PrimaryIdField in `${CircuitElementType}_id`]?: string
+    })
   | (CircuitElement extends { type: CircuitElementType }
-      ? Omit<CircuitElement, "type" | `${CircuitElementType}_id`>
+      ? Omit<CircuitElement, "type" | `${CircuitElementType}_id`> & {
+          [PrimaryIdField in `${CircuitElementType}_id`]?: string
+        }
       : never)
+
+type CircuitJsonElementWithPrimaryId<
+  CircuitElementType extends AnyCircuitElement["type"],
+  CircuitElement extends { type: CircuitElementType },
+> = CircuitElement extends { type: CircuitElementType }
+  ? CircuitElement & {
+      [PrimaryIdField in `${CircuitElementType}_id`]-?: string
+    }
+  : never
 
 export type CircuitJsonOps<
   K extends AnyCircuitElement["type"],
@@ -30,7 +51,7 @@ export type CircuitJsonOps<
   }) => Extract<T, { type: K }> | null
   insert: (
     elm: CircuitJsonElementInsertInput<K, Extract<T, { type: K }>>,
-  ) => Extract<T, { type: K }>
+  ) => CircuitJsonElementWithPrimaryId<K, Extract<T, { type: K }>>
   update: (
     id: string,
     newProps: Partial<Extract<T, { type: K }>>,
@@ -89,15 +110,59 @@ export const cju: GetCircuitJsonUtilFn = ((
       const type = elm.type
       const idVal = (elm as any)[`${type}_id`]
       if (!idVal) continue
-      const idNum = Number.parseInt(idVal.split("_").pop())
-      if (!Number.isNaN(idNum)) {
-        internalStore.counts[type] = Math.max(
-          internalStore.counts[type] ?? 0,
-          idNum,
-        )
-      }
+      registerGeneratedPrimaryId({
+        counts: internalStore.counts,
+        elementType: type,
+        primaryId: idVal,
+      })
     }
   }
+
+  const insertElement = (
+    componentType: string,
+    elm: Record<string, unknown>,
+    preservePrimaryId: boolean,
+  ): AnyCircuitElement => {
+    const primaryIdField = `${componentType}_id`
+    const requestedPrimaryId = elm[primaryIdField]
+    const primaryId =
+      !preservePrimaryId ||
+      requestedPrimaryId === null ||
+      requestedPrimaryId === undefined ||
+      requestedPrimaryId === ""
+        ? getNextAvailablePrimaryId({
+            circuitJson,
+            counts: internalStore.counts,
+            elementType: componentType,
+          })
+        : assertPrimaryIdIsAvailable({
+            circuitJson,
+            elementType: componentType,
+            primaryId: requestedPrimaryId,
+          })
+
+    const newElm = {
+      ...elm,
+      type: componentType,
+      [primaryIdField]: primaryId,
+    } as AnyCircuitElement
+
+    if (options.validateInserts) {
+      const parser = (Soup as any)[componentType] ?? Soup.any_soup_element
+      parser.parse(newElm)
+    }
+
+    registerGeneratedPrimaryId({
+      counts: internalStore.counts,
+      elementType: componentType,
+      primaryId,
+    })
+    circuitJson.push(newElm)
+    registerInsertedElementPrimaryId({ circuitJson, element: newElm })
+    internalStore.editCount++
+    return newElm
+  }
+
   const su = new Proxy(
     {},
     {
@@ -119,30 +184,11 @@ export const cju: GetCircuitJsonUtilFn = ((
 
         if (prop === "insert") {
           return (elm: AnyCircuitElementInput) => {
-            const component_type = elm.type
-            if (!component_type) {
+            const componentType = elm.type
+            if (!componentType) {
               throw new Error("insert requires an element with a type")
             }
-
-            internalStore.counts[component_type] ??= -1
-            internalStore.counts[component_type]++
-            const index = internalStore.counts[component_type]
-
-            const newElm = {
-              ...elm,
-              type: component_type,
-              [`${component_type}_id`]: `${component_type}_${index}`,
-            } as AnyCircuitElement
-
-            if (options.validateInserts) {
-              const parser =
-                (Soup as any)[component_type] ?? Soup.any_soup_element
-              parser.parse(newElm)
-            }
-
-            circuitJson.push(newElm)
-            internalStore.editCount++
-            return newElm
+            return insertElement(componentType, elm, false)
           }
         }
 
@@ -196,32 +242,17 @@ export const cju: GetCircuitJsonUtilFn = ((
                 keys.every((key) => e[key] === where[key]),
             )
           },
-          insert: (elm: any) => {
-            internalStore.counts[component_type] ??= -1
-            internalStore.counts[component_type]++
-            const index = internalStore.counts[component_type]
-            const newElm = {
-              type: component_type,
-              [`${component_type}_id`]: `${component_type}_${index}`,
-              ...elm,
-            }
-
-            if (options.validateInserts) {
-              const parser =
-                (Soup as any)[component_type] ?? Soup.any_soup_element
-              parser.parse(newElm)
-            }
-
-            circuitJson.push(newElm)
-            internalStore.editCount++
-            return newElm
-          },
+          insert: (elm: Record<string, unknown>) =>
+            insertElement(component_type, elm, true),
           delete: (id: string) => {
             const elm = circuitJson.find(
-              (e) => (e as any)[`${component_type}_id`] === id,
+              (e) =>
+                e.type === component_type &&
+                (e as any)[`${component_type}_id`] === id,
             )
             if (!elm) return
             circuitJson.splice(circuitJson.indexOf(elm), 1)
+            unregisterDeletedElementPrimaryId({ circuitJson, element: elm })
             internalStore.editCount++
           },
           update: (id: string, newProps: any) => {
@@ -231,7 +262,13 @@ export const cju: GetCircuitJsonUtilFn = ((
                 (e as any)[`${component_type}_id`] === id,
             )
             if (!elm) return null
+            const primaryIdField = `${elm.type}_id`
+            const updatesPrimaryId =
+              ("type" in newProps && newProps.type !== elm.type) ||
+              (primaryIdField in newProps &&
+                newProps[primaryIdField] !== (elm as any)[primaryIdField])
             Object.assign(elm, newProps)
+            if (updatesPrimaryId) invalidatePrimaryIdRegistries()
             internalStore.editCount++
             return elm
           },
