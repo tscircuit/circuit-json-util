@@ -11,7 +11,9 @@ export const getReadableNameForElement = (
 ): string => {
   if (typeof elm === "string") {
     const elmObj = getElementById(soup, elm)
-    if (!elmObj) `unknown (could not find element with id ${elm})`
+    if (!elmObj) {
+      return `unknown (could not find element with id ${elm})`
+    }
     return getReadableNameForElement(soup, elmObj as any)
   }
   switch (elm.type) {
