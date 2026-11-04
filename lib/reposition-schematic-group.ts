@@ -82,8 +82,13 @@ export const repositionSchematicGroupTo = (
 
   additionalTraces.forEach((trace) => allGroupElements.add(trace))
 
-  const schematicElements = Array.from(allGroupElements).filter((elm) =>
-    elm.type.startsWith("schematic_"),
+  // Electrical connections can include other groups in the subtree. Only the
+  // requested hierarchy's group metadata participates in placement bounds.
+  const schematicElements = Array.from(allGroupElements).filter(
+    (elm) =>
+      elm.type.startsWith("schematic_") &&
+      (elm.type !== "schematic_group" ||
+        allGroupIds.includes(elm.source_group_id)),
   )
   if (schematicElements.length === 0) return
 
