@@ -14,7 +14,17 @@ export interface BoardBounds {
 }
 
 export const getBoardBounds = (board: PcbBoard): BoardBounds => {
-  if (board.width && board.height && board.center) {
+  // Numeric zero is a valid explicit dimension (e.g. board initialization
+  // before sizing, or AutoSize of an empty board), so check for presence
+  // rather than truthiness. Non-finite values are not valid dimensions.
+  const hasExplicitDimensions =
+    typeof board.width === "number" &&
+    Number.isFinite(board.width) &&
+    typeof board.height === "number" &&
+    Number.isFinite(board.height) &&
+    board.center != null
+
+  if (hasExplicitDimensions) {
     const halfWidth = board.width / 2
     const halfHeight = board.height / 2
 
