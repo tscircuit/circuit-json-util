@@ -141,10 +141,22 @@ export const getSchematicElementBounds = (
   if (points.length === 0) return null
 
   const halfTraceWidth = SCHEMATIC_TRACE_WIDTH / 2
+  // Accumulate extrema while traversing instead of spreading all coordinates
+  // into Math.min/Math.max — large traces overflow the argument limit in Node.
+  let minX = Infinity
+  let minY = Infinity
+  let maxX = -Infinity
+  let maxY = -Infinity
+  for (const point of points) {
+    if (point.x < minX) minX = point.x
+    if (point.x > maxX) maxX = point.x
+    if (point.y < minY) minY = point.y
+    if (point.y > maxY) maxY = point.y
+  }
   return createBounds({
-    minX: Math.min(...points.map((point) => point.x)) - halfTraceWidth,
-    minY: Math.min(...points.map((point) => point.y)) - halfTraceWidth,
-    maxX: Math.max(...points.map((point) => point.x)) + halfTraceWidth,
-    maxY: Math.max(...points.map((point) => point.y)) + halfTraceWidth,
+    minX: minX - halfTraceWidth,
+    minY: minY - halfTraceWidth,
+    maxX: maxX + halfTraceWidth,
+    maxY: maxY + halfTraceWidth,
   })
 }
