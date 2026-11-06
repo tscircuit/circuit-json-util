@@ -36,7 +36,8 @@ export function getReadableNameForPcbTrace(
     if (!sourceComponent) return null
 
     const sourcePort = cju(soup).source_port.get(pcbPort.source_port_id)
-    const portHint = sourcePort?.port_hints ? sourcePort.port_hints[1] : ""
+    const portHint = sourcePort?.port_hints?.[1] ?? sourcePort?.port_hints?.[0]
+    if (!portHint) return null
 
     return {
       componentName: sourceComponent.name,
