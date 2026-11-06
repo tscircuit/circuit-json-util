@@ -1,6 +1,7 @@
 import { expect, test } from "bun:test"
 import type { AnyCircuitElement } from "circuit-json"
 import { findBoundsAndCenter } from "lib/find-bounds-and-center"
+import { getDebugLayoutObject } from "lib/utils/get-layout-debug-object"
 
 test("should return default values for empty input", () => {
   const result = findBoundsAndCenter([])
@@ -175,4 +176,27 @@ test("should calculate bounds for silkscreen circles using their radius", () => 
     width: 4,
     height: 4,
   })
+})
+
+test("should handle unrouted pcb_trace and schematic_trace without throwing", () => {
+  const elements = [
+    {
+      type: "pcb_trace",
+      pcb_trace_id: "trace_1",
+      source_trace_id: "source_trace_1",
+    } as unknown as AnyCircuitElement,
+    {
+      type: "schematic_trace",
+      schematic_trace_id: "schematic_trace_1",
+      source_trace_id: "source_trace_1",
+    } as unknown as AnyCircuitElement,
+  ]
+
+  expect(findBoundsAndCenter(elements)).toEqual({
+    center: { x: 0, y: 0 },
+    width: 0,
+    height: 0,
+  })
+  expect(getDebugLayoutObject(undefined)).toBeNull()
+  expect(getDebugLayoutObject(null)).toBeNull()
 })
