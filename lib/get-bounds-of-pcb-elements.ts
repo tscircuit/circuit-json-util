@@ -5,6 +5,7 @@ import {
   rotateDEG,
   translate,
 } from "transformation-matrix"
+import { getPcbCopperTextBounds } from "./get-pcb-copper-text-bounds"
 
 export interface PcbBounds {
   minX: number
@@ -165,6 +166,11 @@ export const getPcbElementBounds = (
   elm: AnyCircuitElement,
 ): PcbBounds | null => {
   if (!elm.type.startsWith("pcb_")) return null
+
+  if (elm.type === "pcb_copper_text") {
+    const copperTextBounds = getPcbCopperTextBounds(elm)
+    if (copperTextBounds) return copperTextBounds
+  }
 
   if (
     elm.type === "pcb_smtpad" &&
