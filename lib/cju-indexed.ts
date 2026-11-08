@@ -823,7 +823,22 @@ export const cjuIndexed: GetIndexedCircuitJsonUtilFn = ((
                   internalStore.indexes.bySubcircuit.get(subcircuitId) || []
 
                 if (!subcircuitElements.includes(elm)) {
-                  subcircuitElements.push(elm)
+                  if (subcircuitElements.length === 0) {
+                    subcircuitElements.push(elm)
+                  } else {
+                    // Keep filtered lists and first matches in circuit order.
+                    const precedingElements = new Set(
+                      soup.slice(0, soup.indexOf(elm)),
+                    )
+                    const insertAt = subcircuitElements.findIndex(
+                      (element) => !precedingElements.has(element),
+                    )
+                    subcircuitElements.splice(
+                      insertAt === -1 ? subcircuitElements.length : insertAt,
+                      0,
+                      elm,
+                    )
+                  }
                   internalStore.indexes.bySubcircuit.set(
                     subcircuitId,
                     subcircuitElements,
