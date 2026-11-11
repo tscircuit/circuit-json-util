@@ -98,6 +98,7 @@ export function buildSubtree(
   }
 
   const adj = new Map<AnyCircuitElement, Set<AnyCircuitElement>>()
+  const subcircuitBuckets = new Map<string, AnyCircuitElement[]>()
   for (const elm of soup) {
     const entries = Object.entries(elm)
     for (const [key, val] of entries) {
@@ -112,6 +113,20 @@ export function buildSubtree(
             connect(adj, elm, other)
           }
         }
+      }
+    }
+
+    const subId = (elm as any).subcircuit_id
+    if (typeof subId === "string") {
+      if (!subcircuitBuckets.has(subId)) subcircuitBuckets.set(subId, [])
+      subcircuitBuckets.get(subId)!.push(elm)
+    }
+  }
+
+  for (const bucket of subcircuitBuckets.values()) {
+    for (let i = 0; i < bucket.length; i++) {
+      for (let j = i + 1; j < bucket.length; j++) {
+        connect(adj, bucket[i], bucket[j])
       }
     }
   }
