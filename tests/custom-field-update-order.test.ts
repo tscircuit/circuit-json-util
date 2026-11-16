@@ -2,20 +2,24 @@ import { expect, test } from "bun:test"
 import { pcb_component, source_net } from "circuit-json"
 import { cju, cjuIndexed } from "../index"
 
-const makeCircuit = () =>
-  [1, 2, 3].map((n) =>
-    pcb_component.parse({
-      type: "pcb_component",
-      pcb_component_id: `pc${n}`,
-      source_component_id: `sc${n}`,
-      center: { x: n * 5, y: 0 },
-      width: n,
-      height: n,
-      rotation: 0,
-      layer: "top",
-      obstructs_within_bounds: false,
-    }),
-  )
+const makeComponent = (n: number) =>
+  pcb_component.parse({
+    type: "pcb_component",
+    pcb_component_id: `pc${n}`,
+    source_component_id: `sc${n}`,
+    center: { x: n * 5, y: 0 },
+    width: n,
+    height: n,
+    rotation: 0,
+    layer: "top",
+    obstructs_within_bounds: false,
+  })
+
+const makeCircuit = (): [
+  ReturnType<typeof makeComponent>,
+  ReturnType<typeof makeComponent>,
+  ReturnType<typeof makeComponent>,
+] => [makeComponent(1), makeComponent(2), makeComponent(3)]
 
 for (const indexConfig of [
   { byCustomField: ["width", "height"] },
