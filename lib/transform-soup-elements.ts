@@ -1,7 +1,9 @@
 import type {
   AnyCircuitElement,
   InsertionDirection,
+  PcbSolderPastePill,
   PcbSolderPasteRect,
+  PcbSolderPasteRotatedPill,
   PcbSolderPasteRotatedRect,
   PcbSoldermaskOpening,
 } from "circuit-json"
@@ -159,29 +161,36 @@ const getTransformedRectRotation = (rotation: number, matrix: Matrix) => {
   )
 }
 
-const transformPcbSolderPasteRectangle = (
-  paste: PcbSolderPasteRect | PcbSolderPasteRotatedRect,
+const transformPcbSolderPasteRectOrPill = (
+  paste:
+    | PcbSolderPasteRect
+    | PcbSolderPasteRotatedRect
+    | PcbSolderPastePill
+    | PcbSolderPasteRotatedPill,
   matrix: Matrix,
 ) => {
   const center = applyToPoint(matrix, { x: paste.x, y: paste.y })
   paste.x = center.x
   paste.y = center.y
+  const isPill = paste.shape === "pill" || paste.shape === "rotated_pill"
   const rotation = getTransformedRectRotation(
-    paste.shape === "rotated_rect" ? paste.ccw_rotation : 0,
+    "ccw_rotation" in paste ? paste.ccw_rotation : 0,
     matrix,
   )
   const quarterTurns = Math.round(rotation / 90)
 
-  // Preserve the axis-aligned rect representation for exact quarter turns.
-  // Arbitrary angles need rotated_rect, with dimensions in its local frame.
+  // Exact quarter turns stay axis-aligned; other angles retain local dimensions.
   if (Math.abs(rotation - quarterTurns * 90) < 1e-8) {
     if (Math.abs(quarterTurns) % 2 === 1) {
       ;[paste.width, paste.height] = [paste.height, paste.width]
     }
-    Object.assign(paste, { shape: "rect" })
+    Object.assign(paste, { shape: isPill ? "pill" : "rect" })
     Reflect.deleteProperty(paste, "ccw_rotation")
   } else {
-    Object.assign(paste, { shape: "rotated_rect", ccw_rotation: rotation })
+    Object.assign(paste, {
+      shape: isPill ? "rotated_pill" : "rotated_rect",
+      ccw_rotation: rotation,
+    })
   }
   return paste
 }
@@ -248,9 +257,12 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   }
   if (
     elm.type === "pcb_solder_paste" &&
-    (elm.shape === "rect" || elm.shape === "rotated_rect")
+    (elm.shape === "rect" ||
+      elm.shape === "rotated_rect" ||
+      elm.shape === "pill" ||
+      elm.shape === "rotated_pill")
   ) {
-    return transformPcbSolderPasteRectangle(elm, matrix)
+    return transformPcbSolderPasteRectOrPill(elm, matrix)
   }
   // Polygon vertices are board-world points in mm (+X right, +Y up), not centers.
   if (
@@ -419,9 +431,8 @@ export const transformPCBElements = (
   if (flipPadWidthHeight) {
     transformedElms = transformedElms.map((elm) => {
       if (
-        (elm.type === "pcb_smtpad" &&
-          (elm.shape === "rect" || elm.shape === "pill")) ||
-        (elm.type === "pcb_solder_paste" && elm.shape === "pill")
+        elm.type === "pcb_smtpad" &&
+        (elm.shape === "rect" || elm.shape === "pill")
       ) {
         ;[elm.width, elm.height] = [elm.height, elm.width]
       }
