@@ -97,8 +97,8 @@ test.failing(
         height: source.height,
         radius: source.radius,
         layer: source.layer,
-        pcb_smtpad_id: source.pcb_smtpad_id,
       })
+      expect(local.pcb_smtpad_id).toBe(source.pcb_smtpad_id)
       expect(local.x).toBeCloseTo(center.x, 7)
       expect(local.y).toBeCloseTo(center.y, 7)
       expect(local).not.toHaveProperty("ccw_rotation")
