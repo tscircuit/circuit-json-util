@@ -3,6 +3,7 @@ import {
   any_circuit_element,
   pcb_board,
   pcb_note_text,
+  type PcbComponent,
   type PcbSolderPastePill,
   type PcbSolderPasteRotatedPill,
 } from "circuit-json"
@@ -25,7 +26,13 @@ const sourcePaste = footprint.filter(
   (element): element is PcbSolderPasteRotatedPill =>
     element.type === "pcb_solder_paste" && element.shape === "rotated_pill",
 )
-const placement = compose(translate(6, -3), rotateDEG(37))
+const component = footprint.find(
+  (element): element is PcbComponent => element.type === "pcb_component",
+)!
+const placement = compose(
+  translate(component.center.x, component.center.y),
+  rotateDEG(component.rotation ?? 0),
+)
 const toLocal = inverse(placement)
 const extracted = transformPCBElements(structuredClone(footprint), toLocal)
 
