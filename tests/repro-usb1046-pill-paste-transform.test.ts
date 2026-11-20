@@ -65,7 +65,7 @@ beforeAll(() => {
   ).toMatchSvgSnapshot(import.meta.path)
 })
 
-test("USB1046 pill paste returns to footprint-local geometry and follows placement", () => {
+test("USB1046 paste follows cached footprint placement", () => {
   const localPaste = extracted.filter(
     (element): element is PcbSolderPastePill =>
       element.type === "pcb_solder_paste" && element.shape === "pill",
