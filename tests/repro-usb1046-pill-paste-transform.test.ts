@@ -65,69 +65,66 @@ beforeAll(() => {
   ).toMatchSvgSnapshot(import.meta.path)
 })
 
-test.failing(
-  "USB1046 pill paste returns to footprint-local geometry and follows placement",
-  () => {
-    const localPaste = extracted.filter(
-      (element): element is PcbSolderPastePill =>
-        element.type === "pcb_solder_paste" && element.shape === "pill",
-    )
-    expect(localPaste).toHaveLength(6)
-    const restored = transformPCBElements(
-      structuredClone(extracted),
-      placement,
-    ).filter(
-      (element): element is PcbSolderPasteRotatedPill =>
-        element.type === "pcb_solder_paste" && element.shape === "rotated_pill",
-    )
-    const quarterTurn = transformPCBElements(
-      structuredClone(extracted),
-      rotateDEG(90),
-    ).filter(
-      (element): element is PcbSolderPastePill =>
-        element.type === "pcb_solder_paste" && element.shape === "pill",
-    )
-    for (const source of sourcePaste) {
-      const local = localPaste.find(
+test.failing("USB1046 paste follows cached footprint placement", () => {
+  const localPaste = extracted.filter(
+    (element): element is PcbSolderPastePill =>
+      element.type === "pcb_solder_paste" && element.shape === "pill",
+  )
+  expect(localPaste).toHaveLength(6)
+  const restored = transformPCBElements(
+    structuredClone(extracted),
+    placement,
+  ).filter(
+    (element): element is PcbSolderPasteRotatedPill =>
+      element.type === "pcb_solder_paste" && element.shape === "rotated_pill",
+  )
+  const quarterTurn = transformPCBElements(
+    structuredClone(extracted),
+    rotateDEG(90),
+  ).filter(
+    (element): element is PcbSolderPastePill =>
+      element.type === "pcb_solder_paste" && element.shape === "pill",
+  )
+  for (const source of sourcePaste) {
+    const local = localPaste.find(
+      (paste) => paste.pcb_solder_paste_id === source.pcb_solder_paste_id,
+    )!
+    const center = applyToPoint(toLocal, source)
+    expect(local).toMatchObject({
+      width: source.width,
+      height: source.height,
+      radius: source.radius,
+      layer: source.layer,
+    })
+    expect(local.pcb_smtpad_id).toBe(source.pcb_smtpad_id)
+    expect(local.x).toBeCloseTo(center.x, 7)
+    expect(local.y).toBeCloseTo(center.y, 7)
+    expect(local).not.toHaveProperty("ccw_rotation")
+    const replaced = restored.find(
+      (paste) => paste.pcb_solder_paste_id === source.pcb_solder_paste_id,
+    )!
+    expect(replaced).toMatchObject({
+      width: source.width,
+      height: source.height,
+      radius: source.radius,
+    })
+    expect(replaced.ccw_rotation).toBeCloseTo(37, 7)
+    expect(replaced.x).toBeCloseTo(source.x, 7)
+    expect(replaced.y).toBeCloseTo(source.y, 7)
+    expect(
+      quarterTurn.find(
         (paste) => paste.pcb_solder_paste_id === source.pcb_solder_paste_id,
-      )!
-      const center = applyToPoint(toLocal, source)
-      expect(local).toMatchObject({
-        width: source.width,
-        height: source.height,
-        radius: source.radius,
-        layer: source.layer,
-      })
-      expect(local.pcb_smtpad_id).toBe(source.pcb_smtpad_id)
-      expect(local.x).toBeCloseTo(center.x, 7)
-      expect(local.y).toBeCloseTo(center.y, 7)
-      expect(local).not.toHaveProperty("ccw_rotation")
-      const replaced = restored.find(
-        (paste) => paste.pcb_solder_paste_id === source.pcb_solder_paste_id,
-      )!
-      expect(replaced).toMatchObject({
-        width: source.width,
-        height: source.height,
-        radius: source.radius,
-      })
-      expect(replaced.ccw_rotation).toBeCloseTo(37, 7)
-      expect(replaced.x).toBeCloseTo(source.x, 7)
-      expect(replaced.y).toBeCloseTo(source.y, 7)
-      expect(
-        quarterTurn.find(
-          (paste) => paste.pcb_solder_paste_id === source.pcb_solder_paste_id,
-        ),
-      ).toMatchObject({ width: source.height, height: source.width })
-      const mirrored = transformPCBElement(structuredClone(source), flipY())
-      if (
-        mirrored.type !== "pcb_solder_paste" ||
-        mirrored.shape !== "rotated_pill"
-      ) {
-        throw new Error("Expected a rotated pill after reflection")
-      }
-      expect(((mirrored.ccw_rotation % 180) + 180) % 180).toBeCloseTo(143, 7)
-      expect(mirrored.x).toBeCloseTo(-source.x, 7)
-      expect(mirrored.y).toBeCloseTo(source.y, 7)
+      ),
+    ).toMatchObject({ width: source.height, height: source.width })
+    const mirrored = transformPCBElement(structuredClone(source), flipY())
+    if (
+      mirrored.type !== "pcb_solder_paste" ||
+      mirrored.shape !== "rotated_pill"
+    ) {
+      throw new Error("Expected a rotated pill after reflection")
     }
-  },
-)
+    expect(((mirrored.ccw_rotation % 180) + 180) % 180).toBeCloseTo(143, 7)
+    expect(mirrored.x).toBeCloseTo(-source.x, 7)
+    expect(mirrored.y).toBeCloseTo(source.y, 7)
+  }
+})
