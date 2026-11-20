@@ -297,10 +297,15 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.x = x
     elm.y = y
     if (
-      elm.type === "pcb_smtpad" &&
-      (elm.shape === "rotated_rect" || elm.shape === "rotated_pill")
+      (elm.type === "pcb_smtpad" &&
+        (elm.shape === "rotated_rect" || elm.shape === "rotated_pill")) ||
+      (elm.type === "pcb_plated_hole" &&
+        (elm.shape === "pill" || elm.shape === "oval"))
     ) {
-      elm.ccw_rotation = getTransformedRectRotation(elm.ccw_rotation, matrix)
+      elm.ccw_rotation = getTransformedRectRotation(
+        elm.ccw_rotation ?? 0,
+        matrix,
+      )
     }
   } else if (elm.type === "pcb_keepout" && elm.shape === "outline") {
     elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
@@ -313,7 +318,10 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_note_text"
   ) {
     elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
-    if (elm.type === "pcb_silkscreen_text") {
+    if (
+      elm.type === "pcb_silkscreen_text" ||
+      elm.type === "pcb_fabrication_note_text"
+    ) {
       const textTransform = compose(matrix, rotateDEG(elm.ccw_rotation ?? 0))
       elm.ccw_rotation =
         (Math.atan2(textTransform.b, textTransform.a) * 180) / Math.PI

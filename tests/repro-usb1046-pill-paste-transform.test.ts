@@ -39,6 +39,12 @@ const extracted = transformPCBElements(structuredClone(footprint), toLocal)
 beforeAll(() => {
   expect(sourcePaste).toHaveLength(6)
   for (const paste of sourcePaste) expect(paste.ccw_rotation).toBeCloseTo(37, 7)
+  expect(
+    footprint.filter((element) => element.type === "pcb_plated_hole"),
+  ).toHaveLength(2)
+  expect(
+    footprint.filter((element) => element.type === "pcb_fabrication_note_text"),
+  ).toHaveLength(2)
   const board = pcb_board.parse({
     type: "pcb_board",
     pcb_board_id: "board",
@@ -49,7 +55,7 @@ beforeAll(() => {
   const note = pcb_note_text.parse({
     type: "pcb_note_text",
     pcb_note_text_id: "stencil-alignment",
-    text: "USB1046 cache extraction: paste must align with the contacts",
+    text: "USB1046: contacts, slots and text return to footprint coordinates",
     anchor_position: { x: 0, y: 15 },
     anchor_alignment: "center",
     font_size: 0.65,
@@ -65,16 +71,33 @@ beforeAll(() => {
   ).toMatchSvgSnapshot(import.meta.path)
 })
 
-test("USB1046 paste follows cached footprint placement", () => {
+test("USB1046 footprint survives cache extraction", () => {
+  for (const element of extracted) {
+    if (element.type === "pcb_plated_hole" && element.shape === "pill") {
+      expect(element.ccw_rotation ?? 0).toBeCloseTo(0, 7)
+    }
+    if (element.type === "pcb_fabrication_note_text") {
+      expect(element.ccw_rotation ?? 0).toBeCloseTo(0, 7)
+    }
+  }
   const localPaste = extracted.filter(
     (element): element is PcbSolderPastePill =>
       element.type === "pcb_solder_paste" && element.shape === "pill",
   )
   expect(localPaste).toHaveLength(6)
-  const restored = transformPCBElements(
+  const restoredFootprint = transformPCBElements(
     structuredClone(extracted),
     placement,
-  ).filter(
+  )
+  for (const element of restoredFootprint) {
+    if (element.type === "pcb_plated_hole" && element.shape === "pill") {
+      expect(element.ccw_rotation ?? 0).toBeCloseTo(37, 7)
+    }
+    if (element.type === "pcb_fabrication_note_text") {
+      expect(element.ccw_rotation ?? 0).toBeCloseTo(37, 7)
+    }
+  }
+  const restored = restoredFootprint.filter(
     (element): element is PcbSolderPasteRotatedPill =>
       element.type === "pcb_solder_paste" && element.shape === "rotated_pill",
   )
