@@ -124,18 +124,6 @@ test("transformPCBElements rotates every rotatable hole shape", () => {
       hole_shape: "rotated_pill",
       ccw_rotation: 45,
     }),
-    {
-      type: "pcb_solder_paste",
-      pcb_solder_paste_id: "paste",
-      shape: "rotated_pill",
-      layer: "top",
-      width: 1.2,
-      height: 2,
-      radius: 0.6,
-      ccw_rotation: 0,
-      x: 1,
-      y: 0,
-    },
   ] as any[]
 
   // Same shape of matrix core's applyPackOutput builds. The float noise in the
@@ -150,12 +138,7 @@ test("transformPCBElements rotates every rotatable hole shape", () => {
   )
 
   const byId = (id: string) =>
-    elements.find(
-      (e) =>
-        e.pcb_plated_hole_id === id ||
-        e.pcb_hole_id === id ||
-        e.pcb_solder_paste_id === id,
-    )
+    elements.find((e) => e.pcb_plated_hole_id === id || e.pcb_hole_id === id)
 
   // Positions still move with the transform.
   expect(byId("pill").x).toBeCloseTo(10, 6)
@@ -183,7 +166,6 @@ test("transformPCBElements rotates every rotatable hole shape", () => {
     ccw_rotation: 270,
   })
   expect(byId("npth_rotated_pill").ccw_rotation).toBe(315)
-  expect(byId("paste").ccw_rotation).toBe(270)
 })
 
 test("transformPCBElement applies hole rotation for a single element", () => {

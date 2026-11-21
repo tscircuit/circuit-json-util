@@ -4,8 +4,9 @@ import type {
   PcbHole,
   PcbHoleWithPolygonPad,
   PcbPlatedHole,
-  PcbSolderPaste,
+  PcbSolderPastePill,
   PcbSolderPasteRect,
+  PcbSolderPasteRotatedPill,
   PcbSolderPasteRotatedRect,
   PcbSoldermaskOpening,
 } from "circuit-json"
@@ -238,15 +239,15 @@ const transformHoleOffset = (
 }
 
 /**
- * Applies the placement's rotation and reflection to the orientation of a hole
- * or rotated paste. Rotation fields match what PlatedHole and Hole emit for an
- * explicit pcbRotation. Hole offsets intentionally differ: PlatedHole emits them
+ * Applies the placement's rotation and reflection to the orientation of a hole.
+ * Rotation fields match what PlatedHole and Hole emit for an explicit
+ * pcbRotation. Hole offsets intentionally differ: PlatedHole emits them
  * unrotated, which puts the drill in the wrong place on a rotated component.
  * Pure translations change nothing here, including the shape of an unrotated
  * pill.
  */
 const transformHoleOrientation = (
-  elm: PcbPlatedHole | PcbHole | PcbSolderPaste,
+  elm: PcbPlatedHole | PcbHole,
   matrix: Matrix,
 ) => {
   const appliedRotation = (Math.atan2(matrix.b, matrix.a) * 180) / Math.PI
@@ -297,45 +298,45 @@ const transformHoleOrientation = (
     return
   }
 
-  if (elm.type === "pcb_hole") {
-    if (elm.hole_shape === "rotated_pill") {
-      elm.ccw_rotation = getTransformedHoleRotation(elm.ccw_rotation, matrix)
-    } else if (elm.hole_shape === "pill") {
-      const rotation = getTransformedHoleRotation(0, matrix)
-      if (rotation === 0) return
-      Object.assign(elm, { hole_shape: "rotated_pill", ccw_rotation: rotation })
-    }
-    return
-  }
-
-  if (elm.shape === "rotated_pill") {
+  if (elm.hole_shape === "rotated_pill") {
     elm.ccw_rotation = getTransformedHoleRotation(elm.ccw_rotation, matrix)
+  } else if (elm.hole_shape === "pill") {
+    const rotation = getTransformedHoleRotation(0, matrix)
+    if (rotation === 0) return
+    Object.assign(elm, { hole_shape: "rotated_pill", ccw_rotation: rotation })
   }
 }
 
-const transformPcbSolderPasteRectangle = (
-  paste: PcbSolderPasteRect | PcbSolderPasteRotatedRect,
+const transformPcbSolderPasteRectOrPill = (
+  paste:
+    | PcbSolderPasteRect
+    | PcbSolderPasteRotatedRect
+    | PcbSolderPastePill
+    | PcbSolderPasteRotatedPill,
   matrix: Matrix,
 ) => {
   const center = applyToPoint(matrix, { x: paste.x, y: paste.y })
   paste.x = center.x
   paste.y = center.y
+  const isPill = paste.shape === "pill" || paste.shape === "rotated_pill"
   const rotation = getTransformedRectRotation(
-    paste.shape === "rotated_rect" ? paste.ccw_rotation : 0,
+    "ccw_rotation" in paste ? paste.ccw_rotation : 0,
     matrix,
   )
   const quarterTurns = Math.round(rotation / 90)
 
-  // Preserve the axis-aligned rect representation for exact quarter turns.
-  // Arbitrary angles need rotated_rect, with dimensions in its local frame.
+  // Exact quarter turns stay axis-aligned; other angles retain local dimensions.
   if (Math.abs(rotation - quarterTurns * 90) < 1e-8) {
     if (Math.abs(quarterTurns) % 2 === 1) {
       ;[paste.width, paste.height] = [paste.height, paste.width]
     }
-    Object.assign(paste, { shape: "rect" })
+    Object.assign(paste, { shape: isPill ? "pill" : "rect" })
     Reflect.deleteProperty(paste, "ccw_rotation")
   } else {
-    Object.assign(paste, { shape: "rotated_rect", ccw_rotation: rotation })
+    Object.assign(paste, {
+      shape: isPill ? "rotated_pill" : "rotated_rect",
+      ccw_rotation: rotation,
+    })
   }
   return paste
 }
@@ -402,9 +403,12 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
   }
   if (
     elm.type === "pcb_solder_paste" &&
-    (elm.shape === "rect" || elm.shape === "rotated_rect")
+    (elm.shape === "rect" ||
+      elm.shape === "rotated_rect" ||
+      elm.shape === "pill" ||
+      elm.shape === "rotated_pill")
   ) {
-    return transformPcbSolderPasteRectangle(elm, matrix)
+    return transformPcbSolderPasteRectOrPill(elm, matrix)
   }
   // Polygon vertices are board-world points in mm (+X right, +Y up), not centers.
   if (
@@ -444,11 +448,8 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     ) {
       elm.ccw_rotation = getTransformedRectRotation(elm.ccw_rotation, matrix)
     }
-    if (
-      elm.type === "pcb_plated_hole" ||
-      elm.type === "pcb_hole" ||
-      elm.type === "pcb_solder_paste"
-    ) {
+    // Rect and pill paste returned above, so only holes reach this.
+    if (elm.type === "pcb_plated_hole" || elm.type === "pcb_hole") {
       transformHoleOrientation(elm, matrix)
     }
   } else if (elm.type === "pcb_keepout" && elm.shape === "outline") {
@@ -462,7 +463,10 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.type === "pcb_note_text"
   ) {
     elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
-    if (elm.type === "pcb_silkscreen_text") {
+    if (
+      elm.type === "pcb_silkscreen_text" ||
+      elm.type === "pcb_fabrication_note_text"
+    ) {
       const textTransform = compose(matrix, rotateDEG(elm.ccw_rotation ?? 0))
       elm.ccw_rotation =
         (Math.atan2(textTransform.b, textTransform.a) * 180) / Math.PI
@@ -580,9 +584,8 @@ export const transformPCBElements = (
   if (flipPadWidthHeight) {
     transformedElms = transformedElms.map((elm) => {
       if (
-        (elm.type === "pcb_smtpad" &&
-          (elm.shape === "rect" || elm.shape === "pill")) ||
-        (elm.type === "pcb_solder_paste" && elm.shape === "pill")
+        elm.type === "pcb_smtpad" &&
+        (elm.shape === "rect" || elm.shape === "pill")
       ) {
         ;[elm.width, elm.height] = [elm.height, elm.width]
       }
