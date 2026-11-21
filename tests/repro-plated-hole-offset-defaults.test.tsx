@@ -2,7 +2,7 @@ import { expect, test } from "bun:test"
 import { Circuit } from "tscircuit"
 import { getPlatedHolePolygon } from "../index"
 
-test.failing("plated holes without offsets have finite bounds", async () => {
+test("plated holes without offsets have finite bounds", async () => {
   const circuit = new Circuit()
   circuit.add(
     <board width={18} height={6} routingDisabled>
