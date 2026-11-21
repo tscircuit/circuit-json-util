@@ -124,7 +124,7 @@ export const getPourPolygon = (pour: PcbCopperPour): Polygon => {
   if (pour.shape === "polygon")
     return ccw(new Polygon(pour.points.map((p) => new Point(p.x, p.y))))
   const polygon = ringPolygon(pour.brep_shape.outer_ring)
-  for (const ring of pour.brep_shape.inner_rings ?? [])
+  for (const ring of pour.brep_shape.inner_rings)
     subtractHole(polygon, ringPolygon(ring))
   return polygon
 }
