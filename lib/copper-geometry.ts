@@ -124,7 +124,7 @@ export const getPourPolygon = (pour: PcbCopperPour): Polygon => {
   if (pour.shape === "polygon")
     return ccw(new Polygon(pour.points.map((p) => new Point(p.x, p.y))))
   const polygon = ringPolygon(pour.brep_shape.outer_ring)
-  for (const ring of pour.brep_shape.inner_rings)
+  for (const ring of pour.brep_shape.inner_rings ?? [])
     subtractHole(polygon, ringPolygon(ring))
   return polygon
 }
@@ -185,7 +185,10 @@ export const getPlatedHolePolygon = (
       ),
     )
   }
-  const center = { x: pad.x + pad.hole_offset_x, y: pad.y + pad.hole_offset_y }
+  const center = {
+    x: pad.x + (pad.hole_offset_x ?? 0),
+    y: pad.y + (pad.hole_offset_y ?? 0),
+  }
   const outer =
     pad.shape === "hole_with_polygon_pad"
       ? placePolygon(
