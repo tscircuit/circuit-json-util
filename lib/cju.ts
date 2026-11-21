@@ -159,7 +159,7 @@ export const cju: GetCircuitJsonUtilFn = ((
             circuitJson.find(
               (e: any) =>
                 e.type === component_type && e[`${component_type}_id`] === id,
-            ),
+            ) ?? null,
           getUsing: (using: any) => {
             const keys = Object.keys(using)
             if (keys.length !== 1) {
@@ -174,18 +174,22 @@ export const cju: GetCircuitJsonUtilFn = ((
                 e.type === join_type && e[join_key] === using[join_key],
             )
             if (!joiner) return null
-            return circuitJson.find(
-              (e: any) =>
-                e.type === component_type &&
-                e[`${component_type}_id`] === joiner[`${component_type}_id`],
+            return (
+              circuitJson.find(
+                (e: any) =>
+                  e.type === component_type &&
+                  e[`${component_type}_id`] === joiner[`${component_type}_id`],
+              ) ?? null
             )
           },
           getWhere: (where: any) => {
             const keys = Object.keys(where)
-            return circuitJson.find(
-              (e: any) =>
-                e.type === component_type &&
-                keys.every((key) => e[key] === where[key]),
+            return (
+              circuitJson.find(
+                (e: any) =>
+                  e.type === component_type &&
+                  keys.every((key) => e[key] === where[key]),
+              ) ?? null
             )
           },
           list: (where?: any) => {
@@ -239,10 +243,12 @@ export const cju: GetCircuitJsonUtilFn = ((
             // TODO when applySelector is isolated we can use it, until then we
             // do a poor man's selector implementation for two common cases
             if (component_type === "source_component") {
-              return circuitJson.find(
-                (e) =>
-                  e.type === "source_component" &&
-                  e.name === selector.replace(/\./g, ""),
+              return (
+                circuitJson.find(
+                  (e) =>
+                    e.type === "source_component" &&
+                    e.name === selector.replace(/\./g, ""),
+                ) ?? null
               )
             } else if (
               component_type === "pcb_port" ||
@@ -269,19 +275,24 @@ export const cju: GetCircuitJsonUtilFn = ((
               if (component_type === "source_port") return source_port
 
               if (component_type === "pcb_port") {
-                return circuitJson.find(
-                  (e) =>
-                    e.type === "pcb_port" &&
-                    e.source_port_id === source_port.source_port_id,
+                return (
+                  circuitJson.find(
+                    (e) =>
+                      e.type === "pcb_port" &&
+                      e.source_port_id === source_port.source_port_id,
+                  ) ?? null
                 )
               } else if (component_type === "schematic_port") {
-                return circuitJson.find(
-                  (e) =>
-                    e.type === "schematic_port" &&
-                    e.source_port_id === source_port.source_port_id,
+                return (
+                  circuitJson.find(
+                    (e) =>
+                      e.type === "schematic_port" &&
+                      e.source_port_id === source_port.source_port_id,
+                  ) ?? null
                 )
               }
             }
+            return null
           },
         }
       },

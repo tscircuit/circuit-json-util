@@ -61,5 +61,5 @@ test("subtree by subcircuit", () => {
 
   expect(result.length).toBe(5)
   expect(st.pcb_trace.get("pt1")).toBeTruthy()
-  expect(st.source_component.get("sc2")).toBeUndefined()
+  expect(st.source_component.get("sc2")).toBeNull()
 })
