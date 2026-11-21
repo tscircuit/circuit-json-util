@@ -2,7 +2,7 @@ import { expect, test } from "bun:test"
 import { Circuit } from "tscircuit"
 import { getPourPolygon } from "../index"
 
-test.failing("a BRep pour without inner rings is solid copper", async () => {
+test("a BRep pour without inner rings is solid copper", async () => {
   const circuit = new Circuit()
   circuit.add(
     <board width={12} height={10} routingDisabled>
