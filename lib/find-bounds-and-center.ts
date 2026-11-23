@@ -1,4 +1,4 @@
-import type { AnyCircuitElement } from "circuit-json"
+import type { AnyCircuitElement, SchematicTrace } from "circuit-json"
 import { getDebugLayoutObject } from "./utils/get-layout-debug-object"
 import { isTruthy } from "./utils/is-truthy"
 
@@ -15,7 +15,19 @@ export const findBoundsAndCenter = (
           (elm) => elm.type === "pcb_trace" || elm.type === "schematic_trace",
         )
         // @ts-ignore
-        .flatMap((elm: any) => elm.route),
+        .flatMap((elm: any) => {
+          if (
+            elm.type === "schematic_trace" &&
+            Array.isArray(elm.edges) &&
+            Array.isArray(elm.junctions)
+          ) {
+            const trace = elm as SchematicTrace
+            return trace.edges
+              .flatMap((edge) => [edge.from, edge.to])
+              .concat(trace.junctions)
+          }
+          return elm.route
+        }),
     )
     .map((elm) => getDebugLayoutObject(elm))
     .filter(isTruthy)
