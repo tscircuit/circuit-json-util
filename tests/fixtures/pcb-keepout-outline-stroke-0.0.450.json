@@ -1,0 +1,7777 @@
+{
+  "sourceCommit": "f25a42897b87d2e9691b25a25f9456e85921200a",
+  "libraryBaseline": "84a07a8f3643d7c8184760db23eacd4eeffe64b0",
+  "schemaRejections": [
+    {
+      "outline": [],
+      "issues": [
+        {
+          "code": "too_small",
+          "minimum": 2,
+          "type": "array",
+          "inclusive": true,
+          "exact": false,
+          "message": "Array must contain at least 2 element(s)",
+          "path": ["outline"]
+        }
+      ]
+    },
+    {
+      "outline": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "issues": [
+        {
+          "code": "too_small",
+          "minimum": 2,
+          "type": "array",
+          "inclusive": true,
+          "exact": false,
+          "message": "Array must contain at least 2 element(s)",
+          "path": ["outline"]
+        }
+      ]
+    }
+  ],
+  "records": [
+    {
+      "index": 0,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -0.02734375,
+        "maxX": 3.02734375,
+        "maxY": 0.02734375
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 1,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -3
+          },
+          {
+            "x": 5,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -3.02734375,
+        "maxX": 5.02734375,
+        "maxY": -2.97265625
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -3,
+        "maxX": 5,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 2,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -0.02734375,
+        "maxX": 3.02734375,
+        "maxY": 0.02734375
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 3,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -3
+          },
+          {
+            "x": 5,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -3.02734375,
+        "maxX": 5.02734375,
+        "maxY": -2.97265625
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -3,
+        "maxX": 5,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 4,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -0.02734375,
+        "maxX": 3.02734375,
+        "maxY": 0.02734375
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 5,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -3
+          },
+          {
+            "x": 5,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -3.02734375,
+        "maxX": 5.02734375,
+        "maxY": -2.97265625
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -3,
+        "maxX": 5,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 6,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -0.19921875,
+        "maxX": 3.19921875,
+        "maxY": 0.19921875
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 7,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -3
+          },
+          {
+            "x": 5,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -3.19921875,
+        "maxX": 5.19921875,
+        "maxY": -2.80078125
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -3,
+        "maxX": 5,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 8,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -0.19921875,
+        "maxX": 3.19921875,
+        "maxY": 0.19921875
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 9,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -3
+          },
+          {
+            "x": 5,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -3.19921875,
+        "maxX": 5.19921875,
+        "maxY": -2.80078125
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -3,
+        "maxX": 5,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 10,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -0.19921875,
+        "maxX": 3.19921875,
+        "maxY": 0.19921875
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 11,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -3
+          },
+          {
+            "x": 5,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -3.19921875,
+        "maxX": 5.19921875,
+        "maxY": -2.80078125
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -3,
+        "maxX": 5,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 12,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -0.99609375,
+        "maxX": 3.99609375,
+        "maxY": 0.99609375
+      },
+      "count": 248391,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 13,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -3
+          },
+          {
+            "x": 5,
+            "y": -3
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -3.99609375,
+        "maxX": 5.99609375,
+        "maxY": -2.00390625
+      },
+      "count": 248391,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -3,
+        "maxX": 5,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 14,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -0.99609375,
+        "maxX": 3.99609375,
+        "maxY": 0.99609375
+      },
+      "count": 248391,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 15,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -3
+          },
+          {
+            "x": 5,
+            "y": -3
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -3.99609375,
+        "maxX": 5.99609375,
+        "maxY": -2.00390625
+      },
+      "count": 248391,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -3,
+        "maxX": 5,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 16,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -0.99609375,
+        "maxX": 3.99609375,
+        "maxY": 0.99609375
+      },
+      "count": 248391,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 17,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -3
+          },
+          {
+            "x": 5,
+            "y": -3
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -3.99609375,
+        "maxX": 5.99609375,
+        "maxY": -2.00390625
+      },
+      "count": 248391,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -3,
+        "maxX": 5,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 18,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 0,
+            "y": -3
+          },
+          {
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.02734375,
+        "minY": -3.02734375,
+        "maxX": 0.02734375,
+        "maxY": 3.02734375
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 0,
+        "minY": -3,
+        "maxX": 0,
+        "maxY": 3
+      }
+    },
+    {
+      "index": 19,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -6
+          },
+          {
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.97265625,
+        "minY": -6.02734375,
+        "maxX": 2.02734375,
+        "maxY": 0.02734375
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -6,
+        "maxX": 2,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 20,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 0,
+            "y": -3
+          },
+          {
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.02734375,
+        "minY": -3.02734375,
+        "maxX": 0.02734375,
+        "maxY": 3.02734375
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 0,
+        "minY": -3,
+        "maxX": 0,
+        "maxY": 3
+      }
+    },
+    {
+      "index": 21,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -6
+          },
+          {
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.97265625,
+        "minY": -6.02734375,
+        "maxX": 2.02734375,
+        "maxY": 0.02734375
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -6,
+        "maxX": 2,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 22,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 0,
+            "y": -3
+          },
+          {
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.02734375,
+        "minY": -3.02734375,
+        "maxX": 0.02734375,
+        "maxY": 3.02734375
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 0,
+        "minY": -3,
+        "maxX": 0,
+        "maxY": 3
+      }
+    },
+    {
+      "index": 23,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -6
+          },
+          {
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.97265625,
+        "minY": -6.02734375,
+        "maxX": 2.02734375,
+        "maxY": 0.02734375
+      },
+      "count": 6188,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -6,
+        "maxX": 2,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 24,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 0,
+            "y": -3
+          },
+          {
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.19921875,
+        "minY": -3.19921875,
+        "maxX": 0.19921875,
+        "maxY": 3.19921875
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 0,
+        "minY": -3,
+        "maxX": 0,
+        "maxY": 3
+      }
+    },
+    {
+      "index": 25,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -6
+          },
+          {
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.80078125,
+        "minY": -6.19921875,
+        "maxX": 2.19921875,
+        "maxY": 0.19921875
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -6,
+        "maxX": 2,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 26,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 0,
+            "y": -3
+          },
+          {
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.19921875,
+        "minY": -3.19921875,
+        "maxX": 0.19921875,
+        "maxY": 3.19921875
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 0,
+        "minY": -3,
+        "maxX": 0,
+        "maxY": 3
+      }
+    },
+    {
+      "index": 27,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -6
+          },
+          {
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.80078125,
+        "minY": -6.19921875,
+        "maxX": 2.19921875,
+        "maxY": 0.19921875
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -6,
+        "maxX": 2,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 28,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 0,
+            "y": -3
+          },
+          {
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.19921875,
+        "minY": -3.19921875,
+        "maxX": 0.19921875,
+        "maxY": 3.19921875
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 0,
+        "minY": -3,
+        "maxX": 0,
+        "maxY": 3
+      }
+    },
+    {
+      "index": 29,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -6
+          },
+          {
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.80078125,
+        "minY": -6.19921875,
+        "maxX": 2.19921875,
+        "maxY": 0.19921875
+      },
+      "count": 42069,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -6,
+        "maxX": 2,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 30,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 0,
+            "y": -3
+          },
+          {
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.99609375,
+        "minY": -3.99609375,
+        "maxX": 0.99609375,
+        "maxY": 3.99609375
+      },
+      "count": 248390,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 0,
+        "minY": -3,
+        "maxX": 0,
+        "maxY": 3
+      }
+    },
+    {
+      "index": 31,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -6
+          },
+          {
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.00390625,
+        "minY": -6.99609375,
+        "maxX": 2.99609375,
+        "maxY": 0.99609375
+      },
+      "count": 248390,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -6,
+        "maxX": 2,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 32,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 0,
+            "y": -3
+          },
+          {
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.99609375,
+        "minY": -3.99609375,
+        "maxX": 0.99609375,
+        "maxY": 3.99609375
+      },
+      "count": 248390,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 0,
+        "minY": -3,
+        "maxX": 0,
+        "maxY": 3
+      }
+    },
+    {
+      "index": 33,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -6
+          },
+          {
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.00390625,
+        "minY": -6.99609375,
+        "maxX": 2.99609375,
+        "maxY": 0.99609375
+      },
+      "count": 248390,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -6,
+        "maxX": 2,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 34,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 0,
+            "y": -3
+          },
+          {
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -0.99609375,
+        "minY": -3.99609375,
+        "maxX": 0.99609375,
+        "maxY": 3.99609375
+      },
+      "count": 248390,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 0,
+        "minY": -3,
+        "maxX": 0,
+        "maxY": 3
+      }
+    },
+    {
+      "index": 35,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -6
+          },
+          {
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.00390625,
+        "minY": -6.99609375,
+        "maxX": 2.99609375,
+        "maxY": 0.99609375
+      },
+      "count": 248390,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -6,
+        "maxX": 2,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 36,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 6700,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 37,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 6700,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 38,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 6700,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 39,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 6700,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 40,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 6700,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 41,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 6700,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 42,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 50261,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 43,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 50261,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 44,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 50261,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 45,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 50261,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 46,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 50261,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 47,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 50261,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 48,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 288834,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 49,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 288834,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 50,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 288834,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 51,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 288834,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 52,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 288834,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 53,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 288834,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 54,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 55,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 56,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 57,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 58,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 59,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 60,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 61,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 62,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 63,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 64,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 65,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 66,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 67,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 68,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 69,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 70,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 71,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 72,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": -2.8,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 12865,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 73,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": -0.7999999999999998,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 12865,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 74,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": -2.8,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 12865,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 75,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": -0.7999999999999998,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 12865,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 76,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": -2.8,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 12865,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 77,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": -0.7999999999999998,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 12865,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 78,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": -2.8,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 87852,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 79,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": -0.7999999999999998,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 87852,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 80,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": -2.8,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 87852,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 81,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": -0.7999999999999998,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 87852,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 82,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": -2.8,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 87852,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 83,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": -0.7999999999999998,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 87852,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 84,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": -2.8,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 448305,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 85,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": -0.7999999999999998,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 448294,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 86,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": -2.8,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 448305,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 87,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": -0.7999999999999998,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 448294,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 88,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": -2.8,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 448305,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 89,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": -0.7999999999999998,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 448294,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 90,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 91,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 92,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 93,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 94,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 95,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 10279,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 96,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 97,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 98,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 99,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 100,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 101,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 68551,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 102,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 103,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -5
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 104,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 105,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -5
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 106,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 107,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": 5,
+            "y": -5
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 376026,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 108,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 16408,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 109,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 16408,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 110,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 16408,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 111,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 16408,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 112,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 16408,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 113,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 16408,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 114,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 108060,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 115,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 108060,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 116,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 108060,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 117,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 108060,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 118,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 108060,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 119,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 108060,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 120,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 562318,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 121,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 562318,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 122,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 562318,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 123,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 562318,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 124,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 562318,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 125,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 562318,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 126,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 20460,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 127,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 20460,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 128,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 20460,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 129,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 20460,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 130,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.02734375,
+        "minY": -2.02734375,
+        "maxX": 3.02734375,
+        "maxY": 2.02734375
+      },
+      "count": 20460,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 131,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.02734375,
+        "minY": -5.02734375,
+        "maxX": 5.02734375,
+        "maxY": -0.97265625
+      },
+      "count": 20460,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 132,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 132549,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 133,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 132549,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 134,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 132549,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 135,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 132549,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 136,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.19921875,
+        "minY": -2.19921875,
+        "maxX": 3.19921875,
+        "maxY": 2.19921875
+      },
+      "count": 132549,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 137,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -5
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.19921875,
+        "minY": -5.19921875,
+        "maxX": 5.19921875,
+        "maxY": -0.80078125
+      },
+      "count": 132549,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 138,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 641607,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 139,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -5
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 641607,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 140,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 641607,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 141,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -5
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 641607,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 142,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": -2
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": 2
+          },
+          {
+            "x": -3,
+            "y": -2
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -3.99609375,
+        "minY": -2.99609375,
+        "maxX": 3.99609375,
+        "maxY": 2.99609375
+      },
+      "count": 641607,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": -2,
+        "maxX": 3,
+        "maxY": 2
+      }
+    },
+    {
+      "index": 143,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -1,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -5
+          },
+          {
+            "x": 5,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -1
+          },
+          {
+            "x": -1,
+            "y": -5
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": -1.99609375,
+        "minY": -5.99609375,
+        "maxX": 5.99609375,
+        "maxY": -0.00390625
+      },
+      "count": 641607,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 24,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -1,
+        "minY": -5,
+        "maxX": 5,
+        "maxY": -1
+      }
+    },
+    {
+      "index": 144,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.97265625,
+        "minY": -3.02734375,
+        "maxX": 2.02734375,
+        "maxY": -2.97265625
+      },
+      "count": 44,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 145,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.97265625,
+        "minY": -3.02734375,
+        "maxX": 2.02734375,
+        "maxY": -2.97265625
+      },
+      "count": 44,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 146,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.80078125,
+        "minY": -3.19921875,
+        "maxX": 2.19921875,
+        "maxY": -2.80078125
+      },
+      "count": 2133,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 147,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.80078125,
+        "minY": -3.19921875,
+        "maxX": 2.19921875,
+        "maxY": -2.80078125
+      },
+      "count": 2133,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 148,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.00390625,
+        "minY": -3.99609375,
+        "maxX": 2.99609375,
+        "maxY": -2.00390625
+      },
+      "count": 51782,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 149,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.00390625,
+        "minY": -3.99609375,
+        "maxX": 2.99609375,
+        "maxY": -2.00390625
+      },
+      "count": 51782,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 150,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.97265625,
+        "minY": -3.02734375,
+        "maxX": 2.02734375,
+        "maxY": -2.97265625
+      },
+      "count": 44,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 151,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.05,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.97265625,
+        "minY": -3.02734375,
+        "maxX": 2.02734375,
+        "maxY": -2.97265625
+      },
+      "count": 44,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 152,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.80078125,
+        "minY": -3.19921875,
+        "maxX": 2.19921875,
+        "maxY": -2.80078125
+      },
+      "count": 2133,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 153,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.80078125,
+        "minY": -3.19921875,
+        "maxX": 2.19921875,
+        "maxY": -2.80078125
+      },
+      "count": 2133,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 154,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.00390625,
+        "minY": -3.99609375,
+        "maxX": 2.99609375,
+        "maxY": -2.00390625
+      },
+      "count": 51782,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 155,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          },
+          {
+            "x": 2,
+            "y": -3
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": {
+        "minX": 1.00390625,
+        "minY": -3.99609375,
+        "maxX": 2.99609375,
+        "maxY": -2.00390625
+      },
+      "count": 51782,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": 2,
+        "minY": -3,
+        "maxX": 2,
+        "maxY": -3
+      }
+    },
+    {
+      "index": 156,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 157,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 158,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 159,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": -0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 160,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": -0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 161,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": -0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": ["top", "bottom"]
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 162,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 0.4,
+        "pcb_keepout_id": "keepout",
+        "layers": []
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    },
+    {
+      "index": 163,
+      "element": {
+        "type": "pcb_keepout",
+        "shape": "outline",
+        "outline": [
+          {
+            "x": -3,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "stroke_width": 2,
+        "pcb_keepout_id": "keepout",
+        "layers": []
+      },
+      "worldPixel": 0.0078125,
+      "inkBounds": null,
+      "count": 0,
+      "query": {
+        "minX": 5.07,
+        "maxX": 5.09,
+        "minY": -3.03,
+        "maxY": -2.97
+      },
+      "queryCount": 0,
+      "selectionBefore": 0,
+      "boundsBefore": {
+        "minX": -3,
+        "minY": 0,
+        "maxX": 3,
+        "maxY": 0
+      }
+    }
+  ]
+}
