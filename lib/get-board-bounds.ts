@@ -14,7 +14,11 @@ export interface BoardBounds {
 }
 
 export const getBoardBounds = (board: PcbBoard): BoardBounds => {
-  if (board.width && board.height && board.center) {
+  if (
+    (board.width || board.width === 0) &&
+    (board.height || board.height === 0) &&
+    board.center
+  ) {
     const halfWidth = board.width / 2
     const halfHeight = board.height / 2
 
