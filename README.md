@@ -111,6 +111,10 @@ const source_traces = su(circuitJson).source_trace.list({
 })
 ```
 
+`cju` and `su` also accept readonly Circuit JSON, including frozen snapshots.
+For readonly input, the result exposes query methods and returns deeply readonly
+records. Lookup misses return `null`.
+
 ## Optimized Indexed Version
 
 For large circuit json, the library provides an optimized version with indexing for faster lookups:

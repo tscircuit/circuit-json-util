@@ -18,16 +18,20 @@ type CircuitJsonElementInsertInput<
       ? Omit<CircuitElement, "type" | `${CircuitElementType}_id`>
       : never)
 
+type CircuitJsonQueries<Element, Where = any, List = Element[]> = {
+  get: (id: string) => Element | null
+  select: (selector: string) => Element | null
+  getWhere: (where: Where) => Element | null
+  getUsing: (using: {
+    [key: `${string}_id`]: string
+  }) => Element | null
+  list: (where?: Where) => List
+}
+
 export type CircuitJsonOps<
   K extends AnyCircuitElement["type"],
   T extends AnyCircuitElement | AnyCircuitElementInput,
-> = {
-  get: (id: string) => Extract<T, { type: K }> | null
-  select: (selector: string) => Extract<T, { type: K }> | null
-  getWhere: (where: any) => Extract<T, { type: K }> | null
-  getUsing: (using: {
-    [key: `${string}_id`]: string
-  }) => Extract<T, { type: K }> | null
+> = CircuitJsonQueries<Extract<T, { type: K }>> & {
   insert: (
     elm: CircuitJsonElementInsertInput<K, Extract<T, { type: K }>>,
   ) => Extract<T, { type: K }>
@@ -36,7 +40,6 @@ export type CircuitJsonOps<
     newProps: Partial<Extract<T, { type: K }>>,
   ) => Extract<T, { type: K }>
   delete: (id: string) => void
-  list: (where?: any) => Extract<T, { type: K }>[]
 }
 
 export type CircuitJsonUtilObjects = {
@@ -59,10 +62,33 @@ export type CircuitJsonUtilOptions = {
   validateInserts?: boolean
 }
 
-export type GetCircuitJsonUtilFn = ((
-  soup: AnyCircuitElement[],
-  options?: CircuitJsonUtilOptions,
-) => CircuitJsonUtilObjects) & {
+type DeepReadonly<T> = T extends object
+  ? { readonly [K in keyof T]: DeepReadonly<T[K]> }
+  : T
+
+type ReadonlyCircuitJson = DeepReadonly<AnyCircuitElement[]>
+type ReadonlyCircuitJsonQueries<Element> = Readonly<
+  CircuitJsonQueries<Element, Partial<Element>, readonly Element[]>
+>
+
+export type ReadonlyCircuitJsonUtilObjects = {
+  readonly [K in AnyCircuitElement["type"]]: ReadonlyCircuitJsonQueries<
+    DeepReadonly<Extract<AnyCircuitElement, { type: K }>>
+  >
+} & {
+  readonly subtree: (
+    where: DeepReadonly<SubtreeOptions>,
+  ) => ReadonlyCircuitJsonUtilObjects
+  readonly toArray: () => ReadonlyCircuitJson
+  readonly editCount: number
+}
+
+export type GetCircuitJsonUtilFn = {
+  (
+    soup: AnyCircuitElement[],
+    options?: CircuitJsonUtilOptions,
+  ): CircuitJsonUtilObjects
+  (soup: ReadonlyCircuitJson): ReadonlyCircuitJsonUtilObjects
   unparsed: (soup: AnyCircuitElementInput[]) => CircuitJsonInputUtilObjects
 }
 
@@ -71,18 +97,20 @@ interface InternalStore {
   editCount: number
 }
 
+const internalStores = new WeakMap<readonly unknown[], InternalStore>()
+
 export const cju: GetCircuitJsonUtilFn = ((
-  circuitJsonInput: any[],
+  circuitJsonInput: readonly unknown[],
   options: CircuitJsonUtilOptions = {},
 ) => {
   const circuitJson = circuitJsonInput as AnyCircuitElement[]
-  let internalStore: InternalStore = (circuitJson as any)._internal_store
+  let internalStore = internalStores.get(circuitJson)
   if (!internalStore) {
     internalStore = {
       counts: {},
       editCount: 0,
-    } as InternalStore
-    ;(circuitJson as any)._internal_store = internalStore
+    }
+    internalStores.set(circuitJson, internalStore)
 
     // Initialize counts
     for (const elm of circuitJson) {
@@ -104,7 +132,7 @@ export const cju: GetCircuitJsonUtilFn = ((
       get: (proxy_target: any, prop: string) => {
         if (prop === "toArray") {
           return () => {
-            ;(circuitJson as any).editCount = internalStore.editCount
+            Reflect.set(circuitJson, "editCount", internalStore.editCount)
             return circuitJson
           }
         }
