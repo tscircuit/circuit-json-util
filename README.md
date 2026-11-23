@@ -113,7 +113,7 @@ const source_traces = su(circuitJson).source_trace.list({
 
 `cju` and `su` also accept readonly Circuit JSON, including frozen snapshots.
 For readonly input, the result exposes query methods and returns deeply readonly
-records. Lookup misses return `null`.
+records. `list()` gives you a fresh array you can sort. Lookup misses return `null`.
 
 ## Optimized Indexed Version
 

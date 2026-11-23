@@ -25,7 +25,7 @@ test("cju queries a frozen Circuit JSON snapshot", async () => {
   const missing = db.pcb_component.getWhere({ pcb_component_id: "missing" })
   const records = db.toArray()
 
-  expectTypeOf(components).toEqualTypeOf<readonly Snapshot<PcbComponent>[]>()
+  expectTypeOf(components).toEqualTypeOf<Snapshot<PcbComponent>[]>()
   expectTypeOf(component).toEqualTypeOf<Snapshot<PcbComponent> | null>()
   expectTypeOf(missing).toEqualTypeOf<Snapshot<PcbComponent> | null>()
   expectTypeOf(records).toEqualTypeOf<Snapshot<CircuitJson>>()
@@ -37,4 +37,7 @@ test("cju queries a frozen Circuit JSON snapshot", async () => {
   expect(db.pcb_component.get("missing")).toBeNull()
   expect(missing).toBeNull()
   expect(Object.is(records, snapshot)).toBe(true)
+
+  components.pop()
+  expect(db.pcb_component.list()).toHaveLength(1)
 })

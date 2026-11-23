@@ -18,14 +18,14 @@ type CircuitJsonElementInsertInput<
       ? Omit<CircuitElement, "type" | `${CircuitElementType}_id`>
       : never)
 
-type CircuitJsonQueries<Element, Where = any, List = Element[]> = {
+type CircuitJsonQueries<Element, Where = any> = {
   get: (id: string) => Element | null
   select: (selector: string) => Element | null
   getWhere: (where: Where) => Element | null
   getUsing: (using: {
     [key: `${string}_id`]: string
   }) => Element | null
-  list: (where?: Where) => List
+  list: (where?: Where) => Element[]
 }
 
 export type CircuitJsonOps<
@@ -68,7 +68,7 @@ type DeepReadonly<T> = T extends object
 
 type ReadonlyCircuitJson = DeepReadonly<AnyCircuitElement[]>
 type ReadonlyCircuitJsonQueries<Element> = Readonly<
-  CircuitJsonQueries<Element, Partial<Element>, readonly Element[]>
+  CircuitJsonQueries<Element, Partial<Element>>
 >
 
 export type ReadonlyCircuitJsonUtilObjects = {
