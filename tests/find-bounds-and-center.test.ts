@@ -176,3 +176,17 @@ test("should calculate bounds for silkscreen circles using their radius", () => 
     height: 4,
   })
 })
+
+test("should handle unrouted pcb_trace and schematic_trace without route gracefully", () => {
+  const result = findBoundsAndCenter([
+    {
+      type: "pcb_trace",
+      pcb_trace_id: "trace_unrouted",
+    } as any,
+    {
+      type: "schematic_trace",
+      schematic_trace_id: "sch_trace_unrouted",
+    } as any,
+  ])
+  expect(result).toEqual({ center: { x: 0, y: 0 }, width: 0, height: 0 })
+})
