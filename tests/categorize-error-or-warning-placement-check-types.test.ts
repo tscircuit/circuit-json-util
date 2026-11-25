@@ -1,14 +1,14 @@
 import { expect, test } from "bun:test"
 import { categorizeErrorOrWarning } from "../lib/categorize-error-or-warning"
 
-test("categorizeErrorOrWarning leaves placement-check diagnostics uncategorized", () => {
+test("categorizeErrorOrWarning categorizes every diagnostic emitted by runAllPlacementChecks", () => {
   expect(categorizeErrorOrWarning("pcb_pad_pad_clearance_error")).toBe(
-    "unknown",
+    "placement",
   )
   expect(
     categorizeErrorOrWarning("pcb_component_missing_courtyard_warning"),
-  ).toBe("unknown")
+  ).toBe("placement")
   expect(categorizeErrorOrWarning("pcb_keepout_overlap_warning")).toBe(
-    "unknown",
+    "placement",
   )
 })

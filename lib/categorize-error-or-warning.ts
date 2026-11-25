@@ -29,6 +29,9 @@ const PLACEMENT_TYPES = new Set([
   "pcb_courtyard_overlap_error",
   "pcb_footprint_overlap_error",
   "pcb_connector_not_in_accessible_orientation_warning",
+  "pcb_pad_pad_clearance_error",
+  "pcb_component_missing_courtyard_warning",
+  "pcb_keepout_overlap_warning",
 ])
 
 const ROUTING_TYPES = new Set([
