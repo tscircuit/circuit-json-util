@@ -467,3 +467,107 @@ test("getPcbElementsWithinBounds selects intersecting PCB geometry", () => {
     ),
   ).toBe(false)
 })
+
+test("getPcbElementBounds handles square, rect, oval, pill, and rotated_pill pcb_hole shapes", () => {
+  const squareHole: AnyCircuitElement = {
+    type: "pcb_hole",
+    pcb_hole_id: "pcb_hole_square",
+    hole_shape: "square",
+    hole_diameter: 2,
+    x: 4,
+    y: 5,
+  }
+
+  expect(getPcbElementBounds(squareHole)).toEqual({
+    minX: 3,
+    minY: 4,
+    maxX: 5,
+    maxY: 6,
+  })
+
+  const rectHole: AnyCircuitElement = {
+    type: "pcb_hole",
+    pcb_hole_id: "pcb_hole_rect",
+    hole_shape: "rect",
+    hole_width: 4,
+    hole_height: 2,
+    x: 1,
+    y: -2,
+  }
+
+  expect(getPcbElementBounds(rectHole)).toEqual({
+    minX: -1,
+    minY: -3,
+    maxX: 3,
+    maxY: -1,
+  })
+
+  const ovalHole: AnyCircuitElement = {
+    type: "pcb_hole",
+    pcb_hole_id: "pcb_hole_oval",
+    hole_shape: "oval",
+    hole_width: 6,
+    hole_height: 2,
+    x: 0,
+    y: 0,
+  }
+
+  expect(getPcbElementBounds(ovalHole)).toEqual({
+    minX: -3,
+    minY: -1,
+    maxX: 3,
+    maxY: 1,
+  })
+
+  const pillHole: AnyCircuitElement = {
+    type: "pcb_hole",
+    pcb_hole_id: "pcb_hole_pill",
+    hole_shape: "pill",
+    hole_width: 4,
+    hole_height: 2,
+    x: 10,
+    y: 20,
+  }
+
+  expect(getPcbElementBounds(pillHole)).toEqual({
+    minX: 8,
+    minY: 19,
+    maxX: 12,
+    maxY: 21,
+  })
+
+  const rotatedPillHole: AnyCircuitElement = {
+    type: "pcb_hole",
+    pcb_hole_id: "pcb_hole_rotated_pill",
+    hole_shape: "rotated_pill",
+    hole_width: 4,
+    hole_height: 2,
+    ccw_rotation: 90,
+    x: 0,
+    y: 0,
+  }
+
+  const rotatedBounds = getPcbElementBounds(rotatedPillHole)!
+  expect(rotatedBounds.minX).toBeCloseTo(-1)
+  expect(rotatedBounds.minY).toBeCloseTo(-2)
+  expect(rotatedBounds.maxX).toBeCloseTo(1)
+  expect(rotatedBounds.maxY).toBeCloseTo(2)
+
+  const rotatedPill45: AnyCircuitElement = {
+    type: "pcb_hole",
+    pcb_hole_id: "pcb_hole_rotated_pill_45",
+    hole_shape: "rotated_pill",
+    hole_width: 4,
+    hole_height: 2,
+    ccw_rotation: 45,
+    x: 0,
+    y: 0,
+  }
+
+  const rotated45Bounds = getPcbElementBounds(rotatedPill45)!
+  const expectedHalf = 1 + Math.SQRT1_2
+  expect(rotated45Bounds.minX).toBeCloseTo(-expectedHalf)
+  expect(rotated45Bounds.minY).toBeCloseTo(-expectedHalf)
+  expect(rotated45Bounds.maxX).toBeCloseTo(expectedHalf)
+  expect(rotated45Bounds.maxY).toBeCloseTo(expectedHalf)
+})
