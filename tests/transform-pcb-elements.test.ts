@@ -473,3 +473,41 @@ test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval cen
   expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
   expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
 })
+
+test("transformPCBElements rotates pcb_silkscreen_rect ccw_rotation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_silkscreen_rect",
+      pcb_silkscreen_rect_id: "sr1",
+      pcb_component_id: "pc1",
+      center: { x: 1, y: 0 },
+      width: 3,
+      height: 2,
+      stroke_width: 0.1,
+      layer: "top",
+      ccw_rotation: 30,
+    } as any,
+    {
+      type: "pcb_silkscreen_rect",
+      pcb_silkscreen_rect_id: "sr2",
+      pcb_component_id: "pc1",
+      center: { x: 0, y: 2 },
+      width: 4,
+      height: 1,
+      stroke_width: 0.1,
+      layer: "top",
+    } as any,
+  ]
+
+  transformPCBElements(elms, compose(translate(10, 20), rotateDEG(90)))
+
+  const rect1 = elms[0] as any
+  expect(rect1.center.x).toBeCloseTo(10)
+  expect(rect1.center.y).toBeCloseTo(21)
+  expect(rect1.ccw_rotation).toBeCloseTo(120)
+
+  const rect2 = elms[1] as any
+  expect(rect2.center.x).toBeCloseTo(8)
+  expect(rect2.center.y).toBeCloseTo(20)
+  expect(rect2.ccw_rotation).toBeCloseTo(90)
+})
