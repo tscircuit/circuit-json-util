@@ -454,9 +454,24 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     }
   } else if (elm.type === "pcb_keepout" && elm.shape === "outline") {
     elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
-  } else if (elm.type === "pcb_keepout" || elm.type === "pcb_board") {
+  } else if (elm.type === "pcb_keepout") {
     // TODO adjust size/rotation
     elm.center = applyToPoint(matrix, elm.center)
+  } else if (elm.type === "pcb_board") {
+    elm.center = applyToPoint(matrix, elm.center)
+    if (elm.anchor_position) {
+      elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
+    }
+    if (elm.outline) {
+      elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
+    }
+    if (
+      flipPadWidthHeight &&
+      elm.width !== undefined &&
+      elm.height !== undefined
+    ) {
+      ;[elm.width, elm.height] = [elm.height, elm.width]
+    }
   } else if (
     elm.type === "pcb_silkscreen_text" ||
     elm.type === "pcb_fabrication_note_text" ||

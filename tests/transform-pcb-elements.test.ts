@@ -473,3 +473,39 @@ test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval cen
   expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
   expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
 })
+
+test("transformPCBElements transforms pcb_board outline, anchor_position, and quarter-turn dimensions", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_board",
+      pcb_board_id: "board1",
+      center: { x: 1, y: 2 },
+      anchor_position: { x: 0, y: 0 },
+      width: 20,
+      height: 10,
+      thickness: 1.6,
+      num_layers: 2,
+      material: "fr4",
+      outline: [
+        { x: -9, y: -3 },
+        { x: 11, y: -3 },
+        { x: 11, y: 7 },
+        { x: -9, y: 7 },
+      ],
+    },
+  ]
+
+  transformPCBElements(elms, compose(translate(10, 5), rotateDEG(90)))
+
+  const board = elms[0] as any
+  expect(board.center.x).toBeCloseTo(8)
+  expect(board.center.y).toBeCloseTo(6)
+  expect(board.anchor_position.x).toBeCloseTo(10)
+  expect(board.anchor_position.y).toBeCloseTo(5)
+  expect(board.width).toBe(10)
+  expect(board.height).toBe(20)
+  expect(board.outline[0].x).toBeCloseTo(13)
+  expect(board.outline[0].y).toBeCloseTo(-4)
+  expect(board.outline[1].x).toBeCloseTo(13)
+  expect(board.outline[1].y).toBeCloseTo(16)
+})
