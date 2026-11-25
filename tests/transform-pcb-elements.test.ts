@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test"
-import { compose, rotateDEG, scale, translate } from "transformation-matrix"
 import type { AnyCircuitElement, PcbComponent } from "circuit-json"
+import { compose, rotateDEG, scale, translate } from "transformation-matrix"
 import { transformPCBElements } from "../lib/transform-soup-elements"
 
 const createPcbComponent = (
@@ -75,6 +75,55 @@ test("transformPCBElements moves pcb_note_rect center", () => {
 
   const rect = elms[0] as any
   expect(rect.center).toEqual({ x: 10, y: 12 })
+})
+
+test("transformPCBElements rotates pcb_silkscreen_rect geometry", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_silkscreen_rect",
+      pcb_silkscreen_rect_id: "sr1",
+      pcb_component_id: "pc1",
+      center: { x: 2, y: 1 },
+      width: 4,
+      height: 2,
+      layer: "top",
+      stroke_width: 0.1,
+      ccw_rotation: 15,
+    },
+  ]
+
+  transformPCBElements(elms, compose(translate(10, 20), rotateDEG(90)))
+
+  const rect = elms[0]!
+  expect(rect.type).toBe("pcb_silkscreen_rect")
+  if (rect.type !== "pcb_silkscreen_rect") return
+  expect(rect.center.x).toBeCloseTo(9)
+  expect(rect.center.y).toBeCloseTo(22)
+  expect(rect.ccw_rotation).toBeCloseTo(105)
+})
+
+test("transformPCBElements mirrors pcb_silkscreen_rect orientation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_silkscreen_rect",
+      pcb_silkscreen_rect_id: "sr1",
+      pcb_component_id: "pc1",
+      center: { x: 2, y: 1 },
+      width: 4,
+      height: 2,
+      layer: "top",
+      stroke_width: 0.1,
+      ccw_rotation: 30,
+    },
+  ]
+
+  transformPCBElements(elms, scale(1, -1))
+
+  const rect = elms[0]!
+  expect(rect.type).toBe("pcb_silkscreen_rect")
+  if (rect.type !== "pcb_silkscreen_rect") return
+  expect(rect.center).toEqual({ x: 2, y: -1 })
+  expect(rect.ccw_rotation).toBeCloseTo(-30)
 })
 
 test("transformPCBElements moves pcb_note_path route", () => {
