@@ -467,3 +467,42 @@ test("getPcbElementsWithinBounds selects intersecting PCB geometry", () => {
     ),
   ).toBe(false)
 })
+
+test("getPcbElementBounds computes bounds for pcb_silkscreen_line and pcb_note_line", () => {
+  const silkscreenLine: AnyCircuitElement = {
+    type: "pcb_silkscreen_line",
+    pcb_silkscreen_line_id: "sl1",
+    pcb_component_id: "pc1",
+    x1: 3,
+    y1: -2,
+    x2: -1,
+    y2: 4,
+    stroke_width: 0.1,
+    layer: "top",
+  }
+
+  expect(getPcbElementBounds(silkscreenLine)).toEqual({
+    minX: -1,
+    minY: -2,
+    maxX: 3,
+    maxY: 4,
+  })
+
+  const noteLine: AnyCircuitElement = {
+    type: "pcb_note_line",
+    pcb_note_line_id: "nl1",
+    x1: 0,
+    y1: 5,
+    x2: 10,
+    y2: 2,
+    stroke_width: 0.2,
+    layer: "top",
+  }
+
+  expect(getPcbElementBounds(noteLine)).toEqual({
+    minX: 0,
+    minY: 2,
+    maxX: 10,
+    maxY: 5,
+  })
+})
