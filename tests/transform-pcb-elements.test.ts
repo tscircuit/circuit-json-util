@@ -509,3 +509,34 @@ test("transformPCBElements transforms pcb_board outline, anchor_position, and qu
   expect(board.outline[1].x).toBeCloseTo(13)
   expect(board.outline[1].y).toBeCloseTo(16)
 })
+
+test("transformPCBElements derives pcb_board width/height from transformed outline at non-quarter angles", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_board",
+      pcb_board_id: "board_45",
+      center: { x: 20, y: 15 },
+      width: 40,
+      height: 30,
+      thickness: 1.6,
+      num_layers: 2,
+      material: "fr4",
+      outline: [
+        { x: 0, y: 0 },
+        { x: 40, y: 0 },
+        { x: 40, y: 15 },
+        { x: 15, y: 15 },
+        { x: 15, y: 30 },
+        { x: 0, y: 30 },
+      ],
+    },
+  ]
+
+  transformPCBElements(elms, rotateDEG(45))
+
+  const board = elms[0] as any
+  const xs = board.outline.map((p: { x: number; y: number }) => p.x)
+  const ys = board.outline.map((p: { x: number; y: number }) => p.y)
+  expect(board.width).toBeCloseTo(Math.max(...xs) - Math.min(...xs))
+  expect(board.height).toBeCloseTo(Math.max(...ys) - Math.min(...ys))
+})
