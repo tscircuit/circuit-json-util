@@ -458,32 +458,35 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     // TODO adjust size/rotation
     elm.center = applyToPoint(matrix, elm.center)
   } else if (elm.type === "pcb_board") {
-    elm.center = applyToPoint(matrix, elm.center)
     if (elm.anchor_position) {
       elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
     }
     if (elm.outline && elm.outline.length > 0) {
       elm.outline = elm.outline.map((point) => applyToPoint(matrix, point))
+      let minX = Number.POSITIVE_INFINITY
+      let minY = Number.POSITIVE_INFINITY
+      let maxX = Number.NEGATIVE_INFINITY
+      let maxY = Number.NEGATIVE_INFINITY
+      for (const point of elm.outline) {
+        minX = Math.min(minX, point.x)
+        minY = Math.min(minY, point.y)
+        maxX = Math.max(maxX, point.x)
+        maxY = Math.max(maxY, point.y)
+      }
+      elm.center = { x: (minX + maxX) / 2, y: (minY + maxY) / 2 }
       if (elm.width !== undefined && elm.height !== undefined) {
-        let minX = Number.POSITIVE_INFINITY
-        let minY = Number.POSITIVE_INFINITY
-        let maxX = Number.NEGATIVE_INFINITY
-        let maxY = Number.NEGATIVE_INFINITY
-        for (const point of elm.outline) {
-          minX = Math.min(minX, point.x)
-          minY = Math.min(minY, point.y)
-          maxX = Math.max(maxX, point.x)
-          maxY = Math.max(maxY, point.y)
-        }
         elm.width = maxX - minX
         elm.height = maxY - minY
       }
-    } else if (
-      flipPadWidthHeight &&
-      elm.width !== undefined &&
-      elm.height !== undefined
-    ) {
-      ;[elm.width, elm.height] = [elm.height, elm.width]
+    } else {
+      elm.center = applyToPoint(matrix, elm.center)
+      if (
+        flipPadWidthHeight &&
+        elm.width !== undefined &&
+        elm.height !== undefined
+      ) {
+        ;[elm.width, elm.height] = [elm.height, elm.width]
+      }
     }
   } else if (
     elm.type === "pcb_silkscreen_text" ||
