@@ -74,7 +74,7 @@ export const roundedRectangle = (
 }
 
 /** Converts a BRep ring in board-world mm, including signed bulge arcs. */
-const ringPolygon = (ring: Ring) => {
+export const ringPolygon = (ring: Ring) => {
   const edges: Array<Arc | Segment> = []
   for (let i = 0; i < ring.vertices.length; i++) {
     const start = ring.vertices[i]!

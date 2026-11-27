@@ -467,3 +467,102 @@ test("getPcbElementsWithinBounds selects intersecting PCB geometry", () => {
     ),
   ).toBe(false)
 })
+
+test("getPcbElementBounds computes rotated bounds for pcb_silkscreen_oval", () => {
+  const unrotated = getPcbElementBounds({
+    type: "pcb_silkscreen_oval",
+    pcb_silkscreen_oval_id: "oval_1",
+    pcb_component_id: "comp_1",
+    layer: "top",
+    center: { x: 2, y: -1 },
+    radius_x: 3,
+    radius_y: 1,
+  })
+  expect(unrotated).toEqual({ minX: -1, minY: -2, maxX: 5, maxY: 0 })
+
+  const rotated = getPcbElementBounds({
+    type: "pcb_silkscreen_oval",
+    pcb_silkscreen_oval_id: "oval_2",
+    pcb_component_id: "comp_1",
+    layer: "top",
+    center: { x: 0, y: 0 },
+    radius_x: 2,
+    radius_y: 1,
+    ccw_rotation: 45,
+  })!
+  expect(rotated.minX).toBeCloseTo(-Math.sqrt(2.5), 5)
+  expect(rotated.maxX).toBeCloseTo(Math.sqrt(2.5), 5)
+  expect(rotated.minY).toBeCloseTo(-Math.sqrt(2.5), 5)
+  expect(rotated.maxY).toBeCloseTo(Math.sqrt(2.5), 5)
+})
+
+test("getPcbElementBounds computes analytic bounds for BRep pcb_copper_pour including bulge arcs", () => {
+  // Positive bulge (+1) from (0,0) -> (4,0) sweeps CCW to the right of the segment, bulging down to y = -2
+  const bounds = getPcbElementBounds({
+    type: "pcb_copper_pour",
+    pcb_copper_pour_id: "pour_brep_1",
+    shape: "brep",
+    layer: "top",
+    covered_with_solder_mask: true,
+    brep_shape: {
+      outer_ring: {
+        vertices: [
+          { x: 0, y: 0, bulge: 1 },
+          { x: 4, y: 0 },
+          { x: 4, y: 2 },
+          { x: 0, y: 2 },
+        ],
+      },
+      inner_rings: [],
+    },
+  })!
+
+  expect(bounds.minX).toBeCloseTo(0, 5)
+  expect(bounds.maxX).toBeCloseTo(4, 5)
+  expect(bounds.minY).toBeCloseTo(-2, 5)
+  expect(bounds.maxY).toBeCloseTo(2, 5)
+})
+
+test("getPcbElementBounds computes bounds for pcb_note_dimension and pcb_fabrication_note_dimension", () => {
+  const noteBounds = getPcbElementBounds({
+    type: "pcb_note_dimension",
+    pcb_note_dimension_id: "dim_1",
+    layer: "top",
+    from: { x: 0, y: 0 },
+    to: { x: 10, y: 0 },
+    offset_distance: 3,
+    offset_direction: { x: 0, y: 1 },
+    font: "tscircuit2024",
+    font_size: 1,
+    arrow_size: 1,
+  })
+  expect(noteBounds).toEqual({ minX: 0, minY: 0, maxX: 10, maxY: 3 })
+
+  const fabBounds = getPcbElementBounds({
+    type: "pcb_fabrication_note_dimension",
+    pcb_fabrication_note_dimension_id: "fab_dim_1",
+    pcb_component_id: "comp_1",
+    layer: "top",
+    from: { x: -2, y: 1 },
+    to: { x: 4, y: 5 },
+    font: "tscircuit2024",
+    font_size: 1,
+    arrow_size: 1,
+  })
+  expect(fabBounds).toEqual({ minX: -2, minY: 1, maxX: 4, maxY: 5 })
+})
+
+test("getPcbElementBounds expands path pcb_cutout bounds by half slot_width", () => {
+  const bounds = getPcbElementBounds({
+    type: "pcb_cutout",
+    pcb_cutout_id: "cutout_path_1",
+    shape: "path",
+    route: [
+      { x: 0, y: 0 },
+      { x: 6, y: 0 },
+    ],
+    slot_width: 2,
+  })
+
+  expect(bounds).toEqual({ minX: -1, minY: -1, maxX: 7, maxY: 1 })
+})
