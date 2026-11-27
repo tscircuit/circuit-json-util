@@ -5,6 +5,7 @@ import {
   rotateDEG,
   translate,
 } from "transformation-matrix"
+import { ringPolygon } from "./copper-geometry"
 
 export interface PcbBounds {
   minX: number
@@ -172,6 +173,68 @@ export const getPcbElementBounds = (
     Array.isArray(elm.points)
   ) {
     return getBoundsFromPoints(elm.points)
+  }
+
+  if (elm.type === "pcb_silkscreen_oval") {
+    return getRotatedOvalBounds(
+      elm.center.x,
+      elm.center.y,
+      elm.radius_x * 2,
+      elm.radius_y * 2,
+      elm.ccw_rotation ?? 0,
+    )
+  }
+
+  if (elm.type === "pcb_copper_pour" && elm.shape === "brep") {
+    const outerRing = elm.brep_shape?.outer_ring
+    if (!outerRing?.vertices?.length) return null
+    const box = ringPolygon(outerRing).box
+    if (
+      !Number.isFinite(box.xmin) ||
+      !Number.isFinite(box.ymin) ||
+      !Number.isFinite(box.xmax) ||
+      !Number.isFinite(box.ymax)
+    ) {
+      return getBoundsFromPoints(outerRing.vertices)
+    }
+    return {
+      minX: box.xmin,
+      minY: box.ymin,
+      maxX: box.xmax,
+      maxY: box.ymax,
+    }
+  }
+
+  if (
+    elm.type === "pcb_note_dimension" ||
+    elm.type === "pcb_fabrication_note_dimension"
+  ) {
+    const points: Array<{ x: number; y: number }> = [elm.from, elm.to]
+    const offsetDistance = elm.offset_distance ?? 0
+    if (offsetDistance !== 0 && elm.offset_direction) {
+      const dirLen = Math.hypot(elm.offset_direction.x, elm.offset_direction.y)
+      if (dirLen > 0) {
+        const dx = (elm.offset_direction.x / dirLen) * offsetDistance
+        const dy = (elm.offset_direction.y / dirLen) * offsetDistance
+        points.push(
+          { x: elm.from.x + dx, y: elm.from.y + dy },
+          { x: elm.to.x + dx, y: elm.to.y + dy },
+        )
+      }
+    }
+    return getBoundsFromPoints(points)
+  }
+
+  if (elm.type === "pcb_cutout" && elm.shape === "path") {
+    const routeBounds = getBoundsFromPoints(getRoutePoints(elm.route))
+    if (!routeBounds) return null
+    const halfWidth = Math.max(0, (elm.slot_width ?? 0) / 2)
+    return {
+      minX: routeBounds.minX - halfWidth,
+      minY: routeBounds.minY - halfWidth,
+      maxX: routeBounds.maxX + halfWidth,
+      maxY: routeBounds.maxY + halfWidth,
+    }
   }
 
   if (elm.type === "pcb_hole" && elm.hole_shape === "circle") {
