@@ -269,6 +269,18 @@ export const getPcbElementBounds = (
   const pointsBounds = getBoundsFromPoints(getRoutePoints(elementRecord.points))
   if (pointsBounds) return pointsBounds
 
+  if (
+    typeof elementRecord.x1 === "number" &&
+    typeof elementRecord.y1 === "number" &&
+    typeof elementRecord.x2 === "number" &&
+    typeof elementRecord.y2 === "number"
+  ) {
+    return getBoundsFromPoints([
+      { x: elementRecord.x1, y: elementRecord.y1 },
+      { x: elementRecord.x2, y: elementRecord.y2 },
+    ])
+  }
+
   let centerX: number | undefined
   let centerY: number | undefined
 
