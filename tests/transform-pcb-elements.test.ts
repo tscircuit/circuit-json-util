@@ -473,3 +473,69 @@ test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval cen
   expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
   expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
 })
+
+test("transformPCBElements rotates pcb_silkscreen_pill and pcb_silkscreen_oval ccw_rotation", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_silkscreen_pill",
+      pcb_silkscreen_pill_id: "spill2",
+      pcb_component_id: "pc1",
+      center: { x: 1, y: 0 },
+      width: 4,
+      height: 2,
+      layer: "top",
+      ccw_rotation: 30,
+    } as any,
+    {
+      type: "pcb_silkscreen_oval",
+      pcb_silkscreen_oval_id: "soval2",
+      pcb_component_id: "pc1",
+      center: { x: 1, y: 0 },
+      radius_x: 2,
+      radius_y: 1,
+      layer: "top",
+      ccw_rotation: 30,
+    } as any,
+  ]
+
+  transformPCBElements(elms, rotateDEG(90))
+
+  for (const elm of elms) {
+    const e = elm as any
+    expect(e.center.x).toBeCloseTo(0)
+    expect(e.center.y).toBeCloseTo(1)
+    expect(e.ccw_rotation).toBeCloseTo(120)
+  }
+})
+
+test("transformPCBElements gives unrotated silkscreen pill/oval the transform rotation and leaves them unchanged on translation", () => {
+  const rotated: AnyCircuitElement[] = [
+    {
+      type: "pcb_silkscreen_pill",
+      pcb_silkscreen_pill_id: "spill3",
+      pcb_component_id: "pc1",
+      center: { x: 0, y: 0 },
+      width: 4,
+      height: 2,
+      layer: "top",
+    } as any,
+  ]
+  transformPCBElements(rotated, rotateDEG(45))
+  expect((rotated[0] as any).ccw_rotation).toBeCloseTo(45)
+
+  const translated: AnyCircuitElement[] = [
+    {
+      type: "pcb_silkscreen_oval",
+      pcb_silkscreen_oval_id: "soval3",
+      pcb_component_id: "pc1",
+      center: { x: 1, y: 2 },
+      radius_x: 2,
+      radius_y: 1,
+      layer: "top",
+      ccw_rotation: 30,
+    } as any,
+  ]
+  transformPCBElements(translated, translate(5, 10))
+  expect((translated[0] as any).center).toEqual({ x: 6, y: 12 })
+  expect((translated[0] as any).ccw_rotation).toBeCloseTo(30)
+})
