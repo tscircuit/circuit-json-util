@@ -475,6 +475,9 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     if (elm.anchor_position) {
       elm.anchor_position = applyToPoint(matrix, elm.anchor_position)
     }
+    const textTransform = compose(matrix, rotateDEG(elm.ccw_rotation ?? 0))
+    elm.ccw_rotation =
+      (Math.atan2(textTransform.b, textTransform.a) * 180) / Math.PI
   } else if (elm.type === "pcb_courtyard_rect") {
     elm.center = applyToPoint(matrix, elm.center)
     elm.ccw_rotation = getTransformedRectRotation(elm.ccw_rotation ?? 0, matrix)
