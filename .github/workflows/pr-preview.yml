@@ -1,5 +1,7 @@
 name: PR package preview
 on:
+  push:
+    branches: [build/icepi-full-board-geometry]
   pull_request:
     branches: [repro/copper-geometry-schema-defaults]
 permissions:
