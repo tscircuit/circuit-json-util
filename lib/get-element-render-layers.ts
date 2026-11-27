@@ -37,7 +37,8 @@ export function getElementRenderLayers(
     element.type === "pcb_silkscreen_rect" ||
     element.type === "pcb_silkscreen_circle" ||
     element.type === "pcb_silkscreen_line" ||
-    element.type === "pcb_silkscreen_path"
+    element.type === "pcb_silkscreen_path" ||
+    element.type === "pcb_silkscreen_graphic"
   ) {
     const layer = element.layer
     return [`${layer}_silkscreen` as PcbRenderLayer]
