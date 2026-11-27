@@ -473,3 +473,76 @@ test("transformPCBElements moves pcb_silkscreen_pill and pcb_silkscreen_oval cen
   expect((elms[0] as any).center).toEqual({ x: 6, y: 12 })
   expect((elms[1] as any).center).toEqual({ x: 8, y: 14 })
 })
+
+test("transformPCBElements transforms pcb_board outline, anchor_position, and quarter-turn dimensions", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_board",
+      pcb_board_id: "board1",
+      center: { x: 1, y: 2 },
+      anchor_position: { x: 0, y: 0 },
+      width: 20,
+      height: 10,
+      thickness: 1.6,
+      num_layers: 2,
+      material: "fr4",
+      outline: [
+        { x: -9, y: -3 },
+        { x: 11, y: -3 },
+        { x: 11, y: 7 },
+        { x: -9, y: 7 },
+      ],
+    },
+  ]
+
+  transformPCBElements(elms, compose(translate(10, 5), rotateDEG(90)))
+
+  const board = elms[0] as any
+  expect(board.center.x).toBeCloseTo(8)
+  expect(board.center.y).toBeCloseTo(6)
+  expect(board.anchor_position.x).toBeCloseTo(10)
+  expect(board.anchor_position.y).toBeCloseTo(5)
+  expect(board.width).toBe(10)
+  expect(board.height).toBe(20)
+  expect(board.outline[0].x).toBeCloseTo(13)
+  expect(board.outline[0].y).toBeCloseTo(-4)
+  expect(board.outline[1].x).toBeCloseTo(13)
+  expect(board.outline[1].y).toBeCloseTo(16)
+})
+
+test("transformPCBElements derives pcb_board width/height from transformed outline at non-quarter angles", () => {
+  const elms: AnyCircuitElement[] = [
+    {
+      type: "pcb_board",
+      pcb_board_id: "board_45",
+      center: { x: 20, y: 15 },
+      width: 40,
+      height: 30,
+      thickness: 1.6,
+      num_layers: 2,
+      material: "fr4",
+      outline: [
+        { x: 0, y: 0 },
+        { x: 40, y: 0 },
+        { x: 40, y: 15 },
+        { x: 15, y: 15 },
+        { x: 15, y: 30 },
+        { x: 0, y: 30 },
+      ],
+    },
+  ]
+
+  transformPCBElements(elms, rotateDEG(45))
+
+  const board = elms[0] as any
+  const xs = board.outline.map((p: { x: number; y: number }) => p.x)
+  const ys = board.outline.map((p: { x: number; y: number }) => p.y)
+  const minX = Math.min(...xs)
+  const maxX = Math.max(...xs)
+  const minY = Math.min(...ys)
+  const maxY = Math.max(...ys)
+  expect(board.width).toBeCloseTo(maxX - minX)
+  expect(board.height).toBeCloseTo(maxY - minY)
+  expect(board.center.x).toBeCloseTo((minX + maxX) / 2)
+  expect(board.center.y).toBeCloseTo((minY + maxY) / 2)
+})
