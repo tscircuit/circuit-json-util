@@ -479,6 +479,37 @@ export const transformPCBElement = (elm: AnyCircuitElement, matrix: Matrix) => {
     elm.center = applyToPoint(matrix, elm.center)
     elm.ccw_rotation = getTransformedRectRotation(elm.ccw_rotation ?? 0, matrix)
   } else if (
+    elm.type === "pcb_fabrication_note_rect" ||
+    elm.type === "pcb_courtyard_pill"
+  ) {
+    elm.center = applyToPoint(matrix, elm.center)
+    const rotatable = elm as { ccw_rotation?: number }
+    if (typeof rotatable.ccw_rotation === "number") {
+      rotatable.ccw_rotation = getTransformedRectRotation(
+        rotatable.ccw_rotation,
+        matrix,
+      )
+    } else if (flipPadWidthHeight) {
+      ;[elm.width, elm.height] = [elm.height, elm.width]
+    }
+  } else if (
+    elm.type === "pcb_fabrication_note_dimension" ||
+    elm.type === "pcb_note_dimension"
+  ) {
+    elm.from = applyToPoint(matrix, elm.from)
+    elm.to = applyToPoint(matrix, elm.to)
+    if (elm.offset_direction) {
+      elm.offset_direction = applyToPoint(
+        { ...matrix, e: 0, f: 0 },
+        elm.offset_direction,
+      )
+    }
+    if (typeof elm.text_ccw_rotation === "number") {
+      const textTransform = compose(matrix, rotateDEG(elm.text_ccw_rotation))
+      elm.text_ccw_rotation =
+        (Math.atan2(textTransform.b, textTransform.a) * 180) / Math.PI
+    }
+  } else if (
     elm.type === "pcb_silkscreen_circle" ||
     elm.type === "pcb_silkscreen_rect" ||
     elm.type === "pcb_silkscreen_pill" ||
